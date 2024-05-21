@@ -35,6 +35,7 @@ class OpenSPPEntitlement(models.Model):
                     [("name", "=", f"{rec.partner_id.name}: {rec.code}")]
                 ):
                     rec.product_template_id = product_template[0]
+                    product_template[0].entitlement_id = rec.id
                 else:
                     rec.product_template_id = self.env["product.template"].create(
                         {

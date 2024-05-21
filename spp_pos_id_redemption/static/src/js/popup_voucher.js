@@ -1,7 +1,7 @@
 /** @odoo-module */
 
 import {EntitlementPopup} from "@spp_pos/js/popup_voucher";
-import {IdRedemptionProductsWidget} from "@spp_pos_id_redemption/js/product_list";
+import {IdRedemptionProductsWidget} from "@spp_pos_id_redemption/js/entitlement_product_list";
 import {patch} from "@web/core/utils/patch";
 
 patch(EntitlementPopup.prototype, {
