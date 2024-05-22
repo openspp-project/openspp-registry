@@ -14,19 +14,19 @@ patch(ProductsWidget.prototype, {
     },
     getProductListToNotDisplay() {
         const products = super.getProductListToNotDisplay();
-        if (this.state.partner) {
-            const productsNotToDisplay = [];
-            const list = this.pos.db.get_product_by_category(this.selectedCategoryId);
-            for (let i = 0; i < list.length; i++) {
-                if (
-                    !list[i].entitlement_partner_id ||
-                    list[i].entitlement_partner_id[0] !== this.state.partner.id
-                ) {
-                    productsNotToDisplay.push(list[i].id);
-                }
-            }
-            products.push(...productsNotToDisplay);
-        }
-        return products;
+        const list = this.pos.db.get_product_by_category(this.selectedCategoryId);
+
+        const productsNotToDisplay = list
+            .filter(
+                (product) =>
+                    (this.state.partner &&
+                        (!product.entitlement_partner_id ||
+                            product.entitlement_partner_id[0] !== this.state.partner.id)) ||
+                    (product.created_from_entitlement && product.voucher_redeemed) ||
+                    (!this.state.partner && product.entitlement_partner_id)
+            )
+            .map((product) => product.id);
+
+        return [...products, ...productsNotToDisplay];
     },
 });

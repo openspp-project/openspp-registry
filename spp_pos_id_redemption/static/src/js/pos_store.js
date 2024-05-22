@@ -58,7 +58,11 @@ patch(PosStore.prototype, {
     async addProductToCurrentOrder(product, options = {}) {
         const inside_entitlement = options.inside_entitlement || false;
 
-        if (inside_entitlement !== product.created_from_entitlement) {
+        if (
+            inside_entitlement !== product.created_from_entitlement ||
+            (product.created_from_entitlement &&
+                this.get_order().orderlines.some((orderline) => orderline.product.id === product.id))
+        ) {
             return;
         }
 

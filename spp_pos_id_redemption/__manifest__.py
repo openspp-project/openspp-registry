@@ -28,10 +28,12 @@
             "spp_pos_id_redemption/static/src/js/pos_store.js",
             "spp_pos_id_redemption/static/src/js/product_screen.js",
             "spp_pos_id_redemption/static/src/js/product_list.js",
+            "spp_pos_id_redemption/static/src/js/payment_screen.js",
         ],
     },
     "data": [
         "views/registrant_view.xml",
+        "views/product_template_view.xml",
     ],
     "demo": [],
     "images": [],
