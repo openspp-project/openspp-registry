@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Part of OpenSPP. See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+    <record id="view_entitlement_custom_form" model="ir.ui.view">
+        <field name="name">view_entitlement_custom_form</field>
+        <field name="model">g2p.entitlement</field>
+        <field name="inherit_id" ref="g2p_programs.view_entitlement_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='cycle_id']" position="after">
+                <field name="voucher_redeemed" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

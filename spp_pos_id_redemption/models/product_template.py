@@ -13,12 +13,7 @@ class ProductTemplate(models.Model):
     )
     created_from_entitlement = fields.Boolean(compute="_compute_created_from_entitlement", store=True)
 
-    voucher_redeemed = fields.Boolean(
-        string="Voucher Redeemed",
-        default=False,
-        help="Check if the voucher has been redeemed.",
-        readonly=True,
-    )
+    voucher_redeemed = fields.Boolean(related="entitlement_id.voucher_redeemed", store=True, readonly=True)
 
     _sql_constraints = [
         (
@@ -35,8 +30,10 @@ class ProductTemplate(models.Model):
 
     def redeem_voucher(self):
         for rec in self:
-            rec.voucher_redeemed = True
+            if rec.entitlement_id:
+                rec.entitlement_id.voucher_redeemed = True
 
     def unredeem_voucher(self):
         for rec in self:
-            rec.voucher_redeemed = False
+            if rec.entitlement_id:
+                rec.entitlement_id.voucher_redeemed = False

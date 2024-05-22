@@ -11,6 +11,13 @@ class OpenSPPEntitlement(models.Model):
         readonly=True,
     )
 
+    voucher_redeemed = fields.Boolean(
+        string="Voucher Redeemed",
+        default=False,
+        help="Check if the voucher has been redeemed.",
+        readonly=True,
+    )
+
     _sql_constraints = [
         (
             "product_template_unique",

@@ -34,6 +34,7 @@
     "data": [
         "views/registrant_view.xml",
         "views/product_template_view.xml",
+        "views/entitlements_view.xml",
     ],
     "demo": [],
     "images": [],
