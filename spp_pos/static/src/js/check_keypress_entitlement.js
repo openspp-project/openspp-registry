@@ -16,7 +16,7 @@ patch(ProductScreen.prototype, {
         const result = await this.orm.call("product.template", "get_is_locked", [selectedProduct.id]);
         console.log("DEBUG: " + result.is_locked);
 
-        if (result.is_locked) {
+        if (result.is_locked && !(String(key) === "Backspace")) {
             this.sound.play("error");
         } else {
             return super.updateSelectedOrderline({buffer, key});
