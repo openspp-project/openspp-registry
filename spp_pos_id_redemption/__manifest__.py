@@ -17,6 +17,7 @@
         "g2p_registry_individual",
         "g2p_registry_group",
         "g2p_programs",
+        "g2p_entitlement_cash",
     ],
     "assets": {
         "point_of_sale._assets_pos": [
@@ -35,6 +36,8 @@
         "views/registrant_view.xml",
         "views/product_template_view.xml",
         "views/entitlements_view.xml",
+        "views/cycle_view.xml",
+        "wizard/create_program_wizard.xml",
     ],
     "demo": [],
     "images": [],
