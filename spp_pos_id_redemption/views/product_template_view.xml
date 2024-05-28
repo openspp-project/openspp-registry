@@ -11,6 +11,11 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
             <xpath expr="//field[@name='is_locked']" position="after">
                 <field name="created_from_entitlement" invisible="1" />
                 <field name="voucher_redeemed" invisible="not created_from_entitlement" />
+                <field name="cycle_id" invisible="not created_from_entitlement" />
+                <field name="cycle_id_str" invisible="1" />
+                <field name="program_id" invisible="not created_from_entitlement" />
+                <field name="program_id_str" invisible="1" />
+                <field name="entitlement_valid_until" invisible="1" />
             </xpath>
         </field>
     </record>

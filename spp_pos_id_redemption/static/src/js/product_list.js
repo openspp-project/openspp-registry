@@ -3,6 +3,9 @@
 import {ProductsWidget} from "@point_of_sale/app/screens/product_screen/product_list/product_list";
 import {onWillUpdateProps} from "@odoo/owl";
 import {patch} from "@web/core/utils/patch";
+import {CategorySelector} from "@point_of_sale/app/generic_components/category_selector/category_selector";
+import {Input} from "@point_of_sale/app/generic_components/inputs/input/input";
+import {IdRedemptionProductCard} from "@spp_pos_id_redemption/js/product_card";
 
 patch(ProductsWidget.prototype, {
     setup() {
@@ -30,3 +33,5 @@ patch(ProductsWidget.prototype, {
         return [...products, ...productsNotToDisplay];
     },
 });
+ProductsWidget.template = "spp_pos_id_redemption.IdRedemptionProductWidget";
+ProductsWidget.components = {IdRedemptionProductCard, CategorySelector, Input};

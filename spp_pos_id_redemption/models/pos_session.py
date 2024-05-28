@@ -13,6 +13,9 @@ class PosSession(models.Model):
                 "entitlement_partner_id",
                 "created_from_entitlement",
                 "voucher_redeemed",
+                "cycle_id_str",
+                "program_id_str",
+                "entitlement_valid_until",
             ]
         )
         return params

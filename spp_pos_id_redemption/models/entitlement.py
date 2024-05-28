@@ -59,7 +59,7 @@ class OpenSPPEntitlement(models.Model):
                 else:
                     rec.product_template_id = self.env["product.template"].create(
                         {
-                            "name": f"{rec.partner_id.name}: {rec.code}",
+                            "name": rec.code,
                             "available_in_pos": True,
                             "list_price": rec.initial_amount * -1,
                             "is_locked": True,

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
-    <t t-name="spp_pos_id_redemption.IdRedemptionProductsWidget" t-inherit="point_of_sale.ProductsWidget">
-        <xpath expr="//div[hasclass('products-widget-control')]" position="replace">
-        </xpath>
-
+    <t t-name="spp_pos_id_redemption.IdRedemptionProductWidget" t-inherit="point_of_sale.ProductsWidget">
         <xpath expr="//ProductCard" position="replace">
             <IdRedemptionProductCard
                 class="pos.productViewMode"
@@ -15,7 +12,7 @@
                 entitlement_valid_until="product.entitlement_valid_until"
                 price="product.getFormattedUnitPrice()"
                 imageUrl="pos.show_product_images and product.getImageUrl()"
-                onClick="() =>this.pos.addProductToCurrentOrder(product, {inside_entitlement: true})"
+                onClick="() =>this.pos.addProductToCurrentOrder(product)"
                 productInfo="true"
                 onProductInfoClick="() => this.onProductInfoClick(product)"
             />
