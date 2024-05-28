@@ -10,7 +10,7 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
         <field name="arch" type="xml">
             <xpath expr="//field[@name='cycle_id']" position="after">
                 <field name="voucher_redeemed" />
-                <field name="is_pos_cash_entitlement" invisible="1"/>
+                <field name="is_pos_cash_entitlement" invisible="1" />
             </xpath>
             <xpath expr="//button[@name='open_disb_form']" position="attributes">
                 <attribute name="invisible">state != 'approved' or is_pos_cash_entitlement</attribute>

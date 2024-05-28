@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="g2p_programs.create_program_wizard_form_view" />
         <field name="arch" type="xml">
             <xpath expr="//group[@name='default']" position="attributes">
-                <attribute name="invisible" >entitlement_kind not in ('default', 'cash_spp_pos')</attribute>
+                <attribute name="invisible">entitlement_kind not in ('default', 'cash_spp_pos')</attribute>
             </xpath>
         </field>
     </record>

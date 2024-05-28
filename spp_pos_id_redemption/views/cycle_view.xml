@@ -9,11 +9,13 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
         <field name="inherit_id" ref="g2p_programs.view_cycle_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='auto_approve_entitlements']" position="after">
-                <field name="is_pos_cash_entitlement" invisible="1"/>
+                <field name="is_pos_cash_entitlement" invisible="1" />
             </xpath>
 
             <xpath expr="//button[@name='prepare_payment']" position="attributes">
-                <attribute name="invisible">context.get('hide_cash') or state != 'approved' or is_pos_cash_entitlement</attribute>
+                <attribute
+                    name="invisible"
+                >context.get('hide_cash') or state != 'approved' or is_pos_cash_entitlement</attribute>
             </xpath>
         </field>
     </record>
