@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.PartnerListScreen" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('partnerlist-screen')]/div/div[3]/div[3]/div/div" position="replace">
+            <div class="pos-search-bar form-control d-flex align-items-center bg-view">
+                <i class="oi oi-search me-2" t-on-click="_onPressEnterKey"/>
+                <input class="flex-grow-1 w-auto h-100 border-0 p-2 me-4" type="text" autofocus="autofocus" t-ref="search-word-input-partner" placeholder="Search Beneficiary..." size="1" t-on-keyup="updatePartnerList" />
+                <i class="fa fa-times position-absolute end-0 me-2 pe-1 cursor-pointer" t-on-click="_clearSearch"/>
+            </div>
+        </xpath>
+    </t>
+</templates>
