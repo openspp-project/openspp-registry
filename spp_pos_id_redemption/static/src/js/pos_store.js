@@ -14,6 +14,14 @@ patch(PosStore.prototype, {
         ) {
             return;
         }
+        const currentOrder = this.get_order();
+        if (!currentOrder) {
+            return;
+        }
+        const currentPartner = currentOrder.get_partner() || false;
+        if (!currentPartner) {
+            return;
+        }
 
         super.addProductToCurrentOrder(product, options);
     },

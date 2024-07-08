@@ -14,4 +14,16 @@ patch(PaymentScreen.prototype, {
             }
         }
     },
+
+    backToPOS() {
+        const paymentLines = this.currentOrder.get_paymentlines();
+        this._removeCurrentPaymentLines(paymentLines);
+        this.pos.showScreen("ProductScreen");
+    },
+
+    async _removeCurrentPaymentLines(paymentLines) {
+        for await (const line of paymentLines) {
+            this.currentOrder.remove_paymentline(line);
+        }
+    },
 });

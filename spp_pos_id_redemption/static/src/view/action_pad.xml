@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
     <t t-inherit="point_of_sale.ActionpadWidget" t-inherit-mode="extension">
-        <xpath expr="//div[hasclass('actionpad')]/button[hasclass('set-partner')]/div/div[2]" position="replace">
+        <xpath
+            expr="//div[hasclass('actionpad')]/button[hasclass('set-partner')]/div/div[2]"
+            position="replace"
+        >
             <div t-else="fw-bolder">
                 Beneficiary
             </div>
