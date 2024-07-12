@@ -24,7 +24,7 @@ patch(ProductsWidget.prototype, {
             this.list = this.pos.db.get_product_by_category(this.selectedCategoryId);
         }
 
-        if (!(this.state.partner.id in this.partner_product_mapper)) {
+        if (this.state.partner && !(this.state.partner.id in this.partner_product_mapper)) {
             // Created a mapper to store the products that are not to be displayed
             // for a particular partner
             // this is to prevent multiple filtering of a product list
@@ -40,7 +40,13 @@ patch(ProductsWidget.prototype, {
                 .map((product) => product.id);
         }
 
-        return [...products, ...this.partner_product_mapper[this.state.partner.id]];
+        if (this.state.partner) {
+            return [...products, ...this.partner_product_mapper[this.state.partner.id]];
+        }
+        const productNotToDisplay = this.list
+            .filter((product) => !this.state.partner && product.entitlement_partner_id)
+            .map((product) => product.id);
+        return [...products, ...productNotToDisplay];
     },
 });
 ProductsWidget.template = "spp_pos_id_redemption.IdRedemptionProductWidget";
