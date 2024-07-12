@@ -36,6 +36,7 @@
             "spp_pos_id_redemption/static/src/js/product_list.js",
             "spp_pos_id_redemption/static/src/js/payment_screen.js",
             "spp_pos_id_redemption/static/src/js/product_card.js",
+            "spp_pos_id_redemption/static/src/js/db.js",
         ],
     },
     "data": [

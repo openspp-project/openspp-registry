@@ -14,23 +14,33 @@ patch(ProductsWidget.prototype, {
         onWillUpdateProps((nextProps) => {
             this.state.partner = nextProps.partner;
         });
+        this.list = [];
+        this.partner_product_mapper = {};
     },
     getProductListToNotDisplay() {
         const products = super.getProductListToNotDisplay();
-        const list = this.pos.db.get_product_by_category(this.selectedCategoryId);
+        if (this.list.length === 0) {
+            // To prevent multiple calls to get_product_by_category
+            this.list = this.pos.db.get_product_by_category(this.selectedCategoryId);
+        }
 
-        const productsNotToDisplay = list
-            .filter(
-                (product) =>
-                    (this.state.partner &&
-                        (!product.entitlement_partner_id ||
-                            product.entitlement_partner_id[0] !== this.state.partner.id)) ||
-                    (product.created_from_entitlement && product.voucher_redeemed) ||
-                    (!this.state.partner && product.entitlement_partner_id)
-            )
-            .map((product) => product.id);
+        if (!(this.state.partner.id in this.partner_product_mapper)) {
+            // Created a mapper to store the products that are not to be displayed
+            // for a particular partner
+            // this is to prevent multiple filtering of a product list
+            this.partner_product_mapper[this.state.partner.id] = this.list
+                .filter(
+                    (product) =>
+                        (this.state.partner &&
+                            (!product.entitlement_partner_id ||
+                                product.entitlement_partner_id[0] !== this.state.partner.id)) ||
+                        (product.created_from_entitlement && product.voucher_redeemed) ||
+                        (!this.state.partner && product.entitlement_partner_id)
+                )
+                .map((product) => product.id);
+        }
 
-        return [...products, ...productsNotToDisplay];
+        return [...products, ...this.partner_product_mapper[this.state.partner.id]];
     },
 });
 ProductsWidget.template = "spp_pos_id_redemption.IdRedemptionProductWidget";

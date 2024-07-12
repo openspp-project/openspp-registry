@@ -12,6 +12,8 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                 <field name="created_from_entitlement" invisible="1" />
                 <field name="voucher_redeemed" invisible="not created_from_entitlement" />
                 <field name="cycle_id" invisible="not created_from_entitlement" />
+                <field name="entitlement_id" />
+                <field name="entitlement_partner_id" string="Partner" />
                 <field name="cycle_id_str" invisible="1" />
                 <field name="program_id" invisible="not created_from_entitlement" />
                 <field name="program_id_str" invisible="1" />
