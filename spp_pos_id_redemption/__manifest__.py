@@ -40,6 +40,7 @@
         ],
     },
     "data": [
+        "security/ir.model.access.csv",
         "views/registrant_view.xml",
         "views/product_template_view.xml",
         "views/entitlements_view.xml",
