@@ -29,6 +29,7 @@
             "spp_pos_id_redemption/static/src/view/action_pad.xml",
             "spp_pos_id_redemption/static/src/view/partner_list.xml",
             "spp_pos_id_redemption/static/src/view/payment_screen.xml",
+            "spp_pos_id_redemption/static/src/view/customer_note.xml",
             "spp_pos_id_redemption/static/src/js/popup_voucher.js",
             "spp_pos_id_redemption/static/src/js/entitlement_product_list.js",
             "spp_pos_id_redemption/static/src/js/pos_store.js",
