@@ -7,7 +7,6 @@ faker
 fastapi==0.112.2
 geojson
 jsonschema
-jwcrypto
 jwcrypto>=1.5.6
 numpy>=1.22.2
 pyjwt>=2.4.0
