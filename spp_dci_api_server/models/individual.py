@@ -73,6 +73,7 @@ class SPPIndividualCustom(models.Model):
                     "familyName": rec.family_name,
                     "sex": rec.gender.lower() if rec.gender else "",
                     "birthPlace": rec.birth_place,
+                    "email": rec.email,
                     "phoneNumbers": phone_numbers,
                     "households": households,
                 }
