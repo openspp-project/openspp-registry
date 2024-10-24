@@ -42,27 +42,27 @@ class SPPIndividualCustom(models.Model):
                 group = membership_id.group
                 household["name"] = group.name
 
-                identifier = []
+                hh_identifier = []
                 for reg_id in group.reg_ids:
                     if reg_id.value and reg_id.id_type and reg_id.id_type.name:
-                        identifier.append(
+                        hh_identifier.append(
                             {
                                 "name": reg_id.id_type.name,
                                 "identifier": reg_id.value,
                             }
                         )
-                household["identifier"] = identifier
+                household["identifier"] = hh_identifier
 
-                phone_numbers = []
+                hh_phone_numbers = []
                 for phone_number_id in group.phone_number_ids:
                     country_name = phone_number_id.country_id.name if phone_number_id.country_id else ""
-                    phone_numbers.append(
+                    hh_phone_numbers.append(
                         {
                             "phone": phone_number_id.phone_no,
                             "country": country_name,
                         }
                     )
-                household["phoneNumbers"] = phone_numbers
+                household["phoneNumbers"] = hh_phone_numbers
                 households.append(household)
 
             reg_records.append(
