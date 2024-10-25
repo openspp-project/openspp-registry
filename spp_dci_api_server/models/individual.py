@@ -28,11 +28,16 @@ class SPPIndividualCustom(models.Model):
 
             phone_numbers = []
             for phone_number_id in rec.phone_number_ids:
-                country_name = phone_number_id.country_id.name if phone_number_id.country_id else ""
                 phone_numbers.append(
                     {
                         "phone": phone_number_id.phone_no,
-                        "country": country_name,
+                        "country": {
+                            "id": phone_number_id.country_id.id,
+                            "name": phone_number_id.country_id.name,
+                            "code": phone_number_id.country_id.code,
+                        }
+                        if phone_number_id.country_id
+                        else {},
                     }
                 )
 
@@ -55,11 +60,16 @@ class SPPIndividualCustom(models.Model):
 
                 hh_phone_numbers = []
                 for phone_number_id in group.phone_number_ids:
-                    country_name = phone_number_id.country_id.name if phone_number_id.country_id else ""
                     hh_phone_numbers.append(
                         {
                             "phone": phone_number_id.phone_no,
-                            "country": country_name,
+                            "country": {
+                                "id": phone_number_id.country_id.id,
+                                "name": phone_number_id.country_id.name,
+                                "code": phone_number_id.country_id.code,
+                            }
+                            if phone_number_id.country_id
+                            else {},
                         }
                     )
                 household["phoneNumbers"] = hh_phone_numbers
