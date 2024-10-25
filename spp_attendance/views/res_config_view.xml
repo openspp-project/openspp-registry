@@ -27,8 +27,11 @@
                         </setting>
                     </block>
                     <block title="URL and Auth Settings">
-                        <setting string="Auth URL" help="URL of the API to Authenticate.">
-                            <field name="attendance_auth_url" />
+                        <setting string="Server URL" help="Server URL of the API.">
+                            <field name="server_url" />
+                        </setting>
+                        <setting string="Auth Endpoint" help="Endpoing of the API to Authenticate.">
+                            <field name="attendance_auth_endpoint" />
                         </setting>
                         <setting
                             string="Access Token Mapping"
@@ -36,8 +39,8 @@
                         >
                             <field name="access_token_mapping" />
                         </setting>
-                        <setting string="Import URL" help="URL of the API to import attendance.">
-                            <field name="attendance_import_url" />
+                        <setting string="Import Endpoint" help="Endpoint of the API to import attendance.">
+                            <field name="attendance_import_endpoint" />
                         </setting>
                     </block>
                     <block title="Mappings">

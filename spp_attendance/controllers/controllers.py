@@ -12,136 +12,113 @@ from odoo.addons.spp_oauth.tools import OpenSPPOAuthJWTException, verify_and_dec
 _logger = logging.getLogger(__name__)
 
 
-def response_wrapper(status, data):
-    return werkzeug.wrappers.Response(
-        status=status,
-        content_type="application/json; charset=utf-8",
-        response=json.dumps(data, default=date_utils.json_default) if data else None,
-    )
-
-
-def error_wrapper(code, message):
-    error = {"error": {"code": code, "message": message}}
-    return response_wrapper(code, error)
-
-
-def get_auth_header(headers, raise_exception=False):
-    auth_header = headers.get("Authorization") or headers.get("authorization")
-    if not auth_header or not auth_header.startswith("Bearer "):
-        if raise_exception:
-            error = {
-                "error": "Unauthorized",
-                "error_description": "Your token could not be authenticated.",
-            }
-            return response_wrapper(401, error)
-    return auth_header
-
-
-def verify_auth_header():
-    auth_header = get_auth_header(request.httprequest.headers, raise_exception=True)
-
-    access_token = auth_header.replace("Bearer ", "").replace("\\n", "").encode("utf-8")
-    try:
-        verify_and_decode_signature(access_token)
-    except OpenSPPOAuthJWTException:
-        return False
-
-    return True
-
-
-def check_required_fields(data, required_fields=None):
-    if not required_fields:
-        return []
-
-    missing_required_fields = []
-    for field in required_fields:
-        if field not in data:
-            missing_required_fields.append(field)
-    return missing_required_fields
-
-
-def check_date_time_exists(date, time, subscriber_id, person_datetime_mapping=None):
-    if person_datetime_mapping:
-        return (subscriber_id, date, time) in person_datetime_mapping
-    return (
-        request.env["spp.attendance.list"]
-        .sudo()
-        .search(
-            [("attendance_date", "=", date), ("attendance_time", "=", time), ("subscriber_id", "=", subscriber_id.id)]
+class SppAttendanceController(Controller):
+    def response_wrapper(self, status, data):
+        return werkzeug.wrappers.Response(
+            status=status,
+            content_type="application/json; charset=utf-8",
+            response=json.dumps(data, default=date_utils.json_default) if data else None,
         )
-    )
 
+    def error_wrapper(self, code, message):
+        error = {"error": {"code": code, "message": message}}
+        return self.response_wrapper(code, error)
 
-def validate_page_and_limit(page, limit):
-    try:
-        page = int(page)
-        limit = int(limit)
-    except ValueError:
-        return "Page and limit must be integers."
+    def get_auth_header(self, headers, raise_exception=False):
+        auth_header = headers.get("Authorization") or headers.get("authorization")
+        if not auth_header or not auth_header.startswith("Bearer "):
+            if raise_exception:
+                error = {
+                    "error": "Unauthorized",
+                    "error_description": "Your token could not be authenticated.",
+                }
+                return self.response_wrapper(401, error)
+        return auth_header
 
-    if page < 1 or limit < 1:
-        return "Page and limit must be positive integers."
+    def verify_auth_header(self):
+        auth_header = self.get_auth_header(request.httprequest.headers, raise_exception=True)
 
-    return None
+        access_token = auth_header.replace("Bearer ", "").replace("\\n", "").encode("utf-8")
+        try:
+            verify_and_decode_signature(access_token)
+        except OpenSPPOAuthJWTException:
+            return False
 
+        return True
 
-def validate_date(from_date, to_date):
-    if not all([from_date, to_date]):
+    def check_required_fields(self, data, required_fields=None):
+        if not required_fields:
+            return []
+
+        missing_required_fields = []
+        for field in required_fields:
+            if field not in data:
+                missing_required_fields.append(field)
+        return missing_required_fields
+
+    def validate_page_and_limit(self, page, limit):
+        try:
+            page = int(page)
+            limit = int(limit)
+        except ValueError:
+            return "Page and limit must be integers."
+
+        if page < 1 or limit < 1:
+            return "Page and limit must be positive integers."
+
         return None
 
-    try:
-        from_date = datetime.strptime(from_date, "%Y-%m-%d")
-        to_date = datetime.strptime(to_date, "%Y-%m-%d")
-    except ValueError:
-        return "FromDate and ToDate must be in the format YYYY-MM-DD."
+    def validate_date(self, from_date, to_date):
+        if not all([from_date, to_date]):
+            return None
 
-    if from_date > to_date:
-        return "FromDate must be less than or equal to ToDate."
-
-    return None
-
-
-def validate_request_header_and_body():
-    if not verify_auth_header():
-        return error_wrapper(401, "Unauthorized")
-
-    req = request
-    data = req.httprequest.data or "{}"
-    try:
-        data = json.loads(data)
-    except json.decoder.JSONDecodeError:
-        return error_wrapper(400, "data must be in JSON format.")
-
-    return None
-
-
-def validate_entity(model_name, model_id, model_label):
-    if model_id:
         try:
-            model_id = int(model_id)
+            from_date = datetime.strptime(from_date, "%Y-%m-%d")
+            to_date = datetime.strptime(to_date, "%Y-%m-%d")
         except ValueError:
-            return error_wrapper(400, f"{model_label} must be an integer.")
+            return "FromDate and ToDate must be in the format YYYY-MM-DD."
 
-        entity = request.env[model_name].sudo().search([("id", "=", model_id)], limit=1)
-        if not entity:
-            model_ids = request.env[model_name].sudo().search([])
-            error_message = f"{model_label} does not exist."
-            if model_ids:
-                choices = ", ".join([f"{model.id} for {model.name}" for model in model_ids])
-                error_message = f"{model_label} does not exist. Available {model_label}s: {choices}."
-            return error_wrapper(400, error_message)
-    return None
+        if from_date > to_date:
+            return "FromDate must be less than or equal to ToDate."
 
+        return None
 
-def validate_attendance_type(attendance_type):
-    return validate_entity("spp.attendance.type", attendance_type, "Attendance Type")
+    def validate_request_header_and_body(self):
+        if not self.verify_auth_header():
+            return self.error_wrapper(401, "Unauthorized")
 
+        req = request
+        data = req.httprequest.data or "{}"
+        try:
+            data = json.loads(data)
+        except json.decoder.JSONDecodeError:
+            return self.error_wrapper(400, "data must be in JSON format.")
 
-def validate_attendance_location(attendance_location):
-    return validate_entity("spp.attendance.location", attendance_location, "Attendance Location")
+        return None
 
+    def validate_entity(self, model_name, model_id, model_label):
+        if model_id:
+            try:
+                model_id = int(model_id)
+            except ValueError:
+                return self.error_wrapper(400, f"{model_label} must be an integer.")
 
-class SppGisApiController(Controller):
+            entity = request.env[model_name].sudo().search([("id", "=", model_id)], limit=1)
+            if not entity:
+                model_ids = request.env[model_name].sudo().search([])
+                error_message = f"{model_label} does not exist."
+                if model_ids:
+                    choices = ", ".join([f"{model.id} for {model.name}" for model in model_ids])
+                    error_message = f"{model_label} does not exist. Available {model_label}s: {choices}."
+                return self.error_wrapper(400, error_message)
+        return None
+
+    def validate_attendance_type(self, attendance_type):
+        return self.validate_entity("spp.attendance.type", attendance_type, "Attendance Type")
+
+    def validate_attendance_location(self, attendance_location):
+        return self.validate_entity("spp.attendance.location", attendance_location, "Attendance Location")
+
     @route(
         "/auth/token",
         type="http",
@@ -155,7 +132,7 @@ class SppGisApiController(Controller):
         try:
             data = json.loads(data)
         except json.decoder.JSONDecodeError:
-            return response_wrapper(
+            return self.response_wrapper(
                 400,
                 {
                     "error": "Bad Request",
@@ -171,7 +148,7 @@ class SppGisApiController(Controller):
                 "error": "Bad Request",
                 "error_description": ("client_id and client_secret are required."),
             }
-            return response_wrapper(400, error)
+            return self.response_wrapper(400, error)
 
         client = (
             req.env["spp.attendance.api.client.credential"]
@@ -187,7 +164,7 @@ class SppGisApiController(Controller):
                 "error": "Unauthorized",
                 "error_description": "Invalid client id or secret.",
             }
-            return response_wrapper(401, error)
+            return self.response_wrapper(401, error)
 
         access_token = client.generate_access_token()
 
@@ -195,7 +172,7 @@ class SppGisApiController(Controller):
             "access_token": access_token,
             "token_type": "Bearer",
         }
-        return response_wrapper(200, data)
+        return self.response_wrapper(200, data)
 
     @route(
         "/attendances",
@@ -205,15 +182,17 @@ class SppGisApiController(Controller):
         csrf=False,
     )
     def create_attendance_list(self, **kwargs):
-        if error := validate_request_header_and_body():
+        if error := self.validate_request_header_and_body():
             return error
 
         req = request
         data = req.httprequest.data or "{}"
         data = json.loads(data)
 
-        if missing_required_fields := check_required_fields(data, ["records", "submitted_by", "submitted_datetime"]):
-            return error_wrapper(400, f"Missing required fields: {', '.join(missing_required_fields)}")
+        if missing_required_fields := self.check_required_fields(
+            data, ["records", "submitted_by", "submitted_datetime"]
+        ):
+            return self.error_wrapper(400, f"Missing required fields: {', '.join(missing_required_fields)}")
 
         current_date = datetime.now().strftime("%Y-%m-%d")
         submitted_datetime = data.get("submitted_datetime", current_date)
@@ -224,21 +203,21 @@ class SppGisApiController(Controller):
         person_id_list = []
 
         for person_data in data["records"]:
-            if missing_required_fields := check_required_fields(person_data, ["time_card", "person_id"]):
-                return error_wrapper(400, f"Missing required fields: {', '.join(missing_required_fields)}")
+            if missing_required_fields := self.check_required_fields(person_data, ["time_card", "person_id"]):
+                return self.error_wrapper(400, f"Missing required fields: {', '.join(missing_required_fields)}")
 
             person_id = person_data.get("person_id")
             subscriber_id = (
                 req.env["spp.attendance.subscriber"].sudo().search([("person_identifier", "=", person_id)], limit=1)
             )
             if not subscriber_id:
-                return error_wrapper(400, "person_id does not exist.")
+                return self.error_wrapper(400, "person_id does not exist.")
 
             time_cards = person_data.get("time_card")
             for time_card in time_cards:
-                missing_required_fields = check_required_fields(time_card, ["date_time"])
+                missing_required_fields = self.check_required_fields(time_card, ["date_time"])
                 if missing_required_fields:
-                    return error_wrapper(
+                    return self.error_wrapper(
                         400, f"Missing required fields for time_card: {', '.join(missing_required_fields)}"
                     )
 
@@ -249,12 +228,12 @@ class SppGisApiController(Controller):
                 attendance_time = str(attendance_datetime.time())
 
                 attendance_type = time_card.get("attendance_type", False) or False
-                if result := validate_attendance_type(attendance_type):
+                if result := self.validate_attendance_type(attendance_type):
                     return result
                 attendance_type = int(attendance_type)
 
                 attendance_location = time_card.get("attendance_location", False) or False
-                if result := validate_attendance_location(attendance_location):
+                if result := self.validate_attendance_location(attendance_location):
                     return result
                 attendance_location = int(attendance_location)
 
@@ -275,7 +254,7 @@ class SppGisApiController(Controller):
 
                 new_attendance_list_ids = req.env["spp.attendance.list"].sudo().new(attendane_list_vals)
                 if not new_attendance_list_ids.check_uniqueness():
-                    return error_wrapper(
+                    return self.error_wrapper(
                         400, "An attendance record is already exists. Please check the date, time, type, location."
                     )
 
@@ -285,7 +264,9 @@ class SppGisApiController(Controller):
 
         req.env["spp.attendance.list"].sudo().create(attendance_list_data)
 
-        return response_wrapper(200, {"message": "Attendance list created successfully.", "person_ids": person_id_list})
+        return self.response_wrapper(
+            200, {"message": "Attendance list created successfully.", "person_ids": person_id_list}
+        )
 
     @route(
         "/attendances",
@@ -295,15 +276,17 @@ class SppGisApiController(Controller):
         csrf=False,
     )
     def update_attendance_list(self, **kwargs):
-        if error := validate_request_header_and_body():
+        if error := self.validate_request_header_and_body():
             return error
 
         req = request
         data = req.httprequest.data or "{}"
         data = json.loads(data)
 
-        if missing_required_fields := check_required_fields(data, ["records", "submitted_by", "submitted_datetime"]):
-            return error_wrapper(400, f"Missing required fields: {', '.join(missing_required_fields)}")
+        if missing_required_fields := self.check_required_fields(
+            data, ["records", "submitted_by", "submitted_datetime"]
+        ):
+            return self.error_wrapper(400, f"Missing required fields: {', '.join(missing_required_fields)}")
 
         current_date = datetime.now().strftime("%Y-%m-%d")
         submitted_datetime = data.get("submitted_datetime", current_date)
@@ -311,21 +294,23 @@ class SppGisApiController(Controller):
         submission_source = data.get("submission_source", "")
 
         for attendance_data in data["records"]:
-            if missing_required_fields := check_required_fields(attendance_data, ["time_card", "id"]):
-                return error_wrapper(400, f"Missing required fields for records: {', '.join(missing_required_fields)}")
+            if missing_required_fields := self.check_required_fields(attendance_data, ["time_card", "id"]):
+                return self.error_wrapper(
+                    400, f"Missing required fields for records: {', '.join(missing_required_fields)}"
+                )
 
             attendance_id = attendance_data.get("id")
             if not isinstance(attendance_id, int):
-                return error_wrapper(400, "id must be an integer.")
+                return self.error_wrapper(400, "id must be an integer.")
 
             attendance_list_id = req.env["spp.attendance.list"].sudo().search([("id", "=", attendance_id)], limit=1)
 
             if not attendance_list_id:
-                return error_wrapper(400, f"Attendance ID {attendance_id} does not exist.")
+                return self.error_wrapper(400, f"Attendance ID {attendance_id} does not exist.")
 
             time_card = attendance_data.get("time_card")
             if not isinstance(time_card, dict):
-                return error_wrapper(400, "time_card must be an object.")
+                return self.error_wrapper(400, "time_card must be an object.")
 
             vals = {}
 
@@ -340,14 +325,14 @@ class SppGisApiController(Controller):
 
             if "attendance_type" in time_card:
                 attendance_type = time_card.get("attendance_type")
-                if result := validate_attendance_type(attendance_type):
+                if result := self.validate_attendance_type(attendance_type):
                     return result
                 attendance_type = int(attendance_type)
                 vals["attendance_type_id"] = attendance_type
 
             if "attendance_location" in time_card:
                 attendance_location = time_card.get("attendance_location")
-                if result := validate_attendance_location(attendance_location):
+                if result := self.validate_attendance_location(attendance_location):
                     return result
                 attendance_location = int(attendance_location)
                 vals["attendance_location_id"] = attendance_location
@@ -366,7 +351,7 @@ class SppGisApiController(Controller):
                 vals["submission_source"] = submission_source
                 attendance_list_id.write(vals)
 
-        return response_wrapper(200, {"message": "Attendance list updated successfully."})
+        return self.response_wrapper(200, {"message": "Attendance list updated successfully."})
 
     @route(
         "/attendances",
@@ -376,7 +361,7 @@ class SppGisApiController(Controller):
         csrf=False,
     )
     def delete_attendance_list(self, ids=None, **kwargs):
-        if error := validate_request_header_and_body():
+        if error := self.validate_request_header_and_body():
             return error
 
         if not ids:
@@ -386,16 +371,16 @@ class SppGisApiController(Controller):
                 ids = [int(item) for item in ids.split(",")]
             except ValueError as e:
                 _logger.error(e)
-                return error_wrapper(400, "ids must be a list of integers.")
+                return self.error_wrapper(400, "ids must be a list of integers.")
 
         req = request
         attendance_list_ids = req.env["spp.attendance.list"].sudo().search([("id", "in", ids)])
 
         if not attendance_list_ids:
-            return error_wrapper(400, "Attendance list does not exist.")
+            return self.error_wrapper(400, "Attendance list does not exist.")
 
         attendance_list_ids.unlink()
-        return response_wrapper(200, {"message": "Attendance list deleted successfully."})
+        return self.response_wrapper(200, {"message": "Attendance list deleted successfully."})
 
     @route(
         "/attendance/<string:person_identifier>",
@@ -405,7 +390,7 @@ class SppGisApiController(Controller):
         csrf=False,
     )
     def attendance_list_person(self, person_identifier, page=1, limit=30, **kwargs):
-        if error := validate_request_header_and_body():
+        if error := self.validate_request_header_and_body():
             return error
 
         req = request
@@ -417,10 +402,10 @@ class SppGisApiController(Controller):
         )
 
         if not subscriber_id:
-            return error_wrapper(400, f"PersonID {person_identifier} does not exist.")
+            return self.error_wrapper(400, f"PersonID {person_identifier} does not exist.")
 
-        if page_limit_error_message := validate_page_and_limit(page, limit):
-            return error_wrapper(400, page_limit_error_message)
+        if page_limit_error_message := self.validate_page_and_limit(page, limit):
+            return self.error_wrapper(400, page_limit_error_message)
 
         page = int(page)
         limit = int(limit)
@@ -430,19 +415,19 @@ class SppGisApiController(Controller):
         to_date = kwargs.get("to_date", None)
 
         if from_date and to_date:
-            if date_error_message := validate_date(from_date, to_date):
-                return error_wrapper(400, date_error_message)
+            if date_error_message := self.validate_date(from_date, to_date):
+                return self.error_wrapper(400, date_error_message)
             else:
                 from_date = datetime.strptime(from_date, "%Y-%m-%d")
                 to_date = datetime.strptime(to_date, "%Y-%m-%d")
 
         attendance_type = kwargs.get("attendance_type", False) or False
-        if result := validate_attendance_type(attendance_type):
+        if result := self.validate_attendance_type(attendance_type):
             return result
         attendance_type = int(attendance_type)
 
         attendance_location = kwargs.get("attendance_location", False) or False
-        if result := validate_attendance_location(attendance_location):
+        if result := self.validate_attendance_location(attendance_location):
             return result
         attendance_location = int(attendance_location)
 
@@ -461,7 +446,7 @@ class SppGisApiController(Controller):
             "total_pages": (total_attendance + limit - 1) // limit,
         }
 
-        return response_wrapper(
+        return self.response_wrapper(
             200,
             attendance_record,
         )
@@ -474,15 +459,15 @@ class SppGisApiController(Controller):
         csrf=False,
     )
     def attendance_list(self, page=1, limit=30, **kwargs):
-        if error := validate_request_header_and_body():
+        if error := self.validate_request_header_and_body():
             return error
 
         req = request
         data = req.httprequest.data or "{}"
         data = json.loads(data)
 
-        if page_limit_error_message := validate_page_and_limit(page, limit):
-            return error_wrapper(400, page_limit_error_message)
+        if page_limit_error_message := self.validate_page_and_limit(page, limit):
+            return self.error_wrapper(400, page_limit_error_message)
 
         page = int(page)
         limit = int(limit)
@@ -492,19 +477,19 @@ class SppGisApiController(Controller):
         to_date = kwargs.get("to_date", None)
 
         if from_date and to_date:
-            if date_error_message := validate_date(from_date, to_date):
-                return error_wrapper(400, date_error_message)
+            if date_error_message := self.validate_date(from_date, to_date):
+                return self.error_wrapper(400, date_error_message)
             else:
                 from_date = datetime.strptime(from_date, "%Y-%m-%d")
                 to_date = datetime.strptime(to_date, "%Y-%m-%d")
 
         attendance_type = kwargs.get("attendance_type", False) or False
-        if result := validate_attendance_type(attendance_type):
+        if result := self.validate_attendance_type(attendance_type):
             return result
         attendance_type = int(attendance_type)
 
         attendance_location = kwargs.get("attendance_location", False) or False
-        if result := validate_attendance_location(attendance_location):
+        if result := self.validate_attendance_location(attendance_location):
             return result
         attendance_location = int(attendance_location)
 
@@ -538,7 +523,7 @@ class SppGisApiController(Controller):
             },
         }
 
-        return response_wrapper(
+        return self.response_wrapper(
             200,
             response_data,
         )
@@ -551,7 +536,7 @@ class SppGisApiController(Controller):
         csrf=False,
     )
     def get_attendance_types(self):
-        if error := validate_request_header_and_body():
+        if error := self.validate_request_header_and_body():
             return error
 
         req = request
@@ -560,7 +545,7 @@ class SppGisApiController(Controller):
 
         attendance_type_ids = req.env["spp.attendance.type"].sudo().search([])
 
-        return response_wrapper(
+        return self.response_wrapper(
             200,
             {
                 "records": [
@@ -582,7 +567,7 @@ class SppGisApiController(Controller):
         csrf=False,
     )
     def get_attendance_locations(self):
-        if error := validate_request_header_and_body():
+        if error := self.validate_request_header_and_body():
             return error
 
         req = request
@@ -591,7 +576,7 @@ class SppGisApiController(Controller):
 
         attendance_location_ids = req.env["spp.attendance.location"].sudo().search([])
 
-        return response_wrapper(
+        return self.response_wrapper(
             200,
             {
                 "records": [
@@ -603,4 +588,69 @@ class SppGisApiController(Controller):
                     for attendance_location in attendance_location_ids
                 ],
             },
+        )
+
+    @route(
+        "/subscribers",
+        type="http",
+        auth="none",
+        methods=["GET"],
+        csrf=False,
+    )
+    def get_subscriber_list_information(self, page=1, limit=30, **kwargs):
+        if error := self.validate_request_header_and_body():
+            return error
+
+        if page_limit_error_message := self.validate_page_and_limit(page, limit):
+            return self.error_wrapper(400, page_limit_error_message)
+
+        page = int(page)
+        limit = int(limit)
+        offset = (page - 1) * limit
+
+        domain = []
+        subscriber_model = request.env["spp.attendance.subscriber"].sudo()
+
+        subscriber_ids = subscriber_model.search(domain, offset=offset, limit=limit, order="id")
+        total_records = subscriber_model.search_count(domain)
+
+        records = subscriber_ids.get_attendance_info_list()
+
+        response_data = {
+            "records": records,
+            "pagination": {
+                "page": page,
+                "limit": limit,
+                "total_records": total_records,
+                "total_pages": (total_records + limit - 1) // limit,
+            },
+        }
+
+        return self.response_wrapper(
+            200,
+            response_data,
+        )
+
+    @route(
+        "/subscriber/<string:person_identifier>",
+        type="http",
+        auth="none",
+        methods=["GET"],
+        csrf=False,
+    )
+    def get_subscriber_information(self, person_identifier, **kwargs):
+        if error := self.validate_request_header_and_body():
+            return error
+        subscriber_id = (
+            request.env["spp.attendance.subscriber"]
+            .sudo()
+            .search([("person_identifier", "=", person_identifier)], limit=1)
+        )
+
+        if not subscriber_id:
+            return self.error_wrapper(400, f"PersonID {person_identifier} does not exist.")
+
+        return self.response_wrapper(
+            200,
+            subscriber_id.get_attendance_subscriber_info(),
         )

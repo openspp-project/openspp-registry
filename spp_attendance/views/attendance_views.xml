@@ -18,10 +18,16 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group name="attendance_subscriber_fields">
-                        <field name="name" />
-                        <field name="person_identifier" />
-                    </group>
+                    <field name="id" invisible="1" />
+                    <div class="oe_title mb24">
+                        <h1 invisible="not id">
+                            <field name="name" />
+                        </h1>
+                        <div class="o_row">
+                            <label for="person_identifier" string="Person Identifier" />
+                            <field name="person_identifier" />
+                        </div>
+                    </div>
                     <notebook>
                         <page name="attendance_list" string="Attendance">
                             <field name="attendance_list_ids">

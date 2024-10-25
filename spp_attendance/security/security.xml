@@ -8,6 +8,7 @@
     <record model="res.groups" id="attendance_manager">
         <field name="name">Attendance Manager</field>
         <field name="category_id" ref="spp_attendance.attendance_module_management" />
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
     </record>
 
     <record model="res.groups" id="attendance_viewer">

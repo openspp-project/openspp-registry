@@ -4,30 +4,26 @@ from odoo import _, api, fields, models
 class RegistryConfig(models.TransientModel):
     _inherit = "res.config.settings"
 
-    @api.model
-    def _get_default_attendance_auth_url(self):
-        web_base_url = self.env["ir.config_parameter"].sudo().get_param("web.base.url")
-        return web_base_url + "/oauth2/client/token"
+    server_url = fields.Char(
+        string="Server URL",
+        config_parameter="spp_attendance.server_url",
+        default=lambda self: self.env["ir.config_parameter"].sudo().get_param("web.base.url"),
+    )
 
-    @api.model
-    def _get_default_attendance_import_url(self):
-        web_base_url = self.env["ir.config_parameter"].sudo().get_param("web.base.url")
-        return web_base_url + "/registry/sync/search"
-
-    attendance_auth_url = fields.Char(
-        string="Auth URL",
-        config_parameter="spp_attendance.attendance_auth_url",
-        default=_get_default_attendance_auth_url,
+    attendance_auth_endpoint = fields.Char(
+        string="Auth Endpoint",
+        config_parameter="spp_attendance.attendance_auth_endpoint",
+        default="/oauth2/client/token",
     )
     access_token_mapping = fields.Char(
         string="Access Token Mapping",
         config_parameter="spp_attendance.access_token_mapping",
         default="access_token",
     )
-    attendance_import_url = fields.Char(
-        string="Import URL",
-        config_parameter="spp_attendance.attendance_import_url",
-        default=_get_default_attendance_import_url,
+    attendance_import_endpoint = fields.Char(
+        string="Import Endpoint",
+        config_parameter="spp_attendance.attendance_import_endpoint",
+        default="/registry/sync/search",
     )
 
     personal_information_mapping = fields.Char(
@@ -50,8 +46,16 @@ class RegistryConfig(models.TransientModel):
         config_parameter="spp_attendance.given_name_mapping",
         default="givenName",
     )
-    email_mapping = fields.Char(string="Email", config_parameter="spp_attendance.email_mapping")
-    phone_mapping = fields.Char(string="Phone", config_parameter="spp_attendance.phone_mapping")
+    email_mapping = fields.Char(
+        string="Email",
+        config_parameter="spp_attendance.email_mapping",
+        default="email",
+    )
+    phone_mapping = fields.Char(
+        string="Phone",
+        config_parameter="spp_attendance.phone_mapping",
+        default="phoneNumbers.0.phone",
+    )
 
     date_unique = fields.Boolean(
         string="Unique Date",
@@ -103,3 +107,9 @@ class RegistryConfig(models.TransientModel):
             self.location_unique = False
         if not self.type_unique:
             self.location_unique = False
+
+    @api.model
+    def set_server_url(self):
+        if not self.env["ir.config_parameter"].sudo().get_param("spp_attendance.server_url"):
+            web_base_url = self.env["ir.config_parameter"].sudo().get_param("web.base.url")
+            self.env["ir.config_parameter"].sudo().set_param("spp_attendance.server_url", web_base_url)

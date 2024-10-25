@@ -87,7 +87,7 @@ class ImportAttendanceWiz(models.TransientModel):
     page = fields.Integer(string="Page", default=1)
     limit = fields.Integer(string="Limit", default=30)
 
-    def _check_and_retrieve_urls(self, param, name):
+    def _check_and_retrieve_config_parameter(self, param, name):
         self.ensure_one()
         url = self.env["ir.config_parameter"].get_param(param)
         if not url:
@@ -97,8 +97,16 @@ class ImportAttendanceWiz(models.TransientModel):
     def action_import_attendance(self):
         self.ensure_one()
 
-        auth_url = self._check_and_retrieve_urls("spp_attendance.attendance_auth_url", "Authentication URL")
-        import_url = self._check_and_retrieve_urls("spp_attendance.attendance_import_url", "Import URL")
+        server_url = self._check_and_retrieve_config_parameter("spp_attendance.server_url", "Server URL")
+        auth_endpoint = self._check_and_retrieve_config_parameter(
+            "spp_attendance.attendance_auth_endpoint", "Authentication Endpoint"
+        )
+        import_endpoint = self._check_and_retrieve_config_parameter(
+            "spp_attendance.attendance_import_endpoint", "Import Endpoint"
+        )
+
+        auth_url = urljoin(server_url, auth_endpoint)
+        import_url = urljoin(server_url, import_endpoint)
 
         try:
             auth_header = self.auth_header or "{}"
@@ -158,11 +166,11 @@ class ImportAttendanceWiz(models.TransientModel):
 
     def _import_attendance(self, data):
         self.ensure_one()
-        personal_informations = copy.deepcopy(data)
+        personal_information = copy.deepcopy(data)
 
         missing_required_fields = self.check_required_fields(
             [
-                "attendance_import_url",
+                "attendance_import_endpoint",
                 "personal_information_mapping",
                 "person_identifier_mapping",
                 "family_name_mapping",
@@ -174,11 +182,28 @@ class ImportAttendanceWiz(models.TransientModel):
             raise UserError(_("Please fill in the following required fields: %s" % ", ".join(missing_required_fields)))
 
         elements = self.env["ir.config_parameter"].get_param("spp_attendance.personal_information_mapping").split(".")
-        personal_informations = self.element_mapper(personal_informations, elements)
+        personal_information = self.element_mapper(personal_information, elements)
 
-        if not isinstance(personal_informations, list):
-            raise UserError(_("Personal Information Mapping must point to a list"))
+        if not isinstance(personal_information, list):
+            raise UserError(_("Personal Information Mapping must point to a list."))
+        initial_count = self.env["spp.attendance.subscriber"].search_count([])
 
+        self.create_update_subscriber(personal_information)
+
+        imported_count = self.env["spp.attendance.subscriber"].search_count([]) - initial_count
+
+        return {
+            "type": "ir.actions.client",
+            "tag": "display_notification",
+            "params": {
+                "title": _("Import"),
+                "message": _("Imported %s persons.", imported_count),
+                "sticky": False,
+                "type": "success",
+            },
+        }
+
+    def create_update_subscriber(self, personal_information):
         person_identifier_elements = (
             self.env["ir.config_parameter"].get_param("spp_attendance.person_identifier_mapping").split(".")
         )
@@ -195,57 +220,55 @@ class ImportAttendanceWiz(models.TransientModel):
         if phone_mapping := self.env["ir.config_parameter"].get_param("spp_attendance.phone_mapping"):
             phone_elements = phone_mapping.split(".")
 
-        imported_count = 0
-
-        for info in personal_informations:
-            person_identifier = self.element_mapper(info, person_identifier_elements)
-            self.check_data_instance(person_identifier, "Person Identifier", str)
-
-            family_name = self.element_mapper(info, family_name_elements)
-            self.check_data_instance(family_name, "Family Name", str)
-
-            given_name = self.element_mapper(info, given_name_elements)
-            self.check_data_instance(given_name, "Given Name", str)
-
-            email = self.element_mapper(info, email_elements)
-            self.check_data_instance(email, "Email", str)
-
-            phone = self.element_mapper(info, phone_elements)
-            self.check_data_instance(phone, "Phone", str)
-
-            if subscriber_id := self.env["spp.attendance.subscriber"].search(
-                [("person_identifier", "=", person_identifier)], limit=1
-            ):
-                subscriber_id.write(
-                    {
-                        "family_name": family_name,
-                        "given_name": given_name,
-                        "email": email,
-                        "phone": phone,
-                    }
-                )
-            else:
-                self.env["spp.attendance.subscriber"].create(
-                    {
-                        "person_identifier": person_identifier,
-                        "family_name": family_name,
-                        "given_name": given_name,
-                        "email": email,
-                        "phone": phone,
-                    }
-                )
-                imported_count += 1
-
-        return {
-            "type": "ir.actions.client",
-            "tag": "display_notification",
-            "params": {
-                "title": _("Import"),
-                "message": _("Imported %s persons.", imported_count),
-                "sticky": False,
-                "type": "success",
-            },
+        elements = {
+            "person_identifier": person_identifier_elements,
+            "family_name": family_name_elements,
+            "given_name": given_name_elements,
+            "email": email_elements,
+            "phone": phone_elements,
         }
+
+        for info in personal_information:
+            vals = self.parse_personal_information(info, elements)
+            self.create_or_update_subscriber(vals, info)
+
+    def parse_personal_information(self, personal_information, elements):
+        vals = {}
+
+        person_identifier = self.element_mapper(personal_information, elements["person_identifier"])
+        self.check_data_instance(person_identifier, "Person Identifier", str)
+
+        family_name = self.element_mapper(personal_information, elements["family_name"])
+        self.check_data_instance(family_name, "Family Name", str)
+
+        given_name = self.element_mapper(personal_information, elements["given_name"])
+        self.check_data_instance(given_name, "Given Name", str)
+
+        email = self.element_mapper(personal_information, elements["email"])
+        self.check_data_instance(email, "Email", str)
+
+        phone = self.element_mapper(personal_information, elements["phone"])
+        self.check_data_instance(phone, "Phone", str)
+
+        vals.update(
+            {
+                "person_identifier": person_identifier,
+                "family_name": family_name,
+                "given_name": given_name,
+                "email": email,
+                "phone": phone,
+            }
+        )
+        return vals
+
+    def create_or_update_subscriber(self, vals, info=None):
+        if subscriber_id := self.env["spp.attendance.subscriber"].search(
+            [("person_identifier", "=", vals["person_identifier"])], limit=1
+        ):
+            subscriber_id.write(vals)
+        else:
+            subscriber_id = self.env["spp.attendance.subscriber"].create(vals)
+        return subscriber_id
 
     def check_required_fields(self, required_fields):
         missing_required_fields = []
@@ -259,6 +282,8 @@ class ImportAttendanceWiz(models.TransientModel):
             return None
 
         for element in elements:
+            if not data:
+                return None
             if not element.isdigit():
                 if element not in data:
                     raise UserError(_("Element %s not found in data" % element))

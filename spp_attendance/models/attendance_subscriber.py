@@ -3,9 +3,12 @@ from odoo import api, fields, models
 
 class AttendanceSubscriber(models.Model):
     _name = "spp.attendance.subscriber"
+    _inherits = {
+        "res.partner": "partner_id",
+    }
     _description = "Attendance Subscriber"
 
-    name = fields.Char(compute="_compute_name")
+    name = fields.Char(related="partner_id.name", inherited=True)
     active = fields.Boolean(default=True)
     partner_id = fields.Many2one("res.partner", readonly=True)
     attendance_list_ids = fields.One2many("spp.attendance.list", "subscriber_id")
@@ -14,9 +17,15 @@ class AttendanceSubscriber(models.Model):
     partner_name = fields.Char(compute="_compute_partner_name", string="Complete Name")
     family_name = fields.Char(inverse="_inverse_partner", required=True)
     given_name = fields.Char(inverse="_inverse_partner", required=True)
-    email = fields.Char(compute="_compute_partner", inverse="_inverse_partner", store=True)
-    phone = fields.Char(compute="_compute_partner", inverse="_inverse_partner", store=True)
-    mobile = fields.Char(compute="_compute_partner", inverse="_inverse_partner", store=True)
+    email = fields.Char(
+        related="partner_id.email", inherited=True, compute="_compute_partner", inverse="_inverse_partner", store=True
+    )
+    phone = fields.Char(
+        related="partner_id.phone", inherited=True, compute="_compute_partner", inverse="_inverse_partner", store=True
+    )
+    mobile = fields.Char(
+        related="partner_id.mobile", inherited=True, compute="_compute_partner", inverse="_inverse_partner", store=True
+    )
 
     _sql_constraints = [
         (
@@ -49,11 +58,6 @@ class AttendanceSubscriber(models.Model):
                     )
                     vals["partner_id"] = partner_id.id
         return super().create(vals_list)
-
-    @api.depends("partner_id")
-    def _compute_name(self):
-        for record in self:
-            record.name = f"Attendance for {record.partner_id.name}"
 
     @api.depends("partner_id.name", "partner_id.email", "partner_id.phone", "partner_id.mobile")
     def _compute_partner(self):
@@ -143,4 +147,23 @@ class AttendanceSubscriber(models.Model):
                 }
                 for attendance in attendance_list_ids
             ],
+        }
+
+    def get_attendance_info_list(self):
+        attendance_infos = []
+        for subscriber in self:
+            attendance_infos.append(subscriber.get_attendance_subscriber_info())
+        return attendance_infos
+
+    def get_attendance_subscriber_info(self):
+        self.ensure_one()
+        return {
+            "id": self.id,
+            "person_id": self.person_identifier,
+            "name": self.partner_name,
+            "family_name": self.family_name,
+            "given_name": self.given_name,
+            "email": self.email,
+            "phone": self.phone,
+            "mobile": self.mobile,
         }

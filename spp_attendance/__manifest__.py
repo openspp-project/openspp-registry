@@ -11,6 +11,7 @@
     "depends": ["base", "spp_oauth"],
     "external_dependencies": {"python": ["pytz"]},
     "data": [
+        "data/ir_config_parameter_data.xml",
         "security/security.xml",
         "security/ir.model.access.csv",
         "views/main_views.xml",
