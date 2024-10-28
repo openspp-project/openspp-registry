@@ -1,4 +1,4 @@
-name: Farmer Registry tests (forked+locked)
+name: tests (Farmer Registry forked+locked)
 # fetching the OpenG2P dependencies from the OpenSPP forks of OpenG2P, locked to the version of the OpenSPP 17.0.1.2 (batanes) release
 
 on:
