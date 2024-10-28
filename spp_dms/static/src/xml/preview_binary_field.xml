@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="dms.PreviewBinaryField">
+        <div class="o_preview_widget">
+            <button
+                type="button"
+                class="btn btn-success"
+                t-on-click="onFilePreview"
+                t-att-title="'View ' + props.record.data.name"
+            >
+                <i class="fa fa-eye" />
+            </button>
+        </div>
+    </t>
+</templates>

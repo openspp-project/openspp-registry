@@ -261,7 +261,10 @@ class Base(models.AbstractModel):
         relation, and optional distance.
         """
         if not is_valid_coordinates(latitude, longitude):
-            raise UserError(_("Invalid coordinates: latitude=%s, longitude=%s") % (latitude, longitude))
+            raise UserError(
+                _("Invalid coordinates: latitude=%(latitude)s, longitude=%(longitude)s")
+                % {"latitude": latitude, "longitude": longitude}
+            )
         if layer_type not in ALLOWED_LAYER_TYPE:
             raise UserError(_("Invalid layer type %s") % layer_type)
         if spatial_relation not in Operator.POSTGIS_SPATIAL_RELATION.keys():

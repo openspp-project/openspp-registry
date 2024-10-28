@@ -3,110 +3,19 @@
     <record id="view_farm_individual_form" model="ir.ui.view">
         <field name="name">view_farm_individual_form</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="g2p_registry_individual.view_individuals_form" />
+        <field name="inherit_id" ref="spp_farmer_registry_default_ui.view_farm_individual_form" />
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='basic_info']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
-            <xpath expr="//page[@name='relationships']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
-            <xpath expr="//page[@name='ids']" position="before">
-                <page name="basic_info" string="Personal Info">
-                    <field name="phone_number_ids" readonly="disabled" context="{'reg_form':True}">
-                        <tree decoration-danger="disabled">
-                             <field
-                                name="phone_no"
-                                string="Phone Numbers"
-                                widget="phone"
-                                options="{'enable_sms': false}"
-                            />
-                            <field name="country_id" />
-                            <field name="date_collected" width="30%" />
-                            <field name="disabled" column_invisible="1" />
-                        </tree>
-                    </field>
-                    <div class="row mt16 o_settings_container">
-                        <div class="col-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="gender" string="Sex" />
-                                <div>
-                                </div>
-                                <field name="gender" />
-                            </div>
-                        </div>
-                        <div class="col-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="marital_status" />
-                                <div>
-                                </div>
-                                <field name="marital_status" />
-                            </div>
-                        </div>
-                        <div class="col-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="birthdate" />
-                                <div>
-                                </div>
-                                <field name="birthdate" />
-                            </div>
-                        </div>
-                        <div class="col-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="household_size" />
-                                <div>
-                                </div>
-                                <field name="household_size" />
-                            </div>
-                        </div>
-                        <div class="col-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="farmer_postal_address" />
-                                <div>
-                                </div>
-                                <field name="farmer_postal_address" />
-                            </div>
-                        </div>
-                        <div class="col-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="email" />
-                                <div>
-                                </div>
-                                <field name="email" />
-                            </div>
-                        </div>
-                        <div class="col-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                                <field name="formal_agricultural_training" />
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="formal_agricultural_training" />
-                            </div>
-                        </div>
-                        <div class="col-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="highest_education_level" />
-                                <div>
-                                </div>
-                                <field name="highest_education_level" />
-                            </div>
-                        </div>
+            <xpath expr="//div[@name='div_birthdate']" position="inside">
+                <div class="col-6 o_setting_box" name="div_household_size">
+                    <div class="o_setting_left_pane">
                     </div>
-                </page>
+                    <div class="o_setting_right_pane">
+                        <label for="household_size" />
+                        <div>
+                        </div>
+                        <field name="household_size" />
+                    </div>
+                </div>
             </xpath>
         </field>
     </record>

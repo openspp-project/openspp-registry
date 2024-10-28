@@ -4,7 +4,7 @@
 {
     "name": "OpenSPP Base",
     "category": "OpenSPP/OpenSPP",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.3.0",
     "sequence": 1,
     "author": "OpenSPP.org",
     "website": "https://github.com/OpenSPP/openspp-modules",
@@ -28,8 +28,8 @@
         "spp_programs",
     ],
     "external_dependencies": {
-        "python": ["fastapi==0.112.2", "numpy>=1.22.2", "urllib3>=2.2.2", "zipp>=3.19.1"]
-    },  # not directly required, pinned by Snyk to avoid a vulnerability
+        "python": ["fastapi==0.112.2", "extendable_pydantic==1.3.0", "numpy>=1.22.2", "urllib3>=2.2.2", "zipp>=3.19.1"]
+    },  # not directly required, pinned by Snyk to avoid a vulnerability and for fastapi, compatibility issues.
     "data": [
         "security/ir.model.access.csv",
         "data/top_up_card.xml",

@@ -24,11 +24,17 @@ msgid "Create a New Program Wizard"
 msgstr ""
 
 #. module: spp_manual_eligibility
+#: model:ir.model,name:spp_manual_eligibility.model_g2p_cycle
+msgid "Cycle"
+msgstr ""
+
+#. module: spp_manual_eligibility
 #: model:ir.model.fields,field_description:spp_manual_eligibility.field_g2p_program_create_wizard__eligibility_kind
 msgid "Eligibility Manager"
 msgstr ""
 
 #. module: spp_manual_eligibility
+#: model:ir.model.fields,field_description:spp_manual_eligibility.field_g2p_cycle__is_manual_eligibility
 #: model:ir.model.fields,field_description:spp_manual_eligibility.field_g2p_program__is_manual_eligibility
 #: model:ir.model.fields,field_description:spp_manual_eligibility.field_g2p_program_membership__is_manual_eligibility
 #: model:ir.model.fields,field_description:spp_manual_eligibility.field_g2p_program_membership_manager_default__is_manual_eligibility

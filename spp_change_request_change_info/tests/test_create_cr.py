@@ -64,8 +64,8 @@ class ChangeRequestChangeInfoTest(TransactionCase):
         filename = None
         file_path = f"{os.path.dirname(os.path.abspath(__file__))}/sample_document.jpeg"
         with open(file_path, "rb") as f:
-            file = f.name
-            filename = base64.b64encode(f.read())
+            filename = f.name
+            file = base64.b64encode(f.read())
 
         vals = {
             "content": file,

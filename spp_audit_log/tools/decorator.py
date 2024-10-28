@@ -2,10 +2,13 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
 import copy
+import logging
 
 from odoo import api
 
 long = int
+
+_logger = logging.getLogger(__name__)
 
 
 def get_new_values(records):
@@ -15,8 +18,8 @@ def get_new_values(records):
         for fname in records._fields:
             try:
                 vals[fname] = records._fields[fname].convert_to_read(record[fname], record, use_display_name=False)
-            except TypeError:
-                pass
+            except TypeError as e:
+                _logger.warning("Error converting field %s: %s", fname, e)
         new_values.append(vals)
     return new_values
 

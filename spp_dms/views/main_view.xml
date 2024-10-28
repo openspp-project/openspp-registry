@@ -1,4 +1,5 @@
 <odoo>
+
     <menuitem
         id="main_menu_spp_dms"
         name="DMS"
@@ -6,4 +7,5 @@
         groups="group_spp_dms_user"
     />
     <menuitem id="menu_spp_dms_config" name="Configuration" parent="main_menu_spp_dms" sequence="100" />
+
 </odoo>

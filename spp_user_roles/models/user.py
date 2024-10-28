@@ -10,7 +10,7 @@ class ResUsersCustomSPP(models.Model):
         comodel_name="spp.area",
         string="Center Areas",
         compute="_compute_center_area_ids",
-        compute_sudo=True,
+        store=True,
     )
 
     @api.depends("role_line_ids.role_id")
@@ -42,3 +42,41 @@ class ResUsersCustomSPP(models.Model):
                     }
                 )
         return default_values
+
+    def set_groups_from_roles(self, force=False):
+        """Override the original method to exclude some groups in removing."""
+        DO_NOT_REMOVE_GROUPS = [
+            self.env.ref("base.group_user").id,
+            self.env.ref("base.group_no_one").id,
+            self.env.ref("mail.group_mail_template_editor").id,
+            self.env.ref("base.group_portal").id,
+            self.env.ref("base.group_public").id,
+        ]
+        role_groups = {}
+        # We obtain all the groups associated to each role first, so that
+        # it is faster to compare later with each user's groups.
+        for role in self.mapped("role_line_ids.role_id"):
+            role_groups[role] = list(set(role.group_id.ids + role.implied_ids.ids + role.trans_implied_ids.ids))
+
+        for user in self:
+            if not user.role_line_ids and not force:
+                continue
+            group_ids = []
+            for role_line in user._get_enabled_roles():
+                role = role_line.role_id
+                group_ids += role_groups[role]
+            group_ids = list(set(group_ids))  # Remove duplicates IDs
+            groups_to_add = list(set(group_ids) - set(user.groups_id.ids))
+            groups_to_remove = list(set(user.groups_id.ids) - set(group_ids))
+
+            for group in DO_NOT_REMOVE_GROUPS:
+                if group in groups_to_remove:
+                    groups_to_remove.remove(group)
+
+            to_add = [(4, gr) for gr in groups_to_add]
+            to_remove = [(3, gr) for gr in groups_to_remove]
+            groups = to_remove + to_add
+            if groups:
+                vals = {"groups_id": groups}
+                super(ResUsersCustomSPP, user).write(vals)
+        return True

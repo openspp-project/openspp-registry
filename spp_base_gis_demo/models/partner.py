@@ -6,6 +6,6 @@ class ResPartner(models.Model):
 
     _inherit = "res.partner"
 
-    geo_point = fields.GeoPointField(string="Geo Point")
-    geo_line = fields.GeoLineStringField(string="Geo Line")
-    geo_polygon_field = fields.GeoPolygonField(string="Geo Polygon")
+    geo_point = fields.GeoPointField()
+    geo_line = fields.GeoLineStringField()
+    geo_polygon_field = fields.GeoPolygonField()

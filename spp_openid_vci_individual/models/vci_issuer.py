@@ -7,7 +7,7 @@ class CustomOpenIDVCIssuer(models.Model):
     def set_from_static_file_Registry(
         self, module_name="spp_openid_vci_individual", file_name="", field_name="", **kwargs
     ):
-        super().set_from_static_file_Registry(
+        return super().set_from_static_file_Registry(
             module_name=module_name, file_name=file_name, field_name=field_name, **kwargs
         )
 

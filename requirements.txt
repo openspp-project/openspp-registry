@@ -2,6 +2,7 @@
 Pillow>=10.3.0
 PyLD
 bravado_core
+extendable_pydantic==1.3.0
 faker
 fastapi==0.112.2
 geojson

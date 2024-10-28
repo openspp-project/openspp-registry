@@ -47,6 +47,7 @@ class OpenSPPIDPass(models.Model):
                     rec.auth_token_url,
                     data=json.dumps(data),
                     headers=headers,
+                    timeout=10,
                 )
                 if response.status_code == 200:
                     response_json = response.json()

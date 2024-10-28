@@ -65,9 +65,10 @@ class OpenSPPIDQueue(models.Model):
             rec.date_approved = date.today()
             rec.approved_by = self.env.user.id
             rec.status = "approved"
-            message = _("{} validated this request on {}.").format(
-                self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-            )
+            message = _("%(user)s validated this request on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             rec.save_to_mail_thread(message)
 
     def on_generate(self):
@@ -99,9 +100,10 @@ class OpenSPPIDQueue(models.Model):
         self.date_printed = date.today()
         self.printed_by = self.env.user.id
         self.status = "printed"
-        message = _("{} printed this request on {}.").format(
-            self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-        )
+        message = _("%(user)s printed this request on %(date)s.") % {
+            "user": self.env.user.name,
+            "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+        }
         self.save_to_mail_thread(message)
         return res_id
 
@@ -116,9 +118,10 @@ class OpenSPPIDQueue(models.Model):
             rec.generate_card(rec)
             rec.status = "generated"
             date_now = datetime.now()
-            message = _("{} generated this request on {}.").format(
-                self.env.user.name, date_now.strftime("%B %d, %Y at %H:%M")
-            )
+            message = _("%(user)s generated this request on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": date_now.strftime("%B %d, %Y at %H:%M"),
+            }
             rec.generated_by = self.env.user.id
             rec.date_generated = date_now.date()
             rec.save_to_mail_thread(message)
@@ -141,9 +144,10 @@ class OpenSPPIDQueue(models.Model):
             raise ValidationError(_("ID cannot be canceled if it has been printed"))
         for rec in self:
             rec.status = "cancelled"
-            message = _("{} cancelled this request on {}.").format(
-                self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-            )
+            message = _("%(user)s cancelled this request on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             rec.save_to_mail_thread(message)
 
     def on_distribute(self):
@@ -155,9 +159,10 @@ class OpenSPPIDQueue(models.Model):
         for rec in self:
             rec.date_distributed = date.today()
             rec.status = "distributed"
-            message = _("{} distributed this request on {}.").format(
-                self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-            )
+            message = _("%(user)s distributed this request on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             rec.distributed_by = self.env.user.id
             rec.save_to_mail_thread(message)
 
@@ -189,9 +194,10 @@ class OpenSPPIDQueue(models.Model):
             max_rec = len(queue_ids)
             for ctr, queued_id in enumerate(queue_ids, 1):
                 queued_id.status = "generating"
-                message = _("{} started to generate this request on {}.").format(
-                    self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-                )
+                message = _("%(user)s started to generate this request on %(date)s.") % {
+                    "user": self.env.user.name,
+                    "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+                }
                 queued_id.save_to_mail_thread(message)
                 queue_datas.append(queued_id.id)
                 if (ctr % self.JOB_SIZE == 0) or ctr == max_rec:

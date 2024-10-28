@@ -34,13 +34,15 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                         />
                     </group>
                 </sheet>
+                <footer>
                     <button
-                    name="create_requests"
-                    string="Create Requests"
-                    type="object"
-                    class="oe_highlight"
-                />
+                        name="create_requests"
+                        string="Create Requests"
+                        type="object"
+                        class="oe_highlight"
+                    />
                     <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
             </form>
         </field>
     </record>

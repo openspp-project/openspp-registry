@@ -18,7 +18,17 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                         role="status"
                         invisible="state == 'step2'"
                     >
-                        Found multiple templates, please select a template below for this batch.
+                        Found multiple ID Types or Templates, please select an ID Type and Template below for this batch.
+                    </div>
+                    <div class="oe_title" invisible="state == 'step2'">
+                        <h1>
+                            <label for="name" string="Batch Name" />
+                        </h1>
+                        <h1>
+                            <field name="name" required="1" />
+                        </h1>
+                        <div class="o_row">
+                        </div>
                     </div>
                     <group invisible="state == 'step2'">
                         <field
@@ -57,21 +67,23 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                         <field name="batches_count" />
                     </group>
                 </sheet>
+                <footer>
                     <button
-                    name="next_step"
-                    string="Next Step"
-                    type="object"
-                    class="oe_highlight"
-                    invisible="state == 'step2'"
-                />
+                        name="next_step"
+                        string="Next Step"
+                        type="object"
+                        class="oe_highlight"
+                        invisible="state == 'step2'"
+                    />
                     <button
-                    name="create_batch"
-                    string="Create Batch"
-                    type="object"
-                    class="oe_highlight"
-                    invisible="state == 'step1'"
-                />
+                        name="create_batch"
+                        string="Create Batch"
+                        type="object"
+                        class="oe_highlight"
+                        invisible="state == 'step1'"
+                    />
                     <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
             </form>
         </field>
     </record>

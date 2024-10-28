@@ -19,13 +19,13 @@ class SPPRegistry(models.Model):
 
     def _validate_vci_issuer(self, vci_issuer):
         if not vci_issuer:
-            raise UserError("No issuer found.")
+            raise UserError(_("No issuer found."))
 
         if not vci_issuer.auth_sub_id_type_id:
-            raise UserError("No auth sub id type found in the issuer.")
+            raise UserError(_("No auth sub id type found in the issuer."))
 
         if not vci_issuer.encryption_provider_id:
-            raise UserError("No encryption provider found in the issuer.")
+            raise UserError(_("No encryption provider found in the issuer."))
 
     def _issue_vc(self, vci_issuer):
         self.ensure_one()
@@ -44,7 +44,7 @@ class SPPRegistry(models.Model):
         try:
             credential_issuer_response = requests.get(url, timeout=5)
         except requests.exceptions.Timeout as e:
-            raise UserError("The request to the credential issuer timed out.") from e
+            raise UserError(_("The request to the credential issuer timed out.")) from e
         issuer_data = credential_issuer_response.json()
 
         credential_issuer = f"{issuer_data['credential_issuer']}/api/v1/security"

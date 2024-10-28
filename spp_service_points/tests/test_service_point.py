@@ -85,7 +85,7 @@ class TestServicePoint(TransactionCase):
     #     self.assertNotEqual(
     #         self.service_point_1.phone_sanitized,
     #         False,
-    #         "Service Point 1 having correct phone number format, should have phone sanitized!",
+    #         "Service Point 1 has a correct phone number format, but should be sanitized!",
     #     )
 
     def test_02_disable_active_service_point(self):

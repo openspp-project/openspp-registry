@@ -68,9 +68,10 @@ class OpenSPPPrintBatch(models.Model):
             rec.date_approved = date.today()
             rec.approved_by = self.env.user.id
             rec.status = "approved"
-            message = _("{} validated this batch on {}.").format(
-                rec.approved_by.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-            )
+            message = _("%(user)s validated this batch on %(date)s.") % {
+                "user": rec.approved_by.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             rec.save_to_mail_thread(message)
 
     def generate_batch(self):
@@ -93,9 +94,10 @@ class OpenSPPPrintBatch(models.Model):
             max_rec = len(rec.queued_ids)
             for ctr, queued_id in enumerate(rec.queued_ids, 1):
                 queued_id.status = "generating"
-                message = _("{} started to generate this request on {}.").format(
-                    self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-                )
+                message = _("%(user)s started to generate this request on %(date)s.") % {
+                    "user": self.env.user.name,
+                    "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+                }
                 queued_id.save_to_mail_thread(message)
                 ctr_ids += 1
                 queued_ids.append(queued_id.id)
@@ -107,12 +109,16 @@ class OpenSPPPrintBatch(models.Model):
             main_job.on_done(self.delayable(channel="root_id_batch.id_batch").mark_as_done(rec))
             main_job.delay()
 
-            message_1 = _("{} started to generate this batch on {}.").format(
-                self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-            )
+            message_1 = _("%(user)s started to generate this batch on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             rec.save_to_mail_thread(message_1)
 
-        message = _("{} Batch(es) with total of {} IDs are being generated.").format(ctr_batch or "", ctr_ids or "")
+        message = _("%(batch_count)s Batch(es) with total of %(id_count)s IDs are being generated.") % {
+            "batch_count": ctr_batch or "",
+            "id_count": ctr_ids or "",
+        }
         kind = "info"
         return {
             "type": "ir.actions.client",
@@ -146,9 +152,10 @@ class OpenSPPPrintBatch(models.Model):
         """
         if not rec.queued_ids.filtered(lambda x: x.status != "generated"):
             rec.status = "generated"
-            message = _("{} generated this batch on {}.").format(
-                self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-            )
+            message = _("%(user)s generated this batch on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             rec.save_to_mail_thread(message)
             rec.pass_api_param()
         else:
@@ -182,6 +189,7 @@ class OpenSPPPrintBatch(models.Model):
                     batch_param.api_url,
                     data=json.dumps(data),
                     headers=headers,
+                    timeout=10,
                 )
 
                 if response.status_code == 200:
@@ -199,14 +207,16 @@ class OpenSPPPrintBatch(models.Model):
         """
         for rec in self:
             rec.status = "printing"
-            message = _("{} started to print this batch on {}.").format(
-                self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-            )
+            message = _("%(user)s started to print this batch on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             rec.save_to_mail_thread(message)
             for queue_id in rec.queued_ids:
-                message = _("{} started to print this request on {}.").format(
-                    self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-                )
+                message = _("%(user)s started to print this request on %(date)s.") % {
+                    "user": self.env.user.name,
+                    "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+                }
                 queue_id.save_to_mail_thread(message)
 
     def batch_printed(self):
@@ -223,14 +233,16 @@ class OpenSPPPrintBatch(models.Model):
                 queue_id.date_printed = date.today()
                 queue_id.printed_by = self.env.user.id
                 queue_id.status = "printed"
-                message = _("{} printed this request on {}.").format(
-                    self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-                )
+                message = _("%(user)s printed this request on %(date)s.") % {
+                    "user": self.env.user.name,
+                    "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+                }
                 queue_id.save_to_mail_thread(message)
 
-            message = _("{} printed this batch on {}").format(
-                self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-            )
+            message = _("%(user)s printed this batch on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             rec.save_to_mail_thread(message)
 
     def batch_distributed(self):
@@ -246,14 +258,16 @@ class OpenSPPPrintBatch(models.Model):
             for queue_id in rec.queued_ids:
                 queue_id.date_distributed = date.today()
                 queue_id.status = "distributed"
-                message = _("{} distributed this request on {}.").format(
-                    self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-                )
+                message = _("%(user)s distributed this request on %(date)s.") % {
+                    "user": self.env.user.name,
+                    "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+                }
                 queue_id.save_to_mail_thread(message)
 
-            message = _("{} distributed this batch on {}.").format(
-                self.env.user.name, datetime.now().strftime("%B %d, %Y at %H:%M")
-            )
+            message = _("%(user)s distributed this batch on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             rec.save_to_mail_thread(message)
 
     def multi_approve_batch(self):
@@ -270,10 +284,10 @@ class OpenSPPPrintBatch(models.Model):
                     "status": "approved",
                 }
             )
-            message = _("{} validated this batch on {}").format(
-                self.env.user.name,
-                datetime.now().strftime("%B %d, %Y at %H:%M"),
-            )
+            message = _("%(user)s validated this batch on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             batch_ids.save_to_mail_thread(message)
 
             message = _("%s batch(es) are validated.", max_rec)
@@ -324,15 +338,15 @@ class OpenSPPPrintBatch(models.Model):
         if batch_ids:
             max_rec = len(batch_ids)
             batch_ids.write({"status": "printing"})
-            message = _("{} started to print this batch on {}.").format(
-                self.env.user.name,
-                datetime.now().strftime("%B %d, %Y at %H:%M"),
-            )
+            message = _("%(user)s started to print this batch on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             batch_ids.save_to_mail_thread(message)
-            message = _("{} started to print this request on {}.").format(
-                self.env.user.name,
-                datetime.now().strftime("%B %d, %Y at %H:%M"),
-            )
+            message = _("%(user)s started to print this request on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             batch_ids.queued_ids.save_to_mail_thread(message)
 
             message = _("%s batch(es) are being printed.", max_rec)
@@ -369,10 +383,10 @@ class OpenSPPPrintBatch(models.Model):
                     "status": "printed",
                 }
             )
-            message = _("{} printed this batch on {}.").format(
-                self.env.user.name,
-                datetime.now().strftime("%B %d, %Y at %H:%M"),
-            )
+            message = _("%(user)s printed this batch on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             batch_ids.save_to_mail_thread(message)
             batch_ids.queued_ids.write(
                 {
@@ -381,10 +395,10 @@ class OpenSPPPrintBatch(models.Model):
                     "status": "printed",
                 }
             )
-            message = _("{} printed this request on {}.").format(
-                self.env.user.name,
-                datetime.now().strftime("%B %d, %Y at %H:%M"),
-            )
+            message = _("%(user)s printed this request on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             batch_ids.queued_ids.save_to_mail_thread(message)
 
             message = _("%s batch(es) are printed.", max_rec)
@@ -421,10 +435,10 @@ class OpenSPPPrintBatch(models.Model):
                     "status": "distributed",
                 }
             )
-            message = _("{} distributed this batch on {}.").format(
-                self.env.user.name,
-                datetime.now().strftime("%B %d, %Y at %H:%M"),
-            )
+            message = _("%(user)s distributed this batch on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             batch_ids.save_to_mail_thread(message)
             batch_ids.queued_ids.write(
                 {
@@ -432,10 +446,10 @@ class OpenSPPPrintBatch(models.Model):
                     "status": "distributed",
                 }
             )
-            message = _("{} distributed this request on {}.").format(
-                self.env.user.name,
-                datetime.now().strftime("%B %d, %Y at %H:%M"),
-            )
+            message = _("%(user)s distributed this request on %(date)s.") % {
+                "user": self.env.user.name,
+                "date": datetime.now().strftime("%B %d, %Y at %H:%M"),
+            }
             batch_ids.queued_ids.save_to_mail_thread(message)
 
             message = _("%s batch(es) are distributed.", max_rec)

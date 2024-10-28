@@ -1,4 +1,5 @@
 import calendar
+import os
 import uuid
 from datetime import datetime, timedelta
 
@@ -6,6 +7,8 @@ from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
 from odoo.addons.spp_oauth.tools import calculate_signature
+
+TOKEN_EXPIRATION_MIN = os.environ.get("SPP_BASE_GIS_TOKEN_EXP_MIN", 10)
 
 
 class GisApiClientCredential(models.Model):
@@ -65,14 +68,12 @@ class GisApiClientCredential(models.Model):
         ),
     ]
 
-    TOKEN_EXPIRATION_MIN = 10
-
     ALLOW_EXPORT = False
 
     @api.model
     def generate_access_token(self):
         today = datetime.today()
-        expiry_datetime = today + timedelta(minutes=self.TOKEN_EXPIRATION_MIN)
+        expiry_datetime = today + timedelta(minutes=TOKEN_EXPIRATION_MIN)
 
         header = {"alg": "RS256", "typ": "JWT"}
         payload = {

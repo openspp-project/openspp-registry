@@ -340,7 +340,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/g2p_registry_base/models/reg_relationship.py:0
 #: code:addons/g2p_registry_base/models/reg_relationship.py:0
-#: code:addons/g2p_registry_base/tests/test_reg_relationship.py:0
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__is_group
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__is_group
 #, python-format
@@ -439,7 +438,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/g2p_registry_base/models/reg_relationship.py:0
 #: code:addons/g2p_registry_base/models/reg_relationship.py:0
-#: code:addons/g2p_registry_base/tests/test_reg_relationship.py:0
 #, python-format
 msgid "Individual"
 msgstr ""

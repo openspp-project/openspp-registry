@@ -402,13 +402,6 @@ msgid "Farmer Given Name"
 msgstr ""
 
 #. module: spp_farmer_registry_base
-#. odoo-python
-#: code:addons/spp_farmer_registry_base/models/base_import.py:0
-#, python-format
-msgid "Farmer Given Name or Farmer Family Name is required"
-msgstr ""
-
-#. module: spp_farmer_registry_base
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_highest_education_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_highest_education_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_highest_education_level
@@ -871,4 +864,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__experience_years
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__experience_years
 msgid "Years of Experience"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#. odoo-python
+#: code:addons/spp_farmer_registry_base/models/base_import.py:0
+#, python-format
+msgid ""
+"farmer_given_name and farmer_family_name must be present in the excel file."
 msgstr ""

@@ -23,17 +23,12 @@
                             />
                         </h4>
                         <h2>
-                            <field
-                                name="content"
-                                filename="name"
-                                mimetype="mimetype"
-                                widget="preview_binary"
-                            />
+                            <field name="content" filename="name" mimetype="mimetype" />
                         </h2>
                     </div>
                     <group>
                         <group>
-                            <field name="name" class="oe_read_only" string="Filename" />
+                            <field name="name" readonly="1" force_save="1" />
                             <field name="mimetype" force_save="1" />
                         </group>
                         <group>

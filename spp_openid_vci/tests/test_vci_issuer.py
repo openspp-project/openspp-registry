@@ -147,7 +147,7 @@ class VCIIssuer(TransactionCase):
 
         self.assertIsNotNone(vc_qr)
         self.assertIsInstance(vc_qr, dict)
-        self.assertEqual(vc_qr.get("type"), "ir.actions.act_window")
+        self.assertEqual(vc_qr.get("type"), "ir.actions.report")
 
     def test_sign_and_issue_credential(self):
         credential_data = {

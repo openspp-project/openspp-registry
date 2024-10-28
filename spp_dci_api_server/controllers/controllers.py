@@ -9,7 +9,7 @@ from odoo.osv.expression import AND
 from odoo.service.db import list_dbs
 from odoo.tools import date_utils
 
-from odoo.addons.spp_oauth.tools import verify_and_decode_signature
+from odoo.addons.spp_oauth.tools import OpenSPPOAuthJWTException, verify_and_decode_signature
 
 from ..tools import constants
 
@@ -139,9 +139,9 @@ class SppDciApiServer(Controller):
 
         access_token = auth_header.replace("Bearer ", "").replace("\\n", "").encode("utf-8")
 
-        verified, payload = verify_and_decode_signature(access_token)
-
-        if not verified:
+        try:
+            payload = verify_and_decode_signature(access_token)
+        except OpenSPPOAuthJWTException:
             return error_wrapper(401, "Invalid Access Token.")
 
         req = request

@@ -3,7 +3,7 @@
     "author": "OpenSPP.org",
     "website": "https://github.com/OpenSPP/openspp-modules",
     "category": "OpenSPP",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.3.0",
     "depends": [
         "base",
         "calendar",
@@ -17,7 +17,7 @@
         "g2p_registry_group",
     ],
     "license": "LGPL-3",
-    "development_status": "Beta",
+    "development_status": "Production/Stable",
     "maintainers": ["jeremi", "gonzalesedwin1123"],
     "data": [
         "views/hide_menu_view.xml",

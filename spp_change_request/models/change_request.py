@@ -1032,8 +1032,9 @@ class ChangeRequestBase(models.Model):
                 # Check if user is allowed to validate request
                 if self.state not in ["draft", "rejected"] and validator_id not in stage.validation_group_id.users.ids:
                     message = _(
-                        "You are not allowed to validate this request! Stage: {}. " "Allowed Validator Group: {}"
-                    ).format(stage.stage_id.name, stage.validation_group_id.name)
+                        "You are not allowed to validate this request! Stage: %(stage)s. "
+                        "Allowed Validator Group: %(group)s",
+                    ) % {"stage": stage.stage_id.name, "group": stage.validation_group_id.name}
                     stage = None
             else:
                 message = _("Error in validation stages. No available stage to assign to this validation.")

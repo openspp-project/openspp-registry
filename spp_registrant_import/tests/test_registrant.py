@@ -110,12 +110,12 @@ class TestRegistrant(TransactionCase):
         registrant_2 = self._test_individuals[1]
         self.assertListEqual(
             [registrant_2.given_name, registrant_2.family_name, registrant_2.addl_name],
-            ["Individual", "Test", "2"],
+            ["INDIVIDUAL", "TEST", "2"],
             "Set name should set everything correctly with individual!",
         )
         self.assertListEqual(
             [registrant_1.given_name, registrant_1.family_name, registrant_1.addl_name],
-            ["Individual", "Test", "1"],
+            ["INDIVIDUAL", "TEST", "1"],
             "Set name should set everything correctly with individual!",
         )
         test_registrant = self.create_registrant({"name": "NGUYEN, NHAT"})
@@ -125,7 +125,7 @@ class TestRegistrant(TransactionCase):
                 test_registrant.family_name,
                 test_registrant.addl_name,
             ],
-            ["Nhat", "Nguyen", False],
+            ["NHAT", "NGUYEN", False],
             "Set name should set everything correctly with individual!",
         )
         test_registrant = self.create_registrant({"name": "NHAT"})
@@ -135,7 +135,7 @@ class TestRegistrant(TransactionCase):
                 test_registrant.family_name,
                 test_registrant.addl_name,
             ],
-            ["Nhat", False, False],
+            ["NHAT", False, False],
             "Set name should set everything correctly with individual!",
         )
 

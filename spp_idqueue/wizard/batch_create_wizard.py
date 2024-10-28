@@ -31,13 +31,15 @@ class OpenSPPBatchCreateWizard(models.TransientModel):
             )
 
             if len(queue_id) > 0:
+                id_types = queue_id.mapped("id_type.id")
                 templates = queue_id.mapped("idpass_id.id")
-                if len(set(templates)) > 1:
+                if len(set(templates)) > 1 or len(set(id_types)) > 1:
                     res["queue_ids"] = queue_id
                     res["state"] = "step1"
                 else:
                     res["queue_ids"] = queue_id
                     res["id_count"] = len(queue_id)
+                    res["id_type"] = id_types[0]
                     res["state"] = "step2"
             else:
                 raise UserError(_("No approved id requests selected!"))
@@ -65,13 +67,13 @@ class OpenSPPBatchCreateWizard(models.TransientModel):
         the batch creation
         """
         for rec in self:
-            if rec.queue_ids and rec.idpass_id:
-                queue_id = self.env["spp.print.queue.id"].search(
-                    [
-                        ("id", "in", rec.queue_ids.ids),
-                        ("idpass_id", "=", rec.idpass_id.id),
-                    ]
-                )
+            if rec.queue_ids and (rec.idpass_id or rec.id_type):
+                domain = [("id", "in", rec.queue_ids.ids)]
+                if rec.idpass_id:
+                    domain.append(("idpass_id", "=", rec.idpass_id.id))
+                if rec.id_type:
+                    domain.append(("id_type", "=", rec.id_type.id))
+                queue_id = self.env["spp.print.queue.id"].search(domain)
                 if queue_id:
                     rec.queue_ids = queue_id
                     rec.id_count = len(queue_id)

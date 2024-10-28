@@ -33,137 +33,12 @@
         </field>
     </record>
 
-    <record id="view_spp_dms_file_kanban" model="ir.ui.view">
-        <field name="name">view_spp_dms_file_kanban</field>
-        <field name="model">spp.dms.file</field>
-        <field name="arch" type="xml">
-            <kanban
-                js_class="file_kanban"
-                class="mk_file_kanban_view o_kanban_small_column align-content-start"
-            >
-                <field name="id" />
-                <field name="name" />
-                <field name="mimetype" />
-                <field name="icon_url" />
-                <field name="create_uid" />
-                <field name="write_date" />
-                <field name="color" />
-                <templates>
-                    <t t-name="kanban-box">
-                        <div t-attf-class="#{kanban_color(record.color.raw_value)} oe_kanban_global_click">
-                            <div class="o_dropdown_kanban dropdown">
-                                <a
-                                    class="dropdown-toggle o-no-caret btn"
-                                    href="#"
-                                    role="button"
-                                    data-toggle="dropdown"
-                                    aria-label="Dropdown menu"
-                                    title="Dropdown menu"
-                                >
-                                    <span class="fa fa-ellipsis-v" />
-                                </a>
-                                <div class="dropdown-menu" role="menu">
-                                    <div class="row">
-                                        <div class="col-6 mk_file_kanban_operations">
-                                            <h6 class="dropdown-header">
-                                                Operations
-                                            </h6>
-                                            <a
-                                                role="menuitem"
-                                                class="dropdown-item"
-                                                t-attf-href="/web/content?id=#{record.id.raw_value}&amp;field=content&amp;model=dms.file&amp;filename_field=name&amp;download=true"
-                                            >
-                                                <i class="fa fa-download" />
-                                                Download
-                                            </a>
-                                        </div>
-                                        <div class="col-6 border-left mk_file_kanban_actions">
-                                            <h6 class="dropdown-header">
-                                                Actions
-                                            </h6>
-                                            <a role="menuitem" type="open" class="dropdown-item">
-                                                <i class="fa fa-external-link" />
-                                                Open
-                                            </a>
-                                            <a role="menuitem" type="edit" class="dropdown-item">
-                                                <i class="fa fa-pencil-square-o" />
-                                                Edit
-                                            </a>
-                                            <a role="menuitem" type="delete" class="dropdown-item">
-                                                <i class="fa fa-trash-o" />
-                                                Delete
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div role="menuitem" class="col-12">
-                                            <ul class="oe_kanban_colorpicker" data-field="color" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="oe_kanban_content">
-                                <div class="o_kanban_image">
-                                    <div class="o_kanban_image_wrapper">
-                                        <a
-                                            class="o_kanban_spp_dms_file_preview"
-                                            t-att-data-id="record.id"
-                                            t-att-id="record.id.raw_value"
-                                            t-att-name="record.name.raw_value"
-                                        >
-                                            <img t-att-src="record.icon_url.raw_value" alt="Icon" />
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="o_kanban_details">
-                                    <div class="o_kanban_details_wrapper">
-                                        <div class="o_kanban_record_title o_text_overflow">
-                                            <field name="name" />
-                                        </div>
-                                        <div class="o_kanban_record_bottom">
-                                            <div class="oe_kanban_bottom_left">
-                                                <field name="write_date" widget="date" />
-                                            </div>
-                                            <div class="oe_kanban_bottom_right">
-                                                <img
-                                                    t-att-src="kanban_image('res.users', 'image_128', record.create_uid.raw_value)"
-                                                    t-att-alt="record.create_uid.value"
-                                                    class="oe_kanban_avatar"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </t>
-                </templates>
-            </kanban>
-        </field>
-    </record>
-
-    <record id="view_spp_dms_file_kanban_wizard_selection" model="ir.ui.view">
-        <field name="name">view_spp_dms_file_kanban_wizard_selection</field>
-        <field name="model">spp.dms.file</field>
-        <field name="inherit_id" ref="spp_dms.view_spp_dms_file_kanban" />
-        <field name="priority">9999</field>
-        <field name="mode">primary</field>
-        <field name="arch" type="xml">
-            <kanban position="attributes">
-                <attribute name="class">o_kanban_mobile</attribute>
-            </kanban>
-            <xpath expr="//div[hasclass('o_dropdown_kanban')]" position="replace" />
-            <xpath expr="//div[hasclass('oe_kanban_bottom_right')]" position="replace">
-                <div class="oe_kanban_bottom_right" />
-            </xpath>
-        </field>
-    </record>
-
     <record id="view_spp_dms_file_tree" model="ir.ui.view">
         <field name="name">view_spp_dms_file_tree</field>
         <field name="model">spp.dms.file</field>
         <field name="arch" type="xml">
-            <tree js_class="file_list" multi_edit="1">
+            <tree>
+                <field name="content" widget="preview_widget" />
                 <field name="name" />
                 <field name="write_date" />
                 <field name="human_size" />
@@ -193,25 +68,17 @@
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only" />
                         <h1>
-                            <field name="name" />
+                            <div class="d-inline-block me-2">
+                                <field name="content_file" widget="preview_widget" />
+                            </div>
+                            <div class="d-inline-block">
+                                <field name="name" readonly="1" force_save="1" />
+                            </div>
                         </h1>
-                        <!-- <h4>
-                            <field
-                                name="path_json"
-                                widget="path_json"
-                                options="{'prefix': True, 'suffix': False}"
-                                invisible="not name or not directory_id"
-                            />
-                        </h4> -->
                     </div>
                     <group name="content">
                         <group>
-                            <field
-                                name="content"
-                                filename="name"
-                                mimetype="mimetype"
-                                widget="preview_binary"
-                            />
+                            <field name="content" filename="name" mimetype="mimetype" />
                         </group>
                         <group>
                             <field name="extension" force_save="1" />
@@ -245,8 +112,9 @@
 
     <record id="action_spp_dms_file" model="ir.actions.act_window">
         <field name="name">Files</field>
+        <field name="type">ir.actions.act_window</field>
         <field name="res_model">spp.dms.file</field>
-        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
@@ -258,16 +126,18 @@
         </field>
     </record>
 
-    <record id="action_spp_dms_file_wizard_selector" model="ir.actions.act_window">
-        <field name="name">Files</field>
-        <field name="res_model">spp.dms.file</field>
-        <field name="target">new</field>
-        <field name="view_mode">kanban</field>
-        <field name="context">{'create': False}</field>
-        <field
-            name="view_ids"
-            eval="[(5, 0, 0),(0, 0, {'view_mode': 'kanban', 'view_id': ref('view_spp_dms_file_kanban_wizard_selection')})]"
-        />
+    <record id="action_spp_dms_file_tree" model="ir.actions.act_window.view">
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_spp_dms_file_tree" />
+        <field name="act_window_id" ref="action_spp_dms_file" />
+        <field name="sequence" eval="0" />
+    </record>
+
+    <record id="action_spp_dms_file_form" model="ir.actions.act_window.view">
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_spp_dms_file_form" />
+        <field name="act_window_id" ref="action_spp_dms_file" />
+        <field name="sequence" eval="0" />
     </record>
 
     <menuitem

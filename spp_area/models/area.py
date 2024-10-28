@@ -9,6 +9,13 @@ _logger = logging.getLogger(__name__)
 
 
 class OpenSPPArea(models.Model):
+    """
+    Represents an area in the OpenSPP system.
+
+    This model defines the structure and behavior of geographical areas,
+    including their hierarchical relationships, names, codes, and other attributes.
+    """
+
     _name = "spp.area"
     _description = "Area"
     _order = "id desc"
@@ -17,7 +24,7 @@ class OpenSPPArea(models.Model):
     _order = "parent_id,name"
 
     parent_id = fields.Many2one("spp.area", "Parent")
-    complete_name = fields.Char("Complete Name", compute="_compute_complete_name", recursive=True, translate=True)
+    complete_name = fields.Char(compute="_compute_complete_name", recursive=True, translate=True)
     name = fields.Char(translate=True, compute="_compute_name", store=True)
     draft_name = fields.Char(required=True, translate=True)
     parent_path = fields.Char(index=True)
@@ -40,7 +47,9 @@ class OpenSPPArea(models.Model):
     @api.depends("draft_name", "code")
     def _compute_name(self):
         """
-        This sets the name for area to include code
+        Compute the name for the area to include the code.
+
+        The name is set as a combination of the code (if present) and the draft name.
         """
         for rec in self:
             name = rec.draft_name or ""
@@ -52,7 +61,10 @@ class OpenSPPArea(models.Model):
 
     def _compute_get_childs(self):
         """
-        This computes the child_ids of the area
+        Compute the child areas of the current area.
+
+        This method searches for all areas that have the current area as their parent
+        and assigns them to the child_ids field.
         """
         for rec in self:
             child_ids = self.env["spp.area"].search([("parent_id", "=", rec.id)])
@@ -61,7 +73,10 @@ class OpenSPPArea(models.Model):
     @api.depends("parent_id")
     def _compute_area_level(self):
         """
-        This computes the area_level of the area
+        Compute the area level based on the parent area.
+
+        If the area has a parent, its level is set to the parent's level plus one.
+        If it doesn't have a parent, its level is set to 0.
         """
         for rec in self:
             if rec.parent_id:
@@ -71,6 +86,11 @@ class OpenSPPArea(models.Model):
 
     @api.onchange("parent_id")
     def _onchange_parent_id(self):
+        """
+        Validate the area level when the parent area changes.
+
+        Raises a ValidationError if the resulting area level would exceed 10.
+        """
         for rec in self:
             if rec.area_level > 10:
                 raise ValidationError(
@@ -88,15 +108,11 @@ class OpenSPPArea(models.Model):
     @api.depends("name", "parent_id.complete_name")
     def _compute_complete_name(self):
         """
-        This computes the complete_name of the area to include its parent name
+        Compute the complete name of the area.
+
+        The complete name includes the parent's complete name (if any) and the area's own name.
         """
         for rec in self:
-            # TODO: consider language and translation of area name. ir.translation was removed starting Odoo16
-            # cur_lang = rec._context.get("lang", False)
-            # area_name = rec.env["ir.translation"]._get_ids(
-            #    "spp.area,name", "model", cur_lang, rec.ids
-            # )
-
             if rec.id:
                 if rec.parent_id:
                     rec.complete_name = f"{rec.parent_id.complete_name} > {rec.name}"
@@ -108,10 +124,14 @@ class OpenSPPArea(models.Model):
     @api.model
     def create(self, vals):
         """
-        This overrides the create function to raise a validation error if
-        the area already exists else create then add the translation for draft_name
-        :param vals: The Values to be created.
-        :return: The Area Created.
+        Create a new area record.
+
+        This method overrides the default create method to add additional validation
+        and translation handling.
+
+        :param vals: The values for the new record.
+        :return: The newly created area record.
+        :raises ValidationError: If an area with the same name and code already exists.
         """
         area_name = self.name
         if "name" in vals:
@@ -149,10 +169,13 @@ class OpenSPPArea(models.Model):
 
     def write(self, vals):
         """
-        This overrides the write function to raise a validation error if
-        the area already exist else write
-        :param vals: The Values to be set.
-        :return: The Area Updated.
+        Update an existing area record.
+
+        This method overrides the default write method to add additional validation.
+
+        :param vals: The values to update.
+        :return: The result of the write operation.
+        :raises ValidationError: If an area with the same name and code already exists.
         """
         for rec in self:
             area_name = rec.name
@@ -174,6 +197,11 @@ class OpenSPPArea(models.Model):
                 return super().write(vals)
 
     def open_area_form(self):
+        """
+        Open the form view of the area.
+
+        :return: A dictionary containing the action to open the area form view.
+        """
         for rec in self:
             return {
                 "name": "Area",
@@ -188,6 +216,13 @@ class OpenSPPArea(models.Model):
 
 
 class OpenSPPAreaKind(models.Model):
+    """
+    Represents the type or kind of an area in the OpenSPP system.
+
+    This model defines the structure and behavior of area types, including
+    their hierarchical relationships and names.
+    """
+
     _name = "spp.area.kind"
     _description = "Area Type"
     _parent_name = "parent_id"
@@ -198,13 +233,14 @@ class OpenSPPAreaKind(models.Model):
     parent_id = fields.Many2one("spp.area.kind", "Parent")
     parent_path = fields.Char(index=True)
     name = fields.Char(required=True)
-    complete_name = fields.Char("Complete Name", compute="_compute_complete_name", recursive=True, translate=True)
+    complete_name = fields.Char(compute="_compute_complete_name", recursive=True, translate=True)
 
     @api.depends("name", "parent_id.complete_name")
     def _compute_complete_name(self):
         """
-        This computes the complete name by adding the parent complete area
-        kind name and the Area Type name
+        Compute the complete name of the area type.
+
+        The complete name includes the parent's complete name (if any) and the area type's own name.
         """
         for rec in self:
             if rec.id:
@@ -217,8 +253,12 @@ class OpenSPPAreaKind(models.Model):
 
     def unlink(self):
         """
-        This overrides the unlink function to prevent users to delete or
-        unlink default Area Types (pre-created by xml data)
+        Delete an area type record.
+
+        This method overrides the default unlink method to add additional validation.
+        It prevents the deletion of default area types and area types that are in use.
+
+        :raises ValidationError: If trying to delete a default area type or an area type in use.
         """
         for rec in self:
             external_identifier = self.env["ir.model.data"].search(
@@ -235,8 +275,12 @@ class OpenSPPAreaKind(models.Model):
 
     def write(self, vals):
         """
-        This overrides the write function to prevent users to edit
-        default Area Types (pre-created by xml data)
+        Update an existing area type record.
+
+        This method overrides the default write method to prevent editing of default area types.
+
+        :param vals: The values to update.
+        :return: The result of the write operation.
         """
         for rec in self:
             external_identifier = self.env["ir.model.data"].search(
