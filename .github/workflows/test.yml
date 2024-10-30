@@ -125,9 +125,11 @@ jobs:
           cp -r openg2p-registry/* ${ADDONS_DIR}/
           cat test-requirements.txt >> spp-test-requirements.txt
           cp -r openg2p-program/* ${ADDONS_DIR}/
-          cat test-requirements.txt >> spp-test-requirements.txt
-          # cp -r openg2p-storage/* ${ADDONS_DIR}/
+          # ----------------------------------------------------------------------------
+          # Do not add test-requirements.txt to spp-test-requirements.txt as those requirements overwrite the
+          # openspp-modules branch we are building
           # cat test-requirements.txt >> spp-test-requirements.txt
+          # ----------------------------------------------------------------------------
           # MUK Addons
           cp -r mukit-modules/* ${ADDONS_DIR}/
       - name: Add g2p-programs and odoo-test-helper to spp-test-requirements.txt

@@ -1,5 +1,7 @@
 import logging
 
+from odoo.exceptions import ValidationError
+
 from .common import AreaImportTestMixin
 
 _logger = logging.getLogger(__name__)
@@ -17,8 +19,13 @@ class AreaImportTest(AreaImportTestMixin):
         self.assertEqual(self.area_import_id.state, "Uploaded")
 
     def test_03_import_data(self):
-        self.area_import_id.import_data()
+        with self.assertRaises(ValidationError):
+            self.area_import_id.import_data()
 
+        lang = self.env["res.lang"].with_context(active_test=False).search([("iso_code", "=", "ar")])
+        lang.active = True
+
+        self.area_import_id.import_data()
         raw_data_ids = self.area_import_id.raw_data_ids
 
         self.assertEqual(len(raw_data_ids.ids), self.area_import_id.tot_rows_imported)
@@ -31,6 +38,12 @@ class AreaImportTest(AreaImportTestMixin):
 
     def test_04_validate_raw_data(self):
         # Greater than or equal to 400 rows
+        with self.assertRaises(ValidationError):
+            self.area_import_id.import_data()
+
+        lang = self.env["res.lang"].with_context(active_test=False).search([("iso_code", "=", "ar")])
+        lang.active = True
+
         self.area_import_id.import_data()
         self.area_import_id.validate_raw_data()
 
@@ -63,6 +76,11 @@ class AreaImportTest(AreaImportTestMixin):
 
     def test_05_save_to_area(self):
         # Greater than or equal to 400 rows
+        with self.assertRaises(ValidationError):
+            self.area_import_id.import_data()
+        lang = self.env["res.lang"].with_context(active_test=False).search([("iso_code", "=", "ar")])
+        lang.active = True
+
         self.area_import_id.import_data()
         self.area_import_id.save_to_area()
 

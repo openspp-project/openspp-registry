@@ -212,6 +212,32 @@ class OpenSPPAreaImport(models.Model):
             raise ValidationError(_("ERROR: {}").format(e)) from e
         return open_workbook(file_contents=inputx.getvalue())
 
+    def check_all_languages_activated(self, columns, area_level):
+        """Check if all languages in the specified columns are activated.
+
+        Args:
+            columns (list): The list of column names to check.
+            area_level (int): The administrative area level to check within the column names.
+
+        Raises:
+            ValidationError: If any language is not active.
+        """
+        self.ensure_one()
+        prefix = f"ADM{area_level}_"
+        active_langs = self.env["res.lang"].search([("active", "=", True)]).mapped("iso_code")
+
+        for col in columns:
+            if col.startswith(prefix):
+                lang = col.split("_", 1)[1]
+                if len(lang) == 2 and lang.lower() not in active_langs:
+                    raise ValidationError(
+                        _(
+                            "Language with ISO Code %s is not active.\n"
+                            "Please request the administrator to enable the desired language."
+                        )
+                        % lang.upper()
+                    )
+
     def import_data(self):
         self.ensure_one()
 
@@ -236,6 +262,7 @@ class OpenSPPAreaImport(models.Model):
         for area_level, sheet_name in enumerate(sheet_names):
             sheet = book.sheet_by_name(sheet_name)
             columns = sheet.row_values(0)
+            self.check_all_languages_activated(columns, area_level)
             column_indexes = self.get_column_indexes(columns, area_level)
 
             batches = math.ceil(sheet.nrows / 1000)
@@ -279,8 +306,6 @@ class OpenSPPAreaImport(models.Model):
                 "state": self.IMPORTED,
             }
         )
-
-        _logger.info("Area Masterlist Import: Completed: %s" % fields.Datetime.now())
 
     def validate_raw_data(self):
         """
