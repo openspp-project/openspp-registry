@@ -80,7 +80,7 @@ class SPPGenerateFarmerData(models.Model):
             # self._generate_sample_data(res=self)
 
         main_job = group(*jobs)
-        main_job.on_done(self.delayable(channel="root.laos_data_generator")._mark_done())
+        main_job.on_done(self.delayable()._mark_done())
         main_job.delay()
 
     def _mark_done(self):
