@@ -851,6 +851,19 @@ class ChangeRequestBase(models.Model):
         for rec in self:
             rec.request_type_ref_id._apply(rec)
 
+    def approve_cr(self):
+        """
+        Approve the change request when the user is allowed to directly apply the changes.
+
+        Usage:
+        - Call this function via XMLRPC
+        """
+        self.ensure_one()
+        # Check if user is allowed to directly approve the CR
+        if not self.env.user.has_group("spp_change_request.group_spp_change_request_external_api"):
+            ValidationError("User is not allowed to approve CRs directly.")
+        return self.request_type_ref_id._approve_cr(self)
+
     def action_cancel(self):
         """
         Get and opens the wizard form change_request_cancel_wizard to cancel the change request

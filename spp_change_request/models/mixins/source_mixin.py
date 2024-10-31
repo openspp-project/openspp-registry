@@ -111,6 +111,8 @@ class ChangeRequestSourceMixin(models.AbstractModel):
         :raise ValidationError: Exception raised when something is not valid.
         """
         self.ensure_one()
+        if self.env.context.get("skip_check_required_documents", False):
+            return
         self.check_required_documents()
 
     def action_submit(self):
@@ -330,6 +332,30 @@ class ChangeRequestSourceMixin(models.AbstractModel):
 
             else:
                 raise ValidationError(_("The request must be in validated state for changes to be applied."))
+
+    def _approve_cr(self, request):
+        """
+        Approve the change request directly.
+        """
+        self.ensure_one()
+        if request.state in ("draft", "pending", "validated"):
+            # Validate the submitted data
+            self.with_context(skip_check_required_documents=True).validate_data()
+            # Apply Changes to Live Data
+            self.update_live_data()
+            # Update CR record
+            addl_vals = {
+                "applied_by_id": self.env.user,
+                "date_applied": fields.Datetime.now(),
+                "assign_to_id": None,
+                "state": "applied",
+            }
+            request.update(addl_vals)
+            # Mark previous activity as 'done'
+            request.last_activity_id.action_done()
+            return {"success": _("The change request has been approved.")}
+        else:
+            ValidationError("The request must be in draft, pending, or validated state for changes to be applied.")
 
     def action_cancel(self):
         """
