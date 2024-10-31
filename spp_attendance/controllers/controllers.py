@@ -256,6 +256,8 @@ class SppAttendanceController(Controller):
                 }
 
                 new_attendance_list_ids = req.env["spp.attendance.list"].sudo().new(attendane_list_vals)
+                if person_id not in person_id_list:
+                    person_id_list.append(person_id)
                 if not new_attendance_list_ids.check_uniqueness():
                     if ignore_unique:
                         continue
@@ -264,8 +266,6 @@ class SppAttendanceController(Controller):
                     )
 
                 attendance_list_data.append(attendane_list_vals)
-                if person_id not in person_id_list:
-                    person_id_list.append(person_id)
 
         req.env["spp.attendance.list"].sudo().create(attendance_list_data)
 
