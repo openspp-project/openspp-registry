@@ -181,13 +181,16 @@ class SppAttendanceController(Controller):
         methods=["POST"],
         csrf=False,
     )
-    def create_attendance_list(self, **kwargs):
+    def create_attendance_list(self, ignore_unique=None, **kwargs):
         if error := self.validate_request_header_and_body():
             return error
 
         req = request
         data = req.httprequest.data or "{}"
         data = json.loads(data)
+
+        if ignore_unique:
+            ignore_unique = ignore_unique.lower() in ["true", "1", "t", "y", "yes"]
 
         if missing_required_fields := self.check_required_fields(
             data, ["records", "submitted_by", "submitted_datetime"]
@@ -254,6 +257,8 @@ class SppAttendanceController(Controller):
 
                 new_attendance_list_ids = req.env["spp.attendance.list"].sudo().new(attendane_list_vals)
                 if not new_attendance_list_ids.check_uniqueness():
+                    if ignore_unique:
+                        continue
                     return self.error_wrapper(
                         400, "An attendance record is already exists. Please check the date, time, type, location."
                     )
