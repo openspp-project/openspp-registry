@@ -22,6 +22,7 @@
         "views/config_attendance_location_view.xml",
         "views/event_data_attendance_view.xml",
         "views/registrant_view.xml",
+        "views/cycle_membership_view.xml",
     ],
     "assets": {},
     "application": True,

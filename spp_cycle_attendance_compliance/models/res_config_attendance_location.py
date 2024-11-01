@@ -10,3 +10,11 @@ class SPPResConfigAttendanceLocation(models.Model):
     description = fields.Char()
     external_id = fields.Integer(required=True)
     external_source = fields.Char(required=True)
+
+    _sql_constraints = [
+        (
+            "name",
+            "unique (name)",
+            "Name must be unique.",
+        ),
+    ]

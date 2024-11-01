@@ -10,6 +10,7 @@
                 <field name="description" />
                 <field name="external_id" />
                 <field name="external_source" />
+                <field name="set_as_default" />
             </tree>
         </field>
     </record>
@@ -20,10 +21,13 @@
         <field name="arch" type="xml">
             <form string="Attendance Type">
                 <sheet>
-                    <field name="name" />
-                    <field name="description" />
-                    <field name="external_id" />
-                    <field name="external_source" />
+                    <group>
+                        <field name="name" />
+                        <field name="description" />
+                        <field name="external_id" />
+                        <field name="external_source" />
+                        <field name="set_as_default" />
+                    </group>
                 </sheet>
             </form>
         </field>

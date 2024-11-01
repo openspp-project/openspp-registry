@@ -60,13 +60,9 @@ class G2pCycle(models.Model):
             raise UserError(f"{name} is not configured.")
         return config_param
 
-    def action_filter_beneficiaries_by_compliance_criteria(self):
-        super().action_filter_beneficiaries_by_compliance_criteria()
+    def get_attendance_records(self, registrants):
         if not self.use_attendance_criteria:
             return
-
-        domain = self._get_domain()
-        registrant_satisfied = self.env["res.partner"].sudo().search(domain)
 
         attendance_server_url = self._check_and_retrieve_config_params(
             "spp_cycle_attendance_compliance.attendance_server_url", "Attendance Server URL"
@@ -100,18 +96,14 @@ class G2pCycle(models.Model):
 
         header = {"Authorization": f"Bearer {access_token}"}
         if self.program_id.target_type == "individual":
-            data = json.dumps({"person_ids": registrant_satisfied.mapped("personal_identifier")})
+            data = json.dumps({"person_ids": registrants.mapped("personal_identifier")})
         else:
             data = json.dumps(
-                {
-                    "person_ids": registrant_satisfied.group_membership_ids.mapped("individual").mapped(
-                        "personal_identifier"
-                    )
-                }
+                {"person_ids": registrants.group_membership_ids.mapped("individual").mapped("personal_identifier")}
             )
 
         params = self.default_url_params()
-        params["limit"] = max(len(registrant_satisfied), 30)
+        params["limit"] = max(len(registrants), 30)
 
         full_attendance_compliance_url = urljoin(attendance_compliance_url, "?" + urlencode(params))
         response = requests.get(full_attendance_compliance_url, headers=header, data=data)
@@ -119,9 +111,17 @@ class G2pCycle(models.Model):
         if response.status_code != 200:
             raise UserError(f"Connection to Attendance Compliance Server Failed. Reason: {response.text}")
 
+        return response.json()
+
+    def action_filter_beneficiaries_by_compliance_criteria(self):
+        super().action_filter_beneficiaries_by_compliance_criteria()
+
+        domain = self._get_domain()
+        registrant_satisfied = self.env["res.partner"].sudo().search(domain)
+
         record_per_person = {}
         verified_person_id = []
-        records = response.json().get("records", [])
+        records = self.get_attendance_records(registrant_satisfied).get("records", [])
         for record in records:
             person_id = record.get("person_id", None)
             number_of_attendance = record.get("number_of_days_present", 0)
@@ -147,6 +147,18 @@ class G2pCycle(models.Model):
         membership_to_paused.state = "non_compliant"
         membership_to_enrolled = self.cycle_membership_ids - membership_to_paused
         membership_to_enrolled.state = "enrolled"
+
+        if self.program_id.target_type == "group":
+            for cycle_membership_id in membership_to_enrolled:
+                for cycle_membership_attendance_id in cycle_membership_id.cycle_group_membership_attendance_ids:
+                    individual_id = cycle_membership_attendance_id.individual_id
+                    person_record = record_per_person.get(individual_id.personal_identifier, {})
+                    person_number_of_days_present = person_record.get("number_of_days_present", 0)
+                    cycle_membership_attendance_id.number_of_attendance_str = str(person_number_of_days_present)
+                    if individual_id.personal_identifier in verified_person_id:
+                        cycle_membership_attendance_id.state = "included"
+                    else:
+                        cycle_membership_attendance_id.state = "not_included"
 
         message = _("Successfully applied compliance criteria.")
 

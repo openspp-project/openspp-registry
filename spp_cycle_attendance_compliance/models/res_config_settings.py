@@ -71,9 +71,7 @@ class ResConfigSettings(models.TransientModel):
 
         records = response.json().get("records", [])
         for record in records:
-            attendance_type = self.env["spp.res.config.attendance.type"].search(
-                [("external_id", "=", record.get("id"))]
-            )
+            attendance_type = self.env["spp.res.config.attendance.type"].search([("name", "=", record.get("name"))])
             if not attendance_type:
                 self.env["spp.res.config.attendance.type"].create(
                     {
@@ -88,6 +86,8 @@ class ResConfigSettings(models.TransientModel):
                     {
                         "name": record.get("name"),
                         "description": record.get("description"),
+                        "external_id": record.get("id"),
+                        "external_source": self.attendance_server_url,
                     }
                 )
 
@@ -100,7 +100,7 @@ class ResConfigSettings(models.TransientModel):
         records = response.json().get("records", [])
         for record in records:
             attendance_location = self.env["spp.res.config.attendance.location"].search(
-                [("external_id", "=", record.get("id"))]
+                [("name", "=", record.get("name"))]
             )
             if not attendance_location:
                 self.env["spp.res.config.attendance.location"].create(
@@ -116,6 +116,8 @@ class ResConfigSettings(models.TransientModel):
                     {
                         "name": record.get("name"),
                         "description": record.get("description"),
+                        "external_id": record.get("id"),
+                        "external_source": self.attendance_server_url,
                     }
                 )
 
