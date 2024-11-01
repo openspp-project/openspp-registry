@@ -1,6 +1,13 @@
 from odoo import api, fields, models
 
 
+class ResPartnerInherit(models.Model):
+    _inherit = "res.partner"
+
+    family_name = fields.Char(translate=False)
+    given_name = fields.Char(translate=False)
+
+
 class AttendanceSubscriber(models.Model):
     _name = "spp.attendance.subscriber"
     _inherits = {
@@ -15,8 +22,8 @@ class AttendanceSubscriber(models.Model):
     person_identifier = fields.Char(required=True)
 
     partner_name = fields.Char(compute="_compute_partner_name", string="Complete Name")
-    family_name = fields.Char(inverse="_inverse_partner", required=True)
-    given_name = fields.Char(inverse="_inverse_partner", required=True)
+    family_name = fields.Char(related="partner_id.family_name", inherited=True, required=True, readonly=False)
+    given_name = fields.Char(related="partner_id.given_name", inherited=True, required=True, readonly=False)
     email = fields.Char(
         related="partner_id.email", inherited=True, compute="_compute_partner", inverse="_inverse_partner", store=True
     )
@@ -45,12 +52,20 @@ class AttendanceSubscriber(models.Model):
         for vals in vals_list:
             if "partner_id" not in vals:
                 partner_name = f"{vals.get('family_name')}, {vals.get('given_name')}"
-                if partner_id := self.env["res.partner"].search([("name", "ilike", partner_name)], limit=1):
+                if partner_id := self.env["res.partner"].search(
+                    [
+                        ("family_name", "=", vals.get("family_name")),
+                        ("given_name", "=", vals.get("given_name")),
+                    ],
+                    limit=1,
+                ):
                     vals["partner_id"] = partner_id.id
                 else:
                     partner_id = self.env["res.partner"].create(
                         {
                             "name": partner_name,
+                            "family_name": vals.get("family_name"),
+                            "given_name": vals.get("given_name"),
                             "email": vals.get("email"),
                             "phone": vals.get("phone"),
                             "mobile": vals.get("mobile"),
