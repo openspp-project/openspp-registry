@@ -59,3 +59,20 @@ class G2pCycle(models.Model):
             "domain": [("cycle_id", "=", self.id)],
         }
         return action
+
+    def open_members_form(self):
+        self.ensure_one()
+
+        action = {
+            "name": _("Cycle Beneficiaries"),
+            "type": "ir.actions.act_window",
+            "res_model": "g2p.cycle.membership",
+            "context": {
+                "create": False,
+                "default_cycle_id": self.id,
+                "search_default_enrolled_state": 1,
+            },
+            "view_mode": "list,form",
+            "domain": [("cycle_id", "=", self.id)],
+        }
+        return action
