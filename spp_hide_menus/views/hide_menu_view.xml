@@ -63,9 +63,9 @@
         id="menu_spp_hide_menu"
         name="Hidden Menus"
         action="action_spp_hide_menu"
-        parent="g2p_registry_base.g2p_configuration_menu_root"
+        parent="base.menu_users"
         sequence="1000"
-        groups="g2p_registry_base.group_g2p_admin"
+        groups="base.group_no_one"
     />
 
 </odoo>
