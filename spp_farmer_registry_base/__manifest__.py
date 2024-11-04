@@ -20,6 +20,7 @@
         "g2p_registry_membership",
         "spp_base_gis",
         "spp_land_record",
+        "spp_hide_menus",
         "base_import",
     ],
     "external_dependencies": {"python": ["shapely", "geojson", "simplejson", "pyproj"]},

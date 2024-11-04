@@ -25,6 +25,7 @@
         "spp_service_points",
         "spp_custom_field",
         "spp_custom_fields_ui",
+        "spp_hide_menus",
         "spp_programs",
     ],
     "external_dependencies": {
