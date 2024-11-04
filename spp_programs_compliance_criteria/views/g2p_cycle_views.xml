@@ -24,7 +24,7 @@
                     type="object"
                     class="oe_stat_button"
                     title="Open all members form"
-                    icon="fa-users"
+                    icon="fa-list-alt"
                     name="open_all_members_form"
                 >
                     <div class="o_form_field o_stat_info">
