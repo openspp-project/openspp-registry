@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+spp_hide_menu_admin,Hide Menu Configuration Admin Access,spp_hide_menus.model_spp_hide_menu,g2p_registry_base.group_g2p_admin,1,1,1,1

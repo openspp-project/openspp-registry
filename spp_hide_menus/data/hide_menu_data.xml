@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="show_non_openspp_menu_group" model="res.groups">
+        <field name="name">Show Non-OpenSPP Menu</field>
+    </record>
+
+    <!-- Hide Calendar Menu -->
+    <record id="hide_calendar_menu" model="spp.hide.menu">
+        <field name="name" eval="ref('calendar.mail_menu_calendar')" />
+    </record>
+
+    <function model="spp.hide.menu" name="hide_menu">
+        <value eval="ref('hide_calendar_menu')" />
+    </function>
+
+
+</odoo>
