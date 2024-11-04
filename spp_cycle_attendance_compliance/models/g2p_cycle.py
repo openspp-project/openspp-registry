@@ -149,7 +149,7 @@ class G2pCycle(models.Model):
         membership_to_enrolled.state = "enrolled"
 
         if self.program_id.target_type == "group":
-            for cycle_membership_id in membership_to_enrolled:
+            for cycle_membership_id in self.cycle_membership_ids:
                 for cycle_membership_attendance_id in cycle_membership_id.cycle_group_membership_attendance_ids:
                     individual_id = cycle_membership_attendance_id.individual_id
                     person_record = record_per_person.get(individual_id.personal_identifier, {})
