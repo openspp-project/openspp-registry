@@ -1,1 +1,55 @@
-OpenSPP Cash Entitlement
+# OpenSPP Cash Entitlement
+
+This document outlines the functionality of the **OpenSPP Program Entitlement (Cash)** module. This module extends the **G2P Programs** module, providing specialized features for managing cash-based entitlements within social protection programs.
+
+## Purpose
+
+The **OpenSPP Program Entitlement (Cash)** module enables the definition, calculation, and management of cash entitlements for beneficiaries enrolled in social protection programs. It streamlines the process of determining eligibility, calculating entitlement amounts based on predefined rules, and facilitating the disbursement of funds.
+
+## Module Dependencies and Integration
+
+1. **G2P Registry: Base ([g2p_registry_base](g2p_registry_base)(LINK_TO_G2P_REGISTRY_BASE))**: This module utilizes the base registry to access and manage beneficiary data, ensuring that entitlements are linked to the correct individuals or households.
+
+2. **G2P Programs ([g2p_programs](g2p_programs)(LINK_TO_G2P_PROGRAMS))**: This module builds upon the core program management features, including program creation, cycle management, and eligibility determination. The cash entitlement module extends this functionality by adding cash-specific entitlement management capabilities.
+
+3. **OpenSPP Programs ([spp_programs](spp_programs)(LINK_TO_SPP_PROGRAMS))**:  This module provides the framework for managing both cash and in-kind entitlements. The cash entitlement module specializes in handling the complexities of cash-based distributions, integrating seamlessly with the broader entitlement management system. 
+
+4. **Queue Job ([queue_job](queue_job)(LINK_TO_QUEUE_JOB))**: To enhance performance and user experience, this module employs the queue job framework for asynchronous processing of computationally intensive tasks, such as:
+    * Calculating entitlement amounts for large numbers of beneficiaries.
+    * Generating payment batches for disbursement.
+    * Updating beneficiary records with entitlement and payment information.
+
+## Additional Functionality
+
+* **Cash Entitlement Manager Model (`g2p.program.entitlement.manager.cash`)**:
+    * Extends the generic entitlement manager model (`g2p.program.entitlement.manager`) to provide cash-specific configurations and functionalities.
+    * Allows program administrators to define flexible rules for calculating cash entitlement amounts, including:
+        * **Fixed amounts**:  Distribute a predetermined sum to all eligible beneficiaries.
+        * **Variable amounts**: Calculate entitlements dynamically based on beneficiary attributes (e.g., number of dependents, income level) using multipliers and conditions. 
+        * **Maximum amounts**: Set upper limits on entitlement amounts to ensure equitable distribution of funds.
+
+* **Entitlement Item Model (`g2p.program.entitlement.manager.cash.item`)**:
+    * Defines individual entitlement rules within a cash entitlement manager.
+    * Allows for multiple calculation rules to be combined within a single entitlement manager, providing granular control over entitlement distribution.
+
+* **Automated Entitlement Calculation**:
+    * Automates the process of calculating cash entitlements for eligible beneficiaries based on the defined rules, reducing manual effort and minimizing errors. 
+
+* **Entitlement Validation and Approval**:
+    * Provides mechanisms for reviewing and validating calculated entitlements before disbursement. 
+    * Optionally integrates with user groups and permissions to enforce approval workflows and ensure accountability.
+
+* **Fund Management**:
+    * Can integrate with accounting modules to track program funds, monitor balances, and ensure sufficient resources for disbursement.
+    * May include features to prevent overspending or to alert administrators of potential funding shortfalls.
+
+* **Payment Processing**:
+    * Facilitates the generation of payment batches for disbursing cash entitlements to beneficiaries through various channels, such as:
+        * Bank transfers
+        * Mobile money
+        * Cash pickup points
+    * Tracks payment status and provides reconciliation tools to manage disbursements effectively. 
+
+## Conclusion
+
+The **OpenSPP Program Entitlement (Cash)** module provides a specialized toolkit for managing cash-based social assistance within a broader social protection program. Its integration with other OpenSPP modules and its flexible rule-based system make it a valuable asset for organizations seeking to deliver cash transfers efficiently and transparently. 

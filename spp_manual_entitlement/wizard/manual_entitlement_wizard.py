@@ -32,9 +32,9 @@ class SPPPrepareManualEntitlementWizard(models.TransientModel):
         ],
         default="step1",
     )
-    file = fields.Binary("File")
+    file = fields.Binary()
     final_file = fields.Binary()
-    filename = fields.Char("Filename")
+    filename = fields.Char()
 
     @api.onchange("file")
     def file_change(self):

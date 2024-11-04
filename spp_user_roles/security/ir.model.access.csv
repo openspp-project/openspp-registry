@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+spp_area_local_registrar,SPP Area Local Registrar Access,spp_area.model_spp_area,spp_user_roles.group_local_registrar,1,0,0,0
+spp_res_users_local_registrar,SPP Users Local Registrar Access,base.model_res_users,spp_user_roles.group_local_registrar,1,0,0,0
+spp_res_users_role_local_registrar,SPP Users Role Local Registrar Access,base_user_role.model_res_users_role,spp_user_roles.group_local_registrar,1,0,0,0
+spp_res_users_role_line_local_registrar,SPP Users Role Lines Local Registrar Access,base_user_role.model_res_users_role_line,spp_user_roles.group_local_registrar,1,0,0,0

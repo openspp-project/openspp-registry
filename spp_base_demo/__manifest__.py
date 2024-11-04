@@ -2,7 +2,7 @@
 {
     "name": "OpenSPP Base Demo",
     "category": "OpenSPP",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.3.0",
     "sequence": 1,
     "author": "OpenSPP.org",
     "website": "https://github.com/OpenSPP/openspp-modules",
@@ -12,7 +12,6 @@
     "depends": [
         "g2p_registry_base",
         "g2p_programs",
-        # "spp_helpdesk",
         "product",
         "stock",
     ],

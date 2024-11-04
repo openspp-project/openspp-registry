@@ -1,0 +1,7 @@
+<odoo>
+    <record id="group_local_registrar" model="res.groups">
+        <field name="name">Local Registrar</field>
+        <field name="category_id" ref="g2p_registry_base.openg2p_module" />
+    </record>
+
+</odoo>

@@ -184,6 +184,7 @@ class OpenSPPRegistrant(models.Model):
             data=data,
             headers=headers,
             auth=auth,
+            timeout=10,  # Adding a timeout of 10 seconds
         )
 
     def check_existing_id(self, identification_no):

@@ -2,4 +2,5 @@
 
 from . import role
 from . import user
+from . import area
 from . import res_partner

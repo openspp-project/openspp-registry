@@ -200,16 +200,17 @@ class G2PGenerateData(models.Model):
         age_group = random.choice(age_group_range)
         first_name = fake.first_name_male() if sex == "Male" else fake.first_name_female()
         different_last_name = random.randint(0, 100) < 10
+        registration_date_days = datetime.datetime.now() - datetime.datetime.strptime(registration_date, "%Y-%m-%d")
+        registration_date_days = registration_date_days.days + 1
         if age_group == "C":
             date_start = datetime.datetime.now() - relativedelta(years=17)
-            date_end = datetime.datetime.now()
+            date_end = datetime.datetime.now() - relativedelta(days=registration_date_days)
         elif age_group == "A":
             date_start = datetime.datetime.now() - relativedelta(years=65)
             date_end = datetime.datetime.now() - relativedelta(years=18)
         else:
             date_start = datetime.datetime.now() - relativedelta(years=100)
             date_end = datetime.datetime.now() - relativedelta(years=65)
-
         if different_last_name:
             last_name = fake.last_name()
 
@@ -237,7 +238,6 @@ class G2PGenerateData(models.Model):
                 ).isoformat()
 
         dob = fake.date_between_dates(date_start=date_start, date_end=date_end).isoformat()
-
         fullname = f"{first_name} {last_name}"
 
         return {

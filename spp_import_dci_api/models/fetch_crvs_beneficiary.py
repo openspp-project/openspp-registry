@@ -201,10 +201,13 @@ class CRVSLocation(models.Model):
 
             if location_path:
                 url = f"{data_source_id.url}{location_path}"
-                response = requests.get(url, timeout=constants.REQUEST_TIMEOUT)
-                if response.ok:
-                    result = response.json()
-                    self.process_location(result)
+                try:
+                    response = requests.get(url, timeout=constants.REQUEST_TIMEOUT)
+                    if response.ok:
+                        result = response.json()
+                        self.process_location(result)
+                except requests.exceptions.ConnectionError as e:
+                    _logger.error(e)
 
     def get_parent(self):
         """

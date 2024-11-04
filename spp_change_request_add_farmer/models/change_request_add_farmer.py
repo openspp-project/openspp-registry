@@ -10,7 +10,7 @@ _logger = logging.getLogger(__name__)
 
 
 class ChangeRequestTypeCustomAddFarmer(models.Model):
-    _inherit = "spp.change.request"
+    _inherit = "spp.change.request"  # Not merging classes as it might require significant refactoring.
 
     registrant_id = fields.Many2one(
         "res.partner",
@@ -85,7 +85,7 @@ class ChangeRequestAddChildren(models.Model):
     experience_years = fields.Integer(string="Years of Experience")
     formal_agricultural_training = fields.Boolean("Do you have formal training in agriculture?")
     farmer_national_id = fields.Char(string="National ID Number")
-    farmer_household_size = fields.Integer(string="Farmer Household Size")
+    farmer_household_size = fields.Integer()
     farmer_postal_address = fields.Char("Postal Address")
     marital_status = fields.Selection(
         [
@@ -94,7 +94,6 @@ class ChangeRequestAddChildren(models.Model):
             ("married", "Married"),
             ("separated", "Separated"),
         ],
-        string="Marital Status",
     )
     highest_education_level = fields.Selection(
         [

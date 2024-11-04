@@ -21,13 +21,13 @@ class SPPRegistry(models.Model):
 
     def _validate_vci_issuer(self, vci_issuer):
         if not vci_issuer:
-            raise UserError("No issuer found.")
+            raise UserError(_("No issuer found."))
 
         if not vci_issuer.auth_sub_id_type_id:
-            raise UserError("No auth sub id type found in the issuer.")
+            raise UserError(_("No auth sub id type found in the issuer."))
 
         if not vci_issuer.encryption_provider_id:
-            raise UserError("No encryption provider found in the issuer.")
+            raise UserError(_("No encryption provider found in the issuer."))
 
     def _issue_vc(self, vci_issuer):
         self.ensure_one()

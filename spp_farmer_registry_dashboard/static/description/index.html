@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils: https://docutils.sourceforge.io/" />
+<title>OpenSPP Farmer Registry Dashboard</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
+
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: gray; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic, pre.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="openspp-farmer-registry-dashboard">
+<h1 class="title">OpenSPP Farmer Registry Dashboard</h1>
+
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! This file is generated by oca-gen-addon-readme !!
+!! changes will be overwritten.                   !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! source digest: sha256:8d4f87d4deb5727a76db1919065d06de22eb367c39c1b6aa0f5dac025feafdb8
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3" src="https://img.shields.io/badge/licence-LGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OpenSPP/openspp-modules/tree/17.0/spp_farmer_registry_dashboard"><img alt="OpenSPP/openspp-modules" src="https://img.shields.io/badge/github-OpenSPP%2Fopenspp--modules-lightgray.png?logo=github" /></a></p>
+<div class="section" id="openspp-farmer-registry-dashboard-1">
+<h1>OpenSPP Farmer Registry Dashboard</h1>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>The <tt class="docutils literal">spp_farmer_registry_dashboard</tt> module provides a suite of
+interactive dashboards and reports to visualize data from the OpenSPP
+Farmer Registry. It leverages the power of data visualization to offer
+insights into key metrics and trends related to registered farmers and
+their agricultural practices.</p>
+</div>
+<div class="section" id="purpose">
+<h2>Purpose</h2>
+<p>This module aims to:</p>
+<ul class="simple">
+<li><strong>Enhance Data Exploration</strong>: Provide users with intuitive dashboards
+to easily explore and analyze farmer registry data.</li>
+<li><strong>Visualize Key Metrics</strong>: Present aggregated statistics and trends
+in a visually appealing and understandable format.</li>
+<li><strong>Support Decision-Making</strong>: Equip stakeholders with the insights
+needed to make informed decisions regarding agricultural programs and
+interventions.</li>
+</ul>
+</div>
+<div class="section" id="module-dependencies-and-integration">
+<h2>Module Dependencies and Integration</h2>
+<ul class="simple">
+<li><a class="reference external" href="spp_farmer_registry_base">spp_farmer_registry_base</a> : The
+dashboard module heavily relies on the data models and
+functionalities provided by
+<a class="reference external" href="spp_farmer_registry_base">spp_farmer_registry_base</a>. It fetches
+data about farmers, farm groups, land records, agricultural
+activities, and other relevant information from this core module.</li>
+<li><a class="reference external" href="g2p_registry_membership">g2p_registry_membership</a> : Utilizes this
+module to display data related to group memberships, such as the
+number of farmers belonging to different types of farmer groups.</li>
+<li><a class="reference external" href="spp_farmer_registry_demo">spp_farmer_registry_demo</a> : While not a
+strict dependency, the dashboard module is particularly useful when
+used in conjunction with
+<a class="reference external" href="spp_farmer_registry_demo">spp_farmer_registry_demo</a>. The demo
+data provides a rich dataset for the dashboards to visualize,
+showcasing the module’s capabilities.</li>
+<li><strong>spreadsheet_dashboard</strong>: Leverages the <tt class="docutils literal">spreadsheet_dashboard</tt>
+module to create dynamic and interactive dashboards. This dependency
+provides the framework for embedding charts and graphs directly
+within the Odoo interface.</li>
+<li><a class="reference external" href="g2p_registry_base">g2p_registry_base</a> : Indirectly depends on
+this module through its reliance on
+<a class="reference external" href="spp_farmer_registry_base">spp_farmer_registry_base</a>. The core
+registrant data structures and relationships defined in
+<a class="reference external" href="g2p_registry_base">g2p_registry_base</a> are essential for the
+dashboard’s functionality.</li>
+<li><a class="reference external" href="g2p_registry_group">g2p_registry_group</a> : Utilized indirectly to
+access and display information about different types of farmer
+groups, which are defined and managed by this module.</li>
+<li><a class="reference external" href="g2p_registry_individual">g2p_registry_individual</a> : Also
+indirectly relied upon to access and visualize data related to
+individual farmers, such as their demographic information and
+registration details.</li>
+</ul>
+</div>
+<div class="section" id="additional-functionality">
+<h2>Additional Functionality</h2>
+<p>The <tt class="docutils literal">spp_farmer_registry_dashboard</tt> module introduces the following
+key features:</p>
+<ul class="simple">
+<li><strong>Interactive Dashboards</strong>: The module provides several pre-built
+dashboards, accessible through the Odoo menu:<ul>
+<li><strong>Farmer Registry by Month</strong>: Visualizes the number of farmers
+registered each month, allowing users to track registration trends
+over time.</li>
+<li><strong>Farmer Registry by Legal Status</strong>: Displays the distribution of
+farmers based on the legal status of their farms (e.g., owned,
+leased, communal).</li>
+<li><strong>Farmer with/without Training Statistics</strong>: Presents a
+comparative view of farmers who have received formal agricultural
+training versus those who have not.</li>
+<li><strong>Sustainable Land &amp; Environmental Management Statistics</strong>:
+Visualizes data related to sustainable farming practices,
+providing insights into the adoption of environmentally friendly
+methods.</li>
+</ul>
+</li>
+<li><strong>Customizable Reports</strong>: The module includes customizable report
+templates that can be generated in various formats (e.g., PDF, XLSX).
+These reports offer more detailed breakdowns of farmer data and can
+be tailored to specific reporting requirements.</li>
+<li><strong>Data Filtering and Aggregation</strong>: The dashboards and reports offer
+filtering options, allowing users to focus on specific subsets of
+data. For instance, users can filter data by region, farm type, crop
+type, or other relevant criteria.</li>
+</ul>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion</h2>
+<p>The <tt class="docutils literal">spp_farmer_registry_dashboard</tt> module transforms raw data from
+the OpenSPP Farmer Registry into actionable insights. By providing
+intuitive dashboards and customizable reports, it empowers stakeholders
+to analyze trends, identify patterns, and make informed decisions to
+enhance the effectiveness of agricultural programs and interventions.</p>
+<p><strong>Table of contents</strong></p>
+</div>
+</div>
+<div class="section" id="bug-tracker">
+<h1>Bug Tracker</h1>
+<p>Bugs are tracked on <a class="reference external" href="https://github.com/OpenSPP/openspp-modules/issues">GitHub Issues</a>.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us to smash it by providing a detailed and welcomed
+<a class="reference external" href="https://github.com/OpenSPP/openspp-modules/issues/new?body=module:%20spp_farmer_registry_dashboard%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<p>Do not contact contributors directly about support or help with technical issues.</p>
+</div>
+<div class="section" id="credits">
+<h1>Credits</h1>
+<div class="section" id="authors">
+<h2>Authors</h2>
+<ul class="simple">
+<li>OpenSPP.org</li>
+</ul>
+</div>
+<div class="section" id="maintainers">
+<h2>Maintainers</h2>
+<p>Current maintainers:</p>
+<p><a class="reference external image-reference" href="https://github.com/jeremi"><img alt="jeremi" src="https://github.com/jeremi.png?size=40px" /></a> <a class="reference external image-reference" href="https://github.com/gonzalesedwin1123"><img alt="gonzalesedwin1123" src="https://github.com/gonzalesedwin1123.png?size=40px" /></a></p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OpenSPP/openspp-modules/tree/17.0/spp_farmer_registry_dashboard">OpenSPP/openspp-modules</a> project on GitHub.</p>
+<p>You are welcome to contribute.</p>
+</div>
+</div>
+</div>
+</body>
+</html>

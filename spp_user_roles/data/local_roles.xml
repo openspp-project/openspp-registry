@@ -16,6 +16,7 @@
                 Command.link(ref('g2p_registry_base.group_g2p_registrar')),
                 Command.link(ref('spp_idqueue.group_g2p_id_requestor')),
                 Command.link(ref('spp_api.group_user')),
+                Command.link(ref('spp_user_roles.group_local_registrar')),
             ]"
         />
     </record>

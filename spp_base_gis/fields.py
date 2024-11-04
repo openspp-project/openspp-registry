@@ -50,7 +50,7 @@ def value_to_shape(value, use_wkb=False):
 def load_geojson(value):
     result = json.loads(value)
     if not isinstance(result, dict):
-        raise ValidationError("Value should be a geojson")
+        raise ValidationError(_("Value should be a geojson"))
     return result
 
 

@@ -6,7 +6,7 @@ import werkzeug.wrappers
 from odoo.http import Controller, request, route
 from odoo.tools import date_utils
 
-from odoo.addons.spp_oauth.tools import verify_and_decode_signature
+from odoo.addons.spp_oauth.tools import OpenSPPOAuthJWTException, verify_and_decode_signature
 
 ALLOWED_LAYER_TYPE = [
     "point",
@@ -107,7 +107,12 @@ def verify_auth_header():
 
     if auth_header.startswith("Bearer "):
         access_token = auth_header.replace("Bearer ", "").replace("\\n", "").encode("utf-8")
-        verified, _ = verify_and_decode_signature(access_token)
+        try:
+            verify_and_decode_signature(access_token)
+            verified = True
+        except OpenSPPOAuthJWTException:
+            verified = False
+
     elif auth_header.startswith("Basic "):
         access_token = auth_header.replace("Basic ", "").replace("\\n", "").encode("utf-8")
         verified = verify_and_decode_token(access_token)

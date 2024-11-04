@@ -26,9 +26,9 @@ class Log(models.Model):
         ],
         required=True,
     )
-    model = fields.Char(required=True, string="Model Name")
+    model = fields.Char(required=True)
     namespace_id = fields.Many2one("spp_api.namespace", "Integration")
-    request = fields.Text(string="Request")  # full_path
+    request = fields.Text()
 
     request_id = fields.Text(string="Request ID")
     request_parameter = fields.Text()

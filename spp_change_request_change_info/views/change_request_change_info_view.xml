@@ -320,15 +320,9 @@
                                 nolabel="1"
                                 context="{'form_view_ref':'spp_change_request.view_dms_file_spp_custom_form'}"
                             >
-                                <tree js_class="file_list" multi_edit="1" create="0">
-                                    <field name="name" column_invisible="1" />
-                                    <field
-                                        name="content"
-                                        filename="name"
-                                        mimetype="mimetype"
-                                        widget="preview_binary"
-                                        string="File"
-                                    />
+                                <tree multi_edit="1" create="0">
+                                    <field name="content" widget="preview_widget" />
+                                    <field name="name" />
                                     <field name="category_id" />
                                     <field name="directory_id" />
                                     <field name="mimetype" />
@@ -579,15 +573,9 @@
                                         nolabel="1"
                                         context="{'form_view_ref':'spp_change_request.view_dms_file_spp_custom_form'}"
                                     >
-                                    <tree js_class="file_list" multi_edit="1" create="0">
-                                        <field name="name" column_invisible="1" />
-                                        <field
-                                                name="content"
-                                                filename="name"
-                                                mimetype="mimetype"
-                                                widget="preview_binary"
-                                                string="File"
-                                            />
+                                    <tree create="0">
+                                        <field name="content" widget="preview_widget" />
+                                        <field name="name" />
                                         <field name="category_id" />
                                         <field name="directory_id" />
                                         <field name="mimetype" column_invisible="1" />

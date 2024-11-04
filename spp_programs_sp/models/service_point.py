@@ -1,4 +1,4 @@
-from odoo import _, fields, models
+from odoo import fields, models
 
 
 class CustomOpenSPPServicePoint(models.Model):
@@ -9,7 +9,7 @@ class CustomOpenSPPServicePoint(models.Model):
         relation="g2p_entitlement_spp_service_point_rel",
         column1="spp_service_point_id",
         column2="g2p_entitlement_id",
-        string=_("G2P Entitlements"),
+        string="G2P Entitlements",
     )
 
     program_ids = fields.One2many(

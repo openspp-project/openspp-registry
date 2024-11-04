@@ -23,7 +23,7 @@ class SPPDMSFile(models.Model):
     _description = "DMS File"
     _order = "name asc"
 
-    name = fields.Char(required=True, index="btree")
+    name = fields.Char(required=True, index="btree", string="Filename")
     directory_id = fields.Many2one(
         comodel_name="spp.dms.directory",
         string="Directory",
@@ -57,7 +57,7 @@ class SPPDMSFile(models.Model):
 
     size = fields.Float(readonly=True)
     human_size = fields.Char(readonly=True, compute="_compute_human_size", store=True)
-    checksum = fields.Char(string="Checksum/SHA1", readonly=True, index="btree")
+    checksum = fields.Char(string="Checksum/SHA512", readonly=True, index="btree")
     content_file = fields.Binary(attachment=True, prefetch=False)
 
     category_id = fields.Many2one(
@@ -156,7 +156,7 @@ class SPPDMSFile(models.Model):
         return new_vals
 
     def _get_checksum(self, binary):
-        return hashlib.sha1(binary or b"").hexdigest()
+        return hashlib.sha512(binary or b"").hexdigest()
 
     @api.depends("name", "mimetype", "content")
     def _compute_extension(self):

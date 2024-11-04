@@ -142,8 +142,8 @@ class OpenSPPAreaImport(models.Model):
         for name_header in name_headers:
             try:
                 name_indexes.update({name_header: columns.index(name_headers[name_header])})
-            except ValueError:
-                pass
+            except ValueError as e:
+                _logger.warning("Column header not found: %s", e)
         code_index = columns.index(code_header)
 
         # Get index of the Parent header of the area if area level is not 0
@@ -202,6 +202,32 @@ class OpenSPPAreaImport(models.Model):
                 }
             )
 
+    def check_all_languages_activated(self, columns, area_level):
+        """Check if all languages in the specified columns are activated.
+
+        Args:
+            columns (list): The list of column names to check.
+            area_level (int): The administrative area level to check within the column names.
+
+        Raises:
+            ValidationError: If any language is not active.
+        """
+        self.ensure_one()
+        prefix = f"ADM{area_level}_"
+        active_langs = self.env["res.lang"].search([("active", "=", True)]).mapped("iso_code")
+
+        for col in columns:
+            if col.startswith(prefix):
+                lang = col.split("_", 1)[1]
+                if len(lang) == 2 and lang.lower() not in active_langs:
+                    raise ValidationError(
+                        _(
+                            "Language with ISO Code %s is not active.\n"
+                            "Please request the administrator to enable the desired language."
+                        )
+                        % lang.upper()
+                    )
+
     def import_data(self):
         """
         The `import_data` function imports data from an Excel file, processes it, and updates the record
@@ -236,6 +262,8 @@ class OpenSPPAreaImport(models.Model):
 
                 # get column list of sheet
                 columns = sheet.row_values(0)
+
+                rec.check_all_languages_activated(columns, area_level)
 
                 column_indexes = rec.get_column_indexes(columns, area_level)
 

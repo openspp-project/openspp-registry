@@ -75,3 +75,4 @@ docs/_build/
 
 #ruff
 .ruff_cache
+.aider*

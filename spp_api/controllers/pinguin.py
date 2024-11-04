@@ -36,7 +36,7 @@ from odoo.tools.safe_eval import safe_eval
 
 # fmt: off
 from odoo.addons.spp_base_api.lib.pinguin import error_response, get_dict_from_record, get_model_for_read
-from odoo.addons.spp_oauth.tools.rsa_encode_decode import verify_and_decode_signature
+from odoo.addons.spp_oauth.tools.rsa_encode_decode import OpenSPPOAuthJWTException, verify_and_decode_signature
 
 # fmt: on
 from odoo.addons.web.controllers.main import ReportController
@@ -231,9 +231,12 @@ def get_data_from_bearer_auth_header(header):
                                               in the wrong format
     """
     normalized_token = header.replace("Bearer ", "").replace("\\n", "").encode("utf-8")
-    decoded, res = verify_and_decode_signature(normalized_token)
-    if not decoded:
-        raise werkzeug.exceptions.HTTPException(response=error_response(*CODE__no_user_auth))
+
+    try:
+        res = verify_and_decode_signature(normalized_token)
+    except OpenSPPOAuthJWTException as e:
+        raise werkzeug.exceptions.HTTPException(response=error_response(*CODE__no_user_auth)) from e
+
     if not all([key in res.keys() for key in ("database", "token")]):
         err_descrip = 'Bearer auth header payload must include "database" & "token"'
         raise werkzeug.exceptions.HTTPException(response=error_response(500, "Invalid header", err_descrip))

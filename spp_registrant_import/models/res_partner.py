@@ -40,7 +40,7 @@ class Registrant(models.Model):
         for rec in self:
             if not rec.is_registrant or rec.is_group:
                 continue
-            name = list(map(lambda i: i.capitalize(), self.name.split(", ")))
+            name = list(map(lambda i: i, self.name.split(", ")))
             if len(name) == 1:
                 rec.given_name = name[0]
             elif len(name) == 2:
