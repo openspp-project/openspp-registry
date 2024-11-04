@@ -14,5 +14,49 @@
         <value eval="ref('hide_calendar_menu')" />
     </function>
 
+    <!-- Hide Contacts Menu -->
+    <record id="hide_contacts_menu" model="spp.hide.menu">
+        <field name="name" eval="ref('contacts.menu_contacts')" />
+    </record>
+
+    <function model="spp.hide.menu" name="hide_menu">
+        <value eval="ref('hide_contacts_menu')" />
+    </function>
+
+    <!-- Hide Invoicing Menu -->
+    <record id="hide_invoicing_menu" model="spp.hide.menu">
+        <field name="name" eval="ref('account.menu_finance')" />
+    </record>
+
+    <function model="spp.hide.menu" name="hide_menu">
+        <value eval="ref('hide_invoicing_menu')" />
+    </function>
+
+    <!-- Hide Events Menu -->
+    <record id="hide_events_menu" model="spp.hide.menu">
+        <field name="name" eval="ref('event.event_main_menu')" />
+    </record>
+
+    <function model="spp.hide.menu" name="hide_menu">
+        <value eval="ref('hide_events_menu')" />
+    </function>
+
+    <!-- Hide Inventory Menu -->
+    <record id="hide_inventory_menu" model="spp.hide.menu">
+        <field name="name" eval="ref('stock.menu_stock_root')" />
+    </record>
+
+    <function model="spp.hide.menu" name="hide_menu">
+        <value eval="ref('hide_inventory_menu')" />
+    </function>
+
+    <!-- Hide Link Tracker Menu -->
+    <record id="hide_link_tracker_menu" model="spp.hide.menu">
+        <field name="name" eval="ref('utm.menu_link_tracker_root')" />
+    </record>
+
+    <function model="spp.hide.menu" name="hide_menu">
+        <value eval="ref('hide_link_tracker_menu')" />
+    </function>
 
 </odoo>
