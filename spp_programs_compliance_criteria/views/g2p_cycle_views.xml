@@ -18,6 +18,21 @@
                 />
                 <field name="allow_filter_compliance_criteria" invisible="1" />
             </xpath>
+
+            <xpath expr="//button[@name='open_members_form']" position="before">
+                <button
+                    type="object"
+                    class="oe_stat_button"
+                    title="Open all members form"
+                    icon="fa-users"
+                    name="open_all_members_form"
+                >
+                    <div class="o_form_field o_stat_info">
+                        <field name="all_members_count" class="o_stat_value" />
+                        <span class="o_stat_text">Enrollments</span>
+                    </div>
+                </button>
+            </xpath>
         </field>
     </record>
 
