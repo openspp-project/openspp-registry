@@ -1,13 +1,6 @@
 from odoo import api, fields, models
 
 
-class ResPartnerInherit(models.Model):
-    _inherit = "res.partner"
-
-    family_name = fields.Char(translate=False)
-    given_name = fields.Char(translate=False)
-
-
 class AttendanceSubscriber(models.Model):
     _name = "spp.attendance.subscriber"
     _inherits = {
@@ -19,7 +12,7 @@ class AttendanceSubscriber(models.Model):
     active = fields.Boolean(default=True)
     partner_id = fields.Many2one("res.partner", readonly=True)
     attendance_list_ids = fields.One2many("spp.attendance.list", "subscriber_id")
-    person_identifier = fields.Char(required=True)
+    person_identifier = fields.Char(required=True, inverse="_inverse_person_identifier", store=True)
 
     partner_name = fields.Char(compute="_compute_partner_name", string="Complete Name")
     family_name = fields.Char(related="partner_id.family_name", inherited=True, required=True, readonly=False)
@@ -47,6 +40,10 @@ class AttendanceSubscriber(models.Model):
         ),
     ]
 
+    def _inverse_person_identifier(self):
+        for record in self:
+            record.partner_id.write({"identifier": record.person_identifier})
+
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
@@ -56,6 +53,7 @@ class AttendanceSubscriber(models.Model):
                     [
                         ("family_name", "=", vals.get("family_name")),
                         ("given_name", "=", vals.get("given_name")),
+                        ("identifier", "=", vals.get("identifier")),
                     ],
                     limit=1,
                 ):
@@ -69,6 +67,7 @@ class AttendanceSubscriber(models.Model):
                             "email": vals.get("email"),
                             "phone": vals.get("phone"),
                             "mobile": vals.get("mobile"),
+                            "identifier": vals.get("person_identifier"),
                         }
                     )
                     vals["partner_id"] = partner_id.id
