@@ -57,6 +57,11 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                     invisible="state != 'draft' or inkind_entitlements_count == 0"
                 />
             </xpath>
+
+            <xpath expr="//button[@name='copy_beneficiaries_from_program']" position="attributes">
+                <attribute name="string">Copy New Beneficiaries from Program</attribute>
+                <attribute name="title">Copy New Beneficiaries from Program</attribute>
+            </xpath>
         </field>
     </record>
 
