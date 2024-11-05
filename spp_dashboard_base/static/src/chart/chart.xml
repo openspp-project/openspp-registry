@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="spp_dashboard_base.ChartComponentTemplate">
+        <style>
+            .pie-chart-container {
+                border: 2px solid #000;
+                border-radius: 10px;
+                margin-top : 2em;
+            }
+        </style>
+        <div class="container" t-att-class="props.size">
+            <div class="pie-chart-container">
+                <h3 style="text-align: center;"><t t-esc="chartTitle" /></h3>
+                <canvas id="myChart" t-ref="canvas" />
+            </div>
+        </div>
+    </t>
+</templates>
