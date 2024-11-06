@@ -263,7 +263,7 @@ class ImportAttendanceWiz(models.TransientModel):
 
     def create_or_update_subscriber(self, vals, info=None):
         if subscriber_id := self.env["spp.attendance.subscriber"].search(
-            [("family_name", "=", vals["family_name"]), ("given_name", "=", vals["given_name"])], limit=1
+            [("person_identifier", "=", vals["person_identifier"])], limit=1
         ):
             subscriber_id.write(vals)
         else:
