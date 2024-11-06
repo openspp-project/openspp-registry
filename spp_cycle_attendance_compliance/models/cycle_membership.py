@@ -20,3 +20,5 @@ class CustomG2PCycleMembership(models.Model):
     allow_filter_compliance_criteria = fields.Boolean(
         related="cycle_id.allow_filter_compliance_criteria",
     )
+
+    number_of_attendance = fields.Integer("Number of Attendance", default=0)
