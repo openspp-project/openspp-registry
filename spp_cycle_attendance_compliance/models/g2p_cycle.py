@@ -159,6 +159,11 @@ class G2pCycle(models.Model):
                         cycle_membership_attendance_id.state = "included"
                     else:
                         cycle_membership_attendance_id.state = "not_included"
+        else:
+            for cycle_membership_id in self.cycle_membership_ids:
+                person_record = record_per_person.get(cycle_membership_id.partner_id.personal_identifier, {})
+                person_number_of_days_present = person_record.get("number_of_days_present", 0)
+                cycle_membership_id.number_of_attendance = person_number_of_days_present
 
         message = _("Successfully applied compliance criteria.")
 
