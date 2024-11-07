@@ -6,4 +6,6 @@ class ResPartnerInherit(models.Model):
 
     family_name = fields.Char(translate=False)
     given_name = fields.Char(translate=False)
+    addl_name = fields.Char(translate=False, string="Additional Name")
     identifier = fields.Char()
+    gender = fields.Char()

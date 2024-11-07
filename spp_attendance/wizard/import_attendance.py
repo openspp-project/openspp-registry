@@ -220,12 +220,17 @@ class ImportAttendanceWiz(models.TransientModel):
         if phone_mapping := self.env["ir.config_parameter"].get_param("spp_attendance.phone_mapping"):
             phone_elements = phone_mapping.split(".")
 
+        gender_elements = []
+        if gender_mapping := self.env["ir.config_parameter"].get_param("spp_attendance.gender_mapping"):
+            gender_elements = gender_mapping.split(".")
+
         elements = {
             "person_identifier": person_identifier_elements,
             "family_name": family_name_elements,
             "given_name": given_name_elements,
             "email": email_elements,
             "phone": phone_elements,
+            "gender": gender_elements,
         }
 
         for info in personal_information:
@@ -250,6 +255,9 @@ class ImportAttendanceWiz(models.TransientModel):
         phone = self.element_mapper(personal_information, elements["phone"])
         self.check_data_instance(phone, "Phone", str)
 
+        gender = self.element_mapper(personal_information, elements["gender"])
+        self.check_data_instance(gender, "Gender", str)
+
         vals.update(
             {
                 "person_identifier": person_identifier,
@@ -257,6 +265,7 @@ class ImportAttendanceWiz(models.TransientModel):
                 "given_name": given_name,
                 "email": email,
                 "phone": phone,
+                "gender": gender,
             }
         )
         return vals

@@ -66,6 +66,7 @@
                                 <field name="partner_name" />
                                 <field name="family_name" />
                                 <field name="given_name" />
+                                <field name="gender" />
                                 <field name="email" />
                                 <field name="phone" />
                                 <field name="mobile" />

@@ -51,4 +51,9 @@
         <field name="key">spp_attendance.phone_mapping</field>
         <field name="value">phoneNumbers.0.phone</field>
     </record>
+
+    <record id="gender_mapping" model="ir.config_parameter">
+        <field name="key">spp_attendance.gender_mapping</field>
+        <field name="value">sex</field>
+    </record>
 </odoo>

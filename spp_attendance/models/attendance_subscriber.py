@@ -17,6 +17,7 @@ class AttendanceSubscriber(models.Model):
     partner_name = fields.Char(compute="_compute_partner_name", string="Complete Name")
     family_name = fields.Char(related="partner_id.family_name", inherited=True, required=True, readonly=False)
     given_name = fields.Char(related="partner_id.given_name", inherited=True, required=True, readonly=False)
+    addl_name = fields.Char(related="partner_id.addl_name", inherited=True, readonly=False)
     email = fields.Char(
         related="partner_id.email", inherited=True, compute="_compute_partner", inverse="_inverse_partner", store=True
     )
@@ -26,6 +27,7 @@ class AttendanceSubscriber(models.Model):
     mobile = fields.Char(
         related="partner_id.mobile", inherited=True, compute="_compute_partner", inverse="_inverse_partner", store=True
     )
+    gender = fields.Char(related="partner_id.gender", inherited=True, readonly=False)
 
     _sql_constraints = [
         (
@@ -49,6 +51,8 @@ class AttendanceSubscriber(models.Model):
         for vals in vals_list:
             if "partner_id" not in vals:
                 partner_name = f"{vals.get('family_name')}, {vals.get('given_name')}"
+                if vals.get("addl_name"):
+                    partner_name += f" {vals.get('addl_name')}"
                 if partner_id := self.env["res.partner"].search(
                     [
                         ("family_name", "=", vals.get("family_name")),
@@ -64,10 +68,12 @@ class AttendanceSubscriber(models.Model):
                             "name": partner_name,
                             "family_name": vals.get("family_name"),
                             "given_name": vals.get("given_name"),
+                            "addl_name": vals.get("given_name"),
                             "email": vals.get("email"),
                             "phone": vals.get("phone"),
                             "mobile": vals.get("mobile"),
                             "identifier": vals.get("person_identifier"),
+                            "gender": vals.get("gender"),
                         }
                     )
                     vals["partner_id"] = partner_id.id
@@ -102,6 +108,8 @@ class AttendanceSubscriber(models.Model):
         for record in self:
             if record.family_name and record.given_name:
                 record.partner_name = f"{record.family_name}, {record.given_name}"
+                if record.addl_name:
+                    record.partner_name += f" {record.addl_name}"
             else:
                 record.partner_name = ""
 
