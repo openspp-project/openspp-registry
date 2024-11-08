@@ -136,5 +136,11 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
             </xpath>
         </field>
     </record>
+    <record id="g2p_programs.view_program_list_form" model="ir.ui.view">
+        <field name="name">Default Program UI Template</field>
+    </record>
+    <record id="g2p_programs.action_program_list" model="ir.actions.act_window">
+        <field name="context">{}</field>
+    </record>
 
 </odoo>

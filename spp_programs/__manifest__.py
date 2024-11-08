@@ -39,6 +39,7 @@
     "assets": {
         "web.assets_backend": [
             "spp_programs/static/src/js/domain_field.js",
+            "spp_programs/static/src/js/custom_open_list.js",
         ],
     },
     "demo": [],
