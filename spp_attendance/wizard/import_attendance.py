@@ -265,7 +265,7 @@ class ImportAttendanceWiz(models.TransientModel):
                 "given_name": given_name,
                 "email": email,
                 "phone": phone,
-                "gender": gender,
+                "gender": gender or "Male",
             }
         )
         return vals
