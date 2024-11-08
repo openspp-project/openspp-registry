@@ -73,7 +73,7 @@ class AttendanceSubscriber(models.Model):
                             "phone": vals.get("phone"),
                             "mobile": vals.get("mobile"),
                             "identifier": vals.get("person_identifier"),
-                            "gender": vals.get("gender") or "Male",
+                            "gender": vals.get("gender", "").title() or "Male",
                         }
                     )
                     vals["partner_id"] = partner_id.id

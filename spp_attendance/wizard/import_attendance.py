@@ -257,6 +257,8 @@ class ImportAttendanceWiz(models.TransientModel):
 
         gender = self.element_mapper(personal_information, elements["gender"])
         self.check_data_instance(gender, "Gender", str)
+        if gender:
+            gender = gender.title()
 
         vals.update(
             {
