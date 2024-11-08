@@ -68,7 +68,7 @@ class AttendanceSubscriber(models.Model):
                             "name": partner_name,
                             "family_name": vals.get("family_name"),
                             "given_name": vals.get("given_name"),
-                            "addl_name": vals.get("given_name"),
+                            "addl_name": vals.get("addl_name"),
                             "email": vals.get("email"),
                             "phone": vals.get("phone"),
                             "mobile": vals.get("mobile"),
@@ -103,7 +103,7 @@ class AttendanceSubscriber(models.Model):
                     }
                 )
 
-    @api.depends("family_name", "given_name")
+    @api.depends("family_name", "given_name", "addl_name")
     def _compute_partner_name(self):
         for record in self:
             if record.family_name and record.given_name:
