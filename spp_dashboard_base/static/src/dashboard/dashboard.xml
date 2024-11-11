@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="spp_dashboard_base.dashboard_page">
+        <div class="main" style="height: 100vh; overflow-y: auto;">
+            <div class="title" name="title">
+                <center>
+                    <h1><t t-esc="dashboard_title" /></h1>
+                </center>
+            </div>
+            <div class="container dashboard-container" name="dashboard-container">
+            </div>
+        </div>
+    </t>
+</templates>
