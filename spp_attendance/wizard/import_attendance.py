@@ -230,7 +230,7 @@ class ImportAttendanceWiz(models.TransientModel):
             "given_name": given_name_elements,
             "email": email_elements,
             "phone": phone_elements,
-            "gender": gender_elements,
+            "gender_char": gender_elements,
         }
 
         for info in personal_information:
@@ -267,7 +267,7 @@ class ImportAttendanceWiz(models.TransientModel):
                 "given_name": given_name,
                 "email": email,
                 "phone": phone,
-                "gender": gender or "Male",
+                "gender_char": gender or "Male",
             }
         )
         return vals

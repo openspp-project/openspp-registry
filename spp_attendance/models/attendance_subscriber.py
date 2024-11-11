@@ -27,7 +27,9 @@ class AttendanceSubscriber(models.Model):
     mobile = fields.Char(
         related="partner_id.mobile", inherited=True, compute="_compute_partner", inverse="_inverse_partner", store=True
     )
-    gender = fields.Char(related="partner_id.gender_char", inherited=True, readonly=False, default="Male")
+    gender_char = fields.Char(
+        string="Gender", related="partner_id.gender_char", inherited=True, readonly=False, default="Male"
+    )
 
     _sql_constraints = [
         (
@@ -73,7 +75,7 @@ class AttendanceSubscriber(models.Model):
                             "phone": vals.get("phone"),
                             "mobile": vals.get("mobile"),
                             "identifier": vals.get("person_identifier"),
-                            "gender_char": vals.get("gender", "").title() or "Male",
+                            "gender_char": vals.get("gender_char", "").title() or "Male",
                         }
                     )
                     vals["partner_id"] = partner_id.id
