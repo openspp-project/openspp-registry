@@ -6,19 +6,25 @@
         <field name="model">spp.starter</field>
         <field name="arch" type="xml">
             <form>
-                <field name="state" widget="statusbar" invisible="1" />
                 <sheet>
-                    <div invisible="state != '0'">
-                        <div class="alert alert-info text-center" role="alert">
-                            <strong>1. Organization Setup</strong>
-                            &gt; 2. Registry Setup
-                            &gt; 3. Service Points
-                            &gt; 4. Cash Transfer
-                            &gt; 5. In-Kind Transfer
-                            &gt; 6. Grievance Redress Mechanism (GRM)
-                        </div>
-                        <label for="org_name" string="Organization Name" />
+                    <div class="alert alert-info text-center" role="alert">
+                        <field name="state" widget="statusbar" />
                         <br />
+                        <field
+                            name="state_spmis"
+                            widget="statusbar"
+                            invisible="state != '2' or registry_target != 'spmis'"
+                        />
+                        <field
+                            name="state_farmer"
+                            widget="statusbar"
+                            invisible="state != '2' or registry_target != 'farmer'"
+                        />
+                    </div>
+
+                    <!-- STEP 1 -->
+                    <div invisible="state != '0'">
+                        <label for="org_name" string="Organization Name:" />
                         <field
                             name="org_name"
                             nolabel="1"
@@ -26,8 +32,8 @@
                             readonly="state != '0'"
                             required="state == '0'"
                         />
-                        <label for="org_address" string="Organization's Address" />
                         <br />
+                        <label for="org_address" string="Organization's Address:" />
                         <field
                             name="org_address"
                             nolabel="1"
@@ -35,8 +41,8 @@
                             readonly="state != '0'"
                             required="state == '0'"
                         />
-                        <label for="org_phone" string="Organization's Phone Number" />
                         <br />
+                        <label for="org_phone" string="Organization's Phone Number:" />
                         <field
                             name="org_phone"
                             nolabel="1"
@@ -44,8 +50,8 @@
                             readonly="state != '0'"
                             required="state == '0'"
                         />
-                        <label for="org_currency_id" string="Select the organization's operating currency." />
                         <br />
+                        <label for="org_currency_id" string="Select the organization's operating currency:" />
                         <field
                             name="org_currency_id"
                             nolabel="1"
@@ -54,19 +60,12 @@
                             required="state == '0'"
                         />
                     </div>
+                    <!-- STEP 2 -->
                     <div invisible="state != '1'">
-                        <div class="alert alert-info text-center" role="alert">
-                            1. Organization Setup
-                            &gt; <strong>2. Registry Setup</strong>
-                            &gt; 3. Service Points
-                            &gt; 4. Cash Transfer
-                            &gt; 5. In-Kind Transfer
-                            &gt; 6. Grievance Redress Mechanism (GRM)
-                        </div>
-                        <label for="managing_target" string="Will you manage groups, individuals, or both?" />
+                        <label for="registry_target" string="WIll you manage SP-MIS or Farmer Registry?" />
                         <br />
                         <field
-                            name="managing_target"
+                            name="registry_target"
                             nolabel="1"
                             widget="radio"
                             options="{'horizontal': true}"
@@ -99,15 +98,20 @@
                             required="state == '1'"
                         />
                     </div>
-                    <div invisible="state != '2'">
-                        <div class="alert alert-info text-center" role="alert">
-                            1. Organization Setup
-                            &gt; 2. Registry Setup
-                            &gt; <strong>3. Service Points</strong>
-                            &gt; 4. Cash Transfer
-                            &gt; 5. In-Kind Transfer
-                            &gt; 6. Grievance Redress Mechanism (GRM)
-                        </div>
+                    <!-- STEP 3 SP-MIS -->
+                    <div invisible="state != '2' or registry_target != 'spmis' or state_spmis != '0'">
+                        <label for="sp_mis_demo_management" string="Will you manage Demo for SP-MIS?" />
+                        <br />
+                        <field
+                            name="sp_mis_demo_management"
+                            nolabel="1"
+                            widget="radio"
+                            options="{'horizontal': true}"
+                            readonly="0"
+                        />
+                    </div>
+                    <!-- STEP 4 SP-MIS -->
+                    <div invisible="state != '2' or registry_target != 'spmis' or state_spmis != '1'">
                         <label
                             for="service_point_management"
                             string="Do you need to manage service points?"
@@ -118,19 +122,11 @@
                             nolabel="1"
                             widget="radio"
                             options="{'horizontal': true}"
-                            readonly="state != '2'"
-                            required="state == '2'"
+                            readonly="0"
                         />
                     </div>
-                    <div invisible="state != '3'">
-                        <div class="alert alert-info text-center" role="alert">
-                            1. Organization Setup
-                            &gt; 2. Registry Setup
-                            &gt; 3. Service Points
-                            &gt; <strong>4. Cash Transfer</strong>
-                            &gt; 5. In-Kind Transfer
-                            &gt; 6. Grievance Redress Mechanism (GRM)
-                        </div>
+                    <!-- STEP 5 SP-MIS -->
+                    <div invisible="state != '2' or registry_target != 'spmis' or state_spmis != '2'">
                         <label for="cash_transfer_needed" string="Will you be conducting cash transfers?" />
                         <br />
                         <field
@@ -138,8 +134,7 @@
                             nolabel="1"
                             widget="radio"
                             options="{'horizontal': true}"
-                            readonly="state != '3'"
-                            required="state == '3'"
+                            readonly="0"
                         />
                         <br />
                         <label for="bank_details_needed" string="Do you need to capture bank details?" />
@@ -149,19 +144,11 @@
                             nolabel="1"
                             widget="radio"
                             options="{'horizontal': true}"
-                            readonly="state != '3'"
-                            required="state == '3'"
+                            readonly="0"
                         />
                     </div>
-                    <div invisible="state != '4'">
-                        <div class="alert alert-info text-center" role="alert">
-                            1. Organization Setup
-                            &gt; 2. Registry Setup
-                            &gt; 3. Service Points
-                            &gt; 4. Cash Transfer
-                            &gt; <strong>5. In-Kind Transfer</strong>
-                            &gt; 6. Grievance Redress Mechanism (GRM)
-                        </div>
+                    <!-- STEP 6 SP-MIS -->
+                    <div invisible="state != '2' or registry_target != 'spmis' or state_spmis != '3'">
                         <label
                             for="conducting_inkind_transfer"
                             string="Will you be conducting in-kind transfers?"
@@ -172,56 +159,50 @@
                             nolabel="1"
                             widget="radio"
                             options="{'horizontal': true}"
-                            readonly="state != '4'"
-                            required="state == '4'"
+                            readonly="0"
                         />
                     </div>
-                    <div invisible="state != '5'">
-                        <div class="alert alert-info text-center" role="alert">
-                            1. Organization Setup
-                            &gt; 2. Registry Setup
-                            &gt; 3. Service Points
-                            &gt; 4. Cash Transfer
-                            &gt; 5. In-Kind Transfer
-                            &gt; <strong>6. Grievance Redress Mechanism (GRM)</strong>
-                        </div>
+                    <!-- STEP 3 Farmer Registry -->
+                    <div invisible="state != '2' or registry_target != 'farmer' or state_spmis != '0'">
                         <label
-                            for="complaint_management"
-                            string="Do you require a Grievance Redress Mechanism?"
+                            for="farmer_demo_management"
+                            string="Will you manage Demo for Farmer Registry?"
                         />
                         <br />
                         <field
-                            name="complaint_management"
+                            name="farmer_demo_management"
                             nolabel="1"
                             widget="radio"
                             options="{'horizontal': true}"
-                            readonly="state != '5'"
-                            required="state == '5'"
+                            readonly="0"
                         />
                     </div>
                 </sheet>
+                <footer>
+                    <field name="is_last_step" invisible="1" />
                     <button
-                    string="Back"
-                    name="action_last_state"
-                    type="object"
-                    invisible="state == '0'"
-                    class="btn btn-secondary"
-                />
+                        string="Next"
+                        name="action_next_state"
+                        type="object"
+                        invisible="is_last_step"
+                        class="oe_highlight"
+                    />
                     <button
-                    string="Next"
-                    name="action_next_state"
-                    type="object"
-                    invisible="state == '5'"
-                    class="oe_highlight"
-                />
+                        string="Done"
+                        name="action_done"
+                        type="object"
+                        invisible="not is_last_step"
+                        class="btn btn-success"
+                    />
                     <button
-                    string="Done"
-                    name="action_done"
-                    type="object"
-                    invisible="state != '5'"
-                    class="oe_highlight"
-                />
-                    <button string="Cancel" special="cancel" class="btn btn-secondary" />
+                        string="Back"
+                        name="action_last_state"
+                        type="object"
+                        invisible="state == '0'"
+                        class="btn btn-secondary"
+                    />
+                    <button string="Cancel" special="cancel" class="btn btn-danger" />
+                </footer>
             </form>
         </field>
     </record>

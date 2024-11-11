@@ -18,33 +18,65 @@ class TestSppStarter(TransactionCase):
         )
 
     def test_01_action_last_state(self):
-        self.test_record.state = "5"
-        self.test_record.action_last_state()
-        self.assertEqual(self.test_record.state, "4")
-        self.test_record.action_last_state()
-        self.assertEqual(self.test_record.state, "3")
+        self.test_record.state = "2"
+        self.test_record.registry_target = "spmis"
+        self.test_record.state_spmis = "2"
         self.test_record.action_last_state()
         self.assertEqual(self.test_record.state, "2")
+        self.assertEqual(self.test_record.state_spmis, "1")
+
+        self.test_record.action_last_state()
+        self.assertEqual(self.test_record.state, "2")
+        self.assertEqual(self.test_record.state_spmis, "0")
+
         self.test_record.action_last_state()
         self.assertEqual(self.test_record.state, "1")
+        self.assertEqual(self.test_record.state_spmis, "0")
+
         self.test_record.action_last_state()
         self.assertEqual(self.test_record.state, "0")
+        self.assertEqual(self.test_record.state_spmis, "0")
+
+        self.test_record.state = "2"
+        self.test_record.registry_target = "farmer"
+        self.test_record.action_last_state()
+        self.assertEqual(self.test_record.state, "1")
+        self.assertEqual(self.test_record.state_spmis, "0")
+
         self.test_record.action_last_state()
         self.assertEqual(self.test_record.state, "0")
+        self.assertEqual(self.test_record.state_spmis, "0")
 
     def test_02_action_next_state(self):
+        self.test_record.registry_target = "spmis"
+
         self.test_record.action_next_state()
         self.assertEqual(self.test_record.state, "1")
+        self.assertEqual(self.test_record.state_spmis, "0")
+
         self.test_record.action_next_state()
         self.assertEqual(self.test_record.state, "2")
+        self.assertEqual(self.test_record.state_spmis, "0")
+
         self.test_record.action_next_state()
-        self.assertEqual(self.test_record.state, "3")
+        self.assertEqual(self.test_record.state, "2")
+        self.assertEqual(self.test_record.state_spmis, "1")
+
         self.test_record.action_next_state()
-        self.assertEqual(self.test_record.state, "4")
+        self.assertEqual(self.test_record.state, "2")
+        self.assertEqual(self.test_record.state_spmis, "2")
+
+        self.test_record.registry_target = "farmer"
+        self.test_record.state = "0"
+        self.test_record.state_farmer = "0"
+
         self.test_record.action_next_state()
-        self.assertEqual(self.test_record.state, "5")
+        self.assertEqual(self.test_record.state, "1")
+        self.assertEqual(self.test_record.state_farmer, "0")
+
         self.test_record.action_next_state()
-        self.assertEqual(self.test_record.state, "5")
+        self.assertEqual(self.test_record.state, "2")
+        self.assertEqual(self.test_record.state_farmer, "0")
 
     def test_03_reopen(self):
         res = self.test_record._reopen()
