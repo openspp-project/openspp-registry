@@ -33,6 +33,8 @@
         "queue_job",
         # "spp_change_request_add_children_demo",
         "spp_custom_filter",
+        "product",
+        "stock",
     ],
     "external_dependencies": {"python": ["faker"]},
     "data": [

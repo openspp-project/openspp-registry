@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-spp_generate_data_admin,Generate Data Admin Access,spp_demo.model_spp_generate_data,g2p_registry_base.group_g2p_admin,1,1,1,1
-spp_generate_program_data_admin,Generate Program Data Admin Access,spp_demo.model_spp_generate_program_data,g2p_registry_base.group_g2p_admin,1,1,1,1
