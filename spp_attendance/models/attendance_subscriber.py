@@ -14,7 +14,7 @@ class AttendanceSubscriber(models.Model):
     attendance_list_ids = fields.One2many("spp.attendance.list", "subscriber_id")
     person_identifier = fields.Char(required=True, inverse="_inverse_person_identifier", store=True)
 
-    partner_name = fields.Char(compute="_compute_partner_name", string="Complete Name")
+    partner_name = fields.Char(compute="_compute_partner_name", string="Full Name")
     family_name = fields.Char(related="partner_id.family_name", inherited=True, required=True, readonly=False)
     given_name = fields.Char(related="partner_id.given_name", inherited=True, required=True, readonly=False)
     addl_name = fields.Char(related="partner_id.addl_name", inherited=True, readonly=False)
@@ -27,7 +27,7 @@ class AttendanceSubscriber(models.Model):
     mobile = fields.Char(
         related="partner_id.mobile", inherited=True, compute="_compute_partner", inverse="_inverse_partner", store=True
     )
-    gender = fields.Char(related="partner_id.gender", inherited=True, readonly=False, default="Male")
+    gender = fields.Char(related="partner_id.gender_char", inherited=True, readonly=False, default="Male")
 
     _sql_constraints = [
         (
@@ -73,7 +73,7 @@ class AttendanceSubscriber(models.Model):
                             "phone": vals.get("phone"),
                             "mobile": vals.get("mobile"),
                             "identifier": vals.get("person_identifier"),
-                            "gender": vals.get("gender", "").title() or "Male",
+                            "gender_char": vals.get("gender", "").title() or "Male",
                         }
                     )
                     vals["partner_id"] = partner_id.id

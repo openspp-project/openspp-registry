@@ -8,4 +8,4 @@ class ResPartnerInherit(models.Model):
     given_name = fields.Char(translate=False)
     addl_name = fields.Char(translate=False, string="Additional Name")
     identifier = fields.Char()
-    gender = fields.Char(translate=False, default="Male")
+    gender_char = fields.Char(translate=False, default="Male", string="Gender")

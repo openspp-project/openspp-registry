@@ -57,7 +57,7 @@ class RegistryConfig(models.TransientModel):
         default="phoneNumbers.0.phone",
     )
     gender_mapping = fields.Char(
-        string="Phone",
+        string="Gender",
         config_parameter="spp_attendance.gender_mapping",
         default="sex",
     )
