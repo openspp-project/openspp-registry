@@ -17,6 +17,7 @@
         "g2p_registry_membership",
         "spp_service_points",
         "spp_land_record",
+        "spp_idpass",
     ],
     "excludes": [
         "spp_base",

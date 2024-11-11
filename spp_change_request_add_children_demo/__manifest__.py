@@ -17,6 +17,7 @@
         "g2p_registry_group",
         "g2p_registry_membership",
         "spp_service_points",
+        "spp_idpass",
     ],
     "excludes": [
         "spp_farmer_registry_base",
