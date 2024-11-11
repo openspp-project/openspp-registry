@@ -5,7 +5,8 @@ import pyproj
 from shapely.geometry import mapping
 from shapely.ops import transform
 
-from odoo import Command, api, fields, models
+from odoo import Command, _, api, fields, models
+from odoo.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
 
@@ -118,6 +119,8 @@ class Farm(models.Model):
         for rec in self:
             if rec.is_group:
                 head_member = rec.get_group_head_member()
+                if not head_member:
+                    raise ValidationError(_("Farm must have a head member."))
                 if head_member and head_member.id != rec.farmer_individual_id.id:
                     rec.update_group_head_member(head_member)
                     continue

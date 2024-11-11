@@ -31,9 +31,7 @@ class AgriculturalActivity(models.Model):
         ],
     )
 
-    species_id = fields.Many2one(
-        "spp.farm.species", ondelete="restrict", string="Species", domain="[('species_type', '=', activity_type)]"
-    )
+    species_id = fields.Many2one("spp.farm.species", string="Species", domain="[('species_type', '=', activity_type)]")
 
     @api.onchange("crop_farm_id")
     def _onchange_farm_id(self):

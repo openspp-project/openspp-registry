@@ -28,13 +28,12 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
             </xpath>
             <xpath expr="//button[@name='open_entitlements_form']" position="attributes">
                 <attribute name="invisible">entitlements_count == 0</attribute>
-                <attribute name="icon">fa-calculator</attribute>
             </xpath>
             <xpath expr="//button[@name='open_entitlements_form']" position="after">
                 <button
                     type="object"
                     class="oe_stat_button"
-                    icon="fa-calculator"
+                    icon="fa-folder-open-o"
                     name="open_entitlements_form"
                     invisible="inkind_entitlements_count == 0"
                 >
@@ -57,14 +56,6 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                     string="To Approve"
                     invisible="state != 'draft' or inkind_entitlements_count == 0"
                 />
-            </xpath>
-
-            <xpath expr="//button[@name='copy_beneficiaries_from_program']" position="attributes">
-                <attribute name="string">Copy New Beneficiaries from Program</attribute>
-                <attribute name="title">Copy New Beneficiaries from Program</attribute>
-            </xpath>
-            <xpath expr="//button[@name='open_payments_form']" position="attributes">
-                <attribute name="icon">fa-file-text-o</attribute>
             </xpath>
         </field>
     </record>
