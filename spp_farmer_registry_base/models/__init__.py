@@ -12,3 +12,4 @@ from . import species
 from . import farm
 from . import land_record
 from . import base_import
+from . import group_membership

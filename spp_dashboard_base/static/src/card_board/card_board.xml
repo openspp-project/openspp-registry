@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="spp_dashboard_base.CardBoardTemplate">
+        <div t-att-class="props.size" style="padding-top: 30px;">
+            <div
+                class="oh-card"
+                style="box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.2); display: flex; justify-content: center; align-items: center; height: 100px;"
+                role="button"
+            >
+                <div class="oh-card-body" style="padding: 5px; width: 100%; box-sizing: border-box;">
+                    <div
+                        class="stat-widget-one"
+                        style="display: flex; justify-content: center; align-items: center; height: 100%;"
+                    >
+                        <div class="stat_content" style="text-align: center; font-weight: bold;">
+                            <div style="font-size: 17px;">
+                                <t t-esc="props.data" />
+                            </div>
+                            <div class="stat-head" style="font-size: 14px;"><t t-esc="props.title" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
