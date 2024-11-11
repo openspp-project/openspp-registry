@@ -27,7 +27,7 @@ class AttendanceSubscriber(models.Model):
     mobile = fields.Char(
         related="partner_id.mobile", inherited=True, compute="_compute_partner", inverse="_inverse_partner", store=True
     )
-    gender = fields.Char(related="partner_id.gender", inherited=True, readonly=False)
+    gender = fields.Char(related="partner_id.gender", inherited=True, readonly=False, default="Male")
 
     _sql_constraints = [
         (
