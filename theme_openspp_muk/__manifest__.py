@@ -6,21 +6,13 @@
     "version": "17.0.1.3.0",
     "depends": [
         "base",
-        "calendar",
-        "contacts",
-        "account",
-        "event",
-        "stock",
-        "utm",
         "web",
         "muk_web_theme",
-        "g2p_registry_group",
     ],
     "license": "LGPL-3",
     "development_status": "Production/Stable",
     "maintainers": ["jeremi", "gonzalesedwin1123"],
     "data": [
-        "views/hide_menu_view.xml",
         "views/main_view.xml",
     ],
     "assets": {

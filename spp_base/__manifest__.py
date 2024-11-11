@@ -25,6 +25,7 @@
         "spp_service_points",
         "spp_custom_field",
         "spp_custom_fields_ui",
+        "spp_hide_menus",
         "spp_programs",
     ],
     "external_dependencies": {
@@ -34,7 +35,6 @@
         "security/ir.model.access.csv",
         "data/top_up_card.xml",
         "views/registrant_view.xml",
-        "views/hide_menu_view.xml",
         "views/main_view.xml",
     ],
     "assets": {},
