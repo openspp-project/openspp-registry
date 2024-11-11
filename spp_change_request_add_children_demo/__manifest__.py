@@ -10,6 +10,7 @@
     "development_status": "Beta",
     "maintainers": ["jeremi", "gonzalesedwin1123"],
     "depends": [
+        "spp_base",
         "spp_change_request",
         "g2p_registry_base",
         "g2p_registry_individual",
