@@ -100,7 +100,6 @@ msgid "Event Data"
 msgstr ""
 
 #. module: spp_event_data
-#: model:ir.model.fields,field_description:spp_event_data.field_g2p_program_membership__event_data_ids
 #: model:ir.model.fields,field_description:spp_event_data.field_res_partner__event_data_ids
 #: model:ir.model.fields,field_description:spp_event_data.field_res_users__event_data_ids
 msgid "Event Data IDs"
