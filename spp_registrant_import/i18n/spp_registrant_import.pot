@@ -41,6 +41,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_registrant_import.field_g2p_program_membership__name
 #: model:ir.model.fields,field_description:spp_registrant_import.field_res_partner__name
 #: model:ir.model.fields,field_description:spp_registrant_import.field_res_users__name
+#: model:ir.model.fields,field_description:spp_registrant_import.field_spp_attendance_subscriber__name
 msgid "Name"
 msgstr ""
 
@@ -54,6 +55,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_registrant_import.field_res_partner__spp_id
 #: model:ir.model.fields,field_description:spp_registrant_import.field_res_users__spp_id
 #: model:ir.model.fields,field_description:spp_registrant_import.field_spp_area__spp_id
+#: model:ir.model.fields,field_description:spp_registrant_import.field_spp_attendance_subscriber__spp_id
 #: model:ir.model.fields,field_description:spp_registrant_import.field_spp_service_point__spp_id
 msgid "Unique ID"
 msgstr ""
