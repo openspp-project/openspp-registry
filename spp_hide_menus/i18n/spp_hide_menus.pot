@@ -1,0 +1,106 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* spp_hide_menus
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: spp_hide_menus
+#: model_terms:ir.actions.act_window,help:spp_hide_menus.action_spp_hide_menu
+msgid ""
+"Click the create button to enter the information of the Menu to be hidden."
+msgstr ""
+
+#. module: spp_hide_menus
+#: model_terms:ir.actions.act_window,help:spp_hide_menus.action_spp_hide_menu
+msgid "Create a new Hide Menu Configuration!"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:ir.model.fields,field_description:spp_hide_menus.field_spp_hide_menu__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:ir.model.fields,field_description:spp_hide_menus.field_spp_hide_menu__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:ir.model.fields,field_description:spp_hide_menus.field_spp_hide_menu__default_groups_id
+msgid "Default Groups"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:ir.model.fields,field_description:spp_hide_menus.field_spp_hide_menu__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:ir.model.fields.selection,name:spp_hide_menus.selection__spp_hide_menu__state__hide
+msgid "Hidden"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:ir.ui.menu,name:spp_hide_menus.menu_spp_hide_menu
+msgid "Hidden Menus"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model_terms:ir.ui.view,arch_db:spp_hide_menus.view_spp_hide_menu_tree
+msgid "Hide Menu"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:ir.actions.act_window,name:spp_hide_menus.action_spp_hide_menu
+#: model:ir.model,name:spp_hide_menus.model_spp_hide_menu
+msgid "Hide Menu Configuration"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:ir.model.fields,field_description:spp_hide_menus.field_spp_hide_menu__id
+msgid "ID"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:ir.model.fields,field_description:spp_hide_menus.field_spp_hide_menu__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:ir.model.fields,field_description:spp_hide_menus.field_spp_hide_menu__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:ir.model.fields,field_description:spp_hide_menus.field_spp_hide_menu__name
+msgid "Name"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:ir.model.fields.selection,name:spp_hide_menus.selection__spp_hide_menu__state__show
+msgid "Show"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model_terms:ir.ui.view,arch_db:spp_hide_menus.view_spp_hide_menu_tree
+msgid "Show Menu"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:res.groups,name:spp_hide_menus.show_non_openspp_menu_group
+msgid "Show Non-OpenSPP Menu"
+msgstr ""
+
+#. module: spp_hide_menus
+#: model:ir.model.fields,field_description:spp_hide_menus.field_spp_hide_menu__state
+msgid "State"
+msgstr ""
