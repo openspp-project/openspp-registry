@@ -557,12 +557,12 @@ msgstr ""
 #. module: spp_api
 #: model:ir.model.fields,field_description:spp_api.field_spp_api_field__model_id
 #: model:ir.model.fields,field_description:spp_api.field_spp_api_field_alias__model_id
+#: model:ir.model.fields,field_description:spp_api.field_spp_api_log__model
 #: model:ir.model.fields,field_description:spp_api.field_spp_api_path__model_id
 msgid "Model"
 msgstr ""
 
 #. module: spp_api
-#: model:ir.model.fields,field_description:spp_api.field_spp_api_log__model
 #: model:ir.model.fields,field_description:spp_api.field_spp_api_path__model
 msgid "Model Name"
 msgstr ""

@@ -98,6 +98,7 @@ addon | summary
 [spp_user_roles](spp_user_roles/) | Enhances user role management with local roles and area-based access control for improved data security and granularity in OpenSPP.
 [theme_openspp_muk](theme_openspp_muk/) | OpenSPP Theme (Muk Theme)
 
+
 [//]: # (end addons)
 
 <!-- prettier-ignore-end -->

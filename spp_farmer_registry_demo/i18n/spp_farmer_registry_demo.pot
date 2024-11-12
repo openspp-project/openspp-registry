@@ -21,10 +21,8 @@ msgid ""
 msgstr ""
 
 #. module: spp_farmer_registry_demo
-#. odoo-python
-#: code:addons/spp_farmer_registry_demo/models/farm.py:0
-#, python-format
-msgid "A group or individual must be specified for this member."
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_generate_farmer_data_form
+msgid "<span>Warning: Operation in progress: </span>"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
@@ -35,16 +33,6 @@ msgstr ""
 #. module: spp_farmer_registry_demo
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_asset__active_volume
 msgid "Active Volume"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Additional Name"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Address Coordinates"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
@@ -97,11 +85,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_apriary
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_apriary
 msgid "Apriary"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Aquaculture"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
@@ -225,6 +208,7 @@ msgstr ""
 
 #. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__res_partner__highest_education_level__certificate
+#: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farmer__farmer_highest_education_level__certificate
 msgid "Certificate"
 msgstr ""
 
@@ -323,11 +307,6 @@ msgid "Created on"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Crop Agriculture"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_crop_rotation
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_crop_rotation
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_crop_rotation
@@ -349,11 +328,6 @@ msgid "Cut-off drains"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Date of Birth"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_deep_ripping
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_deep_ripping
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_deep_ripping
@@ -363,6 +337,7 @@ msgstr ""
 
 #. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__res_partner__highest_education_level__diploma
+#: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farmer__farmer_highest_education_level__diploma
 msgid "Diploma"
 msgstr ""
 
@@ -390,11 +365,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__another_farm
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__another_farm
 msgid "Do you have another farm?"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Do you have formal training in agriculture?"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
@@ -502,11 +472,6 @@ msgstr ""
 
 #. module: spp_farmer_registry_demo
 #: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "End date"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
 msgid "Enterprises"
 msgstr ""
 
@@ -550,11 +515,6 @@ msgid "Family"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Family Name"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farm_details__farm_technology_labor_source__family_members
 msgid "Family members"
 msgstr ""
@@ -566,18 +526,15 @@ msgstr ""
 
 #. module: spp_farmer_registry_demo
 #: model:ir.model,name:spp_farmer_registry_demo.model_spp_farm_details
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
 msgid "Farm Details"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Farm Land"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Farmer"
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farmer_highest_education_level
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farmer_highest_education_level
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farmer_highest_education_level
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farmer__farmer_highest_education_level
+msgid "Farmer Highest Educational Level"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
@@ -719,11 +676,6 @@ msgid "Generated"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Given Name"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_grass_strips
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_grass_strips
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_grass_strips
@@ -755,11 +707,6 @@ msgstr ""
 #. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farm_details__farm_technology_power_source__grid_electricity
 msgid "Grid electricity"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model:ir.model,name:spp_farmer_registry_demo.model_g2p_group_membership
-msgid "Group Membership"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
@@ -844,7 +791,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__household_size
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__household_size
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__household_size
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
 msgid "Household Size"
 msgstr ""
 
@@ -967,11 +913,6 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Livestock"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_activity__livestock_production_system
 msgid "Livestock Production system"
 msgstr ""
@@ -1002,6 +943,16 @@ msgstr ""
 #. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farm_details__land_water_management_irrigation_source__locality_water_supply
 msgid "Locality water supply"
+msgstr ""
+
+#. module: spp_farmer_registry_demo
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_generate_farmer_data__locked
+msgid "Locked"
+msgstr ""
+
+#. module: spp_farmer_registry_demo
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_generate_farmer_data__locked_reason
+msgid "Locked Reason"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
@@ -1039,7 +990,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__marital_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__marital_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__marital_status
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
 msgid "Marital Status"
 msgstr ""
 
@@ -1061,16 +1011,6 @@ msgstr ""
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__res_partner__marital_status__married_polygamous
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farmer__farmer_marital_status__married_polygamous
 msgid "Married Polygamous"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Member Name"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Members"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
@@ -1196,6 +1136,7 @@ msgstr ""
 
 #. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__res_partner__highest_education_level__none
+#: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farmer__farmer_highest_education_level__none
 msgid "None"
 msgstr ""
 
@@ -1227,16 +1168,6 @@ msgstr ""
 #. module: spp_farmer_registry_demo
 #: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_generate_farmer_data_form
 msgid "Number of groups..."
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Open Form"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Open Member Form"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
@@ -1293,16 +1224,6 @@ msgid "Permanent Hired Help"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_individual_form
-msgid "Personal Info"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_individual_form
-msgid "Phone Numbers"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farm_activity__cultivation_production_system__plantation
 msgid "Plantation"
 msgstr ""
@@ -1314,6 +1235,7 @@ msgstr ""
 
 #. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__res_partner__highest_education_level__primary
+#: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farmer__farmer_highest_education_level__primary
 msgid "Primary"
 msgstr ""
 
@@ -1338,11 +1260,6 @@ msgstr ""
 #. module: spp_farmer_registry_demo
 #: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
 msgid "Production System"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Production Systems"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
@@ -1402,6 +1319,16 @@ msgid "Recirculating Aquaculture Systems"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_generate_farmer_data_form
+msgid "Refresh"
+msgstr ""
+
+#. module: spp_farmer_registry_demo
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_generate_farmer_data_form
+msgid "Refresh Page"
+msgstr ""
+
+#. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farm_details__financial_services_main_source_of_information_on_good_agricultu__relatives
 msgid "Relatives"
 msgstr ""
@@ -1414,11 +1341,6 @@ msgstr ""
 #. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farm_details__land_water_management_irrigation_source__road_runoff
 msgid "Road runoff"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Role"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
@@ -1454,6 +1376,7 @@ msgstr ""
 
 #. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__res_partner__highest_education_level__secondary
+#: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farmer__farmer_highest_education_level__secondary
 msgid "Secondary"
 msgstr ""
 
@@ -1483,12 +1406,6 @@ msgstr ""
 #. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farm_details__aquaculture_production_level__semi-intensive
 msgid "Semi-intensive"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_individual_form
-msgid "Sex"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
@@ -1551,11 +1468,6 @@ msgid "Tanks"
 msgstr ""
 
 #. module: spp_farmer_registry_demo
-#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_demo.view_farm_groups_form
-msgid "Technology and Assets"
-msgstr ""
-
-#. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farm_details__financial_services_main_source_of_information_on_good_agricultu__television
 msgid "Television"
 msgstr ""
@@ -1580,6 +1492,7 @@ msgstr ""
 
 #. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__res_partner__highest_education_level__tertiary
+#: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farmer__farmer_highest_education_level__tertiary
 msgid "Tertiary"
 msgstr ""
 
@@ -1646,6 +1559,7 @@ msgstr ""
 
 #. module: spp_farmer_registry_demo
 #: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__res_partner__highest_education_level__university
+#: model:ir.model.fields.selection,name:spp_farmer_registry_demo.selection__spp_farmer__farmer_highest_education_level__university
 msgid "University"
 msgstr ""
 

@@ -59,6 +59,10 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                 />
             </xpath>
 
+            <xpath expr="//button[@name='copy_beneficiaries_from_program']" position="attributes">
+                <attribute name="string">Copy New Beneficiaries from Program</attribute>
+                <attribute name="title">Copy New Beneficiaries from Program</attribute>
+            </xpath>
             <xpath expr="//button[@name='open_payments_form']" position="attributes">
                 <attribute name="icon">fa-file-text-o</attribute>
             </xpath>

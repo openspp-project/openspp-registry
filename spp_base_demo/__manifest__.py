@@ -10,15 +10,11 @@
     "development_status": "Beta",
     "maintainers": ["jeremi", "gonzalesedwin1123", "reichie020212"],
     "depends": [
-        "g2p_registry_base",
-        "g2p_programs",
-        "product",
-        "stock",
+        "g2p_registry_individual",
     ],
     "data": [
         "data/users_data.xml",
         "data/gender_data.xml",
-        "data/product_data.xml",
     ],
     "assets": {},
     "demo": [],

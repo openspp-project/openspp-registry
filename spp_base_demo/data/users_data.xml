@@ -10,46 +10,6 @@
         />
         </record>
 
-        <record id="demo_access_program_manager" model="res.users">
-            <field name="name">program manager</field>
-            <field name="login">program_manager</field>
-            <field name="password">demo</field>
-            <field
-            name="groups_id"
-            eval="[(6, 0, [ref('base.group_user'), ref('g2p_programs.g2p_program_manager')])]"
-        />
-        </record>
-
-        <record id="demo_access_program_validator" model="res.users">
-            <field name="name">program validator</field>
-            <field name="login">program_validator</field>
-            <field name="password">demo</field>
-            <field
-            name="groups_id"
-            eval="[(6, 0, [ref('base.group_user'), ref('g2p_programs.g2p_program_validator')])]"
-        />
-        </record>
-
-        <record id="demo_access_finance_validator" model="res.users">
-            <field name="name">finance validator</field>
-            <field name="login">finance_validator</field>
-            <field name="password">demo</field>
-            <field
-            name="groups_id"
-            eval="[(6, 0, [ref('base.group_user'), ref('g2p_programs.g2p_finance_validator')])]"
-        />
-        </record>
-
-        <!--<record id="demo_access_support_person" model="res.users">
-            <field name="name">support person</field>
-            <field name="login">support_person</field>
-            <field name="password">demo</field>
-            <field
-            name="groups_id"
-            eval="[(6, 0, [ref('base.group_user'), ref('spp_helpdesk.spp_support_person')])]"
-        />
-        </record>-->
-
          <record id="demo_access_support_admin" model="res.users">
             <field name="name">OpenSPP Admin</field>
             <field name="login">sppadmin</field>

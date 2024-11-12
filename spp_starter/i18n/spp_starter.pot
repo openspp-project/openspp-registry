@@ -14,72 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: spp_starter
-#: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
-msgid ""
-"1. Organization Setup\n"
-"                            &gt; 2. Registry Setup\n"
-"                            &gt; 3. Service Points\n"
-"                            &gt; 4. Cash Transfer\n"
-"                            &gt; 5. In-Kind Transfer\n"
-"                            &gt; <strong>6. Grievance Redress Mechanism (GRM)</strong>"
-msgstr ""
-
-#. module: spp_starter
-#: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
-msgid ""
-"1. Organization Setup\n"
-"                            &gt; 2. Registry Setup\n"
-"                            &gt; 3. Service Points\n"
-"                            &gt; 4. Cash Transfer\n"
-"                            &gt; <strong>5. In-Kind Transfer</strong>\n"
-"                            &gt; 6. Grievance Redress Mechanism (GRM)"
-msgstr ""
-
-#. module: spp_starter
-#: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
-msgid ""
-"1. Organization Setup\n"
-"                            &gt; 2. Registry Setup\n"
-"                            &gt; 3. Service Points\n"
-"                            &gt; <strong>4. Cash Transfer</strong>\n"
-"                            &gt; 5. In-Kind Transfer\n"
-"                            &gt; 6. Grievance Redress Mechanism (GRM)"
-msgstr ""
-
-#. module: spp_starter
-#: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
-msgid ""
-"1. Organization Setup\n"
-"                            &gt; 2. Registry Setup\n"
-"                            &gt; <strong>3. Service Points</strong>\n"
-"                            &gt; 4. Cash Transfer\n"
-"                            &gt; 5. In-Kind Transfer\n"
-"                            &gt; 6. Grievance Redress Mechanism (GRM)"
-msgstr ""
-
-#. module: spp_starter
-#: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
-msgid ""
-"1. Organization Setup\n"
-"                            &gt; <strong>2. Registry Setup</strong>\n"
-"                            &gt; 3. Service Points\n"
-"                            &gt; 4. Cash Transfer\n"
-"                            &gt; 5. In-Kind Transfer\n"
-"                            &gt; 6. Grievance Redress Mechanism (GRM)"
-msgstr ""
-
-#. module: spp_starter
-#: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
-msgid ""
-"<strong>1. Organization Setup</strong>\n"
-"                            &gt; 2. Registry Setup\n"
-"                            &gt; 3. Service Points\n"
-"                            &gt; 4. Cash Transfer\n"
-"                            &gt; 5. In-Kind Transfer\n"
-"                            &gt; 6. Grievance Redress Mechanism (GRM)"
-msgstr ""
-
-#. module: spp_starter
 #: model:ir.ui.menu,name:spp_starter.spp_starter_menu
 msgid "Apps"
 msgstr ""
@@ -95,17 +29,12 @@ msgid "Bank Details Needed"
 msgstr ""
 
 #. module: spp_starter
-#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__managing_target__both
-msgid "Both"
-msgstr ""
-
-#. module: spp_starter
 #: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
 msgid "Cancel"
 msgstr ""
 
 #. module: spp_starter
-#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__state__3
+#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__state_spmis__2
 msgid "Cash Transfer"
 msgstr ""
 
@@ -115,8 +44,8 @@ msgid "Cash Transfer Needed"
 msgstr ""
 
 #. module: spp_starter
-#: model:ir.model.fields,field_description:spp_starter.field_spp_starter__complaint_management
-msgid "Complaint Management"
+#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__state__2
+msgid "Chosen Registry Setup"
 msgstr ""
 
 #. module: spp_starter
@@ -151,11 +80,6 @@ msgstr ""
 
 #. module: spp_starter
 #: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
-msgid "Do you require a Grievance Redress Mechanism?"
-msgstr ""
-
-#. module: spp_starter
-#: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
 msgid "Done"
 msgstr ""
 
@@ -175,6 +99,17 @@ msgid "Enter your organization name."
 msgstr ""
 
 #. module: spp_starter
+#: model:ir.model.fields,field_description:spp_starter.field_spp_starter__farmer_demo_management
+msgid "Farmer Demo Management"
+msgstr ""
+
+#. module: spp_starter
+#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__registry_target__farmer
+#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__state_farmer__0
+msgid "Farmer Registry"
+msgstr ""
+
+#. module: spp_starter
 #: model:ir.model.fields,help:spp_starter.field_spp_starter__org_phone
 msgid "For contact and possibly for integrations like SMS alerts."
 msgstr ""
@@ -182,16 +117,6 @@ msgstr ""
 #. module: spp_starter
 #: model:ir.model.fields,help:spp_starter.field_spp_starter__org_address
 msgid "For record-keeping and location-based features."
-msgstr ""
-
-#. module: spp_starter
-#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__state__5
-msgid "Grievance Redress Mechanism"
-msgstr ""
-
-#. module: spp_starter
-#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__managing_target__group
-msgid "Group"
 msgstr ""
 
 #. module: spp_starter
@@ -210,13 +135,13 @@ msgid "Identify the company for record-keeping and customization."
 msgstr ""
 
 #. module: spp_starter
-#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__state__4
+#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__state_spmis__3
 msgid "In-Kind Transfer"
 msgstr ""
 
 #. module: spp_starter
-#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__managing_target__individual
-msgid "Individual"
+#: model:ir.model.fields,field_description:spp_starter.field_spp_starter__is_last_step
+msgid "Is Last Step"
 msgstr ""
 
 #. module: spp_starter
@@ -240,11 +165,6 @@ msgid "Location Assignment"
 msgstr ""
 
 #. module: spp_starter
-#: model:ir.model.fields,field_description:spp_starter.field_spp_starter__managing_target
-msgid "Managing Target"
-msgstr ""
-
-#. module: spp_starter
 #: model:ir.model,name:spp_starter.model_ir_ui_menu
 msgid "Menu"
 msgstr ""
@@ -257,11 +177,12 @@ msgstr ""
 #. module: spp_starter
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__bank_details_needed__no
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__cash_transfer_needed__no
-#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__complaint_management__no
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__conducting_inkind_transfer__no
+#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__farmer_demo_management__no
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__id_management__no
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__location_assignment__no
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__service_point_management__no
+#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__sp_mis_demo_management__no
 msgid "No"
 msgstr ""
 
@@ -286,28 +207,39 @@ msgid "Org Phone"
 msgstr ""
 
 #. module: spp_starter
+#: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
+msgid "Organization Name:"
+msgstr ""
+
+#. module: spp_starter
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__state__0
-msgid "Organization"
+msgid "Organization Setup"
 msgstr ""
 
 #. module: spp_starter
 #: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
-msgid "Organization Name"
+msgid "Organization's Address:"
 msgstr ""
 
 #. module: spp_starter
 #: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
-msgid "Organization's Address"
-msgstr ""
-
-#. module: spp_starter
-#: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
-msgid "Organization's Phone Number"
+msgid "Organization's Phone Number:"
 msgstr ""
 
 #. module: spp_starter
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__state__1
-msgid "Registry"
+msgid "Registry Setup"
+msgstr ""
+
+#. module: spp_starter
+#: model:ir.model.fields,field_description:spp_starter.field_spp_starter__registry_target
+msgid "Registry Target"
+msgstr ""
+
+#. module: spp_starter
+#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__registry_target__spmis
+#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__state_spmis__0
+msgid "SP-MIS"
 msgstr ""
 
 #. module: spp_starter
@@ -317,7 +249,7 @@ msgstr ""
 
 #. module: spp_starter
 #: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
-msgid "Select the organization's operating currency."
+msgid "Select the organization's operating currency:"
 msgstr ""
 
 #. module: spp_starter
@@ -326,8 +258,13 @@ msgid "Service Point Management"
 msgstr ""
 
 #. module: spp_starter
-#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__state__2
+#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__state_spmis__1
 msgid "Service Points"
+msgstr ""
+
+#. module: spp_starter
+#: model:ir.model.fields,field_description:spp_starter.field_spp_starter__sp_mis_demo_management
+msgid "Sp Mis Demo Management"
 msgstr ""
 
 #. module: spp_starter
@@ -336,17 +273,22 @@ msgid "State"
 msgstr ""
 
 #. module: spp_starter
+#: model:ir.model.fields,field_description:spp_starter.field_spp_starter__state_farmer
+msgid "State Farmer"
+msgstr ""
+
+#. module: spp_starter
+#: model:ir.model.fields,field_description:spp_starter.field_spp_starter__state_spmis
+msgid "State Spmis"
+msgstr ""
+
+#. module: spp_starter
 #: model:ir.model.fields,help:spp_starter.field_spp_starter__bank_details_needed
 msgid "To add functionality for storing financial information."
 msgstr ""
 
 #. module: spp_starter
-#: model:ir.model.fields,help:spp_starter.field_spp_starter__complaint_management
-msgid "To add modules for complaint management if needed."
-msgstr ""
-
-#. module: spp_starter
-#: model:ir.model.fields,help:spp_starter.field_spp_starter__managing_target
+#: model:ir.model.fields,help:spp_starter.field_spp_starter__registry_target
 msgid "To customize data models and interfaces."
 msgstr ""
 
@@ -371,6 +313,16 @@ msgid "To gauge whether additional logistics modules are needed."
 msgstr ""
 
 #. module: spp_starter
+#: model:ir.model.fields,help:spp_starter.field_spp_starter__sp_mis_demo_management
+msgid "To gauge whether demo module for SP-MIS is needed."
+msgstr ""
+
+#. module: spp_starter
+#: model:ir.model.fields,help:spp_starter.field_spp_starter__farmer_demo_management
+msgid "To gauge whether demo module for farmer registry is needed."
+msgstr ""
+
+#. module: spp_starter
 #: model:ir.model.fields,help:spp_starter.field_spp_starter__cash_transfer_needed
 msgid "To install cash transfer modules."
 msgstr ""
@@ -378,6 +330,11 @@ msgstr ""
 #. module: spp_starter
 #: model:ir.model.fields,help:spp_starter.field_spp_starter__org_currency_id
 msgid "To set the default currency for financial transactions."
+msgstr ""
+
+#. module: spp_starter
+#: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
+msgid "WIll you manage SP-MIS or Farmer Registry?"
 msgstr ""
 
 #. module: spp_starter
@@ -397,7 +354,12 @@ msgstr ""
 
 #. module: spp_starter
 #: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
-msgid "Will you manage groups, individuals, or both?"
+msgid "Will you manage Demo for Farmer Registry?"
+msgstr ""
+
+#. module: spp_starter
+#: model_terms:ir.ui.view,arch_db:spp_starter.spp_starter_view_form
+msgid "Will you manage Demo for SP-MIS?"
 msgstr ""
 
 #. module: spp_starter
@@ -408,10 +370,11 @@ msgstr ""
 #. module: spp_starter
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__bank_details_needed__yes
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__cash_transfer_needed__yes
-#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__complaint_management__yes
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__conducting_inkind_transfer__yes
+#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__farmer_demo_management__yes
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__id_management__yes
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__location_assignment__yes
 #: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__service_point_management__yes
+#: model:ir.model.fields.selection,name:spp_starter.selection__spp_starter__sp_mis_demo_management__yes
 msgid "Yes"
 msgstr ""

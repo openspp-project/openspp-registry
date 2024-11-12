@@ -160,6 +160,8 @@ msgstr ""
 
 #. module: spp_base_gis
 #: model:ir.model.fields,field_description:spp_base_gis.field_ir_ui_view__data_layer_ids
+#: model:ir.model.fields,field_description:spp_base_gis.field_website_controller_page__data_layer_ids
+#: model:ir.model.fields,field_description:spp_base_gis.field_website_page__data_layer_ids
 msgid "Data layers"
 msgstr ""
 
@@ -180,11 +182,15 @@ msgstr ""
 
 #. module: spp_base_gis
 #: model:ir.model.fields,field_description:spp_base_gis.field_ir_ui_view__default_center
+#: model:ir.model.fields,field_description:spp_base_gis.field_website_controller_page__default_center
+#: model:ir.model.fields,field_description:spp_base_gis.field_website_page__default_center
 msgid "Default map center"
 msgstr ""
 
 #. module: spp_base_gis
 #: model:ir.model.fields,field_description:spp_base_gis.field_ir_ui_view__default_zoom
+#: model:ir.model.fields,field_description:spp_base_gis.field_website_controller_page__default_zoom
+#: model:ir.model.fields,field_description:spp_base_gis.field_website_page__default_zoom
 msgid "Default map zoom"
 msgstr ""
 
@@ -339,7 +345,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/spp_base_gis/models/base.py:0
 #, python-format
-msgid "Invalid coordinates: latitude=%s, longitude=%s"
+msgid "Invalid coordinates: latitude=%(latitude)s, longitude=%(longitude)s"
 msgstr ""
 
 #. module: spp_base_gis
@@ -559,6 +565,8 @@ msgstr ""
 
 #. module: spp_base_gis
 #: model:ir.model.fields,field_description:spp_base_gis.field_ir_ui_view__raster_layer_ids
+#: model:ir.model.fields,field_description:spp_base_gis.field_website_controller_page__raster_layer_ids
+#: model:ir.model.fields,field_description:spp_base_gis.field_website_page__raster_layer_ids
 msgid "Raster layers"
 msgstr ""
 
@@ -668,12 +676,21 @@ msgid "Topo-Topographique"
 msgstr ""
 
 #. module: spp_base_gis
+#. odoo-python
+#: code:addons/spp_base_gis/fields.py:0
+#, python-format
+msgid "Value should be a geojson"
+msgstr ""
+
+#. module: spp_base_gis
 #: model:ir.model,name:spp_base_gis.model_ir_ui_view
 msgid "View"
 msgstr ""
 
 #. module: spp_base_gis
 #: model:ir.model.fields,field_description:spp_base_gis.field_ir_ui_view__type
+#: model:ir.model.fields,field_description:spp_base_gis.field_website_controller_page__type
+#: model:ir.model.fields,field_description:spp_base_gis.field_website_page__type
 msgid "View Type"
 msgstr ""
 

@@ -35,10 +35,7 @@ msgid "Entitlement"
 msgstr ""
 
 #. module: spp_programs_sp
-#. odoo-python
-#: code:addons/spp_programs_sp/models/service_point.py:0
 #: model:ir.model.fields,field_description:spp_programs_sp.field_spp_service_point__g2p_entitlement_ids
-#, python-format
 msgid "G2P Entitlements"
 msgstr ""
 

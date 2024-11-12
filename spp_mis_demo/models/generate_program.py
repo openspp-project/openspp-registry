@@ -40,10 +40,6 @@ class OpenSPPGenerateProgramData(models.Model):
         cycle_auto_approve_range = [True, False]
         cycle_duration_range = [30] * 5 + [15, 60]
 
-        ticket_name_range = ["Need to Fix", "Issue"]
-        ticket_disc_beneficiary_range = ["Name", "Address", "Birthdate", "Group Member"]
-        ticket_disc_cycle_range = ["Voucher", "Entitlement Expiration"]
-
         for i in range(0, self.num_programs):
             program_name = f"GenProgram {i+1}"
             target_type = random.choice(group_target_type_range)
@@ -202,36 +198,38 @@ class OpenSPPGenerateProgramData(models.Model):
                     _logger.debug(f"cycle_id--- {cycle_id.state}")
 
                 # # Create Helpdesk Tickets in Cycle
-                cycle_beneficiary_ids = cycle_id.get_beneficiaries(["enrolled"]).mapped("partner_id.id")
-                for beneficiary_id in cycle_beneficiary_ids:
-                    tx_name = random.choice(ticket_name_range)
-                    tx_desc = random.choice(ticket_disc_cycle_range)
-                    self.env["helpdesk.ticket"].create(
-                        {
-                            "name": tx_name,
-                            "partner_id": beneficiary_id,
-                            "cycle_id": cycle_id.id,
-                            "description": f"{tx_name} in {tx_desc}",
-                            "priority": str(random.randint(0, 3)),
-                        }
-                    )
+                # Todo: Create Helpdesk Tickets in Cycle when the new helpdesk module has been created.
+                # cycle_beneficiary_ids = cycle_id.get_beneficiaries(["enrolled"]).mapped("partner_id.id")
+                # for beneficiary_id in cycle_beneficiary_ids:
+                #     tx_name = random.choice(ticket_name_range)
+                #     tx_desc = random.choice(ticket_disc_cycle_range)
+                #     self.env["helpdesk.ticket"].create(
+                #         {
+                #             "name": tx_name,
+                #             "partner_id": beneficiary_id,
+                #             "cycle_id": cycle_id.id,
+                #             "description": f"{tx_name} in {tx_desc}",
+                #             "priority": str(random.randint(0, 3)),
+                #         }
+                #     )
 
             ######################################################################################
             # Create Helpdesk Tickets in Beneficiaries
-            beneficiary_ids = create_program_id.get_beneficiaries(["enrolled"]).mapped("partner_id.id")
-
-            for beneficiary_id in beneficiary_ids:
-                tx_name = random.choice(ticket_name_range)
-                tx_desc = random.choice(ticket_disc_beneficiary_range)
-                self.env["helpdesk.ticket"].create(
-                    {
-                        "name": tx_name,
-                        "partner_id": beneficiary_id,
-                        "program_id": create_program_id.id,
-                        "description": f"{tx_name} in {tx_desc}",
-                        "priority": str(random.randint(0, 3)),
-                    }
-                )
+            # Todo: Create Helpdesk Tickets in Cycle when the new helpdesk module has been created.
+            # beneficiary_ids = create_program_id.get_beneficiaries(["enrolled"]).mapped("partner_id.id")
+            #
+            # for beneficiary_id in beneficiary_ids:
+            #     tx_name = random.choice(ticket_name_range)
+            #     tx_desc = random.choice(ticket_disc_beneficiary_range)
+            #     self.env["helpdesk.ticket"].create(
+            #         {
+            #             "name": tx_name,
+            #             "partner_id": beneficiary_id,
+            #             "program_id": create_program_id.id,
+            #             "description": f"{tx_name} in {tx_desc}",
+            #             "priority": str(random.randint(0, 3)),
+            #         }
+            #     )
 
             if self.state == "draft":
                 self.update({"state": "generate"})

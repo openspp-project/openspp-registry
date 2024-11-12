@@ -11,7 +11,7 @@ class Attendance(models.Model):
 
     attendance_type_id = fields.Many2one("spp.attendance.type", string="Type")
     attendance_location_id = fields.Many2one("spp.attendance.location", string="Location")
-    attendance_description = fields.Text(Char="Description")
+    attendance_description = fields.Text(string="Description")
     attendance_external_url = fields.Char(string="External URL")
 
     submitted_by = fields.Char(required=True)

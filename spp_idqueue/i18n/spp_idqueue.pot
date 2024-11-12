@@ -15,6 +15,116 @@ msgstr ""
 
 #. module: spp_idqueue
 #. odoo-python
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#, python-format
+msgid ""
+"%(batch_count)s Batch(es) with total of %(id_count)s IDs are being "
+"generated."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
+#: code:addons/spp_idqueue/models/id_queue.py:0
+#, python-format
+msgid "%(user)s cancelled this request on %(date)s."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#, python-format
+msgid "%(user)s distributed this batch on %(date)s."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#: code:addons/spp_idqueue/models/id_queue.py:0
+#, python-format
+msgid "%(user)s distributed this request on %(date)s."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#, python-format
+msgid "%(user)s generated this batch on %(date)s."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
+#: code:addons/spp_idqueue/models/id_queue.py:0
+#, python-format
+msgid "%(user)s generated this request on %(date)s."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#, python-format
+msgid "%(user)s printed this batch on %(date)s."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#: code:addons/spp_idqueue/models/id_queue.py:0
+#, python-format
+msgid "%(user)s printed this request on %(date)s."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#, python-format
+msgid "%(user)s started to generate this batch on %(date)s."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#: code:addons/spp_idqueue/models/id_queue.py:0
+#, python-format
+msgid "%(user)s started to generate this request on %(date)s."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#, python-format
+msgid "%(user)s started to print this batch on %(date)s."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#, python-format
+msgid "%(user)s started to print this request on %(date)s."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#: code:addons/spp_idqueue/models/id_batch.py:0
+#, python-format
+msgid "%(user)s validated this batch on %(date)s."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
+#: code:addons/spp_idqueue/models/id_queue.py:0
+#, python-format
+msgid "%(user)s validated this request on %(date)s."
+msgstr ""
+
+#. module: spp_idqueue
+#. odoo-python
 #: code:addons/spp_idqueue/wizard/batch_create_wizard.py:0
 #, python-format
 msgid "%s - 1"
@@ -429,7 +539,8 @@ msgstr ""
 #. module: spp_idqueue
 #: model_terms:ir.ui.view,arch_db:spp_idqueue.batch_create_wizard_form_view
 msgid ""
-"Found multiple templates, please select a template below for this batch."
+"Found multiple ID Types or Templates, please select an ID Type and Template "
+"below for this batch."
 msgstr ""
 
 #. module: spp_idqueue
@@ -1187,124 +1298,4 @@ msgstr ""
 #. module: spp_idqueue
 #: model_terms:ir.ui.view,arch_db:spp_idqueue.view_spp_print_queue_batch_form
 msgid "to check changes."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#, python-format
-msgid "{} Batch(es) with total of {} IDs are being generated."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_queue.py:0
-#, python-format
-msgid "{} cancelled this request on {}."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#, python-format
-msgid "{} distributed this batch on {}."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#: code:addons/spp_idqueue/models/id_queue.py:0
-#, python-format
-msgid "{} distributed this request on {}."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#, python-format
-msgid "{} generated this batch on {}."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_queue.py:0
-#, python-format
-msgid "{} generated this request on {}."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#, python-format
-msgid "{} printed this batch on {}"
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#, python-format
-msgid "{} printed this batch on {}."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#: code:addons/spp_idqueue/models/id_queue.py:0
-#, python-format
-msgid "{} printed this request on {}."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#, python-format
-msgid "{} started to generate this batch on {}."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#: code:addons/spp_idqueue/models/id_queue.py:0
-#, python-format
-msgid "{} started to generate this request on {}."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#, python-format
-msgid "{} started to print this batch on {}."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#, python-format
-msgid "{} started to print this request on {}."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#, python-format
-msgid "{} validated this batch on {}"
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_batch.py:0
-#, python-format
-msgid "{} validated this batch on {}."
-msgstr ""
-
-#. module: spp_idqueue
-#. odoo-python
-#: code:addons/spp_idqueue/models/id_queue.py:0
-#, python-format
-msgid "{} validated this request on {}."
 msgstr ""

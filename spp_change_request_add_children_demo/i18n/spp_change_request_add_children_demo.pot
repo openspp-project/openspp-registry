@@ -248,12 +248,6 @@ msgid "Father"
 msgstr ""
 
 #. module: spp_change_request_add_children_demo
-#: model_terms:ir.ui.view,arch_db:spp_change_request_add_children_demo.view_change_request_add_children_form
-#: model_terms:ir.ui.view,arch_db:spp_change_request_add_children_demo.view_change_request_add_children_validation_form
-msgid "File"
-msgstr ""
-
-#. module: spp_change_request_add_children_demo
 #: model:ir.model.fields,field_description:spp_change_request_add_children_demo.field_spp_change_request_add_children__full_name
 msgid "Full Name"
 msgstr ""
