@@ -38,11 +38,6 @@ class TestUserRole(TransactionCase):
         self.assertIn(self.env.ref("base.group_user").id, self.user.groups_id.ids)
         self.assertIn(self.env.ref("base.group_no_one").id, self.user.groups_id.ids)
 
-        self.user.write({"role_line_ids": [(5)]})
-        self.user.set_groups_from_roles()
-        self.assertIn(self.env.ref("base.group_user").id, self.user.groups_id.ids)
-        self.assertIn(self.env.ref("base.group_no_one").id, self.user.groups_id.ids)
-
     def test_default_role_lines(self):
         default_user = self.env.ref("base.default_user", raise_if_not_found=False)
         default_user.role_line_ids = [

@@ -18,8 +18,10 @@
         "spp_area",
         "product",
         "stock",
+        "spp_user_roles",
     ],
     "data": [
+        "data/user_roles.xml",
         "security/ir.model.access.csv",
         "views/main_view.xml",
         "views/entitlement_view.xml",

@@ -1,4 +1,4 @@
-<odoo noupdate="0">
+<odoo noupdate="1">
 
     <!-- Admin -->
     <record id="global_role_admin" model="res.users.role">
@@ -15,7 +15,6 @@
                 Command.link(ref('base.group_system')),
                 Command.link(ref('base.group_partner_manager')),
                 Command.link(ref('g2p_registry_base.group_g2p_admin')),
-                Command.link(ref('spp_api.group_manager')),
             ]"
         />
     </record>
@@ -46,8 +45,6 @@
             eval="
             [
                 Command.link(ref('base.group_user')),
-                Command.link(ref('g2p_programs.g2p_program_manager')),
-                Command.link(ref('spp_api.group_user')),
             ]"
         />
     </record>
@@ -59,17 +56,6 @@
         <field
             name="comment"
         >This role is allowed to capture data related to their assigned area but doesn't have access to any other information.</field>
-        <field
-            name="implied_ids"
-            eval="
-            [
-                Command.link(ref('base.group_user')),
-                Command.link(ref('base.group_partner_manager')),
-                Command.link(ref('g2p_registry_base.group_g2p_registrar')),
-                Command.link(ref('spp_idqueue.group_g2p_id_distributor')),
-                Command.link(ref('spp_api.group_user')),
-            ]"
-        />
     </record>
 
     <!-- Support -->
