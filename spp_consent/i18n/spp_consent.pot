@@ -44,7 +44,6 @@ msgid "Consent For Group"
 msgstr ""
 
 #. module: spp_consent
-#: model:ir.model.fields,field_description:spp_consent.field_g2p_program_membership__consent_ids
 #: model:ir.model.fields,field_description:spp_consent.field_res_partner__consent_ids
 #: model:ir.model.fields,field_description:spp_consent.field_res_users__consent_ids
 #: model:ir.model.fields,field_description:spp_consent.field_spp_consent_mixin__consent_ids
