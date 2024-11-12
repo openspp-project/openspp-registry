@@ -157,6 +157,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_cst_indv_disability_level
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_cst_indv_disability_level
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_cst_indv_disability_level
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_cst_indv_disability_level
 msgid "Disability level"
 msgstr ""
 
@@ -201,6 +202,7 @@ msgstr ""
 #: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_elderly_head_hh
 #: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_elderly_head_hh
 #: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_elderly_head_hh
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_elderly_head_hh
 msgid ""
 "Elderly-headed HHs - extracted from demographic data of HH adult members"
 msgstr ""
@@ -229,6 +231,7 @@ msgstr ""
 #: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_woman_head_hh
 #: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_woman_head_hh
 #: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_woman_head_hh
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_woman_head_hh
 msgid "Female-headed HH - extracted from demographic data of HH adult members"
 msgstr ""
 
@@ -308,6 +311,7 @@ msgstr ""
 #: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_pregnant_lactating
 #: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_pregnant_lactating
 #: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_pregnant_lactating
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_pregnant_lactating
 msgid "HH with pregnant/lactating women"
 msgstr ""
 
@@ -315,6 +319,7 @@ msgstr ""
 #: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_disabled
 #: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_disabled
 #: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_disabled
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_disabled
 msgid "HHs with disabled (mental or physical) members"
 msgstr ""
 
@@ -322,6 +327,7 @@ msgstr ""
 #: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_medical_condition
 #: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_medical_condition
 #: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_medical_condition
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_medical_condition
 msgid "HHs with members that have chronic illness/medical conditions"
 msgstr ""
 
@@ -340,6 +346,9 @@ msgstr ""
 #: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_num_children
 #: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_num_children_11_and_below
 #: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_num_children_12_and_above
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_children
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_children_11_and_below
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_children_12_and_above
 msgid ""
 "Households (HH) with children - extracted from demographic data of HH adult "
 "members plus child members"
@@ -349,6 +358,7 @@ msgstr ""
 #: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_elderly
 #: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_elderly
 #: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_elderly
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_elderly
 msgid ""
 "Households (HH) with elderly (including single / elderly-headed HHs) - "
 "extracted from demographic data of HH adult members"
@@ -369,6 +379,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_elderly_head_hh
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_elderly_head_hh
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_elderly_head_hh
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_elderly_head_hh
 msgid "Is elderly-headed household"
 msgstr ""
 
@@ -376,6 +387,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_woman_head_hh
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_woman_head_hh
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_woman_head_hh
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_woman_head_hh
 msgid "Is female-headed household"
 msgstr ""
 
@@ -383,6 +395,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_children
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_children
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_children
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_children
 msgid "Is household (HH) with children"
 msgstr ""
 
@@ -390,6 +403,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_disabled
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_disabled
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_disabled
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_disabled
 msgid "Is household disabled (mental or physical) members"
 msgstr ""
 
@@ -397,6 +411,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_elderly
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_elderly
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_elderly
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_elderly
 msgid "Is household with elderly"
 msgstr ""
 
@@ -404,6 +419,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_medical_condition
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_medical_condition
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_medical_condition
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_medical_condition
 msgid "Is household with members that have chronic illness/medical conditions"
 msgstr ""
 
@@ -411,6 +427,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_pregnant_lactating
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_pregnant_lactating
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_pregnant_lactating
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_pregnant_lactating
 msgid "Is household with pregnant/lactating women"
 msgstr ""
 
@@ -418,6 +435,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_single_head_hh
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_single_head_hh
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_single_head_hh
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_single_head_hh
 msgid "Is single-headed household"
 msgstr ""
 
@@ -435,6 +453,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_cst_indv_lactation_start
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_cst_indv_lactation_start
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_cst_indv_lactation_start
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_cst_indv_lactation_start
 msgid "Lactation start"
 msgstr ""
 
@@ -541,6 +560,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_adults
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_adults
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_adults
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_adults
 msgid "Number of adults"
 msgstr ""
 
@@ -548,6 +568,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_adults_woman
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_adults_woman
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_adults_woman
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_adults_woman
 msgid "Number of adults woman"
 msgstr ""
 
@@ -555,6 +576,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_children
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_children
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_children
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_children
 msgid "Number of children"
 msgstr ""
 
@@ -562,6 +584,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_children_11_and_below
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_children_11_and_below
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_children_11_and_below
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_children_11_and_below
 msgid "Number of children aged 11 and below"
 msgstr ""
 
@@ -569,6 +592,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_children_12_and_above
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_children_12_and_above
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_children_12_and_above
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_children_12_and_above
 msgid "Number of children aged 12 and above"
 msgstr ""
 
@@ -576,6 +600,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_elderly
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_elderly
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_elderly
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_elderly
 msgid "Number of eldery"
 msgstr ""
 
@@ -588,6 +613,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_members
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_members
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_members
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_members
 msgid "Number of members"
 msgstr ""
 
@@ -705,6 +731,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_cst_indv_pregnancy_start
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_cst_indv_pregnancy_start
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_cst_indv_pregnancy_start
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_cst_indv_pregnancy_start
 msgid "Pregnancy start"
 msgstr ""
 
@@ -767,6 +794,7 @@ msgstr ""
 #: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_single_head_hh
 #: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_single_head_hh
 #: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_single_head_hh
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_single_head_hh
 msgid "Single-headed HH - extracted from demographic data of HH adult members"
 msgstr ""
 
@@ -880,5 +908,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_cst_indv_medical_condition
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_cst_indv_medical_condition
 #: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_cst_indv_medical_condition
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_cst_indv_medical_condition
 msgid "chronic illness/medical conditions level"
 msgstr ""
