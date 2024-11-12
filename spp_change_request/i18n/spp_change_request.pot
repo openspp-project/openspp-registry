@@ -433,6 +433,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_change_request.field_g2p_program_membership__change_request_ids
 #: model:ir.model.fields,field_description:spp_change_request.field_res_partner__change_request_ids
 #: model:ir.model.fields,field_description:spp_change_request.field_res_users__change_request_ids
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_attendance_subscriber__change_request_ids
 #: model_terms:ir.ui.view,arch_db:spp_change_request.view_group_ext_form_custom_spp_cr
 msgid "Change Requests"
 msgstr ""
