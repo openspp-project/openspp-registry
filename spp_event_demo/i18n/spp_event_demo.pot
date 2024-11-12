@@ -17,6 +17,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_event_demo.field_g2p_program_membership__active_house_visit
 #: model:ir.model.fields,field_description:spp_event_demo.field_res_partner__active_house_visit
 #: model:ir.model.fields,field_description:spp_event_demo.field_res_users__active_house_visit
+#: model:ir.model.fields,field_description:spp_event_demo.field_spp_attendance_subscriber__active_house_visit
 msgid "Active House Visit"
 msgstr ""
 
@@ -24,6 +25,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_event_demo.field_g2p_program_membership__active_phone_survey
 #: model:ir.model.fields,field_description:spp_event_demo.field_res_partner__active_phone_survey
 #: model:ir.model.fields,field_description:spp_event_demo.field_res_users__active_phone_survey
+#: model:ir.model.fields,field_description:spp_event_demo.field_spp_attendance_subscriber__active_phone_survey
 msgid "Active Phone Survey"
 msgstr ""
 
@@ -31,6 +33,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_event_demo.field_g2p_program_membership__active_school_enrolment_record
 #: model:ir.model.fields,field_description:spp_event_demo.field_res_partner__active_school_enrolment_record
 #: model:ir.model.fields,field_description:spp_event_demo.field_res_users__active_school_enrolment_record
+#: model:ir.model.fields,field_description:spp_event_demo.field_spp_attendance_subscriber__active_school_enrolment_record
 msgid "Active School Enrolment Record"
 msgstr ""
 

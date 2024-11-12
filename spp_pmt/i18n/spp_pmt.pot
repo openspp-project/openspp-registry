@@ -22,6 +22,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_pmt.field_g2p_program_membership__area_calc
 #: model:ir.model.fields,field_description:spp_pmt.field_res_partner__area_calc
 #: model:ir.model.fields,field_description:spp_pmt.field_res_users__area_calc
+#: model:ir.model.fields,field_description:spp_pmt.field_spp_attendance_subscriber__area_calc
 msgid "Area Calc"
 msgstr ""
 
@@ -49,6 +50,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_pmt.field_g2p_program_membership__x_cst_indv_school_age
 #: model:ir.model.fields,field_description:spp_pmt.field_res_partner__x_cst_indv_school_age
 #: model:ir.model.fields,field_description:spp_pmt.field_res_users__x_cst_indv_school_age
+#: model:ir.model.fields,field_description:spp_pmt.field_spp_attendance_subscriber__x_cst_indv_school_age
 msgid "Currently not attending school or other educational institution"
 msgstr ""
 
@@ -61,6 +63,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_pmt.field_g2p_program_membership__x_cst_indv_disability
 #: model:ir.model.fields,field_description:spp_pmt.field_res_partner__x_cst_indv_disability
 #: model:ir.model.fields,field_description:spp_pmt.field_res_users__x_cst_indv_disability
+#: model:ir.model.fields,field_description:spp_pmt.field_spp_attendance_subscriber__x_cst_indv_disability
 msgid "Disability"
 msgstr ""
 
@@ -103,6 +106,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_pmt.field_g2p_program_membership__x_cst_indv_chronic_disease
 #: model:ir.model.fields,field_description:spp_pmt.field_res_partner__x_cst_indv_chronic_disease
 #: model:ir.model.fields,field_description:spp_pmt.field_res_users__x_cst_indv_chronic_disease
+#: model:ir.model.fields,field_description:spp_pmt.field_spp_attendance_subscriber__x_cst_indv_chronic_disease
 msgid "Long-term (chronic) disease"
 msgstr ""
 
@@ -110,6 +114,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_pmt.field_g2p_program_membership__x_cst_indv_gce_ol
 #: model:ir.model.fields,field_description:spp_pmt.field_res_partner__x_cst_indv_gce_ol
 #: model:ir.model.fields,field_description:spp_pmt.field_res_users__x_cst_indv_gce_ol
+#: model:ir.model.fields,field_description:spp_pmt.field_spp_attendance_subscriber__x_cst_indv_gce_ol
 msgid "Lower than G.C.E. Ordinary Level"
 msgstr ""
 
@@ -117,6 +122,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_pmt.field_g2p_program_membership__grp_pmt_score
 #: model:ir.model.fields,field_description:spp_pmt.field_res_partner__grp_pmt_score
 #: model:ir.model.fields,field_description:spp_pmt.field_res_users__grp_pmt_score
+#: model:ir.model.fields,field_description:spp_pmt.field_spp_attendance_subscriber__grp_pmt_score
 msgid "PMT Score of group"
 msgstr ""
 
@@ -124,6 +130,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_pmt.field_g2p_program_membership__z_ind_grp_pmt_score
 #: model:ir.model.fields,field_description:spp_pmt.field_res_partner__z_ind_grp_pmt_score
 #: model:ir.model.fields,field_description:spp_pmt.field_res_users__z_ind_grp_pmt_score
+#: model:ir.model.fields,field_description:spp_pmt.field_spp_attendance_subscriber__z_ind_grp_pmt_score
 msgid "PMT Score of the group"
 msgstr ""
 

@@ -142,6 +142,11 @@ msgid "Cycle Members"
 msgstr ""
 
 #. module: spp_programs_compliance_criteria
+#: model:ir.model,name:spp_programs_compliance_criteria.model_g2p_cycle_membership
+msgid "Cycle Membership"
+msgstr ""
+
+#. module: spp_programs_compliance_criteria
 #. odoo-python
 #: code:addons/spp_programs_compliance_criteria/models/g2p_cycle.py:0
 #, python-format
@@ -238,6 +243,12 @@ msgid "No Automated Filtering Mechanism"
 msgstr ""
 
 #. module: spp_programs_compliance_criteria
+#: model:ir.model.fields.selection,name:spp_programs_compliance_criteria.selection__g2p_cycle_membership__state__non_compliant
+#: model_terms:ir.ui.view,arch_db:spp_programs_compliance_criteria.inherit_cycle_membership_filter
+msgid "Non-Compliant"
+msgstr ""
+
+#. module: spp_programs_compliance_criteria
 #. odoo-python
 #: code:addons/spp_programs_compliance_criteria/wizards/g2p_program_create_wizard.py:0
 #, python-format
@@ -304,6 +315,11 @@ msgstr ""
 #: code:addons/spp_programs_compliance_criteria/static/src/xml/field_domain.xml:0
 #, python-format
 msgid "Show matching records"
+msgstr ""
+
+#. module: spp_programs_compliance_criteria
+#: model:ir.model.fields,field_description:spp_programs_compliance_criteria.field_g2p_cycle_membership__state
+msgid "State"
 msgstr ""
 
 #. module: spp_programs_compliance_criteria

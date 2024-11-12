@@ -160,8 +160,6 @@ msgstr ""
 
 #. module: spp_base_gis
 #: model:ir.model.fields,field_description:spp_base_gis.field_ir_ui_view__data_layer_ids
-#: model:ir.model.fields,field_description:spp_base_gis.field_website_controller_page__data_layer_ids
-#: model:ir.model.fields,field_description:spp_base_gis.field_website_page__data_layer_ids
 msgid "Data layers"
 msgstr ""
 
@@ -182,15 +180,11 @@ msgstr ""
 
 #. module: spp_base_gis
 #: model:ir.model.fields,field_description:spp_base_gis.field_ir_ui_view__default_center
-#: model:ir.model.fields,field_description:spp_base_gis.field_website_controller_page__default_center
-#: model:ir.model.fields,field_description:spp_base_gis.field_website_page__default_center
 msgid "Default map center"
 msgstr ""
 
 #. module: spp_base_gis
 #: model:ir.model.fields,field_description:spp_base_gis.field_ir_ui_view__default_zoom
-#: model:ir.model.fields,field_description:spp_base_gis.field_website_controller_page__default_zoom
-#: model:ir.model.fields,field_description:spp_base_gis.field_website_page__default_zoom
 msgid "Default map zoom"
 msgstr ""
 
@@ -565,8 +559,6 @@ msgstr ""
 
 #. module: spp_base_gis
 #: model:ir.model.fields,field_description:spp_base_gis.field_ir_ui_view__raster_layer_ids
-#: model:ir.model.fields,field_description:spp_base_gis.field_website_controller_page__raster_layer_ids
-#: model:ir.model.fields,field_description:spp_base_gis.field_website_page__raster_layer_ids
 msgid "Raster layers"
 msgstr ""
 
@@ -689,8 +681,6 @@ msgstr ""
 
 #. module: spp_base_gis
 #: model:ir.model.fields,field_description:spp_base_gis.field_ir_ui_view__type
-#: model:ir.model.fields,field_description:spp_base_gis.field_website_controller_page__type
-#: model:ir.model.fields,field_description:spp_base_gis.field_website_page__type
 msgid "View Type"
 msgstr ""
 

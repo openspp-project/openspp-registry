@@ -67,6 +67,7 @@ msgstr ""
 #. module: spp_idpass
 #. odoo-python
 #: code:addons/spp_idpass/models/id_type.py:0
+#: code:addons/spp_idpass/models/id_type.py:0
 #, python-format
 msgid "Can't delete default ID Type"
 msgstr ""
@@ -164,6 +165,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_idpass.field_g2p_program_membership__id_pdf_filename
 #: model:ir.model.fields,field_description:spp_idpass.field_res_partner__id_pdf_filename
 #: model:ir.model.fields,field_description:spp_idpass.field_res_users__id_pdf_filename
+#: model:ir.model.fields,field_description:spp_idpass.field_spp_attendance_subscriber__id_pdf_filename
 msgid "ID File Name"
 msgstr ""
 
@@ -176,6 +178,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_idpass.field_g2p_program_membership__id_pdf
 #: model:ir.model.fields,field_description:spp_idpass.field_res_partner__id_pdf
 #: model:ir.model.fields,field_description:spp_idpass.field_res_users__id_pdf
+#: model:ir.model.fields,field_description:spp_idpass.field_spp_attendance_subscriber__id_pdf
 msgid "ID PASS"
 msgstr ""
 
@@ -193,6 +196,7 @@ msgstr ""
 #. module: spp_idpass
 #. odoo-python
 #: code:addons/spp_idpass/models/registrant.py:0
+#: code:addons/spp_idpass/models/registrant.py:0
 #, python-format
 msgid "ID PASS Error: %(reason)s Code: %(code)s"
 msgstr ""
@@ -200,12 +204,14 @@ msgstr ""
 #. module: spp_idpass
 #. odoo-python
 #: code:addons/spp_idpass/models/registrant.py:0
+#: code:addons/spp_idpass/models/registrant.py:0
 #, python-format
 msgid "ID PASS Error: No Head or Principal Recipient assigned to this Group"
 msgstr ""
 
 #. module: spp_idpass
 #. odoo-python
+#: code:addons/spp_idpass/models/registrant.py:0
 #: code:addons/spp_idpass/models/registrant.py:0
 #, python-format
 msgid "ID PASS Error: Please try reuploading the ID Picture"
@@ -218,6 +224,7 @@ msgstr ""
 
 #. module: spp_idpass
 #. odoo-python
+#: code:addons/spp_idpass/models/registrant.py:0
 #: code:addons/spp_idpass/models/registrant.py:0
 #, python-format
 msgid "ID Pass Error: No API set"
@@ -259,6 +266,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_idpass.field_g2p_program_membership__image_1920_filename
 #: model:ir.model.fields,field_description:spp_idpass.field_res_partner__image_1920_filename
 #: model:ir.model.fields,field_description:spp_idpass.field_res_users__image_1920_filename
+#: model:ir.model.fields,field_description:spp_idpass.field_spp_attendance_subscriber__image_1920_filename
 msgid "Image 1920 FileName"
 msgstr ""
 
@@ -274,6 +282,7 @@ msgstr ""
 
 #. module: spp_idpass
 #. odoo-python
+#: code:addons/spp_idpass/models/registrant.py:0
 #: code:addons/spp_idpass/models/registrant.py:0
 #, python-format
 msgid "Issue ID Pass"
@@ -344,6 +353,7 @@ msgstr ""
 #. module: spp_idpass
 #. odoo-python
 #: code:addons/spp_idpass/tests/test_registrant.py:0
+#: code:addons/spp_idpass/tests/test_registrant.py:0
 #, python-format
 msgid "Object `OpenSPPIDQueue` not yet existed!"
 msgstr ""
@@ -380,6 +390,7 @@ msgstr ""
 
 #. module: spp_idpass
 #. odoo-python
+#: code:addons/spp_idpass/wizard/issue_id_pass_wizard.py:0
 #: code:addons/spp_idpass/wizard/issue_id_pass_wizard.py:0
 #, python-format
 msgid "There are no selected Template!"

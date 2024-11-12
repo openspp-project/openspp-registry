@@ -23,6 +23,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__addl_name
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__addl_name
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__addl_name
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__addl_name
 msgid "Additional Name"
 msgstr ""
 
@@ -30,6 +31,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__address
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__address
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__address
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__address
 msgid "Address"
 msgstr ""
 
@@ -37,6 +39,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__birthdate_not_exact
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__birthdate_not_exact
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__birthdate_not_exact
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__birthdate_not_exact
 msgid "Approximate Birthdate"
 msgstr ""
 
@@ -44,12 +47,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__birth_place
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__birth_place
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__birth_place
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__birth_place
 msgid "Birth Place"
 msgstr ""
 
 #. module: spp_custom_filter_ui
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__company_id
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__company_id
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__company_id
 msgid "Company"
 msgstr ""
 
@@ -72,6 +77,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__disabled
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__disabled
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__disabled
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__disabled
 msgid "Date Disabled"
 msgstr ""
 
@@ -79,6 +85,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__birthdate
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__birthdate
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__birthdate
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__birthdate
 msgid "Date of Birth"
 msgstr ""
 
@@ -86,6 +93,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__disabled_by
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__disabled_by
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__disabled_by
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__disabled_by
 msgid "Disabled By"
 msgstr ""
 
@@ -93,6 +101,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__email
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__email
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__email
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__email
 msgid "Email"
 msgstr ""
 
@@ -100,6 +109,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__family_name
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__family_name
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__family_name
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__family_name
 msgid "Family Name"
 msgstr ""
 
@@ -107,6 +117,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__given_name
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__given_name
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__given_name
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__given_name
 msgid "Given Name"
 msgstr ""
 
@@ -114,6 +125,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__is_group
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__is_group
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__is_group
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__is_group
 msgid "Group"
 msgstr ""
 
@@ -121,6 +133,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__group_membership_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__group_membership_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__group_membership_ids
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__group_membership_ids
 msgid "Group Members"
 msgstr ""
 
@@ -128,6 +141,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__id_pdf_filename
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__id_pdf_filename
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__id_pdf_filename
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__id_pdf_filename
 msgid "ID File Name"
 msgstr ""
 
@@ -135,6 +149,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__id_pdf
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__id_pdf
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__id_pdf
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__id_pdf
 msgid "ID PASS"
 msgstr ""
 
@@ -142,6 +157,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__kind
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__kind
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__kind
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__kind
 msgid "Kind"
 msgstr ""
 
@@ -159,6 +175,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__individual_membership_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__individual_membership_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__individual_membership_ids
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__individual_membership_ids
 msgid "Membership to Groups"
 msgstr ""
 
@@ -166,6 +183,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__name
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__name
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__name
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__name
 msgid "Name"
 msgstr ""
 
@@ -173,6 +191,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__is_partial_group
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__is_partial_group
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__is_partial_group
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__is_partial_group
 msgid "Partial Group"
 msgstr ""
 
@@ -180,6 +199,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__phone
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__phone
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__phone
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__phone
 msgid "Phone"
 msgstr ""
 
@@ -187,6 +207,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__phone_number_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__phone_number_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__phone_number_ids
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__phone_number_ids
 msgid "Phone Numbers"
 msgstr ""
 
@@ -194,6 +215,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__program_membership_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__program_membership_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__program_membership_ids
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__program_membership_ids
 msgid "Program Memberships"
 msgstr ""
 
@@ -201,6 +223,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__disabled_reason
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__disabled_reason
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__disabled_reason
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__disabled_reason
 msgid "Reason for Disabling"
 msgstr ""
 
@@ -208,6 +231,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__is_registrant
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__is_registrant
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__is_registrant
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__is_registrant
 msgid "Registrant"
 msgstr ""
 
@@ -215,6 +239,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__reg_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__reg_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__reg_ids
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__reg_ids
 msgid "Registrant IDs"
 msgstr ""
 
@@ -222,6 +247,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__registration_date
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__registration_date
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__registration_date
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__registration_date
 msgid "Registration Date"
 msgstr ""
 
@@ -229,6 +255,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__related_1_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__related_1_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__related_1_ids
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__related_1_ids
 msgid "Related to registrant 1"
 msgstr ""
 
@@ -236,6 +263,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__related_2_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__related_2_ids
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__related_2_ids
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__related_2_ids
 msgid "Related to registrant 2"
 msgstr ""
 
@@ -243,6 +271,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__kind_as_str
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__kind_as_str
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__kind_as_str
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__kind_as_str
 msgid "String Kind"
 msgstr ""
 
@@ -250,5 +279,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_g2p_program_membership__category_id
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_partner__category_id
 #: model:ir.model.fields,field_description:spp_custom_filter_ui.field_res_users__category_id
+#: model:ir.model.fields,field_description:spp_custom_filter_ui.field_spp_attendance_subscriber__category_id
 msgid "Tags"
 msgstr ""

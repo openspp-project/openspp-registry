@@ -54,6 +54,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_animal_dip
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_animal_dip
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_animal_dip
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_animal_dip
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_animal_dip
 msgid "Animal Dip"
 msgstr ""
@@ -62,6 +63,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_animal_crush
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_animal_crush
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_animal_crush
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_animal_crush
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_animal_crush
 msgid "Animal crush"
 msgstr ""
@@ -75,6 +77,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__livestock_assisted_reproductive_health_technology_animal_horm
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__livestock_assisted_reproductive_health_technology_animal_horm
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__livestock_assisted_reproductive_health_technology_animal_horm
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__livestock_assisted_reproductive_health_technology_animal_horm
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__livestock_assisted_reproductive_health_technology_animal_horm
 msgid "Animal hormones"
 msgstr ""
@@ -83,6 +86,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_apriary
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_apriary
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_apriary
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_apriary
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_apriary
 msgid "Apriary"
 msgstr ""
@@ -96,6 +100,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__aquaculture_sale
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__aquaculture_sale
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__aquaculture_sale
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__aquaculture_sale
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__aquaculture_sale
 msgid "Aquaculture for sale?"
 msgstr ""
@@ -104,6 +109,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__aquaculture_subsistence
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__aquaculture_subsistence
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__aquaculture_subsistence
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__aquaculture_subsistence
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__aquaculture_subsistence
 msgid "Aquaculture for subsistence?"
 msgstr ""
@@ -117,6 +123,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__aquaculture_beneficiary_esp
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__aquaculture_beneficiary_esp
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__aquaculture_beneficiary_esp
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__aquaculture_beneficiary_esp
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__aquaculture_beneficiary_esp
 msgid ""
 "Are you a beneficiary of the government of Kenya's economic stimulus "
@@ -127,6 +134,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__livestock_assisted_reproductive_health_technology_ai
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__livestock_assisted_reproductive_health_technology_ai
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__livestock_assisted_reproductive_health_technology_ai
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__livestock_assisted_reproductive_health_technology_ai
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__livestock_assisted_reproductive_health_technology_ai
 msgid "Artificial Insemination (AI)"
 msgstr ""
@@ -140,6 +148,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_bee_house
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_bee_house
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_bee_house
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_bee_house
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_bee_house
 msgid "Bee House"
 msgstr ""
@@ -148,6 +157,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_biogas_production
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_biogas_production
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_biogas_production
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_biogas_production
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_biogas_production
 msgid "Biogas production"
 msgstr ""
@@ -166,6 +176,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_business_partners
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_business_partners
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_business_partners
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_business_partners
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_business_partners
 msgid "Business partners"
 msgstr ""
@@ -179,6 +190,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_cambered_beds
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_cambered_beds
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_cambered_beds
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_cambered_beds
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_cambered_beds
 msgid "Cambered beds"
 msgstr ""
@@ -197,6 +209,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_cattle_boma
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_cattle_boma
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_cattle_boma
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_cattle_boma
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_cattle_boma
 msgid "Cattle Boma"
 msgstr ""
@@ -226,6 +239,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_commercial_bank
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_commercial_bank
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_commercial_bank
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_commercial_bank
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_commercial_bank
 msgid "Commercial Bank"
 msgstr ""
@@ -234,6 +248,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_common_interest_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_common_interest_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_common_interest_group
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_common_interest_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_common_interest_group
 msgid "Common Interest Group"
 msgstr ""
@@ -252,6 +267,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_community_based_organization
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_community_based_organization
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_community_based_organization
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_community_based_organization
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_community_based_organization
 msgid "Community Based Organization"
 msgstr ""
@@ -265,6 +281,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_conservation_agriculture
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_conservation_agriculture
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_conservation_agriculture
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_conservation_agriculture
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_conservation_agriculture
 msgid "Conservation agriculture"
 msgstr ""
@@ -278,6 +295,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_contour_ploughing
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_contour_ploughing
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_contour_ploughing
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_contour_ploughing
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_contour_ploughing
 msgid "Contour ploughing/Ridging"
 msgstr ""
@@ -286,6 +304,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_cooperatives
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_cooperatives
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_cooperatives
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_cooperatives
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_cooperatives
 msgid "Cooperatives"
 msgstr ""
@@ -310,6 +329,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_crop_rotation
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_crop_rotation
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_crop_rotation
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_crop_rotation
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_crop_rotation
 msgid "Crop Rotation"
 msgstr ""
@@ -323,6 +343,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_cut_off_drains
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_cut_off_drains
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_cut_off_drains
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_cut_off_drains
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_cut_off_drains
 msgid "Cut-off drains"
 msgstr ""
@@ -331,6 +352,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_deep_ripping
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_deep_ripping
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_deep_ripping
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_deep_ripping
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_deep_ripping
 msgid "Deep ripping"
 msgstr ""
@@ -345,6 +367,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__livestock_animal_health_services_disease_control
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__livestock_animal_health_services_disease_control
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__livestock_animal_health_services_disease_control
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__livestock_animal_health_services_disease_control
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__livestock_animal_health_services_disease_control
 msgid "Disease control / curative measures"
 msgstr ""
@@ -363,6 +386,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__another_farm
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__another_farm
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__another_farm
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__another_farm
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__another_farm
 msgid "Do you have another farm?"
 msgstr ""
@@ -371,6 +395,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_crop_insurance
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_crop_insurance
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_crop_insurance
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_crop_insurance
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_crop_insurance
 msgid "Do you insure your crops?"
 msgstr ""
@@ -379,6 +404,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_farm_building_insurance
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_farm_building_insurance
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_farm_building_insurance
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_farm_building_insurance
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_farm_building_insurance
 msgid "Do you insure your farm buildings and other assets?"
 msgstr ""
@@ -387,6 +413,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_fish_insurance
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_fish_insurance
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_fish_insurance
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_fish_insurance
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_fish_insurance
 msgid "Do you insure your fish?"
 msgstr ""
@@ -395,6 +422,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_livestock_insurance
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_livestock_insurance
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_livestock_insurance
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_livestock_insurance
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_livestock_insurance
 msgid "Do you insure your livestock?"
 msgstr ""
@@ -403,6 +431,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_written_farm_records
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_written_farm_records
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_written_farm_records
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_written_farm_records
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_written_farm_records
 msgid "Do you keep written farm records?"
 msgstr ""
@@ -411,6 +440,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_undertake_irrigation
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_undertake_irrigation
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_undertake_irrigation
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_undertake_irrigation
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_undertake_irrigation
 msgid "Do you undertake irrigation?"
 msgstr ""
@@ -419,6 +449,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__livestock_certified_pasture
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__livestock_certified_pasture
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__livestock_certified_pasture
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__livestock_certified_pasture
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__livestock_certified_pasture
 msgid "Do you use certified pasture & fodder seeds?"
 msgstr ""
@@ -427,6 +458,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_use_lime
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_use_lime
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_use_lime
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_use_lime
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_use_lime
 msgid "Do you use lime on your soil?"
 msgstr ""
@@ -435,6 +467,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__livestock_fertilizer_for_fodder
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__livestock_fertilizer_for_fodder
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__livestock_fertilizer_for_fodder
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__livestock_fertilizer_for_fodder
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__livestock_fertilizer_for_fodder
 msgid "Do you utilize fertilizer for fodder and pasture?"
 msgstr ""
@@ -443,6 +476,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__aquaculture_utilize_fertilizer
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__aquaculture_utilize_fertilizer
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__aquaculture_utilize_fertilizer
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__aquaculture_utilize_fertilizer
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__aquaculture_utilize_fertilizer
 msgid "Do you utilize fertilizer in the ponds?"
 msgstr ""
@@ -466,6 +500,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__livestock_assisted_reproductive_health_technology_embryo_transf
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__livestock_assisted_reproductive_health_technology_embryo_transf
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__livestock_assisted_reproductive_health_technology_embryo_transf
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__livestock_assisted_reproductive_health_technology_embryo_transf
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__livestock_assisted_reproductive_health_technology_embryo_transf
 msgid "Embryo Transfer"
 msgstr ""
@@ -479,6 +514,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__ke_access_cities_reg
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__ke_access_cities_reg
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__ke_access_cities_reg
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__ke_access_cities_reg
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_land_record__ke_access_cities_reg
 msgid "Estimated cumulative travel time/cost to the nearest regional city"
 msgstr ""
@@ -502,6 +538,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_faith_based_organization
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_faith_based_organization
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_faith_based_organization
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_faith_based_organization
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_faith_based_organization
 msgid "Faith Based Organization"
 msgstr ""
@@ -510,6 +547,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_family
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_family
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_family
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_family
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_family
 msgid "Family"
 msgstr ""
@@ -533,6 +571,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farmer_highest_education_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farmer_highest_education_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farmer_highest_education_level
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farmer_highest_education_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farmer__farmer_highest_education_level
 msgid "Farmer Highest Educational Level"
 msgstr ""
@@ -541,6 +580,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farmer_marital_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farmer_marital_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farmer_marital_status
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farmer_marital_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farmer__farmer_marital_status
 msgid "Farmer Marital Status"
 msgstr ""
@@ -549,6 +589,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_farmer_organization
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_farmer_organization
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_farmer_organization
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_farmer_organization
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_farmer_organization
 msgid "Farmer Organization"
 msgstr ""
@@ -562,6 +603,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_feed_store
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_feed_store
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_feed_store
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_feed_store
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_feed_store
 msgid "Feed Store"
 msgstr ""
@@ -585,6 +627,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__aquaculture_main_inputs_fertilizers
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__aquaculture_main_inputs_fertilizers
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__aquaculture_main_inputs_fertilizers
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__aquaculture_main_inputs_fertilizers
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__aquaculture_main_inputs_fertilizers
 msgid "Fertilizers"
 msgstr ""
@@ -598,6 +641,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__aquaculture_main_inputs_fingerlings
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__aquaculture_main_inputs_fingerlings
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__aquaculture_main_inputs_fingerlings
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__aquaculture_main_inputs_fingerlings
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__aquaculture_main_inputs_fingerlings
 msgid "Fingerlings"
 msgstr ""
@@ -616,6 +660,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_labor_source
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_labor_source
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_labor_source
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_labor_source
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_labor_source
 msgid "For labor, what is the main source?"
 msgstr ""
@@ -649,6 +694,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_general_store
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_general_store
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_general_store
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_general_store
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_general_store
 msgid "General Store"
 msgstr ""
@@ -679,6 +725,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_grass_strips
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_grass_strips
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_grass_strips
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_grass_strips
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_grass_strips
 msgid "Grass strips"
 msgstr ""
@@ -687,6 +734,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_green_cover_crop
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_green_cover_crop
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_green_cover_crop
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_green_cover_crop
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_green_cover_crop
 msgid "Green cover crop"
 msgstr ""
@@ -695,6 +743,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_green_house
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_green_house
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_green_house
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_green_house
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_green_house
 msgid "Green house"
 msgstr ""
@@ -718,6 +767,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__growing_crops_sale
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__growing_crops_sale
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__growing_crops_sale
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__growing_crops_sale
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__growing_crops_sale
 msgid "Growing crops for sale?"
 msgstr ""
@@ -726,6 +776,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__growing_crops_subsistence
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__growing_crops_subsistence
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__growing_crops_subsistence
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__growing_crops_subsistence
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__growing_crops_subsistence
 msgid "Growing crops for subsistence?"
 msgstr ""
@@ -739,6 +790,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_hatchery
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_hatchery
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_hatchery
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_hatchery
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_hatchery
 msgid "Hatchery"
 msgstr ""
@@ -747,6 +799,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_subsidized_fertilizer
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_subsidized_fertilizer
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_subsidized_fertilizer
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_subsidized_fertilizer
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_subsidized_fertilizer
 msgid "Have you benefited from Govt. Subsidized fertilizer?"
 msgstr ""
@@ -755,6 +808,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_soil_testing
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_soil_testing
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_soil_testing
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_soil_testing
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_soil_testing
 msgid "Have you done soil testing in the last 3 years?"
 msgstr ""
@@ -763,6 +817,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_hay_bailers
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_hay_bailers
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_hay_bailers
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_hay_bailers
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_hay_bailers
 msgid "Hay Bailers"
 msgstr ""
@@ -771,6 +826,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_hay_store
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_hay_store
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_hay_store
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_hay_store
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_hay_store
 msgid "Hay Store"
 msgstr ""
@@ -779,6 +835,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__highest_education_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__highest_education_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__highest_education_level
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__highest_education_level
 msgid "Highest Educational Level"
 msgstr ""
 
@@ -791,6 +848,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__household_size
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__household_size
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__household_size
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__household_size
 msgid "Household Size"
 msgstr ""
 
@@ -803,6 +861,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__lease_term
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__lease_term
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__lease_term
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__lease_term
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__lease_term
 msgid "If leased (lease term in years)"
 msgstr ""
@@ -816,6 +875,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_implementing_body
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_implementing_body
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_implementing_body
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_implementing_body
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_implementing_body
 msgid "Implementing body"
 msgstr ""
@@ -834,6 +894,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_integrated_pest_management
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_integrated_pest_management
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_integrated_pest_management
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_integrated_pest_management
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_integrated_pest_management
 msgid "Integrated pest management"
 msgstr ""
@@ -857,6 +918,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_irrigation_scheme_membership
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_irrigation_scheme_membership
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_irrigation_scheme_membership
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_irrigation_scheme_membership
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_irrigation_scheme_membership
 msgid "Irrigation scheme membership"
 msgstr ""
@@ -875,6 +937,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__lease_agreement_number
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__lease_agreement_number
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__lease_agreement_number
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__lease_agreement_number
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__lease_agreement_number
 msgid "LR/Cert. No/Agreement no"
 msgstr ""
@@ -888,6 +951,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_irrigation_source
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_irrigation_source
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_irrigation_source
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_irrigation_source
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_irrigation_source
 msgid "Land Water Management Irrigation Source"
 msgstr ""
@@ -921,6 +985,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_loading_ramp
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_loading_ramp
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_loading_ramp
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_loading_ramp
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_loading_ramp
 msgid "Loading Ramp"
 msgstr ""
@@ -969,6 +1034,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__aquaculture_main_inputs_feeds
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__aquaculture_main_inputs_feeds
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__aquaculture_main_inputs_feeds
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__aquaculture_main_inputs_feeds
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__aquaculture_main_inputs_feeds
 msgid "Manufactured feeds"
 msgstr ""
@@ -977,6 +1043,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_manuring_composting
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_manuring_composting
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_manuring_composting
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_manuring_composting
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_manuring_composting
 msgid "Manuring/Composting"
 msgstr ""
@@ -990,6 +1057,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__marital_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__marital_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__marital_status
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__marital_status
 msgid "Marital Status"
 msgstr ""
 
@@ -997,6 +1065,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_marketing_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_marketing_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_marketing_group
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_marketing_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_marketing_group
 msgid "Marketing Group"
 msgstr ""
@@ -1017,6 +1086,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_micro_finance_institutions
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_micro_finance_institutions
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_micro_finance_institutions
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_micro_finance_institutions
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_micro_finance_institutions
 msgid "Micro-finance institutions"
 msgstr ""
@@ -1025,6 +1095,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_milking_parlor
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_milking_parlor
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_milking_parlor
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_milking_parlor
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_milking_parlor
 msgid "Milking parlor"
 msgstr ""
@@ -1033,6 +1104,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_minimum_tillage
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_minimum_tillage
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_minimum_tillage
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_minimum_tillage
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_minimum_tillage
 msgid "Minimum Tillage"
 msgstr ""
@@ -1046,6 +1118,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_mobile_money_saving_loans
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_mobile_money_saving_loans
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_mobile_money_saving_loans
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_mobile_money_saving_loans
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_mobile_money_saving_loans
 msgid "Mobile Money saving & loans"
 msgstr ""
@@ -1054,6 +1127,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_modern_granary
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_modern_granary
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_modern_granary
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_modern_granary
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_modern_granary
 msgid "Modern Granary"
 msgstr ""
@@ -1072,6 +1146,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_mulching
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_mulching
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_mulching
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_mulching
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_mulching
 msgid "Mulching"
 msgstr ""
@@ -1130,6 +1205,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_non_governmental_donors
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_non_governmental_donors
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_non_governmental_donors
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_non_governmental_donors
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_non_governmental_donors
 msgid "Non-governmental donors"
 msgstr ""
@@ -1174,6 +1250,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_organic_farming
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_organic_farming
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_organic_farming
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_organic_farming
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_organic_farming
 msgid "Organic farming"
 msgstr ""
@@ -1194,6 +1271,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_other_money_lenders
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_other_money_lenders
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_other_money_lenders
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_other_money_lenders
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_other_money_lenders
 msgid "Other money lenders"
 msgstr ""
@@ -1253,6 +1331,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_producer_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_producer_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_producer_group
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_producer_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_producer_group
 msgid "Producer Group"
 msgstr ""
@@ -1301,6 +1380,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__rearing_livestock_sale
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__rearing_livestock_sale
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__rearing_livestock_sale
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__rearing_livestock_sale
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__rearing_livestock_sale
 msgid "Rearing livestock for sale?"
 msgstr ""
@@ -1309,6 +1389,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__rearing_livestock_subsistence
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__rearing_livestock_subsistence
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__rearing_livestock_subsistence
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__rearing_livestock_subsistence
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__rearing_livestock_subsistence
 msgid "Rearing livestock for subsistence?"
 msgstr ""
@@ -1352,6 +1433,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__livestock_animal_health_services_routine_vaccination
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__livestock_animal_health_services_routine_vaccination
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__livestock_animal_health_services_routine_vaccination
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__livestock_animal_health_services_routine_vaccination
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__livestock_animal_health_services_routine_vaccination
 msgid "Routine vaccination"
 msgstr ""
@@ -1370,6 +1452,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_savings_credit_groups
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_savings_credit_groups
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_savings_credit_groups
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_savings_credit_groups
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_savings_credit_groups
 msgid "Savings & Credit groups"
 msgstr ""
@@ -1389,6 +1472,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_self_salary_or_savings
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_self_salary_or_savings
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_self_salary_or_savings
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_self_salary_or_savings
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_self_salary_or_savings
 msgid "Self (Salary or Savings)"
 msgstr ""
@@ -1417,6 +1501,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_sick_bay
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_sick_bay
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_sick_bay
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_sick_bay
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_sick_bay
 msgid "Sick Bay"
 msgstr ""
@@ -1430,6 +1515,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_spray_race
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_spray_race
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_spray_race
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_spray_race
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_spray_race
 msgid "Spray Race"
 msgstr ""
@@ -1458,6 +1544,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_table_banking_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_table_banking_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_table_banking_group
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_table_banking_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_table_banking_group
 msgid "Table Banking Group"
 msgstr ""
@@ -1486,6 +1573,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_terracing
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_terracing
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_terracing
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_terracing
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_terracing
 msgid "Terracing"
 msgstr ""
@@ -1505,6 +1593,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_total_irrigated_area
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_total_irrigated_area
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_total_irrigated_area
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_total_irrigated_area
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_total_irrigated_area
 msgid "Total irrigated area"
 msgstr ""
@@ -1513,6 +1602,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_traditional_granary
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_traditional_granary
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_traditional_granary
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_traditional_granary
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_traditional_granary
 msgid "Traditional Granary"
 msgstr ""
@@ -1521,6 +1611,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_trash_line
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_trash_line
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_trash_line
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_trash_line
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_trash_line
 msgid "Trash line"
 msgstr ""
@@ -1529,6 +1620,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__tree_farming
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__tree_farming
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__tree_farming
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__tree_farming
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__tree_farming
 msgid "Tree farming?"
 msgstr ""
@@ -1537,6 +1629,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_irrigation_type
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_irrigation_type
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_irrigation_type
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_irrigation_type
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_irrigation_type
 msgid "Type of irrigation"
 msgstr ""
@@ -1545,6 +1638,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_type_of_irrigation_project
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_type_of_irrigation_project
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_type_of_irrigation_project
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_type_of_irrigation_project
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_type_of_irrigation_project
 msgid "Type of irrigation project"
 msgstr ""
@@ -1553,6 +1647,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_type_of_irrigation_project_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_type_of_irrigation_project_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_type_of_irrigation_project_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_type_of_irrigation_project_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_type_of_irrigation_project_name
 msgid "Type of irrigation project name"
 msgstr ""
@@ -1567,6 +1662,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_vulnerable_marginalized_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_vulnerable_marginalized_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_vulnerable_marginalized_group
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_vulnerable_marginalized_group
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_vulnerable_marginalized_group
 msgid "Vulnerable/ Marginalized Group"
 msgstr ""
@@ -1575,6 +1671,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__aquaculture_type
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__aquaculture_type
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__aquaculture_type
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__aquaculture_type
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__aquaculture_type
 msgid "Water Body Type"
 msgstr ""
@@ -1583,6 +1680,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_water_harvesting
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_water_harvesting
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_water_harvesting
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_water_harvesting
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_water_harvesting
 msgid "Water harvesting"
 msgstr ""
@@ -1606,6 +1704,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_power_source
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_power_source
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_power_source
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_power_source
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_power_source
 msgid "What are the sources of power for farm activities?"
 msgstr ""
@@ -1624,6 +1723,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_mode_of_extension_service
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_mode_of_extension_service
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_mode_of_extension_service
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_mode_of_extension_service
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_mode_of_extension_service
 msgid "What is the mode of extension service that you receive?"
 msgstr ""
@@ -1637,6 +1737,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_main_extension_service_provider
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_main_extension_service_provider
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_main_extension_service_provider
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_main_extension_service_provider
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_main_extension_service_provider
 msgid "What is your main extension service provider?"
 msgstr ""
@@ -1645,6 +1746,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_main_income_source
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_main_income_source
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_main_income_source
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_main_income_source
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_main_income_source
 msgid "What is your main source of income by priority?"
 msgstr ""
@@ -1653,6 +1755,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_main_source_of_information_on_good_agricultu
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_main_source_of_information_on_good_agricultu
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_main_source_of_information_on_good_agricultu
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_main_source_of_information_on_good_agricultu
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_main_source_of_information_on_good_agricultu
 msgid ""
 "What is your main source of information on good agricultural practices "
@@ -1668,6 +1771,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__aquaculture_production_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__aquaculture_production_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__aquaculture_production_level
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__aquaculture_production_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__aquaculture_production_level
 msgid "What is your production level?"
 msgstr ""
@@ -1676,6 +1780,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__financial_services_percentage_of_income_from_farming
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__financial_services_percentage_of_income_from_farming
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__financial_services_percentage_of_income_from_farming
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__financial_services_percentage_of_income_from_farming
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__financial_services_percentage_of_income_from_farming
 msgid "What percentage of your income comes from farming activities?"
 msgstr ""
@@ -1708,6 +1813,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_own_equipment
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_own_equipment
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_own_equipment
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_own_equipment
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_own_equipment
 msgid "Who Owns Most Of The Frequently Used Equipment?"
 msgstr ""
@@ -1721,6 +1827,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__land_water_management_zai_pits
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__land_water_management_zai_pits
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__land_water_management_zai_pits
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__land_water_management_zai_pits
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__land_water_management_zai_pits
 msgid "Zai pits"
 msgstr ""
@@ -1734,6 +1841,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_g2p_program_membership__farm_technology_structure_zero_grazing_unit
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_partner__farm_technology_structure_zero_grazing_unit
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_res_users__farm_technology_structure_zero_grazing_unit
+#: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_attendance_subscriber__farm_technology_structure_zero_grazing_unit
 #: model:ir.model.fields,field_description:spp_farmer_registry_demo.field_spp_farm_details__farm_technology_structure_zero_grazing_unit
 msgid "Zero Grazing Unit"
 msgstr ""
