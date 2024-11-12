@@ -104,13 +104,14 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                 <button
                     name="import_eligible_registrants"
                     type="object"
-                    string="Import Eligible Registrants"
+                    string="Import New Eligible Registrants"
                     icon="fa-download"
-                    title="Import Eligible Registrants"
+                    title="Import New Eligible Registrants"
                     class="btn-primary"
                     invisible="state != 'active'"
                 />
             </xpath>
+
             <xpath expr="//button[@name='enroll_eligible_registrants']" position="attributes">
                 <attribute
                     name="groups"

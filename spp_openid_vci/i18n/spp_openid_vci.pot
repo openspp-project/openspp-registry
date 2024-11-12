@@ -104,6 +104,27 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: spp_openid_vci
+#. odoo-python
+#: code:addons/spp_openid_vci/models/res_partner.py:0
+#, python-format
+msgid "No auth sub id type found in the issuer."
+msgstr ""
+
+#. module: spp_openid_vci
+#. odoo-python
+#: code:addons/spp_openid_vci/models/res_partner.py:0
+#, python-format
+msgid "No encryption provider found in the issuer."
+msgstr ""
+
+#. module: spp_openid_vci
+#. odoo-python
+#: code:addons/spp_openid_vci/models/res_partner.py:0
+#, python-format
+msgid "No issuer found."
+msgstr ""
+
+#. module: spp_openid_vci
 #: model:ir.model,name:spp_openid_vci.model_g2p_openid_vci_issuers
 msgid "OpenID VCI Issuer"
 msgstr ""
@@ -121,6 +142,13 @@ msgstr ""
 #. module: spp_openid_vci
 #: model:ir.model.fields,field_description:spp_openid_vci.field_spp_issue_card_wizard__partner_id
 msgid "Registrant"
+msgstr ""
+
+#. module: spp_openid_vci
+#. odoo-python
+#: code:addons/spp_openid_vci/models/res_partner.py:0
+#, python-format
+msgid "The request to the credential issuer timed out."
 msgstr ""
 
 #. module: spp_openid_vci

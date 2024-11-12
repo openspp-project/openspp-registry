@@ -14,9 +14,12 @@
     "external_dependencies": {"python": ["faker"]},
     "maintainers": ["jeremi", "gonzalesedwin1123", "reichie020212"],
     "depends": [
+        "base",
+        "g2p_registry_base",
+        "spp_farmer_registry_base",
         "spp_farmer_registry_default_ui",
-        "queue_job",
         "spp_base_demo",
+        "queue_job",
     ],
     "data": [
         "security/ir.model.access.csv",

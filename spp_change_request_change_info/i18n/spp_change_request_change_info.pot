@@ -315,12 +315,6 @@ msgid "Father"
 msgstr ""
 
 #. module: spp_change_request_change_info
-#: model_terms:ir.ui.view,arch_db:spp_change_request_change_info.view_change_request_change_info_form
-#: model_terms:ir.ui.view,arch_db:spp_change_request_change_info.view_change_request_change_info_validation_form
-msgid "File"
-msgstr ""
-
-#. module: spp_change_request_change_info
 #: model:ir.model.fields,field_description:spp_change_request_change_info.field_spp_change_request_change_info__full_name
 msgid "Full Name"
 msgstr ""

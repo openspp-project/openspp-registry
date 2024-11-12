@@ -21,6 +21,11 @@ msgid ""
 msgstr ""
 
 #. module: spp_user_roles
+#: model:ir.model,name:spp_user_roles.model_spp_area
+msgid "Area"
+msgstr ""
+
+#. module: spp_user_roles
 #: model:ir.model.fields,field_description:spp_user_roles.field_res_users_role_line__local_area_id
 msgid "Center Area"
 msgstr ""
@@ -71,6 +76,7 @@ msgid "Local"
 msgstr ""
 
 #. module: spp_user_roles
+#: model:res.groups,name:spp_user_roles.group_local_registrar
 #: model:res.groups,name:spp_user_roles.local_role_registrar_res_groups
 msgid "Local Registrar"
 msgstr ""

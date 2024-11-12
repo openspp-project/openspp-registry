@@ -32,3 +32,14 @@ class TempFarmer(models.Model):
             ("married_polygamous", "Married Polygamous"),
         ]
     )
+    farmer_highest_education_level = fields.Selection(
+        selection_add=[
+            ("none", "None"),
+            ("primary", "Primary"),
+            ("secondary", "Secondary"),
+            ("certificate", "Certificate"),
+            ("diploma", "Diploma"),
+            ("university", "University"),
+            ("tertiary", "Tertiary"),
+        ],
+    )

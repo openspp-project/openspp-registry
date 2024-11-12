@@ -24,7 +24,6 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/programs.py:0
-#: code:addons/spp_programs/models/programs.py:0
 #, python-format
 msgid "%s Imported Beneficiaries"
 msgstr ""
@@ -169,6 +168,11 @@ msgid "Contact"
 msgstr ""
 
 #. module: spp_programs
+#: model_terms:ir.ui.view,arch_db:spp_programs.view_cycle_custom_spp_form
+msgid "Copy New Beneficiaries from Program"
+msgstr ""
+
+#. module: spp_programs
 #: model:ir.model,name:spp_programs.model_g2p_program_create_wizard
 msgid "Create a New Program Wizard"
 msgstr ""
@@ -263,7 +267,6 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/entitlement.py:0
-#: code:addons/spp_programs/models/entitlement.py:0
 #: model:ir.model,name:spp_programs.model_g2p_entitlement
 #: model:ir.model,name:spp_programs.model_g2p_entitlement_inkind
 #, python-format
@@ -278,7 +281,6 @@ msgstr ""
 
 #. module: spp_programs
 #. odoo-python
-#: code:addons/spp_programs/models/entitlement.py:0
 #: code:addons/spp_programs/models/entitlement.py:0
 #, python-format
 msgid "Entitlement: (%s)"
@@ -323,6 +325,16 @@ msgid "Generate Report"
 msgstr ""
 
 #. module: spp_programs
+#: model:res.groups,name:spp_programs.global_role_program_cycle_approver_res_groups
+msgid "Global Program Cycle Approver"
+msgstr ""
+
+#. module: spp_programs
+#: model:res.groups,name:spp_programs.global_role_program_validator_res_groups
+msgid "Global Program Validator"
+msgstr ""
+
+#. module: spp_programs
 #: model_terms:ir.ui.view,arch_db:spp_programs.entitlement_inkind_filter
 #: model_terms:ir.ui.view,arch_db:spp_programs.entitlement_inkind_report_filter
 msgid "Group By"
@@ -352,14 +364,13 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/programs.py:0
-#: code:addons/spp_programs/models/programs.py:0
 #, python-format
 msgid "Import"
 msgstr ""
 
 #. module: spp_programs
 #: model_terms:ir.ui.view,arch_db:spp_programs.view_program_list_custom_spp_form
-msgid "Import Eligible Registrants"
+msgid "Import New Eligible Registrants"
 msgstr ""
 
 #. module: spp_programs
@@ -400,7 +411,6 @@ msgstr ""
 
 #. module: spp_programs
 #. odoo-python
-#: code:addons/spp_programs/wizard/inkind_entitlement_report_wiz.py:0
 #: code:addons/spp_programs/wizard/inkind_entitlement_report_wiz.py:0
 #: model:ir.actions.act_window,name:spp_programs.action_inkind_entitlement_report_wizard
 #, python-format
@@ -488,7 +498,6 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/programs.py:0
-#: code:addons/spp_programs/models/programs.py:0
 #, python-format
 msgid "No Eligibility Manager defined."
 msgstr ""
@@ -506,7 +515,6 @@ msgstr ""
 
 #. module: spp_programs
 #. odoo-python
-#: code:addons/spp_programs/models/entitlement.py:0
 #: code:addons/spp_programs/models/entitlement.py:0
 #, python-format
 msgid "Only draft entitlements are allowed to be deleted"
@@ -556,7 +564,6 @@ msgstr ""
 
 #. module: spp_programs
 #. odoo-python
-#: code:addons/spp_programs/wizard/create_program_wizard.py:0
 #: code:addons/spp_programs/wizard/create_program_wizard.py:0
 #, python-format
 msgid "Programs"
@@ -623,7 +630,6 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/programs.py:0
-#: code:addons/spp_programs/models/programs.py:0
 #, python-format
 msgid "Started importing %s beneficiaries"
 msgstr ""
@@ -671,14 +677,12 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/cycle.py:0
-#: code:addons/spp_programs/models/cycle.py:0
 #, python-format
 msgid "The \"End Date\" cannot be earlier than the \"Start Date\"."
 msgstr ""
 
 #. module: spp_programs
 #. odoo-python
-#: code:addons/spp_programs/models/cycle.py:0
 #: code:addons/spp_programs/models/cycle.py:0
 #, python-format
 msgid "The \"Start Date\" cannot be earlier than today."
@@ -698,6 +702,16 @@ msgstr ""
 #. module: spp_programs
 #: model_terms:ir.actions.act_window,help:spp_programs.action_entitlement_report_inkind
 msgid "There are no entitlements retrieved based on the filters specified."
+msgstr ""
+
+#. module: spp_programs
+#: model:res.groups,comment:spp_programs.global_role_program_cycle_approver_res_groups
+msgid "This role allows users to approve program cycles."
+msgstr ""
+
+#. module: spp_programs
+#: model:res.groups,comment:spp_programs.global_role_program_validator_res_groups
+msgid "This role allows users to validate programs."
 msgstr ""
 
 #. module: spp_programs
@@ -763,7 +777,6 @@ msgstr ""
 
 #. module: spp_programs
 #. odoo-python
-#: code:addons/spp_programs/models/entitlement.py:0
 #: code:addons/spp_programs/models/entitlement.py:0
 #, python-format
 msgid "You have no access in the Entitlement List View"

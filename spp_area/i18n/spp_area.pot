@@ -21,7 +21,6 @@ msgstr ""
 #. module: spp_area
 #. odoo-python
 #: code:addons/spp_area/models/area_import.py:0
-#: code:addons/spp_area/models/area_import.py:0
 #, python-format
 msgid "AREA_SQKM should be numerical."
 msgstr ""
@@ -44,7 +43,6 @@ msgstr ""
 #. module: spp_area
 #: model:ir.actions.act_window,name:spp_area.action_spparea
 #: model:ir.model,name:spp_area.model_spp_area
-#: model:ir.model.fields,field_description:spp_area.field_g2p_program_membership__area_id
 #: model:ir.model.fields,field_description:spp_area.field_res_partner__area_id
 #: model:ir.model.fields,field_description:spp_area.field_res_users__area_id
 #: model:ir.ui.menu,name:spp_area.area_main_menu_root
@@ -108,7 +106,6 @@ msgstr ""
 #. module: spp_area
 #. odoo-python
 #: code:addons/spp_area/models/area.py:0 code:addons/spp_area/models/area.py:0
-#: code:addons/spp_area/models/area.py:0 code:addons/spp_area/models/area.py:0
 #, python-format
 msgid "Area already exist!"
 msgstr ""
@@ -125,14 +122,14 @@ msgstr ""
 
 #. module: spp_area
 #. odoo-python
-#: code:addons/spp_area/models/area.py:0 code:addons/spp_area/models/area.py:0
+#: code:addons/spp_area/models/area.py:0
 #, python-format
 msgid "Can't delete default Area Type"
 msgstr ""
 
 #. module: spp_area
 #. odoo-python
-#: code:addons/spp_area/models/area.py:0 code:addons/spp_area/models/area.py:0
+#: code:addons/spp_area/models/area.py:0
 #, python-format
 msgid "Can't delete used Area Type"
 msgstr ""
@@ -260,7 +257,6 @@ msgstr ""
 #. module: spp_area
 #. odoo-python
 #: code:addons/spp_area/models/area_import.py:0
-#: code:addons/spp_area/models/area_import.py:0
 #, python-format
 msgid "ERROR: {}"
 msgstr ""
@@ -315,6 +311,15 @@ msgid "Kind"
 msgstr ""
 
 #. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area_import.py:0
+#, python-format
+msgid ""
+"Language with ISO Code %s is not active.\n"
+"Please request the administrator to enable the desired language."
+msgstr ""
+
+#. module: spp_area
 #: model:ir.model.fields,field_description:spp_area.field_spp_area__write_uid
 #: model:ir.model.fields,field_description:spp_area.field_spp_area_import__write_uid
 #: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__write_uid
@@ -340,14 +345,12 @@ msgstr ""
 #. module: spp_area
 #. odoo-python
 #: code:addons/spp_area/models/area_import.py:0
-#: code:addons/spp_area/models/area_import.py:0
 #, python-format
 msgid "Level 0 area should not have a parent name and parent code."
 msgstr ""
 
 #. module: spp_area
 #. odoo-python
-#: code:addons/spp_area/models/area_import.py:0
 #: code:addons/spp_area/models/area_import.py:0
 #, python-format
 msgid "Level 1 and above area should have a parent name and parent code."
@@ -377,7 +380,6 @@ msgstr ""
 #. module: spp_area
 #. odoo-python
 #: code:addons/spp_area/models/area_import.py:0
-#: code:addons/spp_area/models/area_import.py:0
 #, python-format
 msgid "Name and Code of area is required."
 msgstr ""
@@ -396,7 +398,6 @@ msgstr ""
 
 #. module: spp_area
 #. odoo-python
-#: code:addons/spp_area/models/area_import.py:0
 #: code:addons/spp_area/models/area_import.py:0
 #, python-format
 msgid "No active language found."
@@ -468,7 +469,6 @@ msgstr ""
 
 #. module: spp_area
 #. odoo-python
-#: code:addons/spp_area/models/area_import.py:0
 #: code:addons/spp_area/models/area_import.py:0
 #, python-format
 msgid "Saving to Area."
@@ -570,7 +570,6 @@ msgstr ""
 
 #. module: spp_area
 #. odoo-python
-#: code:addons/spp_area/models/area_import.py:0
 #: code:addons/spp_area/models/area_import.py:0
 #, python-format
 msgid "Validating data."
