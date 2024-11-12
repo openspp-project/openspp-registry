@@ -14,6 +14,16 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: spp_programs_compliance_criteria
+#: model:ir.model.fields,field_description:spp_programs_compliance_criteria.field_g2p_cycle__all_members_count
+msgid "# Enrollments"
+msgstr ""
+
+#. module: spp_programs_compliance_criteria
+#: model_terms:ir.ui.view,arch_db:spp_programs_compliance_criteria.view_cycle_form_inherit_spp_programs_compliance_criteria
+msgid "<span class=\"o_stat_text\">Enrollments</span>"
+msgstr ""
+
+#. module: spp_programs_compliance_criteria
 #. odoo-javascript
 #: code:addons/spp_programs_compliance_criteria/static/src/xml/field_domain.xml:0
 #, python-format
@@ -115,6 +125,20 @@ msgstr ""
 #. module: spp_programs_compliance_criteria
 #: model:ir.model,name:spp_programs_compliance_criteria.model_g2p_cycle
 msgid "Cycle"
+msgstr ""
+
+#. module: spp_programs_compliance_criteria
+#. odoo-python
+#: code:addons/spp_programs_compliance_criteria/models/g2p_cycle.py:0
+#, python-format
+msgid "Cycle Beneficiaries"
+msgstr ""
+
+#. module: spp_programs_compliance_criteria
+#. odoo-python
+#: code:addons/spp_programs_compliance_criteria/models/g2p_cycle.py:0
+#, python-format
+msgid "Cycle Members"
 msgstr ""
 
 #. module: spp_programs_compliance_criteria
@@ -233,6 +257,11 @@ msgstr ""
 #. module: spp_programs_compliance_criteria
 #: model_terms:ir.ui.view,arch_db:spp_programs_compliance_criteria.view_program_list_form_inherit_spp_programs_compliance_criteria
 msgid "Open Form"
+msgstr ""
+
+#. module: spp_programs_compliance_criteria
+#: model_terms:ir.ui.view,arch_db:spp_programs_compliance_criteria.view_cycle_form_inherit_spp_programs_compliance_criteria
+msgid "Open all members form"
 msgstr ""
 
 #. module: spp_programs_compliance_criteria
