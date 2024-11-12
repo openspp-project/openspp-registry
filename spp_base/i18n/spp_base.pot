@@ -24,11 +24,6 @@ msgid "Contact"
 msgstr ""
 
 #. module: spp_base
-#: model:res.groups,name:spp_base.hide_menu
-msgid "Hide Menu"
-msgstr ""
-
-#. module: spp_base
 #: model:ir.model,name:spp_base.model_g2p_reg_id
 msgid "Registrant ID"
 msgstr ""
