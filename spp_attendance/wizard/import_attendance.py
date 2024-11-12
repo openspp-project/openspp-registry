@@ -192,12 +192,16 @@ class ImportAttendanceWiz(models.TransientModel):
 
         imported_count = self.env["spp.attendance.subscriber"].search_count([]) - initial_count
 
+        message = _("Imported %s persons.", imported_count)
+        if "pagination" in data:
+            message = _("Import successfully. \n Pagination information: %s", data["pagination"])
+
         return {
             "type": "ir.actions.client",
             "tag": "display_notification",
             "params": {
                 "title": _("Import"),
-                "message": _("Imported %s persons.", imported_count),
+                "message": message,
                 "sticky": False,
                 "type": "success",
             },
