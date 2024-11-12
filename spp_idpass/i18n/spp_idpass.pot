@@ -67,7 +67,6 @@ msgstr ""
 #. module: spp_idpass
 #. odoo-python
 #: code:addons/spp_idpass/models/id_type.py:0
-#: code:addons/spp_idpass/models/id_type.py:0
 #, python-format
 msgid "Can't delete default ID Type"
 msgstr ""
@@ -196,7 +195,6 @@ msgstr ""
 #. module: spp_idpass
 #. odoo-python
 #: code:addons/spp_idpass/models/registrant.py:0
-#: code:addons/spp_idpass/models/registrant.py:0
 #, python-format
 msgid "ID PASS Error: %(reason)s Code: %(code)s"
 msgstr ""
@@ -204,14 +202,12 @@ msgstr ""
 #. module: spp_idpass
 #. odoo-python
 #: code:addons/spp_idpass/models/registrant.py:0
-#: code:addons/spp_idpass/models/registrant.py:0
 #, python-format
 msgid "ID PASS Error: No Head or Principal Recipient assigned to this Group"
 msgstr ""
 
 #. module: spp_idpass
 #. odoo-python
-#: code:addons/spp_idpass/models/registrant.py:0
 #: code:addons/spp_idpass/models/registrant.py:0
 #, python-format
 msgid "ID PASS Error: Please try reuploading the ID Picture"
@@ -224,7 +220,6 @@ msgstr ""
 
 #. module: spp_idpass
 #. odoo-python
-#: code:addons/spp_idpass/models/registrant.py:0
 #: code:addons/spp_idpass/models/registrant.py:0
 #, python-format
 msgid "ID Pass Error: No API set"
@@ -282,7 +277,6 @@ msgstr ""
 
 #. module: spp_idpass
 #. odoo-python
-#: code:addons/spp_idpass/models/registrant.py:0
 #: code:addons/spp_idpass/models/registrant.py:0
 #, python-format
 msgid "Issue ID Pass"
@@ -353,7 +347,6 @@ msgstr ""
 #. module: spp_idpass
 #. odoo-python
 #: code:addons/spp_idpass/tests/test_registrant.py:0
-#: code:addons/spp_idpass/tests/test_registrant.py:0
 #, python-format
 msgid "Object `OpenSPPIDQueue` not yet existed!"
 msgstr ""
@@ -390,7 +383,6 @@ msgstr ""
 
 #. module: spp_idpass
 #. odoo-python
-#: code:addons/spp_idpass/wizard/issue_id_pass_wizard.py:0
 #: code:addons/spp_idpass/wizard/issue_id_pass_wizard.py:0
 #, python-format
 msgid "There are no selected Template!"
