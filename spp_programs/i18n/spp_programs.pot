@@ -18,11 +18,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_programs.field_g2p_program_membership__inkind_entitlements_count
 #: model:ir.model.fields,field_description:spp_programs.field_res_partner__inkind_entitlements_count
 #: model:ir.model.fields,field_description:spp_programs.field_res_users__inkind_entitlements_count
+#: model:ir.model.fields,field_description:spp_programs.field_spp_attendance_subscriber__inkind_entitlements_count
 msgid "# In-kind Entitlements"
 msgstr ""
 
 #. module: spp_programs
 #. odoo-python
+#: code:addons/spp_programs/models/programs.py:0
 #: code:addons/spp_programs/models/programs.py:0
 #, python-format
 msgid "%s Imported Beneficiaries"
@@ -267,6 +269,7 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/entitlement.py:0
+#: code:addons/spp_programs/models/entitlement.py:0
 #: model:ir.model,name:spp_programs.model_g2p_entitlement
 #: model:ir.model,name:spp_programs.model_g2p_entitlement_inkind
 #, python-format
@@ -281,6 +284,7 @@ msgstr ""
 
 #. module: spp_programs
 #. odoo-python
+#: code:addons/spp_programs/models/entitlement.py:0
 #: code:addons/spp_programs/models/entitlement.py:0
 #, python-format
 msgid "Entitlement: (%s)"
@@ -364,6 +368,7 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/programs.py:0
+#: code:addons/spp_programs/models/programs.py:0
 #, python-format
 msgid "Import"
 msgstr ""
@@ -412,6 +417,7 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/wizard/inkind_entitlement_report_wiz.py:0
+#: code:addons/spp_programs/wizard/inkind_entitlement_report_wiz.py:0
 #: model:ir.actions.act_window,name:spp_programs.action_inkind_entitlement_report_wizard
 #, python-format
 msgid "In-kind Entitlement Report"
@@ -427,6 +433,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_programs.field_g2p_program_membership__inkind_entitlement_ids
 #: model:ir.model.fields,field_description:spp_programs.field_res_partner__inkind_entitlement_ids
 #: model:ir.model.fields,field_description:spp_programs.field_res_users__inkind_entitlement_ids
+#: model:ir.model.fields,field_description:spp_programs.field_spp_attendance_subscriber__inkind_entitlement_ids
 #: model_terms:ir.ui.view,arch_db:spp_programs.view_cycle_custom_spp_tree
 #: model_terms:ir.ui.view,arch_db:spp_programs.view_group_ext_form_custom_spp
 #: model_terms:ir.ui.view,arch_db:spp_programs.view_program_list_custom_spp_form
@@ -498,6 +505,7 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/programs.py:0
+#: code:addons/spp_programs/models/programs.py:0
 #, python-format
 msgid "No Eligibility Manager defined."
 msgstr ""
@@ -515,6 +523,7 @@ msgstr ""
 
 #. module: spp_programs
 #. odoo-python
+#: code:addons/spp_programs/models/entitlement.py:0
 #: code:addons/spp_programs/models/entitlement.py:0
 #, python-format
 msgid "Only draft entitlements are allowed to be deleted"
@@ -564,6 +573,7 @@ msgstr ""
 
 #. module: spp_programs
 #. odoo-python
+#: code:addons/spp_programs/wizard/create_program_wizard.py:0
 #: code:addons/spp_programs/wizard/create_program_wizard.py:0
 #, python-format
 msgid "Programs"
@@ -630,6 +640,7 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/programs.py:0
+#: code:addons/spp_programs/models/programs.py:0
 #, python-format
 msgid "Started importing %s beneficiaries"
 msgstr ""
@@ -677,12 +688,14 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/cycle.py:0
+#: code:addons/spp_programs/models/cycle.py:0
 #, python-format
 msgid "The \"End Date\" cannot be earlier than the \"Start Date\"."
 msgstr ""
 
 #. module: spp_programs
 #. odoo-python
+#: code:addons/spp_programs/models/cycle.py:0
 #: code:addons/spp_programs/models/cycle.py:0
 #, python-format
 msgid "The \"Start Date\" cannot be earlier than today."
@@ -777,6 +790,7 @@ msgstr ""
 
 #. module: spp_programs
 #. odoo-python
+#: code:addons/spp_programs/models/entitlement.py:0
 #: code:addons/spp_programs/models/entitlement.py:0
 #, python-format
 msgid "You have no access in the Entitlement List View"
