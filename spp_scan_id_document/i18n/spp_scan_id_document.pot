@@ -19,7 +19,6 @@ msgid "Contact"
 msgstr ""
 
 #. module: spp_scan_id_document
-#: model:ir.model.fields,field_description:spp_scan_id_document.field_g2p_program_membership__id_document_details
 #: model:ir.model.fields,field_description:spp_scan_id_document.field_res_partner__id_document_details
 #: model:ir.model.fields,field_description:spp_scan_id_document.field_res_users__id_document_details
 msgid "Id Document Details"
