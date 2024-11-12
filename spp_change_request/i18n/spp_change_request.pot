@@ -622,11 +622,6 @@ msgstr ""
 
 #. module: spp_change_request
 #: model_terms:ir.ui.view,arch_db:spp_change_request.view_dms_file_spp_custom_form
-msgid "Filename"
-msgstr ""
-
-#. module: spp_change_request
-#: model_terms:ir.ui.view,arch_db:spp_change_request.view_dms_file_spp_custom_form
 msgid "Files"
 msgstr ""
 
@@ -1352,15 +1347,15 @@ msgid "User"
 msgstr ""
 
 #. module: spp_change_request
-#: model:ir.module.category,description:spp_change_request.spp_change_request_module
-msgid "User access level for the OpenSPP change request module"
-msgstr ""
-
-#. module: spp_change_request
 #. odoo-python
 #: code:addons/spp_change_request/models/mixins/source_mixin.py:0
 #, python-format
-msgid "User {} does not have access to apply changes.{}"
+msgid "User %(user)s does not have access to apply changes. %(error)s"
+msgstr ""
+
+#. module: spp_change_request
+#: model:ir.module.category,description:spp_change_request.spp_change_request_module
+msgid "User access level for the OpenSPP change request module"
 msgstr ""
 
 #. module: spp_change_request
@@ -1452,8 +1447,8 @@ msgstr ""
 #: code:addons/spp_change_request/models/change_request.py:0
 #, python-format
 msgid ""
-"You are not allowed to validate this request! Stage: {}. Allowed Validator "
-"Group: {}"
+"You are not allowed to validate this request! Stage: %(stage)s. Allowed "
+"Validator Group: %(group)s"
 msgstr ""
 
 #. module: spp_change_request
