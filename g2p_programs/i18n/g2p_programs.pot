@@ -2522,7 +2522,7 @@ msgstr ""
 
 #. module: g2p_programs
 #: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__geo_polygon_field
-msgid "Geo Polygon"
+msgid "Geo Polygon Field"
 msgstr ""
 
 #. module: g2p_programs
