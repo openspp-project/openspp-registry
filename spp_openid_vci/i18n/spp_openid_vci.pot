@@ -155,6 +155,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_openid_vci.field_g2p_program_membership__vc_qr_code
 #: model:ir.model.fields,field_description:spp_openid_vci.field_res_partner__vc_qr_code
 #: model:ir.model.fields,field_description:spp_openid_vci.field_res_users__vc_qr_code
+#: model:ir.model.fields,field_description:spp_openid_vci.field_spp_attendance_subscriber__vc_qr_code
 msgid "VC QR Code"
 msgstr ""
 
