@@ -54,22 +54,28 @@ msgid "GIS Test Model"
 msgstr ""
 
 #. module: spp_base_gis_demo
+#: model:ir.model.fields,field_description:spp_base_gis_demo.field_g2p_program_membership__geo_line
 #: model:ir.model.fields,field_description:spp_base_gis_demo.field_res_partner__geo_line
 #: model:ir.model.fields,field_description:spp_base_gis_demo.field_res_users__geo_line
+#: model:ir.model.fields,field_description:spp_base_gis_demo.field_spp_attendance_subscriber__geo_line
 #: model:ir.model.fields,field_description:spp_base_gis_demo.field_spp_base_gis_test_model__geo_line
 msgid "Geo Line"
 msgstr ""
 
 #. module: spp_base_gis_demo
+#: model:ir.model.fields,field_description:spp_base_gis_demo.field_g2p_program_membership__geo_point
 #: model:ir.model.fields,field_description:spp_base_gis_demo.field_res_partner__geo_point
 #: model:ir.model.fields,field_description:spp_base_gis_demo.field_res_users__geo_point
+#: model:ir.model.fields,field_description:spp_base_gis_demo.field_spp_attendance_subscriber__geo_point
 #: model:ir.model.fields,field_description:spp_base_gis_demo.field_spp_base_gis_test_model__geo_point
 msgid "Geo Point"
 msgstr ""
 
 #. module: spp_base_gis_demo
+#: model:ir.model.fields,field_description:spp_base_gis_demo.field_g2p_program_membership__geo_polygon_field
 #: model:ir.model.fields,field_description:spp_base_gis_demo.field_res_partner__geo_polygon_field
 #: model:ir.model.fields,field_description:spp_base_gis_demo.field_res_users__geo_polygon_field
+#: model:ir.model.fields,field_description:spp_base_gis_demo.field_spp_attendance_subscriber__geo_polygon_field
 #: model:ir.model.fields,field_description:spp_base_gis_demo.field_spp_base_gis_test_model__geo_polygon_field
 msgid "Geo Polygon Field"
 msgstr ""
