@@ -24,11 +24,6 @@ msgid "Area Import Raw Data"
 msgstr ""
 
 #. module: spp_area_gis
-#: model:ir.model.fields,field_description:spp_area_gis.field_spp_area__geo_polygon
-msgid "Area Polygon"
-msgstr ""
-
-#. module: spp_area_gis
 #: model:ir.model,name:spp_area_gis.model_spp_area_import
 msgid "Areas Import Table"
 msgstr ""
@@ -43,6 +38,11 @@ msgstr ""
 #. module: spp_area_gis
 #: model:spp.gis.raster.layer,name:spp_area_gis.gis_raster_layer_area_osm
 msgid "Default"
+msgstr ""
+
+#. module: spp_area_gis
+#: model:ir.model.fields,field_description:spp_area_gis.field_spp_area__geo_polygon
+msgid "Geo Polygon"
 msgstr ""
 
 #. module: spp_area_gis
