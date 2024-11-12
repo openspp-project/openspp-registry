@@ -29,6 +29,9 @@
         "spp_programs",
         "spp_user_roles",
     ],
+    "excludes": [
+        "spp_farmer_registry_base",
+    ],
     "external_dependencies": {
         "python": ["fastapi==0.112.2", "extendable_pydantic==1.3.0", "numpy>=1.22.2", "urllib3>=2.2.2", "zipp>=3.19.1"]
     },  # not directly required, pinned by Snyk to avoid a vulnerability and for fastapi, compatibility issues.

@@ -23,6 +23,9 @@
         "spp_hide_menus",
         "base_import",
     ],
+    "excludes": [
+        "spp_base",
+    ],
     "external_dependencies": {"python": ["shapely", "geojson", "simplejson", "pyproj"]},
     "data": [
         "security/ir.model.access.csv",
@@ -38,7 +41,7 @@
     },
     "demo": [],
     "images": [],
-    "application": False,
+    "application": True,
     "installable": True,
     "auto_install": False,
 }
