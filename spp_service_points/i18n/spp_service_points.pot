@@ -92,6 +92,7 @@ msgstr ""
 #. module: spp_service_points
 #. odoo-python
 #: code:addons/spp_service_points/models/registrant.py:0
+#: code:addons/spp_service_points/models/registrant.py:0
 #, python-format
 msgid "Company does not have contacts."
 msgstr ""
@@ -114,6 +115,8 @@ msgstr ""
 #. module: spp_service_points
 #. odoo-python
 #: code:addons/spp_service_points/models/registrant.py:0
+#: code:addons/spp_service_points/models/registrant.py:0
+#: code:addons/spp_service_points/tests/test_service_point.py:0
 #: code:addons/spp_service_points/tests/test_service_point.py:0
 #, python-format
 msgid "Create SP User"
@@ -170,6 +173,7 @@ msgstr ""
 #. module: spp_service_points
 #. odoo-python
 #: code:addons/spp_service_points/models/registrant.py:0
+#: code:addons/spp_service_points/models/registrant.py:0
 #, python-format
 msgid "Error on individual {child_name}: {error}"
 msgstr ""
@@ -215,6 +219,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_service_points.field_g2p_program_membership__ind_service_points_ids
 #: model:ir.model.fields,field_description:spp_service_points.field_res_partner__ind_service_points_ids
 #: model:ir.model.fields,field_description:spp_service_points.field_res_users__ind_service_points_ids
+#: model:ir.model.fields,field_description:spp_service_points.field_spp_attendance_subscriber__ind_service_points_ids
 msgid "Ind Service Points"
 msgstr ""
 
@@ -312,6 +317,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_service_points.field_g2p_program_membership__service_point_ids
 #: model:ir.model.fields,field_description:spp_service_points.field_res_partner__service_point_ids
 #: model:ir.model.fields,field_description:spp_service_points.field_res_users__service_point_ids
+#: model:ir.model.fields,field_description:spp_service_points.field_spp_attendance_subscriber__service_point_ids
 #: model:ir.ui.menu,name:spp_service_points.menu_service_points
 #: model_terms:ir.ui.view,arch_db:spp_service_points.view_service_point_groups_form
 msgid "Service Points"
@@ -332,12 +338,14 @@ msgstr ""
 #. module: spp_service_points
 #. odoo-python
 #: code:addons/spp_service_points/models/registrant.py:0
+#: code:addons/spp_service_points/models/registrant.py:0
 #, python-format
 msgid "Service point does not have company."
 msgstr ""
 
 #. module: spp_service_points
 #. odoo-python
+#: code:addons/spp_service_points/models/registrant.py:0
 #: code:addons/spp_service_points/models/registrant.py:0
 #, python-format
 msgid "Service point is already disabled."
@@ -346,6 +354,7 @@ msgstr ""
 #. module: spp_service_points
 #. odoo-python
 #: code:addons/spp_service_points/models/registrant.py:0
+#: code:addons/spp_service_points/models/registrant.py:0
 #, python-format
 msgid "Service point is already enabled."
 msgstr ""
@@ -353,6 +362,8 @@ msgstr ""
 #. module: spp_service_points
 #. odoo-python
 #: code:addons/spp_service_points/models/registrant.py:0
+#: code:addons/spp_service_points/models/registrant.py:0
+#: code:addons/spp_service_points/tests/test_service_point.py:0
 #: code:addons/spp_service_points/tests/test_service_point.py:0
 #, python-format
 msgid "Successfully created users for the contacts of the company"
@@ -375,6 +386,7 @@ msgstr ""
 
 #. module: spp_service_points
 #. odoo-python
+#: code:addons/spp_service_points/models/registrant.py:0
 #: code:addons/spp_service_points/models/registrant.py:0
 #, python-format
 msgid "{child_name} does not have email."
