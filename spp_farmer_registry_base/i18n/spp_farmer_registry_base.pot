@@ -349,7 +349,7 @@ msgstr ""
 
 #. module: spp_farmer_registry_base
 #. odoo-python
-#: code:addons/spp_farmer_registry_base/models/farm.py:0
+#: code:addons/spp_farmer_registry_base/models/group_membership.py:0
 #, python-format
 msgid "Farm must have a head member."
 msgstr ""
@@ -463,6 +463,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__coordinates
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__coordinates
 msgid "GPS Coordinates"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_g2p_group_membership
+msgid "Group Membership"
 msgstr ""
 
 #. module: spp_farmer_registry_base
