@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+    <!-- <record id="server_url" model="ir.config_parameter">
+        <field name="key">spp_attendance.server_url</field>
+        <field name="value" eval="env['ir.config_parameter'].sudo().get_param('web.base.url')"/>
+    </record> -->
+    <function model="res.config.settings" name="set_server_url" />
+
+    <record id="attendance_auth_endpoint" model="ir.config_parameter">
+        <field name="key">spp_attendance.attendance_auth_endpoint</field>
+        <field name="value">/oauth2/client/token</field>
+    </record>
+
+    <record id="access_token_mapping" model="ir.config_parameter">
+        <field name="key">spp_attendance.access_token_mapping</field>
+        <field name="value">access_token</field>
+    </record>
+
+    <record id="attendance_import_endpoint" model="ir.config_parameter">
+        <field name="key">spp_attendance.attendance_import_endpoint</field>
+        <field name="value">/registry/sync/search</field>
+    </record>
+
+    <record id="personal_information_mapping" model="ir.config_parameter">
+        <field name="key">spp_attendance.personal_information_mapping</field>
+        <field name="value">message.search_response.0.data.reg_records</field>
+    </record>
+
+    <record id="person_identifier_mapping" model="ir.config_parameter">
+        <field name="key">spp_attendance.person_identifier_mapping</field>
+        <field name="value">identifier.0.identifier</field>
+    </record>
+
+    <record id="family_name_mapping" model="ir.config_parameter">
+        <field name="key">spp_attendance.family_name_mapping</field>
+        <field name="value">familyName</field>
+    </record>
+
+    <record id="given_name_mapping" model="ir.config_parameter">
+        <field name="key">spp_attendance.given_name_mapping</field>
+        <field name="value">givenName</field>
+    </record>
+
+    <record id="email_mapping" model="ir.config_parameter">
+        <field name="key">spp_attendance.email_mapping</field>
+        <field name="value">email</field>
+    </record>
+
+    <record id="phone_mapping" model="ir.config_parameter">
+        <field name="key">spp_attendance.phone_mapping</field>
+        <field name="value">phoneNumbers.0.phone</field>
+    </record>
+
+    <record id="gender_mapping" model="ir.config_parameter">
+        <field name="key">spp_attendance.gender_mapping</field>
+        <field name="value">sex</field>
+    </record>
+</odoo>

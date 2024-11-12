@@ -22,7 +22,7 @@ class G2pCycle(models.Model):
             return
         registrant_satisfied = self.env["res.partner"].sudo().search(self._get_compliance_criteria_domain())
         membership_to_paused = self.cycle_membership_ids.filtered(lambda cm: cm.partner_id not in registrant_satisfied)
-        membership_to_paused.state = "paused"
+        membership_to_paused.state = "non_compliant"
         membership_to_enrolled = self.cycle_membership_ids - membership_to_paused
         membership_to_enrolled.state = "enrolled"
 

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="spp_attendance_client_credential_tree" model="ir.ui.view">
+        <field name="name">spp_attendance_client_credential_tree</field>
+        <field name="model">spp.attendance.api.client.credential</field>
+        <field name="arch" type="xml">
+            <tree export_xlsx="false">
+                <field name="name" />
+                <field name="show_button_clicked" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="spp_attendance_client_credential_form" model="ir.ui.view">
+        <field name="name">spp_attendance_client_credential_form</field>
+        <field name="model">spp.attendance.api.client.credential</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Client Credentials">
+                <sheet>
+                    <field name="id" invisible="1" />
+                    <group name="general_info">
+                        <field name="name" readonly="id" />
+                    </group>
+                    <group name="bearer_auth_info">
+                        <field name="client_id" password="True" string="Client ID" />
+                        <field name="client_secret" password="True" />
+                    </group>
+                    <field name="show_button_clicked" invisible="1" />
+                    <button
+                        name="show_credentials"
+                        string="Show"
+                        type="object"
+                        class="oe_highlight btn-primary"
+                        invisible="show_button_clicked or not id"
+                    />
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="spp_attendance_client_credential_view_credentials" model="ir.ui.view">
+        <field name="name">spp_attendance_client_credential_view_credentials</field>
+        <field name="model">spp.attendance.api.client.credential</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Client Credentials">
+                <sheet>
+                    <h2
+                    >Make sure to copy your client id and client secret now. You won't be able to see it again!</h2>
+                    <group name="bearer_auth_info">
+                        <field name="client_id" widget="CopyClipboardChar" string="Client ID" />
+                        <field name="client_secret" widget="CopyClipboardChar" />
+                    </group>
+                    <footer>
+                        <button string="OK" special="cancel" class="oe_highlight" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="spp_attendance_client_credential_window" model="ir.actions.act_window">
+        <field name="name">Attendance Client Credentials</field>
+        <field name="res_model">spp.attendance.api.client.credential</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">Create and manage the Attendance API Client Credentials.</field>
+    </record>
+
+    <menuitem
+        id="menu_attendance_api_client_credentiale"
+        name="Attendance API Client Credentials"
+        parent="base.menu_administration"
+        sequence="200"
+        action="spp_attendance_client_credential_window"
+        groups="spp_attendance.attendance_manager"
+    />
+</odoo>

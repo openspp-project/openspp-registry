@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_cycle_form_inherit" model="ir.ui.view">
+        <field name="name">view_cycle_form_inherit</field>
+        <field name="model">g2p.cycle</field>
+        <field name="inherit_id" ref="g2p_programs.view_cycle_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='payment_batches']" position="after">
+                <page
+                    name="attendance_compliance"
+                    string="Attendance Compliance"
+                    invisible="not allow_filter_compliance_criteria"
+                >
+                    <group>
+                        <field name="use_attendance_criteria" />
+                        <field name="from_date" />
+                        <field name="to_date" />
+                        <field name="attendance_type_id" options="{'no_open': True, 'no_create': True}" />
+                        <field name="attendance_location_id" options="{'no_open': True, 'no_create': True}" />
+                        <field name="required_number_of_attendance" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

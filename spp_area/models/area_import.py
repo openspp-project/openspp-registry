@@ -1,6 +1,7 @@
 # Part of OpenSPP. See LICENSE file for full copyright and licensing details.
 import base64
 import logging
+import math
 from io import BytesIO
 
 from xlrd import open_workbook
@@ -202,6 +203,15 @@ class OpenSPPAreaImport(models.Model):
                 }
             )
 
+    def _get_book(self):
+        self.ensure_one()
+        try:
+            inputx = BytesIO()
+            inputx.write(base64.decodebytes(self.excel_file))
+        except TypeError as e:
+            raise ValidationError(_("ERROR: {}").format(e)) from e
+        return open_workbook(file_contents=inputx.getvalue())
+
     def check_all_languages_activated(self, columns, area_level):
         """Check if all languages in the specified columns are activated.
 
@@ -229,77 +239,91 @@ class OpenSPPAreaImport(models.Model):
                     )
 
     def import_data(self):
+        self.ensure_one()
+
+        _logger.info("Area Import: Started: %s" % fields.Datetime.now())
+        # Delete all existing import data for this record
+        # This can only be happen if the Area Upload record is reset back to Uploaded state
+        if self.raw_data_ids:
+            self.raw_data_ids.unlink()
+
+        _logger.info("Area Import: Loading Excel File: %s" % fields.Datetime.now())
+        # Wrap binary to BytesIO
+
+        book = self._get_book()
+
+        sheet_names = book.sheet_names()
+        sheet_names.sort()
+        self.locked = True
+        self.locked_reason = _("Importing data.")
+
+        jobs = []
+
+        for area_level, sheet_name in enumerate(sheet_names):
+            sheet = book.sheet_by_name(sheet_name)
+            columns = sheet.row_values(0)
+            self.check_all_languages_activated(columns, area_level)
+            column_indexes = self.get_column_indexes(columns, area_level)
+
+            batches = math.ceil(sheet.nrows / 1000)
+            for i in range(batches):
+                if i == 0:
+                    start = 1
+                else:
+                    start = i * 1000
+                end = min((i + 1) * 1000, sheet.nrows)
+                jobs.append(
+                    self.delayable(channel="root.area_import")._import_data(
+                        sheet_name, column_indexes, start, end, area_level
+                    )
+                )
+
+        main_job = group(*jobs)
+
+        main_job.on_done(self.delayable(channel="root.area_import")._async_mark_done())
+        main_job.delay()
+
+    def _import_data(self, sheet_name, column_indexes, start, end, area_level):
         """
         The `import_data` function imports data from an Excel file, processes it, and updates the record
         with the imported data.
         """
-        _logger.info("Area Import: Started: %s" % fields.Datetime.now())
-        for rec in self:
-            # Delete all existing import data for this record
-            # This can only be happen if the Area Upload record is reset back to Uploaded state
-            if rec.raw_data_ids:
-                rec.raw_data_ids.unlink()
+        self.ensure_one()
 
-            _logger.info("Area Import: Loading Excel File: %s" % fields.Datetime.now())
-            # Wrap binary to BytesIO
-            try:
-                inputx = BytesIO()
-                inputx.write(base64.decodebytes(rec.excel_file))
-            except TypeError as e:
-                raise ValidationError(_("ERROR: {}").format(e)) from e
+        book = self._get_book()
 
-            # Open file using open_workbook, get all sheet names of the excel
-            # then sort sheet name from parent to child
-            book = open_workbook(file_contents=inputx.getvalue())
+        sheet = book.sheet_by_name(sheet_name)
+        for row in range(start, end):
+            import_raw_vals = self.get_area_vals(column_indexes, row, sheet, area_level)
+            self.create_import_raw(import_raw_vals, column_indexes, row, sheet)
 
-            sheet_names = book.sheet_names()
-            sheet_names.sort()
-
-            # Iterate sheet name and their index as area level
-            for area_level, sheet_name in enumerate(sheet_names):
-                # get sheet object by sheet name
-                sheet = book.sheet_by_name(sheet_name)
-
-                # get column list of sheet
-                columns = sheet.row_values(0)
-
-                rec.check_all_languages_activated(columns, area_level)
-
-                column_indexes = rec.get_column_indexes(columns, area_level)
-
-                # Get the required values for area in each row
-                for row in range(1, sheet.nrows):
-                    import_raw_vals = rec.get_area_vals(column_indexes, row, sheet, area_level)
-
-                    rec.create_import_raw(import_raw_vals, column_indexes, row, sheet)
-
-            rec.update(
-                {
-                    "date_imported": fields.Datetime.now(),
-                    "import_id": self.env.user,
-                    "date_validated": fields.Datetime.now(),
-                    "validate_id": self.env.user,
-                    "state": self.IMPORTED,
-                }
-            )
-
-            _logger.info("Area Masterlist Import: Completed: %s" % fields.Datetime.now())
+        self.update(
+            {
+                "date_imported": fields.Datetime.now(),
+                "import_id": self.env.user,
+                "date_validated": fields.Datetime.now(),
+                "validate_id": self.env.user,
+                "state": self.IMPORTED,
+            }
+        )
 
     def validate_raw_data(self):
         """
         The function iterates through a collection of records and checks if the count of raw data is
         less than a minimum threshold, and if so, it calls a validation function, otherwise it calls an
-        asynchronous function.
         """
         for rec in self:
-            raw_data_count = len(rec.raw_data_ids)
-            if raw_data_count < self.MIN_ROW_JOB_QUEUE:
-                rec._validate_raw_data(rec.raw_data_ids)
-                rec._validate_mark_done()
-            else:
-                rec._async_function(
-                    rec.raw_data_ids, _("Validating data."), "_validate_raw_data", "_validate_mark_done"
-                )
+            rec.locked = True
+            rec.locked_reason = _("Validating data.")
+            batches = math.ceil(len(rec.raw_data_ids) / 1000)
+            jobs = []
+            for i in range(batches):
+                start = i * 1000
+                end = min((i + 1) * 1000, len(rec.raw_data_ids))
+                jobs.append(rec.delayable(channel="root.area_import")._validate_raw_data(rec.raw_data_ids[start:end]))
+            main_job = group(*jobs)
+            main_job.on_done(rec.delayable(channel="root.area_import")._validate_mark_done())
+            main_job.delay()
 
     def _validate_raw_data(self, raw_data_ids):
         """
@@ -309,6 +333,8 @@ class OpenSPPAreaImport(models.Model):
         raw_data_ids.validate_raw_data()
 
     def _validate_mark_done(self):
+        self.locked = False
+        self.locked_reason = None
         self.ensure_one()
         if not self.env["spp.area.import.raw"].search([("id", "in", self.raw_data_ids.ids), ("state", "=", "Error")]):
             self.update(
@@ -317,23 +343,28 @@ class OpenSPPAreaImport(models.Model):
                 }
             )
 
-    def _async_function(self, raw_data, reason_message, function_name, function_mark_done):
+    def fix_area_level_and_kind(self):
+        for rec in self:
+            rec.locked = True
+            rec.locked_reason = _("Fixing area level.")
+            batches = math.ceil(len(rec.raw_data_ids) / 1000)
+            jobs = []
+            for i in range(batches):
+                start = i * 1000
+                end = min((i + 1) * 1000, len(rec.raw_data_ids))
+                jobs.append(
+                    rec.delayable(channel="root.area_import")._fix_area_level_and_kind(rec.raw_data_ids[start:end])
+                )
+            main_job = group(*jobs)
+            main_job.on_done(rec.delayable(channel="root.area_import")._async_mark_done())
+            main_job.delay()
+
+    def _fix_area_level_and_kind(self, raw_data_ids):
+        """
+        The function `fix_area_level_and_kind` fixes the area level of the raw data.
+        """
         self.ensure_one()
-
-        self.write(
-            {
-                "locked": True,
-                "locked_reason": reason_message,
-            }
-        )
-
-        jobs = []
-        jobs.append(getattr(self.delayable(channel="root.area_import"), function_name)(raw_data))
-
-        main_job = group(*jobs)
-
-        main_job.on_done(self.delayable(channel="root.area_import")._async_mark_done(function_mark_done))
-        main_job.delay()
+        raw_data_ids.fix_area_level_and_kind()
 
     def _async_mark_done(self, function_mark_done=None):
         """
@@ -354,13 +385,27 @@ class OpenSPPAreaImport(models.Model):
         number of raw data records.
         """
         for rec in self:
-            raw_data_count = len(rec.raw_data_ids)
+            rec.locked = True
+            rec.locked_reason = _("Importing data.")
+            rec._async_recursive_save_to_area(rec.raw_data_ids)
 
-            if raw_data_count < self.MIN_ROW_JOB_QUEUE:
-                rec._save_to_area(rec.raw_data_ids)
-                rec._save_to_area_mark_done()
-            else:
-                rec._async_function(rec.raw_data_ids, _("Saving to Area."), "_save_to_area", "_save_to_area_mark_done")
+    def _async_recursive_save_to_area(self, raw_data_ids):
+        """
+        This is to ensure that the function `_save_to_area` is called recursively and in order until all raw data
+        is saved to the area.
+        """
+        self.ensure_one()
+        jobs = []
+        jobs.append(self.delayable(channel="root.area_import")._save_to_area(raw_data_ids[:1000]))
+        main_job = group(*jobs)
+        count = len(raw_data_ids)
+        if count <= 1000:
+            main_job.on_done(self.delayable(channel="root.area_import")._save_to_area_mark_done())
+        else:
+            main_job.on_done(
+                self.delayable(channel="root.area_import")._async_recursive_save_to_area(raw_data_ids[1000:])
+            )
+        main_job.delay()
 
     def _save_to_area(self, raw_data_ids):
         """
@@ -372,6 +417,8 @@ class OpenSPPAreaImport(models.Model):
 
     def _save_to_area_mark_done(self):
         self.ensure_one()
+        self.locked = False
+        self.locked_reason = None
         if not self.env["spp.area.import.raw"].search(
             [("id", "in", self.raw_data_ids.ids), ("state", "=", "Validated")]
         ):
@@ -443,6 +490,7 @@ class OpenSPPAreaImportActivities(models.Model):
         compute="_compute_state_order",
         store=True,
     )
+    area_id = fields.Many2one("spp.area", "Area", readonly=True)
 
     @api.depends("state")
     def _compute_state_order(self):
@@ -514,6 +562,7 @@ class OpenSPPAreaImportActivities(models.Model):
             "draft_name": self.admin_name,
             "code": self.admin_code,
             "area_sqkm": area_sqkm,
+            "kind": self.env.ref("spp_area.admin_area_kind").id,
         }
 
     def save_to_area(self):
@@ -544,5 +593,28 @@ class OpenSPPAreaImportActivities(models.Model):
                 {
                     "state": state,
                     "remarks": "Successfully save to Area",
+                    "area_id": area_id.id,
                 }
             )
+
+    def fix_area_level_and_kind(self):
+        for rec in self:
+            if rec.area_id and (rec.area_id.area_level != rec.level or not rec.area_id.kind):
+                parent_id = None
+                if rec.parent_name and rec.parent_code:
+                    parent_id = (
+                        self.env["spp.area"]
+                        .search(
+                            [
+                                ("code", "=", rec.parent_code),
+                            ],
+                            limit=1,
+                        )
+                        .id
+                    )
+                rec.area_id.update(
+                    {
+                        "kind": rec.env.ref("spp_area.admin_area_kind").id,
+                        "parent_id": parent_id,
+                    }
+                )

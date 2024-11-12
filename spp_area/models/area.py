@@ -31,7 +31,7 @@ class OpenSPPArea(models.Model):
     code = fields.Char()
     altnames = fields.Char("Alternate Name")
     level = fields.Integer(help="This is the area level for importing")
-    area_level = fields.Integer(compute="_compute_area_level", help="This is the main area level")
+    area_level = fields.Integer(compute="_compute_area_level", store=True, help="This is the main area level")
     child_ids = fields.One2many("spp.area", "id", "Child", compute="_compute_get_childs")
     kind = fields.Many2one("spp.area.kind")
     area_sqkm = fields.Float("Area (sq/km)")
@@ -289,3 +289,15 @@ class OpenSPPAreaKind(models.Model):
             if external_identifier and external_identifier.name:
                 vals = {}
             return super().write(vals)
+
+    def update_parent(self):
+        for rec in self:
+            if rec.parent_name and rec.parent_code:
+                parent_id = self.env["spp.area.kind"].search(
+                    [
+                        ("code", "=", rec.parent_code),
+                    ],
+                    limit=1,
+                )
+                if parent_id:
+                    rec.parent_id = parent_id.id

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="ethnic_group_tree" model="ir.ui.view">
+        <field name="name">ethnic_group_tree</field>
+        <field name="model">spp.ethnic.group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="ethnic_group_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="ethnic_group_form" model="ir.ui.view">
+        <field name="name">ethnic_group_form</field>
+        <field name="model">spp.ethnic.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="ethnic_group_fields">
+                        <field name="name" />
+                        <field name="ethnic_group_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ethnic_group_action_window" model="ir.actions.act_window">
+        <field name="name">Ethnic Group</field>
+        <field name="res_model">spp.ethnic.group</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">Create and manage the ethnig group.</field>
+    </record>
+
+    <menuitem
+        name="Ethnic Group"
+        id="spp_ethnic_group.ethnic_group_menu"
+        parent="g2p_registry_base.g2p_configuration_menu_root"
+        action="ethnic_group_action_window"
+        sequence="10"
+    />
+
+</odoo>

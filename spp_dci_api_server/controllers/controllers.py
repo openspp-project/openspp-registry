@@ -134,7 +134,7 @@ class SppDciApiServer(Controller):
         type="http",
         csrf=False,
     )
-    def retrieve_registry(self, **kw):
+    def retrieve_registry(self, page=1, limit=30, **kw):
         auth_header = get_auth_header(request.httprequest.headers, raise_exception=True)
 
         access_token = auth_header.replace("Bearer ", "").replace("\\n", "").encode("utf-8")
@@ -162,7 +162,7 @@ class SppDciApiServer(Controller):
         header_error = self.check_content(
             header,
             "header",
-            ["message_id", "message_ts", "action", "sender_id", "total_count"],
+            ["message_id", "message_ts", "action", "sender_id"],
         )
         if header_error:
             return error_wrapper(header_error.get("code"), header_error.get("message"))
@@ -179,9 +179,18 @@ class SppDciApiServer(Controller):
         today_isoformat = datetime.now(timezone.utc).isoformat()
         correlation_id = str(uuid.uuid4())
 
+        page = int(page)
+        limit = int(limit)
+
         # Process search requests and modify search_responses
         search_responses = []
-        self.process_search_requests(search_requests, today_isoformat, search_responses)
+        pagination = {
+            "page": page,
+            "limit": limit,
+            "total_records": 0,
+            "total_pages": 0,
+        }
+        self.process_search_requests(search_requests, today_isoformat, search_responses, pagination)
 
         header = {
             "message_id": message_id,
@@ -198,6 +207,7 @@ class SppDciApiServer(Controller):
         data = {
             "header": header,
             "message": message,
+            "pagination": pagination,
         }
         return response_wrapper(200, data)
 
@@ -292,7 +302,7 @@ class SppDciApiServer(Controller):
 
         return domain
 
-    def process_search_requests(self, search_requests, today_isoformat, search_responses):
+    def process_search_requests(self, search_requests, today_isoformat, search_responses, pagination):
         """
         The function processes search requests by validating the request data, checking query and
         registration types, modifying the search domain based on the queries, and returning search
@@ -351,7 +361,15 @@ class SppDciApiServer(Controller):
             domain = self.process_queries(query_type, queries, domain)
 
             if domain:
-                records = request.env["res.partner"].sudo().search(domain)
+                page = pagination.get("page")
+                limit = pagination.get("limit")
+                offset = (page - 1) * limit
+
+                records = request.env["res.partner"].sudo().search(domain, offset=offset, limit=limit)
+                total_records = request.env["res.partner"].sudo().search_count(domain)
+                pagination["total_records"] = total_records
+                pagination["total_pages"] = (total_records + limit - 1) // limit
+
                 if records:
                     search_responses.append(
                         {

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="spp_attendance_res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">openg2p.res.config.settings.view.inherit.setup</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="999" />
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app
+                    string="SPP Attendance Settings"
+                    name="spp_attendance_config_settings"
+                    logo="/spp_attendance/static/src/img/icons/attendance.png"
+                >
+                    <block title="Attendance Data Uniqueness">
+                        <setting string="Date">
+                            <field name="date_unique" />
+                        </setting>
+                        <setting string="Time">
+                            <field name="time_unique" readonly="not date_unique" />
+                        </setting>
+                        <setting string="Attendance Type">
+                            <field name="type_unique" readonly="not time_unique" />
+                        </setting>
+                        <setting string="Attendance Location">
+                            <field name="location_unique" readonly="not type_unique" />
+                        </setting>
+                    </block>
+                    <block title="URL and Auth Settings">
+                        <setting string="Server URL" help="Server URL of the API.">
+                            <field name="server_url" />
+                        </setting>
+                        <setting string="Auth Endpoint" help="Endpoing of the API to Authenticate.">
+                            <field name="attendance_auth_endpoint" />
+                        </setting>
+                        <setting
+                            string="Access Token Mapping"
+                            help="The path to the access token in the response. leave blank if response is a string."
+                        >
+                            <field name="access_token_mapping" />
+                        </setting>
+                        <setting string="Import Endpoint" help="Endpoint of the API to import attendance.">
+                            <field name="attendance_import_endpoint" />
+                        </setting>
+                    </block>
+                    <block title="Mappings">
+                        <setting
+                            string="Personal Information"
+                            help="Mapping for personal informations. Last element must be a list."
+                        >
+                            <field name="personal_information_mapping" />
+                        </setting>
+                        <setting string="Person Identifier" help="Mapping for person identifier.">
+                            <field name="person_identifier_mapping" />
+                        </setting>
+                        <setting string="Family Name" help="Mapping for family name.">
+                            <field name="family_name_mapping" />
+                        </setting>
+                        <setting string="Gender" help="Mapping for gender.">
+                            <field name="gender_mapping" />
+                        </setting>
+                        <setting string="Given Name" help="Mapping for given name.">
+                            <field name="given_name_mapping" />
+                        </setting>
+                        <setting string="Email" help="Mapping for email.">
+                            <field name="email_mapping" />
+                        </setting>
+                        <setting string="Phone" help="Mapping for phone.">
+                            <field name="phone_mapping" />
+                        </setting>
+                        <button string="Import" type="object" name="action_import" class="btn btn-success" />
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>
