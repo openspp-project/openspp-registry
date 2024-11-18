@@ -26,3 +26,15 @@ class SPPCycleGroupMembershipAttendance(models.Model):
                 int(rec.number_of_attendance_str)
             except Exception as e:
                 raise ValidationError(_("Number of Attendance must be a number.")) from e
+
+    def open_members_form(self):
+        return {
+            "name": "Cycle Group Members",
+            "view_mode": "form",
+            "res_model": "res.partner",
+            "res_id": self.individual_id.id,
+            "view_id": self.env.ref("g2p_registry_individual.view_individuals_form").id,
+            "type": "ir.actions.act_window",
+            "target": "current",
+            "flags": {"mode": "readonly"},
+        }
