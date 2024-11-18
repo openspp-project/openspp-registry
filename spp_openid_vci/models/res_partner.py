@@ -70,6 +70,8 @@ class SPPRegistry(models.Model):
             border=4,
         )
 
+        _logger.info(f"Data: {data}")
+
         qr.add_data(data)
         qr.make(fit=True)
 
