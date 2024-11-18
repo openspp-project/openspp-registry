@@ -79,6 +79,7 @@ msgstr ""
 #. module: g2p_registry_base
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__address
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__address
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__address
 msgid "Address"
 msgstr ""
 
@@ -115,6 +116,7 @@ msgstr ""
 #. module: g2p_registry_base
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__civil_status
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__civil_status
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__civil_status
 msgid "CivilState"
 msgstr ""
 
@@ -163,6 +165,7 @@ msgstr ""
 
 #. module: g2p_registry_base
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__company_id
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__company_id
 msgid "Company"
 msgstr ""
 
@@ -225,6 +228,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:g2p_registry_base.field_g2p_reg_rel__disabled
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__disabled
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__disabled
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__disabled
 msgid "Date Disabled"
 msgstr ""
 
@@ -279,6 +283,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:g2p_registry_base.field_g2p_reg_rel__disabled_by
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__disabled_by
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__disabled_by
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__disabled_by
 msgid "Disabled By"
 msgstr ""
 
@@ -297,6 +302,7 @@ msgstr ""
 #. module: g2p_registry_base
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__district
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__district
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__district
 msgid "District"
 msgstr ""
 
@@ -342,6 +348,7 @@ msgstr ""
 #: code:addons/g2p_registry_base/models/reg_relationship.py:0
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__is_group
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__is_group
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__is_group
 #, python-format
 msgid "Group"
 msgstr ""
@@ -431,6 +438,7 @@ msgstr ""
 #. module: g2p_registry_base
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__income
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__income
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__income
 msgid "Income"
 msgstr ""
 
@@ -527,6 +535,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:g2p_registry_base.field_g2p_relationship__name
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__name
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__name
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__name
 msgid "Name"
 msgstr ""
 
@@ -558,6 +567,7 @@ msgstr ""
 #. module: g2p_registry_base
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__occupation
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__occupation
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__occupation
 msgid "Occupation"
 msgstr ""
 
@@ -576,6 +586,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:g2p_registry_base.action_phone_number
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__phone_number_ids
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__phone_number_ids
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__phone_number_ids
 msgid "Phone Numbers"
 msgstr ""
 
@@ -597,6 +608,7 @@ msgstr ""
 #. module: g2p_registry_base
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__disabled_reason
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__disabled_reason
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__disabled_reason
 msgid "Reason for Disabling"
 msgstr ""
 
@@ -612,6 +624,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:g2p_registry_base.field_g2p_reg_id__partner_id
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__is_registrant
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__is_registrant
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__is_registrant
 #: model_terms:ir.ui.view,arch_db:g2p_registry_base.phone_number_filter
 #: model_terms:ir.ui.view,arch_db:g2p_registry_base.reg_id_filter
 #: model_terms:ir.ui.view,arch_db:g2p_registry_base.reg_rel_filter
@@ -635,6 +648,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:g2p_registry_base.action_reg_id
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__reg_ids
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__reg_ids
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__reg_ids
 msgid "Registrant IDs"
 msgstr ""
 
@@ -659,6 +673,7 @@ msgstr ""
 #: model:ir.model,name:g2p_registry_base.model_g2p_registrant_tags
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__tags_ids
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__tags_ids
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__tags_ids
 #: model:ir.ui.menu,name:g2p_registry_base.menu_registrant_tags
 msgid "Registrant Tags"
 msgstr ""
@@ -677,6 +692,7 @@ msgstr ""
 #. module: g2p_registry_base
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__registration_date
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__registration_date
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__registration_date
 msgid "Registration Date"
 msgstr ""
 
@@ -688,12 +704,14 @@ msgstr ""
 #. module: g2p_registry_base
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__related_1_ids
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__related_1_ids
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__related_1_ids
 msgid "Related to registrant 1"
 msgstr ""
 
 #. module: g2p_registry_base
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_partner__related_2_ids
 #: model:ir.model.fields,field_description:g2p_registry_base.field_res_users__related_2_ids
+#: model:ir.model.fields,field_description:g2p_registry_base.field_spp_attendance_subscriber__related_2_ids
 msgid "Related to registrant 2"
 msgstr ""
 

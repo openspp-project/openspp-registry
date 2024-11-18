@@ -28,39 +28,6 @@ msgid "%s Subdirectories"
 msgstr ""
 
 #. module: spp_dms
-#: model_terms:ir.ui.view,arch_db:spp_dms.view_spp_dms_file_kanban
-msgid ""
-"<i class=\"fa fa-download\"/>\n"
-"                                                Download"
-msgstr ""
-
-#. module: spp_dms
-#: model_terms:ir.ui.view,arch_db:spp_dms.view_spp_dms_file_kanban
-msgid ""
-"<i class=\"fa fa-external-link\"/>\n"
-"                                                Open"
-msgstr ""
-
-#. module: spp_dms
-#: model_terms:ir.ui.view,arch_db:spp_dms.view_spp_dms_file_kanban
-msgid ""
-"<i class=\"fa fa-pencil-square-o\"/>\n"
-"                                                Edit"
-msgstr ""
-
-#. module: spp_dms
-#: model_terms:ir.ui.view,arch_db:spp_dms.view_spp_dms_file_kanban
-msgid ""
-"<i class=\"fa fa-trash-o\"/>\n"
-"                                                Delete"
-msgstr ""
-
-#. module: spp_dms
-#: model_terms:ir.ui.view,arch_db:spp_dms.view_spp_dms_file_kanban
-msgid "Actions"
-msgstr ""
-
-#. module: spp_dms
 #: model_terms:ir.actions.act_window,help:spp_dms.action_spp_dms_directory
 msgid "Add a new Directory."
 msgstr ""
@@ -96,7 +63,7 @@ msgstr ""
 
 #. module: spp_dms
 #: model:ir.model.fields,field_description:spp_dms.field_spp_dms_file__checksum
-msgid "Checksum/SHA1"
+msgid "Checksum/SHA512"
 msgstr ""
 
 #. module: spp_dms
@@ -248,11 +215,6 @@ msgid "Display Name"
 msgstr ""
 
 #. module: spp_dms
-#: model_terms:ir.ui.view,arch_db:spp_dms.view_spp_dms_file_kanban
-msgid "Dropdown menu"
-msgstr ""
-
-#. module: spp_dms
 #: model_terms:ir.ui.view,arch_db:spp_dms.view_spp_dms_directory_form
 msgid "Elements"
 msgstr ""
@@ -263,8 +225,12 @@ msgid "Extension"
 msgstr ""
 
 #. module: spp_dms
+#: model:ir.model.fields,field_description:spp_dms.field_spp_dms_file__name
+msgid "Filename"
+msgstr ""
+
+#. module: spp_dms
 #: model:ir.actions.act_window,name:spp_dms.action_spp_dms_file
-#: model:ir.actions.act_window,name:spp_dms.action_spp_dms_file_wizard_selector
 #: model:ir.model.fields,field_description:spp_dms.field_spp_dms_category__file_ids
 #: model:ir.model.fields,field_description:spp_dms.field_spp_dms_directory__file_ids
 #: model:ir.ui.menu,name:spp_dms.menu_spp_dms_file
@@ -301,11 +267,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_dms.field_spp_dms_directory__id
 #: model:ir.model.fields,field_description:spp_dms.field_spp_dms_file__id
 msgid "ID"
-msgstr ""
-
-#. module: spp_dms
-#: model_terms:ir.ui.view,arch_db:spp_dms.view_spp_dms_file_kanban
-msgid "Icon"
 msgstr ""
 
 #. module: spp_dms
@@ -393,7 +354,6 @@ msgstr ""
 #. module: spp_dms
 #: model:ir.model.fields,field_description:spp_dms.field_spp_dms_category__name
 #: model:ir.model.fields,field_description:spp_dms.field_spp_dms_directory__name
-#: model:ir.model.fields,field_description:spp_dms.field_spp_dms_file__name
 msgid "Name"
 msgstr ""
 
@@ -401,11 +361,6 @@ msgstr ""
 #: model:ir.actions.act_window,name:spp_dms.action_spp_dms_directory_new
 #: model:ir.actions.act_window,name:spp_dms.action_spp_dms_file_new
 msgid "New Root Directory"
-msgstr ""
-
-#. module: spp_dms
-#: model_terms:ir.ui.view,arch_db:spp_dms.view_spp_dms_file_kanban
-msgid "Operations"
 msgstr ""
 
 #. module: spp_dms

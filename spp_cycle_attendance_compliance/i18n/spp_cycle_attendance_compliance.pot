@@ -1,0 +1,454 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* spp_cycle_attendance_compliance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_g2p_cycle_membership__allow_filter_compliance_criteria
+msgid "Allow Filter Compliance Criteria"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.view_cycle_form_inherit
+msgid "Attendance Compliance"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__attendance_description
+msgid "Attendance Description"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.actions.act_window,name:spp_cycle_attendance_compliance.config_attendance_location_window
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_g2p_cycle__attendance_location_id
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.config_attendance_location_form
+msgid "Attendance Location"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_res_config_settings__attendance_location_endpoint
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.res_config_settings_programs_view_form
+msgid "Attendance Location Endpoint"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.ui.menu,name:spp_cycle_attendance_compliance.menu_attendance_location
+msgid "Attendance Locations"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.res_config_settings_programs_view_form
+msgid "Attendance Server URL"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.ui.menu,name:spp_cycle_attendance_compliance.menu_attendance_settings
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.res_config_settings_programs_view_form
+msgid "Attendance Settings"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.actions.act_window,name:spp_cycle_attendance_compliance.config_attendance_type_window
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_g2p_cycle__attendance_type_id
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.config_attendance_type_form
+msgid "Attendance Type"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_res_config_settings__attendance_type_endpoint
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.res_config_settings_programs_view_form
+msgid "Attendance Type Endpoint"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.ui.menu,name:spp_cycle_attendance_compliance.menu_attendance_type
+msgid "Attendance Types"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_res_config_settings__attendance_auth_endpoint
+msgid "Auth Endpoint"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.res_config_settings_programs_view_form
+msgid "Authentication Endpoint"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model_terms:ir.actions.act_window,help:spp_cycle_attendance_compliance.action_spp_event_attendance
+msgid ""
+"Click the create button to enter the configuration of the Attendance Event."
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_res_config_settings__attendance_client_id
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.res_config_settings_programs_view_form
+msgid "Client ID"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_res_config_settings__attendance_client_secret
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.res_config_settings_programs_view_form
+msgid "Client Secret"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#. odoo-python
+#: code:addons/spp_cycle_attendance_compliance/models/g2p_cycle.py:0
+#, python-format
+msgid "Compliance Criteria"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_res_config_settings__attendance_compliance_endpoint
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.res_config_settings_programs_view_form
+msgid "Compliance Endpoint"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model,name:spp_cycle_attendance_compliance.model_spp_res_config_attendance_location
+msgid "Config Attendance Location"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model,name:spp_cycle_attendance_compliance.model_spp_res_config_attendance_type
+msgid "Config Attendance Type"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model,name:spp_cycle_attendance_compliance.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model,name:spp_cycle_attendance_compliance.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model_terms:ir.actions.act_window,help:spp_cycle_attendance_compliance.action_spp_event_attendance
+msgid "Create a new Attendance Event!"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model_terms:ir.actions.act_window,help:spp_cycle_attendance_compliance.config_attendance_location_window
+msgid "Create and manage the Attendance Location."
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model_terms:ir.actions.act_window,help:spp_cycle_attendance_compliance.config_attendance_type_window
+msgid "Create and manage the Attendance Type."
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_cycle_group_membership_attendance__create_uid
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__create_uid
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_location__create_uid
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_type__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_cycle_group_membership_attendance__create_date
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__create_date
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_location__create_date
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model,name:spp_cycle_attendance_compliance.model_g2p_cycle
+msgid "Cycle"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model,name:spp_cycle_attendance_compliance.model_spp_cycle_group_membership_attendance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_g2p_cycle_membership__cycle_group_membership_attendance_ids
+msgid "Cycle Group Membership Attendance"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model,name:spp_cycle_attendance_compliance.model_g2p_cycle_membership
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_cycle_group_membership_attendance__cycle_membership_id
+msgid "Cycle Membership"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__attendance_date
+msgid "Date"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model,name:spp_cycle_attendance_compliance.model_g2p_cycle_manager_default
+msgid "Default Cycle Manager"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model,name:spp_cycle_attendance_compliance.model_g2p_program_manager_default
+msgid "Default Program Manager"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_location__description
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_type__description
+msgid "Description"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_cycle_group_membership_attendance__display_name
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__display_name
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_location__display_name
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__event_data_external_id
+msgid "Event Data External"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__event_data_source
+msgid "Event Data Source"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model,name:spp_cycle_attendance_compliance.model_spp_event_attendance
+msgid "Event Data for Attendance"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.actions.act_window,name:spp_cycle_attendance_compliance.action_spp_event_attendance
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.view_spp_event_attendance_form
+msgid "Event Data: Attendance"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_location__external_id
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_type__external_id
+msgid "External"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_location__external_source
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_type__external_source
+msgid "External Source"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__attendance_external_url
+msgid "External URL"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_g2p_cycle__from_date
+msgid "From Date"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_cycle_group_membership_attendance__id
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__id
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_location__id
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_type__id
+msgid "ID"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#. odoo-python
+#: code:addons/spp_cycle_attendance_compliance/models/g2p_cycle.py:0
+#: model:ir.model.fields,help:spp_cycle_attendance_compliance.field_g2p_cycle__use_attendance_criteria
+#, python-format
+msgid "If checked, attendance criteria will be used to filter beneficiaries."
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#. odoo-python
+#: code:addons/spp_cycle_attendance_compliance/models/res_config_settings.py:0
+#, python-format
+msgid "Import"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields.selection,name:spp_cycle_attendance_compliance.selection__spp_cycle_group_membership_attendance__state__included
+msgid "Included"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_cycle_group_membership_attendance__individual_id
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__individual_id
+msgid "Individual"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_cycle_group_membership_attendance__write_uid
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__write_uid
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_location__write_uid
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_cycle_group_membership_attendance__write_date
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__write_date
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_location__write_date
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__attendance_location_id
+msgid "Location"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#. odoo-python
+#: code:addons/spp_cycle_attendance_compliance/models/g2p_cycle.py:0
+#: model:ir.model.fields,help:spp_cycle_attendance_compliance.field_g2p_cycle__attendance_location_id
+#, python-format
+msgid ""
+"Location of attendance to be taken for this program. Should be existing in "
+"the system of the API Server."
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.view_cycle_membership_form
+msgid "Member's Attendance Number"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_location__name
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_type__name
+msgid "Name"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.constraint,message:spp_cycle_attendance_compliance.constraint_spp_res_config_attendance_location_name
+#: model:ir.model.constraint,message:spp_cycle_attendance_compliance.constraint_spp_res_config_attendance_type_name
+msgid "Name must be unique."
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields.selection,name:spp_cycle_attendance_compliance.selection__spp_cycle_group_membership_attendance__state__not_included
+msgid "Not Included"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_g2p_cycle_membership__number_of_attendance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_cycle_group_membership_attendance__number_of_attendance_str
+msgid "Number of Attendance"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#. odoo-python
+#: code:addons/spp_cycle_attendance_compliance/models/cycle_group_membership_attendance.py:0
+#, python-format
+msgid "Number of Attendance must be a number."
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_g2p_cycle_membership__partner_is_group
+msgid "Partner is Group"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_g2p_program_membership__personal_identifier
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_res_partner__personal_identifier
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_res_users__personal_identifier
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_attendance_subscriber__personal_identifier
+msgid "Personal Identifier"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_g2p_cycle__required_number_of_attendance
+msgid "Required Number of Attendance (Days)"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_res_config_settings__attendance_server_url
+msgid "Server URL"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_res_config_attendance_type__set_as_default
+msgid "Set As Default"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_cycle_group_membership_attendance__state
+msgid "State"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__submission_source
+msgid "Submission Source"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__submitted_by
+msgid "Submitted By"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__submitted_datetime
+msgid "Submitted Datetime"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#. odoo-python
+#: code:addons/spp_cycle_attendance_compliance/models/g2p_cycle.py:0
+#, python-format
+msgid "Successfully applied compliance criteria."
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#. odoo-python
+#: code:addons/spp_cycle_attendance_compliance/models/res_config_settings.py:0
+#, python-format
+msgid "Successfully imported Attendance Types and Locations."
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.res_config_settings_programs_view_form
+msgid "Test and Import"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__attendance_time
+msgid "Time"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_g2p_cycle__to_date
+msgid "To Date"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_spp_event_attendance__attendance_type_id
+msgid "Type"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#. odoo-python
+#: code:addons/spp_cycle_attendance_compliance/models/g2p_cycle.py:0
+#: model:ir.model.fields,help:spp_cycle_attendance_compliance.field_g2p_cycle__attendance_type_id
+#, python-format
+msgid ""
+"Type of attendance to be taken for this program. Should be existing in the "
+"system of the API Server."
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
+#: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_g2p_cycle__use_attendance_criteria
+msgid "Use Attendance Compliance Criteria"
+msgstr ""

@@ -1,0 +1,135 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* spp_farmer_registry_default_ui
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Additional Name"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Address Coordinates"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Aquaculture"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Crop Agriculture"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Date of Birth"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Do you have formal training in agriculture?"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "End date"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Family Name"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Farm Details"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Farm Land"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Farmer"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Given Name"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Household Size"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Livestock"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Member Name"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Members"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Open Form"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Open Member Form"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_individual_form
+msgid "Personal Info"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_individual_form
+msgid "Phone Numbers"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Production Systems"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Role"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_individual_form
+msgid "Sex"
+msgstr ""
+
+#. module: spp_farmer_registry_default_ui
+#: model_terms:ir.ui.view,arch_db:spp_farmer_registry_default_ui.view_farm_groups_form
+msgid "Technology and Assets"
+msgstr ""

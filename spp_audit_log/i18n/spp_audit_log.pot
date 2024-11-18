@@ -112,6 +112,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_audit_log.field_g2p_program_membership__grp_member_names
 #: model:ir.model.fields,field_description:spp_audit_log.field_res_partner__grp_member_names
 #: model:ir.model.fields,field_description:spp_audit_log.field_res_users__grp_member_names
+#: model:ir.model.fields,field_description:spp_audit_log.field_spp_attendance_subscriber__grp_member_names
 msgid "Group Member Names"
 msgstr ""
 

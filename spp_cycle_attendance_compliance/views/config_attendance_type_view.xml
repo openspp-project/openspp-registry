@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="config_attendance_type_tree" model="ir.ui.view">
+        <field name="name">config_attendance_type_tree</field>
+        <field name="model">spp.res.config.attendance.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="description" />
+                <field name="external_id" />
+                <field name="external_source" />
+                <field name="set_as_default" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="config_attendance_type_form" model="ir.ui.view">
+        <field name="name">config_attendance_type_form</field>
+        <field name="model">spp.res.config.attendance.type</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Type">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="description" />
+                        <field name="external_id" />
+                        <field name="external_source" />
+                        <field name="set_as_default" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="config_attendance_type_window" model="ir.actions.act_window">
+        <field name="name">Attendance Type</field>
+        <field name="res_model">spp.res.config.attendance.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">Create and manage the Attendance Type.</field>
+    </record>
+
+    <menuitem
+        id="menu_attendance_type"
+        name="Attendance Types"
+        parent="spp_cycle_attendance_compliance.menu_attendance_settings"
+        sequence="10"
+        action="config_attendance_type_window"
+    />
+
+</odoo>

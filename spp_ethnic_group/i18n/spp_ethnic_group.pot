@@ -19,6 +19,16 @@ msgid "Code"
 msgstr ""
 
 #. module: spp_ethnic_group
+#: model:ir.model.constraint,message:spp_ethnic_group.constraint_spp_ethnic_group_ethnic_group_id_uniq
+msgid "Code must be unique!"
+msgstr ""
+
+#. module: spp_ethnic_group
+#: model_terms:ir.actions.act_window,help:spp_ethnic_group.ethnic_group_action_window
+msgid "Create and manage the ethnig group."
+msgstr ""
+
+#. module: spp_ethnic_group
 #: model:ir.model.fields,field_description:spp_ethnic_group.field_spp_ethnic_group__create_uid
 msgid "Created by"
 msgstr ""
@@ -34,8 +44,10 @@ msgid "Display Name"
 msgstr ""
 
 #. module: spp_ethnic_group
+#: model:ir.actions.act_window,name:spp_ethnic_group.ethnic_group_action_window
 #: model:ir.model,name:spp_ethnic_group.model_spp_ethnic_group
 #: model:ir.model.fields,field_description:spp_ethnic_group.field_spp_ethnic_group__name
+#: model:ir.ui.menu,name:spp_ethnic_group.ethnic_group_menu
 msgid "Ethnic Group"
 msgstr ""
 
@@ -52,4 +64,9 @@ msgstr ""
 #. module: spp_ethnic_group
 #: model:ir.model.fields,field_description:spp_ethnic_group.field_spp_ethnic_group__write_date
 msgid "Last Updated on"
+msgstr ""
+
+#. module: spp_ethnic_group
+#: model:ir.model.constraint,message:spp_ethnic_group.constraint_spp_ethnic_group_name_uniq
+msgid "Name must be unique!"
 msgstr ""

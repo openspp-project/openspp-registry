@@ -17,8 +17,3 @@ msgstr ""
 #: model:ir.model,name:theme_openspp_muk.model_res_config_settings
 msgid "Config Settings"
 msgstr ""
-
-#. module: theme_openspp_muk
-#: model:res.groups,name:theme_openspp_muk.hide_menu
-msgid "Hide Menu"
-msgstr ""

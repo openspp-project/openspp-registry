@@ -1,0 +1,65 @@
+<odoo noupdate="1">
+    <!-- Admin -->
+    <record id="spp_user_roles.global_role_admin" model="res.users.role">
+        <field
+            name="implied_ids"
+            eval="
+            [
+                Command.link(ref('g2p_programs.g2p_program_manager')),
+            ]"
+        />
+    </record>
+
+    <!-- Program Manager -->
+    <record id="spp_user_roles.global_role_program_manager" model="res.users.role">
+        <field
+            name="implied_ids"
+            eval="
+            [
+                Command.link(ref('g2p_programs.g2p_program_manager')),
+            ]"
+        />
+    </record>
+
+    <!-- Finance -->
+    <record id="spp_user_roles.global_role_finance" model="res.users.role">
+        <field
+            name="implied_ids"
+            eval="
+            [
+                Command.link(ref('g2p_programs.g2p_finance_validator')),
+            ]"
+        />
+    </record>
+
+    <!-- Program Validator -->
+    <record id="global_role_program_validator" model="res.users.role">
+        <field name="name">Global Program Validator</field>
+        <field name="role_type">global</field>
+        <field name="comment">This role allows users to validate programs.</field>
+        <field
+            name="implied_ids"
+            eval="
+            [
+                Command.link(ref('base.group_user')),
+                Command.link(ref('g2p_programs.g2p_program_validator')),
+            ]"
+        />
+    </record>
+
+    <!-- Program Cycle Approver -->
+    <record id="global_role_program_cycle_approver" model="res.users.role">
+        <field name="name">Global Program Cycle Approver</field>
+        <field name="role_type">global</field>
+        <field name="comment">This role allows users to approve program cycles.</field>
+        <field
+            name="implied_ids"
+            eval="
+            [
+                Command.link(ref('base.group_user')),
+                Command.link(ref('g2p_programs.g2p_program_cycle_approver')),
+            ]"
+        />
+    </record>
+
+</odoo>

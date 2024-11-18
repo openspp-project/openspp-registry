@@ -12,6 +12,7 @@ numpy>=1.22.2
 pyjwt>=2.4.0
 pyproj
 python-magic
+pytz
 qrcode
 shapely
 simplejson

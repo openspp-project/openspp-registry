@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="attendance_subscriber_tree" model="ir.ui.view">
+        <field name="name">attendance_subscriber_tree</field>
+        <field name="model">spp.attendance.subscriber</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="person_identifier" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="attendance_subscriber_form" model="ir.ui.view">
+        <field name="name">attendance_subscriber_form</field>
+        <field name="model">spp.attendance.subscriber</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="id" invisible="1" />
+                    <div class="oe_title mb24">
+                        <h1 invisible="not id">
+                            <field name="name" />
+                        </h1>
+                        <div class="o_row">
+                            <label for="person_identifier" string="Person Identifier" />
+                            <field name="person_identifier" />
+                        </div>
+                    </div>
+                    <notebook>
+                        <page name="attendance_list" string="Attendance">
+                            <field name="attendance_list_ids">
+                                <tree default_order="attendance_date, attendance_time">
+                                    <field name="attendance_date" />
+                                    <field name="attendance_time" />
+                                    <field name="attendance_type_id" />
+                                    <field name="attendance_location_id" />
+                                    <field name="attendance_description" />
+                                    <field name="attendance_external_url" />
+                                    <field name="submission_source" />
+                                    <field name="submitted_by" />
+                                    <field name="submitted_datetime" />
+                                </tree>
+                                <form>
+                                    <group string="Attendance Information">
+                                        <field name="attendance_date" />
+                                        <field name="attendance_time" />
+                                        <field
+                                            name="attendance_type_id"
+                                            options="{'no_create': True, 'no_open': True}"
+                                        />
+                                        <field name="attendance_location_id" />
+                                        <field name="attendance_description" />
+                                        <field name="attendance_external_url" />
+                                    </group>
+                                    <group string="Submitted Information">
+                                        <field name="submitted_by" />
+                                        <field name="submitted_datetime" />
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page name="person_information" string="Person Information">
+                            <group name="person_basic_information">
+                                <field name="partner_name" />
+                                <field name="family_name" />
+                                <field name="given_name" />
+                                <field name="addl_name" string="Addl. Name" />
+                                <field name="gender_char" />
+                                <field name="email" />
+                                <field name="phone" />
+                                <field name="mobile" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="attendance_subscriber_action_window" model="ir.actions.act_window">
+        <field name="name">Attendance Subscriber</field>
+        <field name="res_model">spp.attendance.subscriber</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">Create and manage the attendance.</field>
+    </record>
+
+    <menuitem
+        name="Subscriber"
+        id="spp_attendance.attendance_subscriber_menu"
+        parent="spp_attendance.menu_root"
+        action="attendance_subscriber_action_window"
+        sequence="10"
+    />
+
+</odoo>

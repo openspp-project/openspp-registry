@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <menuitem
+        id="menu_attendance_settings"
+        name="Attendance Settings"
+        parent="base.menu_administration"
+        sequence="200"
+    />
+
+</odoo>

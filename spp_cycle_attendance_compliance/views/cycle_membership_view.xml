@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_cycle_membership_form" model="ir.ui.view">
+        <field name="name">view_cycle_membership_form</field>
+        <field name="model">g2p.cycle.membership</field>
+        <field name="priority">1</field>
+        <field name="inherit_id" ref="g2p_programs.view_cycle_membership_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <field name="partner_is_group" invisible="1" />
+                <field name="allow_filter_compliance_criteria" invisible="1" />
+                <notebook invisible="not allow_filter_compliance_criteria or not partner_is_group">
+                    <page name="individual_attendance" string="Member's Attendance Number">
+                        <field name="cycle_group_membership_attendance_ids" readonly="1">
+                            <tree>
+                                <field name="individual_id" />
+                                <field name="number_of_attendance_str" />
+                                <field
+                                    name="state"
+                                    widget="badge"
+                                    decoration-success="state == 'included'"
+                                    decoration-info="state == 'not_included'"
+                                />
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

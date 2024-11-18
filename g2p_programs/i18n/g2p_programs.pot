@@ -24,6 +24,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__entitlements_count
 #: model:ir.model.fields,field_description:g2p_programs.field_res_partner__entitlements_count
 #: model:ir.model.fields,field_description:g2p_programs.field_res_users__entitlements_count
+#: model:ir.model.fields,field_description:g2p_programs.field_spp_attendance_subscriber__entitlements_count
 msgid "# Cash Entitlements"
 msgstr ""
 
@@ -32,6 +33,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__cycles_count
 #: model:ir.model.fields,field_description:g2p_programs.field_res_partner__cycles_count
 #: model:ir.model.fields,field_description:g2p_programs.field_res_users__cycles_count
+#: model:ir.model.fields,field_description:g2p_programs.field_spp_attendance_subscriber__cycles_count
 #: model_terms:ir.ui.view,arch_db:g2p_programs.view_program_list_tree
 msgid "# Cycles"
 msgstr ""
@@ -84,6 +86,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__program_membership_count
 #: model:ir.model.fields,field_description:g2p_programs.field_res_partner__program_membership_count
 #: model:ir.model.fields,field_description:g2p_programs.field_res_users__program_membership_count
+#: model:ir.model.fields,field_description:g2p_programs.field_spp_attendance_subscriber__program_membership_count
 msgid "# Program Memberships"
 msgstr ""
 
@@ -1581,6 +1584,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__cycle_ids
 #: model:ir.model.fields,field_description:g2p_programs.field_res_partner__cycle_ids
 #: model:ir.model.fields,field_description:g2p_programs.field_res_users__cycle_ids
+#: model:ir.model.fields,field_description:g2p_programs.field_spp_attendance_subscriber__cycle_ids
 msgid "Cycle Memberships"
 msgstr ""
 
@@ -2302,6 +2306,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__entitlement_ids
 #: model:ir.model.fields,field_description:g2p_programs.field_res_partner__entitlement_ids
 #: model:ir.model.fields,field_description:g2p_programs.field_res_users__entitlement_ids
+#: model:ir.model.fields,field_description:g2p_programs.field_spp_attendance_subscriber__entitlement_ids
 #: model:ir.ui.menu,name:g2p_programs.g2p_program_entitlement_root
 #: model:ir.ui.menu,name:g2p_programs.menu_entitlement
 #: model_terms:ir.ui.view,arch_db:g2p_programs.view_program_list_form
@@ -2496,6 +2501,7 @@ msgstr ""
 
 #. module: g2p_programs
 #: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__gender
+#: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__gender_char
 #: model_terms:ir.ui.view,arch_db:g2p_programs.view_program_membership_form
 msgid "Gender"
 msgstr ""
@@ -2522,7 +2528,7 @@ msgstr ""
 
 #. module: g2p_programs
 #: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__geo_polygon_field
-msgid "Geo Polygon"
+msgid "Geo Polygon Field"
 msgstr ""
 
 #. module: g2p_programs
@@ -2698,6 +2704,11 @@ msgstr ""
 #. module: g2p_programs
 #: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__id_document_details
 msgid "Id Document Details"
+msgstr ""
+
+#. module: g2p_programs
+#: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__identifier
+msgid "Identifier"
 msgstr ""
 
 #. module: g2p_programs
@@ -4363,6 +4374,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__program_membership_ids
 #: model:ir.model.fields,field_description:g2p_programs.field_res_partner__program_membership_ids
 #: model:ir.model.fields,field_description:g2p_programs.field_res_users__program_membership_ids
+#: model:ir.model.fields,field_description:g2p_programs.field_spp_attendance_subscriber__program_membership_ids
 msgid "Program Memberships"
 msgstr ""
 

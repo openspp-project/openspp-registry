@@ -17,6 +17,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_size_idle
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_size_idle
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_size_idle
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_size_idle
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__farm_size_idle
 msgid "Acreage Fallow/Idle"
 msgstr ""
@@ -25,6 +26,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_size_leased_out
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_size_leased_out
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_size_leased_out
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_size_leased_out
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__farm_size_leased_out
 msgid "Acreage Leased Out"
 msgstr ""
@@ -33,6 +35,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_size_under_crops
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_size_under_crops
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_size_under_crops
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_size_under_crops
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__farm_size_under_crops
 msgid "Acreage Under Crops"
 msgstr ""
@@ -41,6 +44,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_size_under_livestock
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_size_under_livestock
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_size_under_livestock
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_size_under_livestock
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__farm_size_under_livestock
 msgid "Acreage Under Livestock"
 msgstr ""
@@ -86,6 +90,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_aqua_act_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_aqua_act_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_aqua_act_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_aqua_act_ids
 msgid "Aquaculture Agricultural Activities"
 msgstr ""
 
@@ -176,6 +181,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_crop_act_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_crop_act_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_crop_act_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_crop_act_ids
 msgid "Crop Agricultural Activities"
 msgstr ""
 
@@ -193,6 +199,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__cultivation_method
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__cultivation_method
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__cultivation_method
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__cultivation_method
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_land_record__cultivation_method
 msgid "Cultivation Method"
 msgstr ""
@@ -206,6 +213,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__details_farm_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__details_farm_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__details_farm_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__details_farm_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__details_farm_id
 msgid "Details Farm"
 msgstr ""
@@ -234,6 +242,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__formal_agricultural_training
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__formal_agricultural_training
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__formal_agricultural_training
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__formal_agricultural_training
 msgid "Do you have formal training in agriculture?"
 msgstr ""
 
@@ -241,6 +250,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_email
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_email
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_email
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_email
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_email
 msgid "E-mail Address"
 msgstr ""
@@ -274,6 +284,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__land_farm_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__land_farm_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__land_farm_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__land_farm_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_extension__farm_id
 msgid "Farm"
 msgstr ""
@@ -282,6 +293,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_asset_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_asset_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_asset_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_asset_id
 msgid "Farm Asset"
 msgstr ""
 
@@ -289,6 +301,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_asset_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_asset_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_asset_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_asset_ids
 msgid "Farm Assets"
 msgstr ""
 
@@ -301,6 +314,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_detail_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_detail_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_detail_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_detail_id
 msgid "Farm Detail"
 msgstr ""
 
@@ -309,6 +323,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_details_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_details_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_details_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_details_ids
 msgid "Farm Details"
 msgstr ""
 
@@ -316,6 +331,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_extension_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_extension_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_extension_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_extension_ids
 msgid "Farm Extension Services"
 msgstr ""
 
@@ -328,6 +344,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_machinery_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_machinery_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_machinery_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_machinery_ids
 msgid "Farm Machinery"
 msgstr ""
 
@@ -335,6 +352,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_total_size
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_total_size
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_total_size
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_total_size
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__farm_total_size
 msgid "Farm Size"
 msgstr ""
@@ -343,13 +361,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__details_farm_type
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__details_farm_type
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__details_farm_type
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__details_farm_type
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__details_farm_type
 msgid "Farm Type"
 msgstr ""
 
 #. module: spp_farmer_registry_base
 #. odoo-python
-#: code:addons/spp_farmer_registry_base/models/farm.py:0
+#: code:addons/spp_farmer_registry_base/models/group_membership.py:0
 #, python-format
 msgid "Farm must have a head member."
 msgstr ""
@@ -358,6 +377,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_id
 msgid "Farmer"
 msgstr ""
 
@@ -365,6 +385,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_addtnl_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_addtnl_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_addtnl_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_addtnl_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_addtnl_name
 msgid "Farmer Additional Name"
 msgstr ""
@@ -373,6 +394,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_birthdate
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_birthdate
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_birthdate
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_birthdate
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_birthdate
 msgid "Farmer Date of Birth"
 msgstr ""
@@ -381,6 +403,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_family_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_family_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_family_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_family_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_family_name
 msgid "Farmer Family Name"
 msgstr ""
@@ -389,6 +412,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_formal_agricultural
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_formal_agricultural
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_formal_agricultural
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_formal_agricultural
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_formal_agricultural
 msgid "Farmer Formal Agricultural"
 msgstr ""
@@ -397,6 +421,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_given_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_given_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_given_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_given_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_given_name
 msgid "Farmer Given Name"
 msgstr ""
@@ -405,6 +430,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_highest_education_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_highest_education_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_highest_education_level
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_highest_education_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_highest_education_level
 msgid "Farmer Highest Educational Level"
 msgstr ""
@@ -413,6 +439,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_household_size
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_household_size
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_household_size
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_household_size
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_household_size
 msgid "Farmer Household Size"
 msgstr ""
@@ -421,6 +448,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_individual_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_individual_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_individual_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_individual_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_individual_id
 msgid "Farmer Individual"
 msgstr ""
@@ -434,6 +462,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_marital_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_marital_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_marital_status
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_marital_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_marital_status
 msgid "Farmer Marital Status"
 msgstr ""
@@ -462,13 +491,20 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__coordinates
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__coordinates
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__coordinates
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__coordinates
 msgid "GPS Coordinates"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_g2p_group_membership
+msgid "Group Membership"
 msgstr ""
 
 #. module: spp_farmer_registry_base
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__highest_education_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__highest_education_level
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__highest_education_level
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__highest_education_level
 msgid "Highest Educational Level"
 msgstr ""
 
@@ -508,6 +544,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__land_acreage
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__land_acreage
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__land_acreage
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__land_acreage
 msgid "Land Acreage"
 msgstr ""
 
@@ -515,6 +552,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__land_coordinates
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__land_coordinates
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__land_coordinates
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__land_coordinates
 msgid "Land Coordinates"
 msgstr ""
 
@@ -522,6 +560,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__land_geo_polygon
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__land_geo_polygon
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__land_geo_polygon
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__land_geo_polygon
 msgid "Land Polygons"
 msgstr ""
 
@@ -529,6 +568,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_land_rec_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_land_rec_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_land_rec_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_land_rec_id
 msgid "Land Record"
 msgstr ""
 
@@ -541,6 +581,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_land_rec_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_land_rec_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_land_rec_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_land_rec_ids
 msgid "Land Records"
 msgstr ""
 
@@ -548,6 +589,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__land_use
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__land_use
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__land_use
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__land_use
 msgid "Land Use"
 msgstr ""
 
@@ -585,6 +627,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__lease_end
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__lease_end
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__lease_end
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__lease_end
 msgid "Lease End"
 msgstr ""
 
@@ -592,6 +635,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__lease_start
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__lease_start
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__lease_start
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__lease_start
 msgid "Lease Start"
 msgstr ""
 
@@ -604,6 +648,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__details_legal_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__details_legal_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__details_legal_status
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__details_legal_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__details_legal_status
 msgid "Legal Status"
 msgstr ""
@@ -612,6 +657,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__lessee_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__lessee_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__lessee_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__lessee_id
 msgid "Lessee"
 msgstr ""
 
@@ -625,6 +671,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_live_act_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_live_act_ids
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_live_act_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farm_live_act_ids
 msgid "Livestock Agricultural Activities"
 msgstr ""
 
@@ -654,6 +701,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__marital_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__marital_status
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__marital_status
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__marital_status
 msgid "Marital Status"
 msgstr ""
 
@@ -672,6 +720,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_mobile_tel
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_mobile_tel
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_mobile_tel
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_mobile_tel
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_mobile_tel
 msgid "Mobile Telephone Number"
 msgstr ""
@@ -680,6 +729,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_national_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_national_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_national_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_national_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_national_id
 msgid "National ID Number"
 msgstr ""
@@ -719,6 +769,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__owner_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__owner_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__owner_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__owner_id
 msgid "Owner"
 msgstr ""
 
@@ -726,6 +777,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__land_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__land_name
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__land_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__land_name
 msgid "Parcel Name/ID"
 msgstr ""
 
@@ -733,6 +785,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_postal_address
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_postal_address
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_postal_address
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_postal_address
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_postal_address
 msgid "Postal Address"
 msgstr ""
@@ -762,6 +815,7 @@ msgstr ""
 #: model:ir.model.fields,help:spp_farmer_registry_base.field_g2p_program_membership__cultivation_method
 #: model:ir.model.fields,help:spp_farmer_registry_base.field_res_partner__cultivation_method
 #: model:ir.model.fields,help:spp_farmer_registry_base.field_res_users__cultivation_method
+#: model:ir.model.fields,help:spp_farmer_registry_base.field_spp_attendance_subscriber__cultivation_method
 #: model:ir.model.fields,help:spp_farmer_registry_base.field_spp_land_record__cultivation_method
 msgid "Relevant if land use is cultivation or mixed"
 msgstr ""
@@ -782,6 +836,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_sex
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_sex
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_sex
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__farmer_sex
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_sex
 msgid "Sex"
 msgstr ""
@@ -798,6 +853,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__species
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__species
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__species
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__species
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__species_id
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_land_record__species
 #: model:ir.ui.menu,name:spp_farmer_registry_base.menu_species
@@ -808,6 +864,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__species_domain
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__species_domain
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__species_domain
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__species_domain
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_land_record__species_domain
 msgid "Species Domain"
 msgstr ""
@@ -863,6 +920,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__experience_years
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__experience_years
 #: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__experience_years
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_attendance_subscriber__experience_years
 msgid "Years of Experience"
 msgstr ""
 
