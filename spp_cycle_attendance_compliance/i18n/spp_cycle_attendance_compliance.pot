@@ -357,6 +357,11 @@ msgid "Number of Attendance must be a number."
 msgstr ""
 
 #. module: spp_cycle_attendance_compliance
+#: model_terms:ir.ui.view,arch_db:spp_cycle_attendance_compliance.view_cycle_membership_form
+msgid "Open Member Form"
+msgstr ""
+
+#. module: spp_cycle_attendance_compliance
 #: model:ir.model.fields,field_description:spp_cycle_attendance_compliance.field_g2p_cycle_membership__partner_is_group
 msgid "Partner is Group"
 msgstr ""
