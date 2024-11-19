@@ -1,15 +1,12 @@
-import base64
 import calendar
 import json
 import logging
 from datetime import datetime
-from io import BytesIO
-
-import qrcode
-from qrcode.image.pil import PilImage
 
 from odoo import _, fields, models
 from odoo.exceptions import UserError
+
+from ..tools import create_qr_code
 
 _logger = logging.getLogger(__name__)
 
@@ -62,28 +59,6 @@ class SPPRegistry(models.Model):
 
         return self.env["g2p.openid.vci.issuers"].issue_vc(credential_request, signed_data)
 
-    def _create_qr_code(self, data):
-        qr = qrcode.QRCode(
-            error_correction=qrcode.constants.ERROR_CORRECT_L,
-            image_factory=PilImage,
-            box_size=10,
-            border=4,
-        )
-
-        _logger.info(f"Data: {data}")
-
-        qr.add_data(data)
-        qr.make(fit=True)
-
-        img = qr.make_image()
-
-        temp = BytesIO()
-        img.save(temp, format="PNG")
-        qr_img = base64.b64encode(temp.getvalue())
-        temp.close()
-
-        return qr_img
-
     def registry_issue_card(self):
         self.ensure_one()
 
@@ -109,7 +84,7 @@ class SPPRegistry(models.Model):
 
         result = self._issue_vc(vci_issuer)
 
-        qr_img = self._create_qr_code(json.dumps(result))
+        qr_img = create_qr_code(json.dumps(result))
 
         self.vc_qr_code = qr_img
 
