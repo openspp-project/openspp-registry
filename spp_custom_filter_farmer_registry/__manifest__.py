@@ -6,7 +6,7 @@
     "author": "OpenSPP.org",
     "website": "https://github.com/OpenSPP/openspp-modules",
     "license": "LGPL-3",
-    "depends": ["spp_custom_filter_ui", "spp_base", "spp_farmer_registry_base"],
+    "depends": ["spp_custom_filter_ui", "spp_farmer_registry_base"],
     "auto_install": False,
     "application": False,
 }

@@ -28,6 +28,7 @@
         "g2p_programs",
         "product",
         "stock",
+        "spp_custom_filter_ui"
     ],
     "external_dependencies": {"python": ["faker"]},
     "data": [
