@@ -28,7 +28,7 @@
         "spp_hide_menus",
         "spp_programs",
         "spp_user_roles",
-        "spp_custom_filter_ui"
+        "spp_custom_filter_ui",
     ],
     "excludes": [
         "spp_farmer_registry_base",
