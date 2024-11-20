@@ -1,12 +1,6 @@
 name: tests (legacy)
 # fetching the OpenG2P dependencies from the OpenG2P repositories, using latest revision of branch 17.0/17.0-develop
 
-on:
-  push:
-    branches:
-      - "17.0"
-      - "17.0-ocabot-*"
-      - "farmer-registry"
 env:
   OCA_GIT_USER_NAME: openspp
   OCA_GIT_USER_EMAIL: bot@openspp.org
