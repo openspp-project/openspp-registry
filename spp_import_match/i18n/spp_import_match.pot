@@ -209,6 +209,13 @@ msgid "Model for Import Matching"
 msgstr ""
 
 #. module: spp_import_match
+#. odoo-python
+#: code:addons/spp_import_match/models/import_match.py:0
+#, python-format
+msgid "Multiple matches found for '%s'!"
+msgstr ""
+
+#. module: spp_import_match
 #: model:ir.model.fields,field_description:spp_import_match.field_spp_import_match__name
 #: model:ir.model.fields,field_description:spp_import_match.field_spp_import_match_fields__name
 msgid "Name"
