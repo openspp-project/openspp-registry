@@ -59,6 +59,9 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                     state == 'step1'
                 </attribute>
             </xpath>
+            <xpath expr="//field[@name='currency_id']" position="after">
+                <field name="view_id" options="{'no_open':true,'no_create':true,'no_create_edit':true}" />
+            </xpath>
         </field>
     </record>
 </odoo>

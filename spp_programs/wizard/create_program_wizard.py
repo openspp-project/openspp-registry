@@ -29,6 +29,15 @@ class SPPCreateNewProgramWiz(models.TransientModel):
     )
 
     id_type = fields.Many2one("g2p.id.type", "ID Type to store in entitlements")
+    view_id = fields.Many2one(
+        "ir.ui.view",
+        "Program UI Template",
+        domain="[('model', '=', 'g2p.program'), " "('type', '=', 'form')," "('inherit_id', '=', False),]",
+        default=lambda self: self._get_default_program_ui(),
+    )
+
+    def _get_default_program_ui(self):
+        return self.env.ref("g2p_programs.view_program_list_form")
 
     @api.onchange("admin_area_ids")
     def on_admin_area_ids_change(self):
@@ -102,15 +111,22 @@ class SPPCreateNewProgramWiz(models.TransientModel):
             if rec.is_one_time_distribution:
                 program.create_new_cycle()
 
+            view_id = self.env.ref("g2p_programs.view_program_list_form")
+            if rec.view_id:
+                view_id = rec.view_id
+
+            program.view_id = view_id.id
+
             # Open the newly created program
-            action = {
+            return {
                 "name": _("Programs"),
-                "type": "ir.actions.act_window",
+                "view_mode": "form",
                 "res_model": "g2p.program",
-                "view_mode": "form,list",
                 "res_id": program_id,
+                "view_id": view_id.id,
+                "type": "ir.actions.act_window",
+                "target": "current",
             }
-            return action
 
     def _get_default_eligibility_manager_val(self, program_id):
         return {
