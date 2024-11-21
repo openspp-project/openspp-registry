@@ -565,6 +565,12 @@ msgid "Program Approval Receipt"
 msgstr ""
 
 #. module: spp_programs
+#: model:ir.model.fields,field_description:spp_programs.field_g2p_program__view_id
+#: model:ir.model.fields,field_description:spp_programs.field_g2p_program_create_wizard__view_id
+msgid "Program UI Template"
+msgstr ""
+
+#. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/wizard/create_program_wizard.py:0
 #, python-format
