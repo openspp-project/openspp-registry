@@ -1,0 +1,110 @@
+<odoo noupdate="0">
+    <record id="action_generate_summary" model="ir.actions.report">
+        <field name="name">Disbursement summary</field>
+        <field name="model">g2p.cycle</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">g2p_programs.print_summary</field>
+        <field name="report_file">g2p_programs.print_summary</field>
+        <field name="binding_model_id" ref="model_g2p_cycle" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="print_summary">
+        <t t-call="web.report_layout">
+            <t t-call="web.basic_layout">
+                <div class="page" style="border: 1px solid black; padding: 20px;">
+                    <div style="margin-bottom: 20px;">
+                        <img
+                            t-att-src="'/g2p_programs/static/src/img/logo.png'"
+                            alt="Company Logo"
+                            style="max-height: 100px;"
+                        />
+                        <h2>
+                            <center>Disbursement Summary</center>
+                        </h2>
+                    </div>
+                    <p>Date: <span t-esc="time.strftime('%d %b %Y')" />
+                    </p>
+                    <p>Place:</p>
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="content">
+                            <h3>Program Details</h3>
+                            <table class="table table-sm">
+                                <tr>
+                                    <td>
+                                        <strong>Program Name:</strong>
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.program_id.name" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Cycle Name:</strong>
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.name" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Cycle Approved Date:</strong>
+                                    </td>
+                                    <td>
+                                        <span t-if="doc.approved_date"><t
+                                                t-esc="doc.approved_date.strftime('%d %b %Y')"
+                                            /> </span>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>
+                                        <strong>Cycle Approved By:</strong>
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.approved_by.name" />
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Amount Information -->
+                            <h3>Payment Information</h3>
+                            <table class="table table-sm">
+                                <tr>
+                                    <td>
+                                        <strong>Number of Beneficiaries:</strong>
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.members_count" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Total Amount(in <span
+                                                t-esc="doc.currency_id.name"
+                                            />):</strong>
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.total_amount" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Total Amount (in words):</strong>
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc.total_amount_in_words" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+
+                    <!-- Footer -->
+                    <!-- <div class="footer" style="text-align: center; margin-top: 30px;">
+                    <p>Generated by: </p>
+                </div> -->
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

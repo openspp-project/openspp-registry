@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Part of OpenG2P. See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+    <record id="view_program_fund_report_tree" model="ir.ui.view">
+        <field name="name">view_program_fund_report_tree</field>
+        <field name="model">g2p.program.fund.report.view</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree
+                sample="1"
+                create="0"
+                edit="0"
+                delete="0"
+                decoration-bf="amount &gt; 0.0"
+                decoration-primary="amount &gt; 0.0"
+            >
+                <field name="name" />
+                <field name="date_posted" />
+                <field name="partner_id" />
+                <field name="program_id" />
+                <field name="cycle_id" />
+                <field name="journal_id" optional="hidden" />
+                <field name="amount" sum="total_amount" />
+                <field name="currency_id" />
+                <field name="company_id" groups="base.group_multi_company" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="program_fund_report_filter" model="ir.ui.view">
+        <field name="name">program_fund_report_filter</field>
+        <field name="model">g2p.program.fund.report.view</field>
+        <field name="priority" eval="1" />
+        <field name="arch" type="xml">
+            <search string="Search Program Fund Report">
+                <field name="name" />
+                <field name="partner_id" />
+                <field name="program_id" />
+                <field name="cycle_id" />
+                <separator />
+                <filter name="filter_date_posted" date="date_posted" />
+                <group expand="0" string="Group By">
+                    <filter string="Date Posted" name="date_posted" context="{'group_by':'date_posted'}" />
+                    <separator orientation="vertical" />
+                    <filter string="Program" name="grp_program_id" context="{'group_by': 'program_id'}" />
+                    <filter string="Cycle" name="grp_cycle_id" context="{'group_by': 'cycle_id'}" />
+                    <filter string="Journal" name="grp_journal_id" context="{'group_by': 'journal_id'}" />
+                    <filter string="Company" name="grp_company_id" context="{'group_by': 'company_id'}" />
+                </group>
+                <searchpanel>
+                    <field name="journal_id" icon="fa-book" />
+                    <field name="program_id" icon="fa-file" />
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_program_fund_report" model="ir.actions.act_window">
+        <field name="name">Program Fund Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">g2p.program.fund.report.view</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="program_fund_report_filter" />
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                There are no Program Fund Entries based on the current filter!
+            </p>
+        </field>
+    </record>
+
+    <record id="action_program_fund_report_tree_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_program_fund_report_tree" />
+        <field name="act_window_id" ref="action_program_fund_report" />
+    </record>
+
+    <menuitem
+        id="menu_program_fund_report"
+        action="action_program_fund_report"
+        groups="g2p_registry_base.group_g2p_admin,g2p_programs.g2p_program_manager,g2p_programs.g2p_finance_validator"
+        sequence="10"
+        parent="g2p_accounting_reports_menu_root"
+    />
+
+</odoo>

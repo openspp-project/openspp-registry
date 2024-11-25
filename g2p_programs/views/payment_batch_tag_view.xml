@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Part of OpenG2P. See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+    <record id="view_payment_batch_tag_tree" model="ir.ui.view">
+        <field name="name">view_payment_batch_tag_tree</field>
+        <field name="model">g2p.payment.batch.tag</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="order" />
+                <field name="max_batch_size" />
+                <field name="domain" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_payment_batch_tag_form" model="ir.ui.view">
+        <field name="name">view_payment_batch_tag_form</field>
+        <field name="model">g2p.payment.batch.tag</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Batch Tags">
+                <group>
+                    <field name="name" />
+                    <field name="order" />
+                    <field name="domain" widget="domain" options="{'model': 'g2p.entitlement'}" />
+                    <field name="max_batch_size" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_payment_batch_tag" model="ir.actions.act_window">
+        <field name="name">Payments Batch Tags</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">g2p.payment.batch.tag</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+    </record>
+
+    <menuitem
+        id="menu_payment_batch_tags"
+        name="Payment Batch Tags"
+        action="action_payment_batch_tag"
+        parent="g2p_programs.g2p_program_configuration_menu_root"
+        sequence="1100"
+        groups="g2p_registry_base.group_g2p_admin,g2p_programs.g2p_program_manager"
+    />
+
+</odoo>

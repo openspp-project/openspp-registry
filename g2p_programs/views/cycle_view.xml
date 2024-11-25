@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Part of OpenG2P. See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+    <record id="view_cycle_tree" model="ir.ui.view">
+        <field name="name">view_cycle_tree</field>
+        <field name="model">g2p.cycle</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="program_id" />
+                <field name="members_count" string="# Beneficiaries" />
+                <field name="entitlements_count" string="# Entitlements" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <field
+                    name="state"
+                    decoration-primary="state=='draft'"
+                    decoration-warning="state=='to_approve'"
+                    decoration-success="state in ('approved','distributed')"
+                    decoration-danger="state in ('ended', 'cancelled')"
+                    widget="badge"
+                    string="State"
+                />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_cycle_form" model="ir.ui.view">
+        <field name="name">view_cycle_form</field>
+        <field name="model">g2p.cycle</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Cycle" create="false">
+                <header>
+                    <button
+                        type="object"
+                        class="btn-primary"
+                        icon="fa-files-o"
+                        title="Copy beneficiaries from program"
+                        name="copy_beneficiaries_from_program"
+                        invisible="state != 'draft'"
+                        string="Copy Beneficiaries from Program"
+                    />
+                    <button
+                        type="object"
+                        class="btn-primary"
+                        title="Check eligibility"
+                        icon="fa-check-square-o"
+                        name="check_eligibility"
+                        invisible="state != 'draft'"
+                        string="Verify Eligibility"
+                    />
+                    <button
+                        type="object"
+                        class="btn-primary"
+                        title="Prepare entitlement"
+                        icon="fa-file-text-o"
+                        name="prepare_entitlement"
+                        invisible="state != 'draft'"
+                        string="Prepare Entitlement"
+                    />
+                    <field name="show_approve_entitlements_button" invisible='1' />
+                    <field name="auto_approve_entitlements" invisible='1' />
+                    <button
+                        type="object"
+                        class="btn-primary"
+                        title="Validate entitlement"
+                        icon="fa-file-text-o"
+                        name="validate_entitlement"
+                        invisible="state != 'approved' or auto_approve_entitlements or show_approve_entitlements_button"
+                        string="Approve Entitlement"
+                    />
+                    <button
+                        type="object"
+                        class="btn-primary"
+                        icon="fa-file-text-o"
+                        title="Prepare payment"
+                        name="prepare_payment"
+                        string="Prepare Payments"
+                        invisible="context.get('hide_cash') or state != 'approved'"
+                    />
+                     <button
+                        name="%(action_generate_summary)d"
+                        class="btn-primary"
+                        type="action"
+                        string="Print Summary"
+                        invisible="context.get('hide_cash') or state != 'approved'"
+                        groups="g2p_programs.g2p_program_manager,g2p_programs.g2p_program_cycle_approver,g2p_registry_base.group_g2p_admin"
+                    />
+                    <button
+                        type="object"
+                        class="btn-success"
+                        icon="fa-thumbs-o-up"
+                        title="Send payment"
+                        name="send_payment"
+                        string="Send Payments"
+                        invisible="state != 'approved' or payments_count == 0"
+                    />
+                    <button
+                        type="object"
+                        class="btn-primary"
+                        icon="fa-file-text-o"
+                        title="Mark ended"
+                        name="mark_ended"
+                        invisible="state != 'distributed'"
+                        string="Set as Ended"
+                    />
+                    <button
+                        type="object"
+                        class="btn-success"
+                        icon="fa-play"
+                        title="To approve"
+                        name="to_approve"
+                        string="To Approve"
+                        invisible="state != 'draft' or entitlements_count == 0"
+                    />
+                    <button
+                        type="object"
+                        class="btn-success"
+                        icon="fa-thumbs-o-up"
+                        title="Approve"
+                        name="approve"
+                        string="Approve"
+                        invisible="state != 'to_approve'"
+                    />
+                    <button
+                        type="object"
+                        class="btn-warning"
+                        title="Reset draft"
+                        icon="fa-undo"
+                        name="reset_draft"
+                        string="Reset to Draft"
+                        invisible="state != 'to_approve'"
+                    />
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        statusbar_visible="draft,to_approve,approved,distributed,ended,cancelled"
+                    />
+                </header>
+                <div
+                    class="alert alert-warning text-center o_form_header"
+                    role="status"
+                    invisible="not locked"
+                >
+                    <span>Warning: Operation in progress: </span>
+                    <field name="locked_reason" class="o_stat_value" />
+                    <button
+                        name="refresh_page"
+                        type="object"
+                        title="Refresh page"
+                        class="btn_warning"
+                        icon="fa-refresh"
+                        string="Refresh"
+                    />
+                </div>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-users"
+                            name="open_members_form"
+                            title="Open members form"
+                        >
+                            <div class="o_form_field o_stat_info">
+                                <field name="members_count" class="o_stat_value" />
+                                <span class="o_stat_text">Beneficiaries</span>
+                            </div>
+                        </button>
+                        <button
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-folder-open-o"
+                            title="Open entitlements form"
+                            name="open_entitlements_form"
+                        >
+                            <div class="o_form_field o_stat_info">
+                                <field name="entitlements_count" class="o_stat_value" />
+                                <span class="o_stat_text">Entitlements</span>
+                            </div>
+                        </button>
+                        <button
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-folder-open-o"
+                            title="Open payments form"
+                            name="open_payments_form"
+                            invisible="context.get('hide_cash')"
+                        >
+                            <div class="o_form_field o_stat_info">
+                                <field name="payments_count" class="o_stat_value" />
+                                <span class="o_stat_text">Payments</span>
+                            </div>
+                        </button>
+                        <button
+                            type="object"
+                            class="oe_stat_button"
+                            title="Action view related queue jobs"
+                            icon="fa-bars"
+                            name="action_view_related_queue_jobs"
+                        >
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_text">Related Job(s)</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title mb24">
+                        <label for="name" string="Cycle:" />
+                        <h1>
+                            <field
+                                id="name"
+                                name="name"
+                                placeholder="Enter the cycle name..."
+                                readonly="state != 'draft'"
+                            />
+                            <!-- <field name="edit_css" force_save="1" nolabel="1" /> -->
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field
+                                name="program_id"
+                                invisible="context.get('default_program_id',False)"
+                                readonly="1"
+                            />
+                            <field name="locked" invisible="True" />
+                            <field name="locked_reason" invisible="True" />
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="start_date" readonly="state != 'draft'" />
+                        </group>
+                        <group>
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                                options="{'no_create': True}"
+                                force_save="1"
+                                readonly="state != 'draft'"
+                            />
+                            <field name="end_date" readonly="state != 'draft'" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <!-- <page string="Dashboard" name="dashboard">
+                        </page>
+                        <page string="Beneficiaries">
+                          <field name="cycle_membership_ids" nolabel="1">
+                            <tree>
+                                <button
+                                        name="open_cycle_membership_form"
+                                        type="object"
+                                        icon="fa-external-link"
+                                        class="btn-success"
+                                    />
+                                <field name="partner_id" />
+                                <field
+                                        name="state"
+                                        decoration-primary="state=='draft'"
+                                        decoration-warning="state=='paused'"
+                                        decoration-success="state=='enrolled'"
+                                        decoration-danger="state=='exited'"
+                                        widget="badge"
+                                    />
+                                <field name="enrollment_date" />
+                            </tree>
+                          </field>
+                        </page> -->
+                        <page
+                            name="payment_batches"
+                            string="Payment Batches"
+                            invisible="context.get('hide_cash')"
+                        >
+                            <field name="payment_batch_ids" nolabel="1" readonly="1" colspan="2">
+                                <tree>
+                                    <!-- <button
+                                        name="open_entitlement_form"
+                                        title="open_entitlement_form"
+                                        type="object"
+                                        icon="fa-external-link"
+                                        class="btn-success"
+                                    /> -->
+                                    <field name="name" />
+                                    <field name="tag_id" />
+                                    <field name="external_batch_ref" />
+                                    <field name="batch_has_started" />
+                                    <field name="batch_has_completed" />
+                                    <field name="stats_datetime" />
+                                    <field name="payment_ids" string="# Payments" />
+                                </tree>
+                                <form>
+                                    <div class="oe_title mb24">
+                                        <label for="cycle_id" string="Cycle:" />
+                                        <h1>
+                                            <field
+                                                id="cycle_id"
+                                                name="cycle_id"
+                                                readonly="1"
+                                                options="{'no_open':true}"
+                                            />
+                                        </h1>
+                                    </div>
+                                    <group>
+                                        <field name="name" readonly="1" />
+                                        <field name="tag_id" />
+                                        <field name="program_id" readonly="1" options="{'no_open':true}" />
+                                        <field name="external_batch_ref" />
+                                        <field name="batch_has_started" />
+                                        <field name="batch_has_completed" />
+                                    </group>
+                                    <notebook>
+                                        <page string="Statistics">
+                                            <group>
+                                                <field name="stats_datetime" readonly="1" />
+                                                <field
+                                                    name="stats_issued_transactions"
+                                                    string="Issued Transaction"
+                                                />
+                                                <field name="stats_issued_amount" string="Issued Amount" />
+                                                <field
+                                                    name="stats_sent_transactions"
+                                                    string="Sent Transactions"
+                                                />
+                                                <field name="stats_sent_amount" string="Sent Amount" />
+                                                <field
+                                                    name="stats_paid_transactions"
+                                                    string="Paid Transactions"
+                                                />
+                                                <field name="stats_paid_amount" string="Paid Amount" />
+                                                <field
+                                                    name="stats_failed_transactions"
+                                                    string="Failed Transactions"
+                                                />
+                                                <field name="stats_failed_amount" string="Failed Amount" />
+                                            </group>
+                                        </page>
+                                        <page string="Payments">
+                                            <field name="payment_ids" nolabel="1" readonly="1" colspan="2">
+                                                <tree>
+                                                    <field name="name" />
+                                                    <field name="partner_id" />
+                                                    <field name="entitlement_id" />
+                                                    <field name="program_id" column_invisible="1" />
+                                                    <field name="cycle_id" column_invisible="1" />
+                                                    <field name="currency_id" column_invisible="1" />
+                                                    <field name="account_number" />
+                                                    <field name="amount_issued" />
+                                                    <field name="issuance_date" />
+                                                    <field name="amount_paid" />
+                                                    <field name="payment_datetime" />
+                                                    <field
+                                                        name="company_id"
+                                                        groups="base.group_multi_company"
+                                                    />
+                                                    <field
+                                                        name="state"
+                                                        decoration-primary="state=='issued'"
+                                                        decoration-warning="state=='sent'"
+                                                        decoration-success="state=='reconciled'"
+                                                        widget="badge"
+                                                        string="State"
+                                                    />
+                                                    <field
+                                                        name="status"
+                                                        decoration-success="status=='paid'"
+                                                        decoration-danger="status=='failed'"
+                                                        widget="badge"
+                                                        string="Payment Status"
+                                                    />
+                                                </tree>
+                                            </field>
+                                        </page>
+                                    </notebook>
+                                </form>
+                            </field>
+                        </page>
+                        <page
+                            string="Configuration"
+                            name="configuration"
+                            groups="g2p_registry_base.group_g2p_admin"
+                            invisible="1"
+                        >
+                            <field name="auto_approve_entitlements" />
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+
+        </field>
+    </record>
+
+    <record id="cycle_filter" model="ir.ui.view">
+        <field name="name">cycle_filter</field>
+        <field name="model">g2p.cycle</field>
+        <field name="priority" eval="1" />
+        <field name="arch" type="xml">
+            <search string="Search Cycles">
+                <field name="name" />
+                <field name="program_id" />
+                <separator />
+                <filter name="filter_start_date" date="start_date" />
+                <filter name="filter_end_date" date="end_date" />
+                <separator />
+                <filter name="draft_state" string="Draft" domain="[('state','=','draft')]" />
+                <filter name="to_approve_state" string="To Approve" domain="[('state','=','to_approve')]" />
+                <filter name="approved_state" string="Approved" domain="[('state','=','approved')]" />
+                <filter
+                    name="distributed_state"
+                    string="Distributed"
+                    domain="[('state','=','distributed')]"
+                />
+                <filter name="ended_state" string="Ended" domain="[('state','=','ended')]" />
+                <filter name="cancelled_state" string="Cancelled" domain="[('state','=','cancelled')]" />
+                <group expand="0" string="Group By">
+                    <filter string="Start Date" name="start_date" context="{'group_by':'start_date'}" />
+                    <filter string="End Date" name="end_date" context="{'group_by':'end_date'}" />
+                    <separator orientation="vertical" />
+                    <filter string="State" name="grp_state" context="{'group_by': 'state'}" />
+                    <filter string="Company" name="grp_company_id" context="{'group_by': 'company_id'}" />
+                </group>
+                <!-- <searchpanel>
+                    <field name="group" icon="fa-users"/>
+                </searchpanel> -->
+            </search>
+        </field>
+    </record>
+
+    <record id="action_cycle" model="ir.actions.act_window">
+        <field name="name">Cycle</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">g2p.cycle</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="cycle_filter" />
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new cycle!
+            </p><p>
+                Click the create button to enter the new cycle information.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_cycle_tree_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_cycle_tree" />
+        <field name="act_window_id" ref="action_cycle" />
+    </record>
+
+    <record id="action_cycle_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_cycle_form" />
+        <field name="act_window_id" ref="action_cycle" />
+    </record>
+
+    <!-- <menuitem
+        id="menu_cycle"
+        name="Cycles"
+        action="action_cycle"
+        parent="g2p_program_cycle_root"
+        sequence="30"
+        groups="g2p_registry_base.group_g2p_admin"
+    /> -->
+
+</odoo>

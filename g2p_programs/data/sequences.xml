@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="0">
+    <record id="program_fund_ref_num" model="ir.sequence">
+        <field name="name">Program Fund Reference Number</field>
+        <field name="code">program.fund.ref.num</field>
+        <field name="implementation">no_gap</field>
+        <field name="padding">6</field>
+        <field eval="1" name="number_next" />
+        <field eval="1" name="number_increment" />
+        <field name="prefix">PF-%(range_year)s-</field>
+        <field eval="True" name="use_date_range" />
+        <field name="company_id" eval="False" />
+    </record>
+</odoo>

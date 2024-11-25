@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Part of OpenG2P. See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+    <record id="view_payment_tree" model="ir.ui.view">
+        <field name="name">view_payment_tree</field>
+        <field name="model">g2p.payment</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree create="0">
+                <field name="name" />
+                <field name="partner_id" />
+                <field name="entitlement_id" />
+                <field name="program_id" />
+                <field name="cycle_id" />
+                <field name="batch_id" />
+                <field name="account_number" />
+                <field name="amount_issued" />
+                <field name="issuance_date" />
+                <field name="amount_paid" />
+                <field name="payment_datetime" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <field
+                    name="state"
+                    decoration-primary="state=='issued'"
+                    decoration-warning="state=='sent'"
+                    decoration-success="state=='reconciled'"
+                    widget="badge"
+                    string="State"
+                />
+                <field
+                    name="status"
+                    decoration-success="status=='paid'"
+                    decoration-danger="status=='failed'"
+                    widget="badge"
+                    string="Payment Status"
+                />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_payment_form" model="ir.ui.view">
+        <field name="name">view_payment_form</field>
+        <field name="model">g2p.payment</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Payment" create="0">
+                <header>
+                    <button
+                        type="object"
+                        class="btn-success"
+                        icon="fa-thumbs-o-up"
+                        title="Send payment"
+                        name="send_payment"
+                        invisible="state != 'issued'"
+                        string="Send Payment"
+                    />
+                    <field name="state" widget="statusbar" statusbar_visible="issued,sent,reconciled" />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <!-- <button
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-folder-open-o"
+                            name="open_disb_form"
+                            attrs="{'invisible':[('state','!=','approved')]}"
+                        >
+                            <div class="o_form_field o_stat_info">
+                                <span class="o_stat_text">Disbursement</span>
+                                <span class="o_stat_text">Form</span>
+                            </div>
+                        </button> -->
+                    </div>
+                    <widget
+                        name="web_ribbon"
+                        title="Paid"
+                        bg_color="bg-success"
+                        invisible="status != 'paid'"
+                    />
+                    <widget
+                        name="web_ribbon"
+                        title="Failed"
+                        bg_color="bg-danger"
+                        invisible="status != 'failed'"
+                    />
+                    <div class="oe_title mb24">
+                        <label for="partner_id" string="Beneficiary:" />
+                        <h1>
+                            <field
+                                id="partner_id"
+                                name="partner_id"
+                                readonly="1"
+                                options="{'no_open':true}"
+                            />
+                            <!-- <field name="edit_css" force_save="1" nolabel="1" /> -->
+                        </h1>
+                        <label for="program_id" string="Program:" />
+                        <h2>
+                            <field
+                                id="program_id"
+                                name="program_id"
+                                readonly="1"
+                                options="{'no_open':true}"
+                            />
+                        </h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1" />
+                            <field name="entitlement_id" readonly="1" options="{'no_open':true}" />
+                            <field name="account_number" readonly="status in ('paid','failed')" />
+                        </group>
+                        <group>
+                            <field name="cycle_id" readonly="1" options="{'no_open':true}" />
+                            <field name="batch_id" readonly="1" options="{'no_open':true}" />
+                            <field
+                                name="journal_id"
+                                string="Journal"
+                                options="{'no_open':True}"
+                                readonly="1"
+                            />
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                                options="{'no_create': True}"
+                                force_save="1"
+                                readonly="status in ('paid','failed')"
+                            />
+                        </group>
+                    </group>
+                    <group string="Payment">
+                        <field name="amount_issued" readonly="status in ('paid','failed')" />
+                        <field name="issuance_date" readonly="status in ('paid','failed')" />
+                        <field name="amount_paid" readonly="status in ('paid','failed')" />
+                        <field name="payment_datetime" readonly="status in ('paid','failed')" />
+                        <field name="payment_fee" readonly="status in ('paid','failed')" />
+                        <field name="currency_id" invisible="1" />
+                        <field name="status" invisible="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="payment_filter" model="ir.ui.view">
+        <field name="name">payment_filter</field>
+        <field name="model">g2p.payment</field>
+        <field name="priority" eval="1" />
+        <field name="arch" type="xml">
+            <search string="Search Payments">
+                <field name="entitlement_id" />
+                <field name="account_number" />
+                <field name="cycle_id" />
+                <field name="name" />
+                <separator />
+                <filter name="filter_issuance_date" date="issuance_date" />
+                <filter name="filter_payment_datetime" date="payment_datetime" />
+                <separator />
+                <filter name="issued_state" string="Issued" domain="[('state','=','issued')]" />
+                <filter name="sent_state" string="Sent" domain="[('state','=','sent')]" />
+                <filter name="paid_status" string="Paid" domain="[('status','=','paid')]" />
+                <filter name="failed_status" string="Failed" domain="[('status','=','failed')]" />
+                <group expand="0" string="Group By">
+                    <filter string="Cycle" name="grp_cycle" context="{'group_by': 'cycle_id'}" />
+                    <separator orientation="vertical" />
+                    <filter string="State" name="grp_state" context="{'group_by': 'state'}" />
+                    <filter string="Status" name="grp_status" context="{'group_by': 'status'}" />
+                    <filter string="Company" name="grp_company_id" context="{'group_by': 'company_id'}" />
+                </group>
+                <!-- <searchpanel>
+                    <field name="program_id" icon="fa-users"/>
+                </searchpanel> -->
+            </search>
+        </field>
+    </record>
+
+    <record id="action_payment" model="ir.actions.act_window">
+        <field name="name">Payments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">g2p.payment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="payment_filter" />
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Payment Transactions
+            </p><p>
+                List of payment transactions generated from entitlements.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_payment_tree_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_payment_tree" />
+        <field name="act_window_id" ref="action_payment" />
+    </record>
+
+    <record id="action_payment_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_payment_form" />
+        <field name="act_window_id" ref="action_payment" />
+    </record>
+
+    <record model="ir.actions.server" id="assign_payment_batch">
+      <field name="name">Assign Payments to Batch</field>
+      <field name="model_id" ref="g2p_programs.model_g2p_assign_payments_batch_wizard" />
+      <field name="binding_model_id" ref="g2p_programs.model_g2p_payment" />
+      <field name="binding_view_types">list,form</field>
+      <field name="state">code</field>
+      <field name="code">action = model.open_wizard()</field>
+    </record>
+
+    <menuitem
+        id="menu_payment"
+        name="Payments"
+        action="action_payment"
+        parent="g2p_accounting_root"
+        sequence="24"
+        groups="g2p_registry_base.group_g2p_admin,g2p_programs.g2p_program_manager,g2p_programs.g2p_finance_validator"
+    />
+
+</odoo>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Part of OpenG2P. See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+    <!-- Payment Manager -->
+    <record id="view_payment_manager_tree" model="ir.ui.view">
+        <field name="name">view_payment_manager_tree</field>
+        <field name="model">g2p.program.payment.manager</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="manager_ref_id" />
+                <field name="program_id" />
+                <field name="manager_id" column_invisible="1" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_payment_manager_form" model="ir.ui.view">
+        <field name="name">view_payment_manager_form</field>
+        <field name="model">g2p.program.payment.manager</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Payment Manager">
+                <sheet>
+                    <group>
+                        <field
+                            name="manager_ref_id"
+                            options="{'no_quick_create':True}"
+                            colspan="4"
+                            context="{'default_program_id':program_id}"
+                        />
+                        <field
+                            name="program_id"
+                            placeholder="Select a program..."
+                            options="{'no_open':True,'no_create':True,'no_create_edit':True}"
+                            domain="[('state','=','active')]"
+                        />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Default Payment Manager -->
+    <record id="view_payment_manager_default_tree" model="ir.ui.view">
+        <field name="name">view_payment_manager_default_tree</field>
+        <field name="model">g2p.program.payment.manager.default</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name" />
+                <field name="program_id" />
+                <field name="create_batch" />
+                <field name="currency_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_payment_manager_default_form" model="ir.ui.view">
+        <field name="name">view_payment_manager_default_form</field>
+        <field name="model">g2p.program.payment.manager.default</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Default Payment Manager">
+                <sheet>
+                    <div class="oe_button_box" name="button_box" />
+                    <div class="oe_title mb24">
+                        <label for="name" string="Name:" />
+                        <h1>
+                            <field id="name" name="name" placeholder="Enter the Manager Name..." />
+                        </h1>
+                        <label
+                            for="program_id"
+                            string="Program:"
+                            invisible="context.get('default_program_id',False)"
+                        />
+                        <h2 invisible="context.get('default_program_id',False)">
+                            <field
+                                id="program_id"
+                                name="program_id"
+                                placeholder="Select a program..."
+                                options="{'no_open':True,'no_create':True,'no_create_edit':True}"
+                                invisible="context.get('default_program_id',False)"
+                                domain="[('state','=','active')]"
+                            />
+                        </h2>
+                        <div class="o_row">
+                        </div>
+                    </div>
+                    <group>
+                        <field name="create_batch" />
+                        <field
+                            name="currency_id"
+                            options="{'no_open':True,'no_create':True,'no_create_edit':True}"
+                        />
+                    </group>
+                    <group name="tagconfig" invisible="not create_batch">
+                        <field name="batch_tag_ids" invisible="not create_batch" colspan="2">
+                            <tree>
+                                <field name="order" widget="handle" />
+                                <field name="name" />
+                                <field name="max_batch_size" />
+                                <field name="domain" />
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="name" />
+                                    <field name="order" />
+                                    <field
+                                        name="domain"
+                                        widget="domain"
+                                        options="{'model': 'g2p.entitlement'}"
+                                    />
+                                    <field name="max_batch_size" />
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="payment_manager_default_filter" model="ir.ui.view">
+        <field name="name">payment_manager_default_filter</field>
+        <field name="model">g2p.program.payment.manager.default</field>
+        <field name="priority" eval="1" />
+        <field name="arch" type="xml">
+            <search string="Search Default Payment Manager">
+                <field name="name" />
+                <field name="program_id" />
+                <group expand="0" string="Group By">
+                    <filter string="Program" name="grp_program_id" context="{'group_by': 'program_id'}" />
+                </group>
+                <!--<searchpanel>
+                    <field name="group" icon="fa-users"/>
+                </searchpanel> -->
+            </search>
+        </field>
+    </record>
+
+    <record id="action_payment_manager_default" model="ir.actions.act_window">
+        <field name="name">Payment Managers</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">g2p.program.payment.manager.default</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="payment_manager_default_filter" />
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a Payment Manager!
+            </p><p>
+                Click the create button to enter a new payment manager.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_payment_manager_default_tree_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_payment_manager_default_tree" />
+        <field name="act_window_id" ref="action_payment_manager_default" />
+    </record>
+
+    <record id="action_payment_manager_default_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_payment_manager_default_form" />
+        <field name="act_window_id" ref="action_payment_manager_default" />
+    </record>
+
+    <menuitem
+        id="menu_payment_manager_default"
+        name="Default Payment Managers"
+        action="action_payment_manager_default"
+        parent="g2p_programs.g2p_manager_menu_root"
+        sequence="700"
+        groups="g2p_registry_base.group_g2p_admin,g2p_programs.g2p_program_manager"
+    />
+
+</odoo>

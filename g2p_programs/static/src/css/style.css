@@ -1,0 +1,3 @@
+.o_form_view .o_horizontal_separator:has(+ .info-message) {
+    display: inline-block !important;
+}

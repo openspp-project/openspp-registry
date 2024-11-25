@@ -1,0 +1,22 @@
+<odoo noupdate="0">
+    <record id="g2p_program_validator" model="res.groups">
+        <field name="name">Program Validator</field>
+        <field name="category_id" ref="g2p_registry_base.openg2p_module" />
+    </record>
+
+    <record id="g2p_program_cycle_approver" model="res.groups">
+        <field name="name">Program Cycle Approver</field>
+        <field name="category_id" ref="g2p_registry_base.openg2p_module" />
+        <field name="implied_ids" eval="[Command.link(ref('g2p_programs.g2p_program_validator')), Command.link(ref('account.group_account_invoice'))]" />
+    </record>
+
+    <record id="g2p_program_manager" model="res.groups">
+        <field name="name">Program Manager</field>
+        <field name="category_id" ref="g2p_registry_base.openg2p_module" />
+    </record>
+
+    <record id="g2p_finance_validator" model="res.groups">
+        <field name="name">Finance Validator</field>
+        <field name="category_id" ref="g2p_registry_base.openg2p_module" />
+    </record>
+</odoo>

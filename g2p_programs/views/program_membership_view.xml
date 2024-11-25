@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Part of OpenG2P. See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+
+    <record id="view_program_membership_tree" model="ir.ui.view">
+        <field name="name">view_program_membership_tree</field>
+        <field name="model">g2p.program_membership</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree default_order='partner_id asc'>
+                <button
+                    name="open_registrant_form"
+                    type="object"
+                    title="Open registrant form"
+                    icon="fa-external-link"
+                    class="btn-success"
+                />
+                <field name="partner_id" />
+                <field name="program_id" />
+                <field name="enrollment_date" />
+                <field name="exit_date" />
+                <field name="delivery_mechanism_value" column_invisible="1" />
+                <field
+                    name="state"
+                    decoration-primary="state=='draft'"
+                    decoration-warning="state=='paused'"
+                    decoration-success="state=='enrolled'"
+                    decoration-danger="state=='exited'"
+                    widget="badge"
+                    string="Status"
+                />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_program_membership_form" model="ir.ui.view">
+        <field name="name">view_program_membership_form</field>
+        <field name="model">g2p.program_membership</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Program Membership">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,enrolled,paused,exited" />
+                    <button
+                        name="verify_eligibility"
+                        type="object"
+                        string="Verify Eligibility"
+                        title="Verify eligibility"
+                        class="btn-primary"
+                        invisible="state not in ('draft','enrolled')"
+                    />
+                    <button
+                        name="enroll_eligible_registrants"
+                        type="object"
+                        title="Enroll eligible registrants"
+                        string="Enroll"
+                        class="btn-primary"
+                        invisible="state != 'draft'"
+                    />
+                    <button
+                        name="deduplicate_beneficiaries"
+                        type="object"
+                        title="Deduplicate beneficiaries"
+                        string="Deduplicate"
+                        class="btn-primary"
+                        invisible="state not in ('draft','enrolled')"
+                    />
+
+                    <button
+                        name="Back_to_draft"
+                        type="object"
+                        title="Back to draft"
+                        string="Back to draft"
+                        class="btn-primary"
+                        invisible="state not in ('not_eligible','duplicated')"
+                    />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <widget
+                        name="web_ribbon"
+                        title="DRAFT"
+                        bg_color="bg-primary"
+                        invisible="state != 'draft'"
+                    />
+                    <widget
+                        name="web_ribbon"
+                        title="ENROLLED"
+                        bg_color="bg-success"
+                        invisible="state != 'enrolled'"
+                    />
+                    <widget
+                        name="web_ribbon"
+                        title="PAUSED"
+                        bg_color="bg-warning"
+                        invisible="state != 'paused'"
+                    />
+                    <widget
+                        name="web_ribbon"
+                        title="EXITED"
+                        bg_color="bg-danger"
+                        invisible="state != 'exited'"
+                    />
+                    <widget
+                        name="web_ribbon"
+                        title="DUPLICATE"
+                        bg_color="bg-danger"
+                        invisible="state != 'duplicated'"
+                    />
+                    <widget
+                        name="web_ribbon"
+                        title="NOT ELIGIBLE"
+                        bg_color="bg-danger"
+                        invisible="state != 'not_eligible'"
+                    />
+                    <div class="oe_title mb24">
+                        <label for="partner_id" string="Registrant:" />
+                        <h1>
+                            <field
+                                id="partner_id"
+                                name="partner_id"
+                                placeholder="Enter the registrant name..."
+                            />
+                        </h1>
+                        <label
+                            for="program_id"
+                            string="Program:"
+                            invisible="context.get('default_program_id',False)"
+                        />
+                        <h2 invisible="context.get('default_program_id',False)">
+                            <field
+                                name="program_id"
+                                placeholder="program..."
+                                invisible="context.get('default_program_id',False)"
+                            />
+                        </h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="registrant_id" />
+                            <field
+                                name="tags_ids"
+                                widget="many2many_tags"
+                                string="Tags:"
+                                options="{'color_field': 'color'}"
+                            />
+                        </group>
+                        <group>
+                            <field name="registration_date" readonly="1" />
+                            <field name="enrollment_date" readonly="1" />
+                            <field name="exit_date" />
+                            <field name="delivery_mechanism_value" colspan="4" invisible="1" />
+                        </group>
+                    </group>
+                    <field name="is_group" invisible="1" />
+                    <field name="is_registrant" invisible="1" />
+                    <notebook name="registrant_detail">
+                        <page name="basic_info" string="Basic Info">
+                            <group>
+                                <group>
+                                    <field name="address" class="o_address_format" />
+                                    <field name="email" widget="email" />
+                                </group>
+                                <group>
+                                    <field name="phone_number_ids" nolabel="1" colspan="2">
+                                        <tree>
+                                            <field
+                                                name="phone_no"
+                                                string="Phone Numbers"
+                                                widget="phone"
+                                                options="{'enable_sms': false}"
+                                            />
+                                            <field name="country_id" />
+                                            <field name="date_collected" />
+                                            <field name="disabled" column_invisible="1" />
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group>
+                                    <field name="birthdate" />
+                                    <field name="age" />
+                                    <field name="birth_place" />
+                                    <field name="gender" />
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Bank Details" name="banks">
+                            <field name="bank_ids" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="bank_id" />
+                                    <field name="acc_number" />
+                                    <field name="acc_type" invisible="1" />
+                                    <field name="iban" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="IDs" name="ids">
+                            <field name="reg_ids" nolabel="1" colspan="2">
+                                <tree editable="bottom">
+                                    <field name="id_type" />
+                                    <field name="value" string="ID Number" />
+                                    <field name="expiry_date" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Relationships" name="relationships">
+                            <group string="Registrant is related to:">
+                                <field name="related_1_ids" nolabel="1" colspan="2">
+                                    <tree editable="bottom">
+                                        <field
+                                            name="source"
+                                            domain="[('is_registrant','=',True),('id','!=',id)]"
+                                            string="Registrant"
+                                        />
+                                        <field name="relation" string="Relation" />
+                                        <field name="start_date" />
+                                        <field name="end_date" />
+                                        <field name="disabled" />
+                                        <field name="disabled_by" />
+                                    </tree>
+                                </field>
+                            </group>
+                            <group string="Others Related to this Registrant:">
+                                <field name="related_2_ids" nolabel="1" colspan="2">
+                                    <tree>
+                                        <field
+                                            name="destination"
+                                            domain="[('is_registrant','=',True),('id','!=',id)]"
+                                            string="Registrant"
+                                        />
+                                        <field name="relation" string="Relation" />
+                                        <field name="start_date" />
+                                        <field name="end_date" />
+                                        <field name="disabled" />
+                                        <field name="disabled_by" />
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page name="group_members" string="Members of Group" invisible="not is_group">
+                            <group>
+                                <field name="group_membership_ids" nolabel="1" colspan="2">
+                                    <tree>
+                                        <field
+                                            name="individual"
+                                            domain="[('is_registrant','=',True),('is_group','=',False)]"
+                                            string="Member Name"
+                                            context="{'form_view_ref':'g2p_registry_individual.view_individuals_form'}"
+                                        />
+                                        <field name="individual_birthdate" string="Date of Birth" />
+                                        <field name="individual_gender" string="Gender" />
+                                        <field name="kind" string="Role" widget="many2many_tags" />
+                                        <field name="start_date" />
+                                        <field name="ended_date" />
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page name="individual_groups" string="Groups" invisible="is_group">
+                            <group>
+                                <field name="individual_membership_ids" nolabel="1" colspan="2">
+                                    <tree editable="bottom">
+                                        <field
+                                            name="group"
+                                            domain="[('is_registrant','=',True),('is_group','=',True)]"
+                                            string="Group Name"
+                                            context="{'form_view_ref':'g2p_registry_group.view_groups_form'}"
+                                        />
+                                        <field name="kind" string="Role" widget="many2many_tags" />
+                                        <field name="start_date" />
+                                        <field name="ended_date" />
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page name="program" string="Other Programs">
+                            <field name="program_membership_ids" readonly="1" nolabel="1" colspan="2">
+                                <tree>
+                                    <field name="program_id" />
+                                    <field name="enrollment_date" />
+                                    <field name="exit_date" />
+                                    <field name="delivery_mechanism_value" column_invisible="1" />
+                                    <field
+                                        name="state"
+                                        decoration-primary="state=='draft'"
+                                        decoration-warning="state=='paused'"
+                                        decoration-success="state=='enrolled'"
+                                        decoration-danger="state=='exited'"
+                                        widget="badge"
+                                        string="Status"
+                                    />
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="entitlement" string="Entitlements">
+                            <field name="entitlement_ids" readonly="1" nolabel="1" colspan="2">
+                                <tree>
+                                    <field name="name" />
+                                    <field name="ern" />
+                                    <field name="code" />
+                                    <field name="cycle_id" />
+                                    <field name="valid_from" />
+                                    <field name="valid_until" />
+                                    <field name="state" />
+                                    <field name="payment_status" />
+                                    <field name="payment_date" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="program_membership_filter" model="ir.ui.view">
+        <field name="name">program_membership_filter</field>
+        <field name="model">g2p.program_membership</field>
+        <field name="priority" eval="1" />
+        <field name="arch" type="xml">
+            <search string="Search Program Memberships">
+                <field name="partner_id" />
+                <field name="program_id" />
+                <separator />
+                <filter name="filter_enrollment_date" date="enrollment_date" />
+                <filter name="filter_exit_date" date="exit_date" />
+                <separator />
+                <filter name="draft_state" string="Draft" domain="[('state','=','draft')]" />
+                <filter name="enrolled_state" string="Enrolled" domain="[('state','=','enrolled')]" />
+                <filter name="paused_state" string="Paused" domain="[('state','=','paused')]" />
+                <filter name="exited_state" string="Exited" domain="[('state','=','exited')]" />
+                <filter name="not_eligible" string="Not Eligible" domain="[('state','=','not_eligible')]" />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Enrollment Date"
+                        name="enrollment_date"
+                        context="{'group_by':'enrollment_date'}"
+                    />
+                    <filter string="Exit Date" name="exit_date" context="{'group_by':'exit_date'}" />
+                    <separator orientation="vertical" />
+                    <filter string="State" name="grp_state" context="{'group_by': 'state'}" />
+                </group>
+                <!-- <searchpanel>
+                    <field name="group" icon="fa-users"/>
+                </searchpanel> -->
+            </search>
+        </field>
+    </record>
+
+    <record id="action_program_membership" model="ir.actions.act_window">
+        <field name="name">Programs Membership</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">g2p.program_membership</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="program_membership_filter" />
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new program membership!
+            </p><p>
+                Click the create button to enter the new program membership information.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_program_membership_tree_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_program_membership_tree" />
+        <field name="act_window_id" ref="action_program_membership" />
+    </record>
+
+    <record id="action_program_membership_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_program_membership_form" />
+        <field name="act_window_id" ref="action_program_membership" />
+    </record>
+
+    <!-- <menuitem
+        id="menu_program_membership"
+        name="Beneficiaries"
+        action="action_program_membership"
+        parent="g2p_program_root"
+        sequence="20"
+        groups="g2p_registry_base.group_g2p_admin"
+    /> -->
+
+</odoo>

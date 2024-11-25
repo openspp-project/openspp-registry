@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Part of OpenG2P. See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+    <record id="view_account_move_line_beneficiary_filter" model="ir.ui.view">
+        <field name="name">view_account_move_line_beneficiary_filter</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_account_move_line_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//search/filter[@name='misc_filter']" position="after">
+                <filter
+                    string="Beneficiary Funds"
+                    domain="[('journal_id.type', 'in', ('bank','cash')),('journal_id.beneficiary_disb','=',True)]"
+                    name="benf_filter"
+                    context="{'default_journal_type': 'bank'}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_account_journal_beneficiary" model="ir.actions.act_window">
+        <field name="name">Beneficiary Funds</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">account.move.line</field>
+        <field name="view_mode">tree,pivot,graph,kanban</field>
+        <field
+            name="context"
+        >{'journal_type':'bank', 'search_default_group_by_move': 1, 'search_default_posted':1, 'search_default_benf_filter':1, 'name_groupby':1, 'expand': 1}</field>
+        <field name="domain">[('display_type', 'not in', ('line_section', 'line_note'))]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                There are no Beneficiary Fund Journal Entries Entered!
+            </p><p>
+                Process entitlements to automatically post the journal entries here.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_action_account_moves_journal_benf"
+        action="action_account_journal_beneficiary"
+        groups="g2p_registry_base.group_g2p_admin,account.group_account_readonly"
+        sequence="100"
+        parent="account.menu_finance_entries_accounting_miscellaneous"
+    />
+
+    <!-- Display in Programs > Accounting menu -->
+    <record id="action_account_journal_prog_benf" model="ir.actions.act_window">
+        <field name="name">Accounting Journal</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">account.move.line</field>
+        <field name="view_mode">tree,pivot,graph</field>
+        <field
+            name="context"
+        >{'journal_type':'bank', 'search_default_group_by_move': 1, 'search_default_posted':1, 'name_groupby':1, 'expand': 1}</field>
+        <field name="domain">[('display_type', 'not in', ('line_section', 'line_note')),
+            ('journal_id.type', 'in', ('bank','cash')),('journal_id.beneficiary_disb','=',True)]
+        </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                There are no Program Beneficiary Fund Journal Entries Entered!
+            </p><p>
+                Process entitlements to automatically post the journal entries here.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_account_journal_prog_benf"
+        action="action_account_journal_prog_benf"
+        groups="g2p_registry_base.group_g2p_admin,g2p_programs.g2p_program_manager,g2p_programs.g2p_finance_validator"
+        sequence="20"
+        parent="g2p_accounting_reports_menu_root"
+    />
+
+</odoo>
