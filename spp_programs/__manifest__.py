@@ -23,7 +23,6 @@
     ],
     "data": [
         "data/user_roles.xml",
-        "security/program_security.xml",
         "security/ir.model.access.csv",
         "views/main_view.xml",
         "views/entitlement_view.xml",
