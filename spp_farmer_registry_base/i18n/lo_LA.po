@@ -1,0 +1,882 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* spp_farmer_registry_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20241014\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-28 06:45+0000\n"
+"PO-Revision-Date: 2024-11-28 06:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_size_idle
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_size_idle
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_size_idle
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__farm_size_idle
+msgid "Acreage Fallow/Idle"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_size_leased_out
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_size_leased_out
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_size_leased_out
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__farm_size_leased_out
+msgid "Acreage Leased Out"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_size_under_crops
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_size_under_crops
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_size_under_crops
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__farm_size_under_crops
+msgid "Acreage Under Crops"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_size_under_livestock
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_size_under_livestock
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_size_under_livestock
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__farm_size_under_livestock
+msgid "Acreage Under Livestock"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__activity_type
+msgid "Activity Type"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model_terms:ir.actions.act_window,help:spp_farmer_registry_base.action_species
+msgid "Add a species!"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:spp.gis.data.layer,name:spp_farmer_registry_base.gis_data_layer_geo_point_res_partner
+msgid "Address Coordination"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_extension__extension_services_type__advisory
+msgid "Advisory"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_spp_farm_activity
+msgid "Agricultural Activities"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__aqua_farm_id
+msgid "Aqua Farm"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_activity__activity_type__aquaculture
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_details__details_farm_type__aquaculture
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_species__species_type__aquaculture
+msgid "Aquaculture"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_aqua_act_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_aqua_act_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_aqua_act_ids
+msgid "Aquaculture Agricultural Activities"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__asset_farm_id
+msgid "Asset Farm"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_asset_type
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_asset_type__name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__asset_type
+msgid "Asset Type"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_base_import_import
+msgid "Base Import"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_activity__purpose__both
+msgid "Both"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_chemical__name
+msgid "Chemical Interventions Type"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_spp_farm_chemical
+msgid "Chemical Interventions Types"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model_terms:ir.actions.act_window,help:spp_farmer_registry_base.action_species
+msgid "Click the create button to enter a new species."
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_activity__purpose__commercial
+msgid "Commercial"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_asset_type__create_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_machinery_type__create_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__create_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__create_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_chemical__create_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__create_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_extension__create_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_species__create_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__create_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_feed_items__create_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_fertilizer__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_asset_type__create_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_machinery_type__create_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__create_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__create_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_chemical__create_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__create_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_extension__create_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_species__create_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__create_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_feed_items__create_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_fertilizer__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_details__details_farm_type__crop
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_species__species_type__crop
+msgid "Crop"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_crop_act_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_crop_act_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_crop_act_ids
+msgid "Crop Agricultural Activities"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_activity__activity_type__crop
+msgid "Crop Cultivation"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__crop_farm_id
+msgid "Crop Farm"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__cultivation_method
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__cultivation_method
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__cultivation_method
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_land_record__cultivation_method
+msgid "Cultivation Method"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_species__description
+msgid "Description"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__details_farm_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__details_farm_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__details_farm_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__details_farm_id
+msgid "Details Farm"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_asset_type__display_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_machinery_type__display_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__display_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__display_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_chemical__display_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__display_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_extension__display_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_species__display_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__display_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_feed_items__display_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_fertilizer__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_details__details_legal_status__unknown
+msgid "Do not Know"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__formal_agricultural_training
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__formal_agricultural_training
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__formal_agricultural_training
+msgid "Do you have formal training in agriculture?"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_email
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_email
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_email
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_email
+msgid "E-mail Address"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_spp_farm_extension
+msgid "Extension Services"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_extension__extension_services_date
+msgid "Extension Services Date"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_extension__extension_services_provider
+msgid "Extension Services Provider"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_extension__extension_services_topic
+msgid "Extension Services Topic"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_extension__extension_services_type
+msgid "Extension Services Type"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__land_farm_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__land_farm_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__land_farm_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_extension__farm_id
+msgid "Farm"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_asset_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_asset_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_asset_id
+msgid "Farm Asset"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_asset_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_asset_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_asset_ids
+msgid "Farm Assets"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_spp_farm_asset
+msgid "Farm Assets and Technology"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_detail_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_detail_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_detail_id
+msgid "Farm Detail"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_spp_farm_details
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_details_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_details_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_details_ids
+msgid "Farm Details"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_extension_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_extension_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_extension_ids
+msgid "Farm Extension Services"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:spp.gis.data.layer,name:spp_farmer_registry_base.gis_data_layer_geo_multi_poly_res_partner
+msgid "Farm Land"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_machinery_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_machinery_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_machinery_ids
+msgid "Farm Machinery"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_total_size
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_total_size
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_total_size
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__farm_total_size
+msgid "Farm Size"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__details_farm_type
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__details_farm_type
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__details_farm_type
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__details_farm_type
+msgid "Farm Type"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#. odoo-python
+#: code:addons/spp_farmer_registry_base/models/group_membership.py:0
+#, python-format
+msgid "Farm must have a head member."
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_id
+msgid "Farmer"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_addtnl_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_addtnl_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_addtnl_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_addtnl_name
+msgid "Farmer Additional Name"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_birthdate
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_birthdate
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_birthdate
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_birthdate
+msgid "Farmer Date of Birth"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_family_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_family_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_family_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_family_name
+msgid "Farmer Family Name"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_formal_agricultural
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_formal_agricultural
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_formal_agricultural
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_formal_agricultural
+msgid "Farmer Formal Agricultural"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_given_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_given_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_given_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_given_name
+msgid "Farmer Given Name"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_highest_education_level
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_highest_education_level
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_highest_education_level
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_highest_education_level
+msgid "Farmer Highest Educational Level"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_household_size
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_household_size
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_household_size
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_household_size
+msgid "Farmer Household Size"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_individual_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_individual_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_individual_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_individual_id
+msgid "Farmer Individual"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:spp.gis.raster.layer,name:spp_farmer_registry_base.gis_raster_layer_res_partner_osm
+msgid "Farmer Land Information"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_marital_status
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_marital_status
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_marital_status
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_marital_status
+msgid "Farmer Marital Status"
+msgstr "ສະຖານະ"
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_feed_items__name
+msgid "Feed Items Type"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_spp_feed_items
+msgid "Feed Items Types"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_fertilizer__name
+msgid "Fertilizer Interventions Type"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_spp_fertilizer
+msgid "Fertilizer Interventions Types"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__coordinates
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__coordinates
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__coordinates
+msgid "GPS Coordinates"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_g2p_group_membership
+msgid "Group Membership"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__highest_education_level
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__highest_education_level
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__highest_education_level
+msgid "Highest Educational Level"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_asset_type__id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_machinery_type__id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_chemical__id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_extension__id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_species__id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_feed_items__id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_fertilizer__id
+msgid "ID"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_species__image
+msgid "Image"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_land_record__cultivation_method__irrigated
+msgid "Irrigated"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__land_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__land_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_extension__land_id
+msgid "Land"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__land_acreage
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__land_acreage
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__land_acreage
+msgid "Land Acreage"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__land_coordinates
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__land_coordinates
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__land_coordinates
+msgid "Land Coordinates"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__land_geo_polygon
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__land_geo_polygon
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__land_geo_polygon
+msgid "Land Polygons"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_land_rec_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_land_rec_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_land_rec_id
+msgid "Land Record"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_spp_land_record
+msgid "Land Record Details"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_land_rec_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_land_rec_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_land_rec_ids
+msgid "Land Records"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__land_use
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__land_use
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__land_use
+msgid "Land Use"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_asset_type__write_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_machinery_type__write_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__write_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__write_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_chemical__write_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__write_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_extension__write_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_species__write_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__write_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_feed_items__write_uid
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_fertilizer__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_asset_type__write_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_machinery_type__write_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__write_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__write_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_chemical__write_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__write_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_extension__write_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_species__write_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__write_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_feed_items__write_date
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_fertilizer__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__lease_end
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__lease_end
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__lease_end
+msgid "Lease End"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__lease_start
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__lease_start
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__lease_start
+msgid "Lease Start"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_details__details_legal_status__leased
+msgid "Leased from actual owner"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__details_legal_status
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__details_legal_status
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__details_legal_status
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_details__details_legal_status
+msgid "Legal Status"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__lessee_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__lessee_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__lessee_id
+msgid "Lessee"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_details__details_farm_type__livestock
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_species__species_type__livestock
+msgid "Livestock"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farm_live_act_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farm_live_act_ids
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farm_live_act_ids
+msgid "Livestock Agricultural Activities"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__live_farm_id
+msgid "Livestock Farm"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_activity__activity_type__livestock
+msgid "Livestock Rearing"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__machinery_farm_id
+msgid "Machinery Farm"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_machinery_type
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_machinery_type__name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__machinery_type
+msgid "Machinery Type"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__marital_status
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__marital_status
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__marital_status
+msgid "Marital Status"
+msgstr "ສະຖານະ"
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__res_partner__marital_status__married
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farmer__farmer_marital_status__married
+msgid "Married"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_details__details_farm_type__mixed
+msgid "Mixed"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_mobile_tel
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_mobile_tel
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_mobile_tel
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_mobile_tel
+msgid "Mobile Telephone Number"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_national_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_national_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_national_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_national_id
+msgid "National ID Number"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__res_partner__highest_education_level__none
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farmer__farmer_highest_education_level__none
+msgid "None"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_details__details_legal_status__government
+msgid "Owned by Government"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_details__details_legal_status__cooperative
+msgid "Owned by cooperative"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_details__details_legal_status__extended_community
+msgid "Owned by extended community"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_details__details_legal_status__family
+msgid "Owned by family"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_details__details_legal_status__self
+msgid "Owned by self"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__owner_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__owner_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__owner_id
+msgid "Owner"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__land_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__land_name
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__land_name
+msgid "Parcel Name/ID"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_postal_address
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_postal_address
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_postal_address
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_postal_address
+msgid "Postal Address"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__res_partner__highest_education_level__primary
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farmer__farmer_highest_education_level__primary
+msgid "Primary"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__purpose
+msgid "Purpose"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__quantity
+msgid "Quantity"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_land_record__cultivation_method__rainfed
+msgid "Rainfed"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,help:spp_farmer_registry_base.field_g2p_program_membership__cultivation_method
+#: model:ir.model.fields,help:spp_farmer_registry_base.field_res_partner__cultivation_method
+#: model:ir.model.fields,help:spp_farmer_registry_base.field_res_users__cultivation_method
+#: model:ir.model.fields,help:spp_farmer_registry_base.field_spp_land_record__cultivation_method
+msgid "Relevant if land use is cultivation or mixed"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__res_partner__highest_education_level__secondary
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farmer__farmer_highest_education_level__secondary
+msgid "Secondary"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__res_partner__marital_status__separated
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farmer__farmer_marital_status__separated
+msgid "Separated"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__farmer_sex
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__farmer_sex
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__farmer_sex
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farmer__farmer_sex
+msgid "Sex"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__res_partner__marital_status__single
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farmer__farmer_marital_status__single
+msgid "Single"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.actions.act_window,name:spp_farmer_registry_base.action_species
+#: model:ir.model,name:spp_farmer_registry_base.model_spp_farm_species
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__species
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__species
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__species
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_activity__species_id
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_land_record__species
+#: model:ir.ui.menu,name:spp_farmer_registry_base.menu_species
+msgid "Species"
+msgstr "ຊະນິດ"
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__species_domain
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__species_domain
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__species_domain
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_land_record__species_domain
+msgid "Species Domain"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_species__name
+msgid "Species Name"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_activity__purpose__subsistence
+msgid "Subsistence"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__technology_used
+msgid "Technology Used"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model,name:spp_farmer_registry_base.model_spp_farmer
+msgid "Temporary Model for Farmer"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__res_partner__highest_education_level__tertiary
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farmer__farmer_highest_education_level__tertiary
+msgid "Tertiary"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farm_extension__extension_services_type__training
+msgid "Training"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_species__species_type
+msgid "Type"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__res_partner__marital_status__widowed
+#: model:ir.model.fields.selection,name:spp_farmer_registry_base.selection__spp_farmer__farmer_marital_status__widowed
+msgid "Widowed"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_spp_farm_asset__machine_working_status
+msgid "Working Status"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_g2p_program_membership__experience_years
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_partner__experience_years
+#: model:ir.model.fields,field_description:spp_farmer_registry_base.field_res_users__experience_years
+msgid "Years of Experience"
+msgstr ""
+
+#. module: spp_farmer_registry_base
+#. odoo-python
+#: code:addons/spp_farmer_registry_base/models/base_import.py:0
+#, python-format
+msgid ""
+"farmer_given_name and farmer_family_name must be present in the excel file."
+msgstr ""
