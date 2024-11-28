@@ -167,8 +167,7 @@ class ChangeRequestSourceMixin(models.AbstractModel):
                 }
             )
         else:
-            # TODO: @edwin Should we use UserError or ValidationError?
-            raise UserError(_("The request must be in draft state to be set to pending validation."))
+            raise ValidationError(_("The request must be in draft state to be set to pending validation."))
 
     def action_validate(self):
         """
@@ -355,7 +354,9 @@ class ChangeRequestSourceMixin(models.AbstractModel):
             request.last_activity_id.action_done()
             return {"success": _("The change request has been approved.")}
         else:
-            ValidationError("The request must be in draft, pending, or validated state for changes to be applied.")
+            raise ValidationError(
+                _("The request must be in draft, pending, or validated state for changes to be applied.")
+            )
 
     def action_cancel(self):
         """

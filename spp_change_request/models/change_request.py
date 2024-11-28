@@ -857,11 +857,12 @@ class ChangeRequestBase(models.Model):
 
         Usage:
         - Call this function via XMLRPC
+        :raise ValidationError: Exception raised when user is allowed to directly approve the CR.
         """
         self.ensure_one()
         # Check if user is allowed to directly approve the CR
         if not self.env.user.has_group("spp_change_request.group_spp_change_request_external_api"):
-            ValidationError("User is not allowed to approve CRs directly.")
+            raise ValidationError(_("User is not allowed to approve CRs directly."))
         return self.request_type_ref_id._approve_cr(self)
 
     def action_cancel(self):
@@ -931,8 +932,6 @@ class ChangeRequestBase(models.Model):
                 name="action_reset_to_draft"
                 type="object"
             />
-
-        :raise ValidationError: Exception raised when something is not valid.
         """
         for rec in self:
             rec.request_type_ref_id._reset_to_draft(rec)
