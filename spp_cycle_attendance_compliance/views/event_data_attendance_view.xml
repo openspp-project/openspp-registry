@@ -1,0 +1,77 @@
+<odoo>
+    <record id="view_spp_event_attendance_tree" model="ir.ui.view">
+        <field name="name">view_spp_event_attendance_tree</field>
+        <field name="model">spp.event.attendance</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="individual_id" />
+                <field name="attendance_date" />
+                <field name="attendance_time" />
+                <field name="attendance_type_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_spp_event_attendance_form" model="ir.ui.view">
+        <field name="name">view_spp_event_attendance_form</field>
+        <field name="model">spp.event.attendance</field>
+        <field name="priority">200</field>
+        <field name="arch" type="xml">
+            <form string="Event Data: Attendance" duplicate="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="attendance_date" />
+                            <field name="attendance_time" />
+                            <field name="attendance_type_id" />
+                            <field name="attendance_location_id" />
+                            <field name="attendance_description" />
+                            <field name="attendance_external_url" />
+                        </group>
+                        <group>
+                            <field name="submitted_by" />
+                            <field name="submitted_datetime" />
+                            <field name="submission_source" />
+                        </group>
+                        <group>
+                            <field name="event_data_source" />
+                            <field name="event_data_external_id" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_spp_event_attendance" model="ir.actions.act_window">
+        <field name="name">Event Data: Attendance</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">spp.event.attendance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Attendance Event!
+            </p><p>
+                Click the create button to enter the configuration of the Attendance Event.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_spp_event_attendance_tree_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_spp_event_attendance_tree" />
+        <field name="act_window_id" ref="action_spp_event_attendance" />
+    </record>
+
+    <record id="action_spp_event_attendance_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_spp_event_attendance_form" />
+        <field name="act_window_id" ref="action_spp_event_attendance" />
+    </record>
+
+  </odoo>

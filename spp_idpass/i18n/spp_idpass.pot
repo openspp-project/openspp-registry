@@ -164,6 +164,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_idpass.field_g2p_program_membership__id_pdf_filename
 #: model:ir.model.fields,field_description:spp_idpass.field_res_partner__id_pdf_filename
 #: model:ir.model.fields,field_description:spp_idpass.field_res_users__id_pdf_filename
+#: model:ir.model.fields,field_description:spp_idpass.field_spp_attendance_subscriber__id_pdf_filename
 msgid "ID File Name"
 msgstr ""
 
@@ -176,6 +177,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_idpass.field_g2p_program_membership__id_pdf
 #: model:ir.model.fields,field_description:spp_idpass.field_res_partner__id_pdf
 #: model:ir.model.fields,field_description:spp_idpass.field_res_users__id_pdf
+#: model:ir.model.fields,field_description:spp_idpass.field_spp_attendance_subscriber__id_pdf
 msgid "ID PASS"
 msgstr ""
 
@@ -259,6 +261,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_idpass.field_g2p_program_membership__image_1920_filename
 #: model:ir.model.fields,field_description:spp_idpass.field_res_partner__image_1920_filename
 #: model:ir.model.fields,field_description:spp_idpass.field_res_users__image_1920_filename
+#: model:ir.model.fields,field_description:spp_idpass.field_spp_attendance_subscriber__image_1920_filename
 msgid "Image 1920 FileName"
 msgstr ""
 

@@ -22,6 +22,9 @@
         "spp_farmer_registry_demo",
         "spreadsheet_dashboard",
     ],
+    "excludes": [
+        "spp_base",
+    ],
     "data": [
         "security/ir.model.access.csv",
         "data/dashboards.xml",

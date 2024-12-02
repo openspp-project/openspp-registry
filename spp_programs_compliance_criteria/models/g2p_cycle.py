@@ -7,6 +7,7 @@ class G2pCycle(models.Model):
     _inherit = "g2p.cycle"
 
     allow_filter_compliance_criteria = fields.Boolean(compute="_compute_allow_filter_compliance_criteria")
+    all_members_count = fields.Integer(string="# Enrollments", readonly=True, compute="_compute_all_members_count")
 
     @api.depends("program_id", "program_id.compliance_managers")
     def _compute_allow_filter_compliance_criteria(self):
@@ -21,7 +22,7 @@ class G2pCycle(models.Model):
             return
         registrant_satisfied = self.env["res.partner"].sudo().search(self._get_compliance_criteria_domain())
         membership_to_paused = self.cycle_membership_ids.filtered(lambda cm: cm.partner_id not in registrant_satisfied)
-        membership_to_paused.state = "paused"
+        membership_to_paused.state = "non_compliant"
         membership_to_enrolled = self.cycle_membership_ids - membership_to_paused
         membership_to_enrolled.state = "enrolled"
 
@@ -36,3 +37,31 @@ class G2pCycle(models.Model):
             membership = self.cycle_membership_ids if self.cycle_membership_ids else None
             domain.append(manager_ref._prepare_eligible_domain(membership))
         return OR(domain)
+
+    def _compute_all_members_count(self):
+        for rec in self:
+            domain = rec._get_beneficiaries_domain(None)
+            members_count = self.env["g2p.cycle.membership"].search_count(domain)
+            rec.update({"all_members_count": members_count})
+
+    def open_all_members_form(self):
+        self.ensure_one()
+
+        action = {
+            "name": _("Cycle Members"),
+            "type": "ir.actions.act_window",
+            "res_model": "g2p.cycle.membership",
+            "context": {
+                "create": False,
+                "default_cycle_id": self.id,
+            },
+            "view_mode": "list,form",
+            "domain": [("cycle_id", "=", self.id)],
+        }
+        return action
+
+    def open_members_form(self):
+        self.ensure_one()
+        action = super().open_members_form()
+        action["name"] = _("Cycle Beneficiaries")
+        return action

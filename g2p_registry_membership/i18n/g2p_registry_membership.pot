@@ -112,6 +112,7 @@ msgstr ""
 #. module: g2p_registry_membership
 #: model:ir.model.fields,field_description:g2p_registry_membership.field_res_partner__force_recompute_canary
 #: model:ir.model.fields,field_description:g2p_registry_membership.field_res_users__force_recompute_canary
+#: model:ir.model.fields,field_description:g2p_registry_membership.field_spp_attendance_subscriber__force_recompute_canary
 msgid "Force Recompute Canary"
 msgstr ""
 
@@ -134,6 +135,7 @@ msgstr ""
 #. module: g2p_registry_membership
 #: model:ir.model.fields,field_description:g2p_registry_membership.field_res_partner__group_membership_ids
 #: model:ir.model.fields,field_description:g2p_registry_membership.field_res_users__group_membership_ids
+#: model:ir.model.fields,field_description:g2p_registry_membership.field_spp_attendance_subscriber__group_membership_ids
 msgid "Group Members"
 msgstr ""
 
@@ -224,12 +226,14 @@ msgstr ""
 #. module: g2p_registry_membership
 #: model:ir.model.fields,field_description:g2p_registry_membership.field_res_partner__individual_membership_ids
 #: model:ir.model.fields,field_description:g2p_registry_membership.field_res_users__individual_membership_ids
+#: model:ir.model.fields,field_description:g2p_registry_membership.field_spp_attendance_subscriber__individual_membership_ids
 msgid "Membership to Groups"
 msgstr ""
 
 #. module: g2p_registry_membership
 #: model:ir.model.fields,field_description:g2p_registry_membership.field_res_partner__z_ind_grp_num_individuals
 #: model:ir.model.fields,field_description:g2p_registry_membership.field_res_users__z_ind_grp_num_individuals
+#: model:ir.model.fields,field_description:g2p_registry_membership.field_spp_attendance_subscriber__z_ind_grp_num_individuals
 msgid "Number of individuals"
 msgstr ""
 

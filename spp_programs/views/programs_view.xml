@@ -104,13 +104,14 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                 <button
                     name="import_eligible_registrants"
                     type="object"
-                    string="Import Eligible Registrants"
+                    string="Import New Eligible Registrants"
                     icon="fa-download"
-                    title="Import Eligible Registrants"
+                    title="Import New Eligible Registrants"
                     class="btn-primary"
                     invisible="state != 'active'"
                 />
             </xpath>
+
             <xpath expr="//button[@name='enroll_eligible_registrants']" position="attributes">
                 <attribute
                     name="groups"
@@ -135,6 +136,12 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                 <attribute name="delete">0</attribute>
             </xpath>
         </field>
+    </record>
+    <record id="g2p_programs.view_program_list_form" model="ir.ui.view">
+        <field name="name">Default Program UI Template</field>
+    </record>
+    <record id="g2p_programs.action_program_list" model="ir.actions.act_window">
+        <field name="context">{}</field>
     </record>
 
 </odoo>

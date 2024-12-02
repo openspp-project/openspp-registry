@@ -15,6 +15,9 @@
     "depends": [
         "spp_farmer_registry_base",
     ],
+    "excludes": [
+        "spp_base",
+    ],
     "data": [
         "views/group_view.xml",
         "views/individual_view.xml",

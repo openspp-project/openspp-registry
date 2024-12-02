@@ -92,8 +92,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
-#: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
-#: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #: model:ir.model,name:spp_entitlement_in_kind.model_g2p_entitlement_inkind
 #, python-format
 msgid "Entitlement"
@@ -119,7 +117,6 @@ msgstr ""
 #. module: spp_entitlement_in_kind
 #. odoo-python
 #: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
-#: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #, python-format
 msgid ""
 "Entitlement State Error! Entitlements not in 'pending validation' state:\n"
@@ -133,7 +130,6 @@ msgstr ""
 #. module: spp_entitlement_in_kind
 #. odoo-python
 #: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
-#: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #, python-format
 msgid "Entitlements Set to Pending Validation."
 msgstr ""
@@ -141,14 +137,12 @@ msgstr ""
 #. module: spp_entitlement_in_kind
 #. odoo-python
 #: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
-#: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #, python-format
 msgid "Entitlements Validated and Approved."
 msgstr ""
 
 #. module: spp_entitlement_in_kind
 #. odoo-python
-#: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #, python-format
 msgid "Entitlements are validated and approved."
@@ -168,7 +162,6 @@ msgstr ""
 
 #. module: spp_entitlement_in_kind
 #. odoo-python
-#: code:addons/spp_entitlement_in_kind/wizard/create_program_wizard.py:0
 #: code:addons/spp_entitlement_in_kind/wizard/create_program_wizard.py:0
 #, python-format
 msgid ""
@@ -222,7 +215,6 @@ msgstr ""
 #. module: spp_entitlement_in_kind
 #. odoo-python
 #: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
-#: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #, python-format
 msgid "In-Kind Entitlements"
 msgstr ""
@@ -246,7 +238,6 @@ msgstr ""
 
 #. module: spp_entitlement_in_kind
 #. odoo-python
-#: code:addons/spp_entitlement_in_kind/wizard/create_program_wizard.py:0
 #: code:addons/spp_entitlement_in_kind/wizard/create_program_wizard.py:0
 #, python-format
 msgid "Items are required in the In-kind entitlement manager."
@@ -334,7 +325,6 @@ msgstr ""
 #. module: spp_entitlement_in_kind
 #. odoo-python
 #: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
-#: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #, python-format
 msgid "Program: %(prg)s, Beneficiary: %(partner)s.\n"
 msgstr ""
@@ -369,7 +359,6 @@ msgstr ""
 #. module: spp_entitlement_in_kind
 #. odoo-python
 #: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
-#: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #, python-format
 msgid "Set entitlements to pending validation for cycle."
 msgstr ""
@@ -377,14 +366,12 @@ msgstr ""
 #. module: spp_entitlement_in_kind
 #. odoo-python
 #: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
-#: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #, python-format
 msgid "Setting %s entitlements to pending validation has started."
 msgstr ""
 
 #. module: spp_entitlement_in_kind
 #. odoo-python
-#: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #, python-format
 msgid "There are no items entered for this entitlement manager."
@@ -399,14 +386,12 @@ msgstr ""
 #. module: spp_entitlement_in_kind
 #. odoo-python
 #: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
-#: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #, python-format
 msgid "Validate %s entitlements started."
 msgstr ""
 
 #. module: spp_entitlement_in_kind
 #. odoo-python
-#: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #: code:addons/spp_entitlement_in_kind/models/entitlement_manager.py:0
 #, python-format
 msgid "Validate and approve entitlements for cycle."

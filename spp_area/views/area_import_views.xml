@@ -44,6 +44,13 @@
                         class="btn-danger"
                         invisible="state not in ('Uploaded', 'Imported', 'Validated')"
                     />
+                    <button
+                        name="fix_area_level_and_kind"
+                        type="object"
+                        string="Fix Area Level and Kind"
+                        class="btn-success"
+                        invisible="state != 'Done'"
+                    />
                     <field
                         name="state"
                         widget="statusbar"

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="inherit_view_cycle_membership_tree" model="ir.ui.view">
+        <field name="name">inherit_view_cycle_membership_tree</field>
+        <field name="model">g2p.cycle.membership</field>
+        <field name="priority">1</field>
+        <field name="inherit_id" ref="g2p_programs.view_cycle_membership_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="attributes">
+                <attribute name="decoration-warning">state in ['paused', 'non_compliant']</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_cycle_membership_filter" model="ir.ui.view">
+        <field name="name">inherit_cycle_membership_filter</field>
+        <field name="model">g2p.cycle.membership</field>
+        <field name="priority" eval="1" />
+        <field name="inherit_id" ref="g2p_programs.cycle_membership_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='not_eligible']" position="after">
+                <filter
+                    name="non_compliant"
+                    string="Non-Compliant"
+                    domain="[('state','=','non_compliant')]"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,4 +1,4 @@
-<odoo noupdate="0">
+<odoo noupdate="1">
     <!-- Disable base_user_role cron to prevent scheduled updating of roles.
         Updating will be handled in the UI -->
     <record model="ir.cron" id="base_user_role.cron_update_users">

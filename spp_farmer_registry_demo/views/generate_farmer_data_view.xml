@@ -24,8 +24,25 @@
                 <header>
                     <field name="state" widget="statusbar" statusbar_visible="draft,generate" />
                 </header>
+                <field name="locked" invisible="True" />
+                <div
+                    class="alert alert-warning text-center o_form_header"
+                    role="status"
+                    invisible="not locked"
+                >
+                    <span>Warning: Operation in progress: </span>
+                    <field name="locked_reason" class="o_stat_value" />
+                    <button
+                        name="refresh_page"
+                        type="object"
+                        class="btn_warning"
+                        icon="fa-refresh"
+                        title="Refresh Page"
+                        string="Refresh"
+                    />
+                </div>
                 <sheet>
-                    <div class="oe_button_box" name="button_box">
+                    <div class="oe_button_box" name="button_box" invisible="locked">
                         <button
                             type="object"
                             class="oe_stat_button"

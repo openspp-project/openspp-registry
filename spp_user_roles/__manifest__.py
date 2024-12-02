@@ -13,11 +13,9 @@
         "mail",
         "g2p_registry_base",
         "g2p_registry_group",
-        "g2p_programs",
         "spp_area",
         "spp_idqueue",
         "base_user_role",
-        "spp_api",
     ],
     "data": [
         "security/security.xml",

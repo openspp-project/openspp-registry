@@ -66,10 +66,11 @@ class SPPImportMatch(models.Model):
                         domain.append((field_value, "=", row_value))
             if not combination_valid:
                 continue
-            _logger.info("DOMAIN: %s" % domain)
             match = model.search(domain)
             if len(match) == 1:
                 return match
+            elif len(match) > 1:
+                raise ValidationError(_("Multiple matches found for '%s'!" % match[0].name))
 
         return model
 

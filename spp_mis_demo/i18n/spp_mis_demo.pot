@@ -1,0 +1,913 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* spp_mis_demo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: spp_mis_demo
+#: model_terms:ir.ui.view,arch_db:spp_mis_demo.view_generate_program_form
+msgid ""
+"<span class=\"o_stat_text\">Approve All</span>\n"
+"                                <span class=\"o_stat_text\">Entitlements</span>"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model_terms:ir.ui.view,arch_db:spp_mis_demo.view_generate_program_form
+msgid ""
+"<span class=\"o_stat_text\">Generate</span>\n"
+"                                <span class=\"o_stat_text\">Program Data</span>"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model_terms:ir.ui.view,arch_db:spp_mis_demo.view_generate_data_form
+msgid ""
+"<span class=\"o_stat_text\">Generate</span>\n"
+"                                <span class=\"o_stat_text\">Sample Data</span>"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_008_product_template
+msgid "All-Purpose Cleaner"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_056_product_template
+msgid "Almond Flour"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_098_product_template
+msgid "Applewood Smoked Bacon"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields.selection,name:spp_mis_demo.selection__spp_generate_program_data__state__approve
+msgid "Approved All Entitlements"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_058_product_template
+msgid "Balsamic Vinegar of Modena"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_026_product_template
+msgid "Bamboo Cutting Board"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_062_product_template
+msgid "Basmati Rice"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_088_product_template
+msgid "Black Bean Spaghetti"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_006_product_template
+msgid "Bluetooth Headphones"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_095_product_template
+msgid "Brown Basmati Rice"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_063_product_template
+msgid "Canned Chickpeas"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_094_product_template
+msgid "Canned Coconut Milk"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_031_product_template
+msgid "Chia Seeds"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model_terms:ir.actions.act_window,help:spp_mis_demo.action_generate_data
+#: model_terms:ir.actions.act_window,help:spp_mis_demo.action_generate_program_data
+msgid "Click the create button to enter the new record."
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_075_product_template
+msgid "Cold-Pressed Avocado Oil"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model,name:spp_mis_demo.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_009_product_template
+msgid "Cotton T-Shirts Pack of 3"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_data__create_uid
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_program_data__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_data__create_date
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_program_data__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_program_data__cycle_ids
+#: model_terms:ir.ui.view,arch_db:spp_mis_demo.view_generate_program_form
+msgid "Cycle"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_065_product_template
+msgid "Dark Chocolate Bars"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_038_product_template
+msgid "Decorative Throw Pillows Set"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_045_product_template
+msgid "Digital Kitchen Scale"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_cst_indv_disability_level
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_cst_indv_disability_level
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_cst_indv_disability_level
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_cst_indv_disability_level
+msgid "Disability level"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_019_product_template
+msgid "Dishwashing Liquid"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_data__display_name
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_program_data__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields.selection,name:spp_mis_demo.selection__spp_generate_data__state__draft
+#: model:ir.model.fields.selection,name:spp_mis_demo.selection__spp_generate_program_data__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_096_product_template
+msgid "Dried Cranberries"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_060_product_template
+msgid "Dried Mango Slices"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_090_product_template
+msgid "Dried Shiitake Mushrooms"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_034_product_template
+msgid "Egyptian Cotton Towels Set"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_elderly_head_hh
+#: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_elderly_head_hh
+#: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_elderly_head_hh
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_elderly_head_hh
+msgid ""
+"Elderly-headed HHs - extracted from demographic data of HH adult members"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_040_product_template
+msgid "External Hard Drive 1TB"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_070_product_template
+msgid "Extra Strong English Mustard"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_005_product_template
+msgid "Extra Virgin Olive Oil"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_049_product_template
+msgid "Fabric Softener"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_woman_head_hh
+#: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_woman_head_hh
+#: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_woman_head_hh
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_woman_head_hh
+msgid "Female-headed HH - extracted from demographic data of HH adult members"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_014_product_template
+msgid "Fleece Blanket"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_037_product_template
+msgid "Foam Roller for Physical Therapy"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_068_product_template
+msgid "Freeze-Dried Strawberries"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_030_product_template
+msgid "Gaming Mouse Pad"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.actions.act_window,name:spp_mis_demo.action_generate_data
+#: model_terms:ir.actions.act_window,help:spp_mis_demo.action_generate_data
+#: model_terms:ir.ui.view,arch_db:spp_mis_demo.view_generate_data_form
+msgid "Generate Data"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.actions.act_window,name:spp_mis_demo.action_generate_program_data
+#: model:ir.model,name:spp_mis_demo.model_spp_generate_program_data
+#: model:ir.ui.menu,name:spp_mis_demo.menu_generate_program_data
+#: model_terms:ir.actions.act_window,help:spp_mis_demo.action_generate_program_data
+#: model_terms:ir.ui.view,arch_db:spp_mis_demo.view_generate_program_form
+msgid "Generate Program Data"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model,name:spp_mis_demo.model_spp_generate_data
+#: model:ir.ui.menu,name:spp_mis_demo.menu_generate_data
+msgid "Generate Sample Data"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields.selection,name:spp_mis_demo.selection__spp_generate_data__state__generate
+msgid "Generated"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields.selection,name:spp_mis_demo.selection__spp_generate_program_data__state__generate
+msgid "Generated Program"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_039_product_template
+msgid "Glass Cleaner Spray"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_074_product_template
+msgid "Gourmet Vanilla Beans"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_033_product_template
+msgid "Green Tea Bags"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_073_product_template
+msgid "Ground Cinnamon"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_pregnant_lactating
+#: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_pregnant_lactating
+#: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_pregnant_lactating
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_pregnant_lactating
+msgid "HH with pregnant/lactating women"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_disabled
+#: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_disabled
+#: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_disabled
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_disabled
+msgid "HHs with disabled (mental or physical) members"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_medical_condition
+#: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_medical_condition
+#: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_medical_condition
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_medical_condition
+msgid "HHs with members that have chronic illness/medical conditions"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_010_product_template
+msgid "High-Speed HDMI Cable"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_children
+#: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_children_11_and_below
+#: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_children_12_and_above
+#: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_num_children
+#: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_num_children_11_and_below
+#: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_num_children_12_and_above
+#: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_num_children
+#: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_num_children_11_and_below
+#: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_num_children_12_and_above
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_children
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_children_11_and_below
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_children_12_and_above
+msgid ""
+"Households (HH) with children - extracted from demographic data of HH adult "
+"members plus child members"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_elderly
+#: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_elderly
+#: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_elderly
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_elderly
+msgid ""
+"Households (HH) with elderly (including single / elderly-headed HHs) - "
+"extracted from demographic data of HH adult members"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_data__id
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_program_data__id
+msgid "ID"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_046_product_template
+msgid "Insulated Lunch Box"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_elderly_head_hh
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_elderly_head_hh
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_elderly_head_hh
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_elderly_head_hh
+msgid "Is elderly-headed household"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_woman_head_hh
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_woman_head_hh
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_woman_head_hh
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_woman_head_hh
+msgid "Is female-headed household"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_children
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_children
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_children
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_children
+msgid "Is household (HH) with children"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_disabled
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_disabled
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_disabled
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_disabled
+msgid "Is household disabled (mental or physical) members"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_elderly
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_elderly
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_elderly
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_elderly
+msgid "Is household with elderly"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_medical_condition
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_medical_condition
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_medical_condition
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_medical_condition
+msgid "Is household with members that have chronic illness/medical conditions"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_hh_with_pregnant_lactating
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_hh_with_pregnant_lactating
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_hh_with_pregnant_lactating
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_hh_with_pregnant_lactating
+msgid "Is household with pregnant/lactating women"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_single_head_hh
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_is_single_head_hh
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_is_single_head_hh
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_single_head_hh
+msgid "Is single-headed household"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_047_product_template
+msgid "Jump Rope with Counter"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_002_product_template
+msgid "LED Desk Lamp"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_cst_indv_lactation_start
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_cst_indv_lactation_start
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_cst_indv_lactation_start
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_cst_indv_lactation_start
+msgid "Lactation start"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_data__write_uid
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_program_data__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_data__write_date
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_program_data__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_028_product_template
+msgid "Linen Bed Sheets Set"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_029_product_template
+msgid "Liquid Laundry Detergent"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_048_product_template
+msgid "Magnetic Whiteboard Eraser"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_079_product_template
+msgid "Marinated Artichoke Hearts"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_020_product_template
+msgid "Mechanical Keyboard"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_004_product_template
+msgid "Microfiber Bath Towel"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_018_product_template
+msgid "Multipurpose Paper (500 Sheets)"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_data__name
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_program_data__name
+msgid "Name"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model_terms:ir.ui.view,arch_db:spp_mis_demo.view_generate_data_form
+msgid "Name..."
+msgstr ""
+
+#. module: spp_mis_demo
+#: model_terms:ir.ui.view,arch_db:spp_mis_demo.view_generate_data_form
+#: model_terms:ir.ui.view,arch_db:spp_mis_demo.view_generate_program_form
+msgid "Name:"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_016_product_template
+msgid "Natural Soy Wax Candle"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_042_product_template
+msgid "Noise-Canceling Headphones"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_program_data__num_beneficicaries
+msgid "Number of Beneficiary"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_program_data__num_cycles
+msgid "Number of Cycles"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_data__num_groups
+msgid "Number of Groups"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model_terms:ir.ui.view,arch_db:spp_mis_demo.view_generate_data_form
+msgid "Number of Groups:"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_program_data__num_programs
+msgid "Number of Programs"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_adults
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_adults
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_adults
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_adults
+msgid "Number of adults"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_adults_woman
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_adults_woman
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_adults_woman
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_adults_woman
+msgid "Number of adults woman"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_children
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_children
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_children
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_children
+msgid "Number of children"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_children_11_and_below
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_children_11_and_below
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_children_11_and_below
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_children_11_and_below
+msgid "Number of children aged 11 and below"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_children_12_and_above
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_children_12_and_above
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_children_12_and_above
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_children_12_and_above
+msgid "Number of children aged 12 and above"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_elderly
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_elderly
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_elderly
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_elderly
+msgid "Number of eldery"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model_terms:ir.ui.view,arch_db:spp_mis_demo.view_generate_data_form
+msgid "Number of groups..."
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_ind_grp_num_members
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_ind_grp_num_members
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_ind_grp_num_members
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_num_members
+msgid "Number of members"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_066_product_template
+msgid "Oat Milk"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_013_product_template
+msgid "Organic Almonds"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_061_product_template
+msgid "Organic Apple Cider Vinegar"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_051_product_template
+msgid "Organic Black Beans"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_080_product_template
+msgid "Organic Blue Agave Syrup"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_001_product_template
+msgid "Organic Brown Rice"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_082_product_template
+msgid "Organic Chicken Broth"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_071_product_template
+msgid "Organic Dried Apricots"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_089_product_template
+msgid "Organic Green Tea Matcha Powder"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_069_product_template
+msgid "Organic Lentils"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_041_product_template
+msgid "Organic Maple Syrup"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_059_product_template
+msgid "Organic Peanut Butter"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_100_product_template
+msgid "Organic Pickled Beets"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_087_product_template
+msgid "Organic Raw Almond Butter"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_077_product_template
+msgid "Organic Raw Cacao Nibs"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_091_product_template
+msgid "Organic Tomato Paste"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_054_product_template
+msgid "Organic Tomato Sauce"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_093_product_template
+msgid "Pecan Halves"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_057_product_template
+msgid "Pink Himalayan Salt"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_086_product_template
+msgid "Pitted Kalamata Olives"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_024_product_template
+msgid "Plush Bathrobe"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_022_product_template
+msgid "Portable Power Bank"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_cst_indv_pregnancy_start
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_cst_indv_pregnancy_start
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_cst_indv_pregnancy_start
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_cst_indv_pregnancy_start
+msgid "Pregnancy start"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_099_product_template
+msgid "Pure Bourbon Vanilla Extract"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_084_product_template
+msgid "Pure Maple Granules"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_023_product_template
+msgid "Quinoa Grain"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_064_product_template
+msgid "Quinoa Puffs"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_021_product_template
+msgid "Raw Honey"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_012_product_template
+msgid "Rechargeable Battery Pack"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_085_product_template
+msgid "Red Lentils"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_027_product_template
+msgid "Resistance Bands Set"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_052_product_template
+msgid "Roasted Cashew Nuts"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_081_product_template
+msgid "Sesame Seed Oil"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_036_product_template
+msgid "Silicone Baking Mat"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,help:spp_mis_demo.field_g2p_program_membership__z_ind_grp_is_single_head_hh
+#: model:ir.model.fields,help:spp_mis_demo.field_res_partner__z_ind_grp_is_single_head_hh
+#: model:ir.model.fields,help:spp_mis_demo.field_res_users__z_ind_grp_is_single_head_hh
+#: model:ir.model.fields,help:spp_mis_demo.field_spp_attendance_subscriber__z_ind_grp_is_single_head_hh
+msgid "Single-headed HH - extracted from demographic data of HH adult members"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_067_product_template
+msgid "Sliced Almonds"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_025_product_template
+msgid "Smartphone Tripod"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_078_product_template
+msgid "Smoked Paprika"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_043_product_template
+msgid "Spice Rack Organizer"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_003_product_template
+msgid "Stainless Steel Water Bottle"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_data__state
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_generate_program_data__state
+msgid "State"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_076_product_template
+msgid "Stone-Ground Whole Wheat Flour"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_035_product_template
+msgid "Tablet Stand Holder"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_007_product_template
+msgid "Thermal Insulated Backpack"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_083_product_template
+msgid "Turmeric Powder"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_050_product_template
+msgid "USB-C to USB Adapter"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_055_product_template
+msgid "Virgin Coconut Oil"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_072_product_template
+msgid "Walnut Halves and Pieces"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_097_product_template
+msgid "White Quinoa"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_053_product_template
+msgid "Whole Grain Mustard"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_011_product_template
+msgid "Whole Wheat Pasta"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_092_product_template
+msgid "Wildflower Honey"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_032_product_template
+msgid "Wireless Charging Pad"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_015_product_template
+msgid "Wireless Mouse"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_044_product_template
+msgid "Wool Dryer Balls"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:product.template,name:spp_mis_demo.product_017_product_template
+msgid "Yoga Mat"
+msgstr ""
+
+#. module: spp_mis_demo
+#: model:ir.model.fields,field_description:spp_mis_demo.field_g2p_program_membership__z_cst_indv_medical_condition
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_partner__z_cst_indv_medical_condition
+#: model:ir.model.fields,field_description:spp_mis_demo.field_res_users__z_cst_indv_medical_condition
+#: model:ir.model.fields,field_description:spp_mis_demo.field_spp_attendance_subscriber__z_cst_indv_medical_condition
+msgid "chronic illness/medical conditions level"
+msgstr ""

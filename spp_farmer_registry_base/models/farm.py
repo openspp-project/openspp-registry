@@ -5,8 +5,7 @@ import pyproj
 from shapely.geometry import mapping
 from shapely.ops import transform
 
-from odoo import Command, _, api, fields, models
-from odoo.exceptions import ValidationError
+from odoo import Command, api, fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -44,10 +43,11 @@ class Farm(models.Model):
     @api.model_create_multi
     def create(self, vals):
         farm = super().create(vals)
-        if farm.is_group:
-            self.create_update_farmer(farm)
-        elif not farm.is_group and farm.is_registrant:
-            self.update_farmer(farm)
+        for rec in farm:
+            if rec.is_group:
+                rec.create_update_farmer(rec)
+            elif not rec.is_group and rec.is_registrant:
+                rec.update_farmer(rec)
 
         return farm
 
@@ -109,11 +109,10 @@ class Farm(models.Model):
         )
         new_group_head.farmer_id = self.farmer_id.id
 
-    @api.model
     def write(self, vals):
         farm = super().write(vals)
-
-        self._create_update_farmer()
+        for rec in self:
+            rec._create_update_farmer()
 
         return farm
 
@@ -121,8 +120,6 @@ class Farm(models.Model):
         for rec in self:
             if rec.is_group:
                 head_member = rec.get_group_head_member()
-                if not head_member:
-                    raise ValidationError(_("Farm must have a head member."))
                 if head_member and head_member.id != rec.farmer_individual_id.id:
                     rec.update_group_head_member(head_member)
                     continue

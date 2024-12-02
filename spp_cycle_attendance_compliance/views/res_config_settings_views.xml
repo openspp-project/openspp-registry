@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="res_config_settings_programs_view_form" model="ir.ui.view">
+        <field name="name">res_config_settings_programs_view_form</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10" />
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='program_settings']/block" position="after">
+                <block title="Attendance Settings">
+                    <setting string="Attendance Server URL">
+                        <field name="attendance_server_url" />
+                    </setting>
+                    <setting string="Authentication Endpoint">
+                        <field name="attendance_auth_endpoint" />
+                    </setting>
+                    <setting string="Compliance Endpoint">
+                        <field name="attendance_compliance_endpoint" />
+                    </setting>
+                    <setting string="Attendance Type Endpoint">
+                        <field name="attendance_type_endpoint" />
+                    </setting>
+                    <setting string="Attendance Location Endpoint">
+                        <field name="attendance_location_endpoint" />
+                    </setting>
+                    <setting string="Client ID">
+                        <field name="attendance_client_id" />
+                    </setting>
+                    <setting string="Client Secret">
+                        <field name="attendance_client_secret" />
+                    </setting>
+                    <button
+                        name="test_connection"
+                        type="object"
+                        icon="fa-check-square-o"
+                        title="Test and Import"
+                        class="btn-success"
+                        style="margin-left: 10px;"
+                        string="Test and Import"
+                    />
+                </block>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

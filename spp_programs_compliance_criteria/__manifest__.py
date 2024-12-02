@@ -24,6 +24,7 @@
         "views/g2p_cycle_views.xml",
         "views/g2p_program_views.xml",
         "views/res_config_settings_views.xml",
+        "views/cycle_membership_views.xml",
         "wizards/g2p_program_create_wizard_views.xml",
     ],
     "assets": {

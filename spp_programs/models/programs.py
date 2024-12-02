@@ -12,6 +12,31 @@ class CustomG2PProgram(models.Model):
 
     is_one_time_distribution = fields.Boolean("One-time Distribution")
 
+    view_id = fields.Many2one(
+        "ir.ui.view",
+        "Program UI Template",
+        domain="[('model', '=', 'g2p.program'), " "('type', '=', 'form')," "('inherit_id', '=', False),]",
+        default=lambda self: self._get_default_program_ui(),
+    )
+
+    def _get_default_program_ui(self):
+        return self.env.ref("g2p_programs.view_program_list_form")
+
+    def open_program_form(self):
+        for rec in self:
+            view_id = self.env.ref("g2p_programs.view_program_list_form")
+            if rec.view_id:
+                view_id = rec.view_id
+
+            return {
+                "type": "ir.actions.act_window",
+                "res_model": "g2p.program",
+                "view_mode": "form",
+                "view_id": view_id.id,
+                "res_id": rec.id,
+                "target": "current",
+            }
+
     def import_eligible_registrants(self, state="draft"):
         eligibility_managers = self.get_managers(self.MANAGER_ELIGIBILITY)
         if eligibility_managers:

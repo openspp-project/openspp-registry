@@ -104,6 +104,27 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: spp_openid_vci
+#. odoo-python
+#: code:addons/spp_openid_vci/models/res_partner.py:0
+#, python-format
+msgid "No auth sub id type found in the issuer."
+msgstr ""
+
+#. module: spp_openid_vci
+#. odoo-python
+#: code:addons/spp_openid_vci/models/res_partner.py:0
+#, python-format
+msgid "No encryption provider found in the issuer."
+msgstr ""
+
+#. module: spp_openid_vci
+#. odoo-python
+#: code:addons/spp_openid_vci/models/res_partner.py:0
+#, python-format
+msgid "No issuer found."
+msgstr ""
+
+#. module: spp_openid_vci
 #: model:ir.model,name:spp_openid_vci.model_g2p_openid_vci_issuers
 msgid "OpenID VCI Issuer"
 msgstr ""
@@ -127,6 +148,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_openid_vci.field_g2p_program_membership__vc_qr_code
 #: model:ir.model.fields,field_description:spp_openid_vci.field_res_partner__vc_qr_code
 #: model:ir.model.fields,field_description:spp_openid_vci.field_res_users__vc_qr_code
+#: model:ir.model.fields,field_description:spp_openid_vci.field_spp_attendance_subscriber__vc_qr_code
 msgid "VC QR Code"
 msgstr ""
 

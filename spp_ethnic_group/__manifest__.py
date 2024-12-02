@@ -17,6 +17,7 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "views/ethnic_group_views.xml",
     ],
     "assets": {},
     "demo": [],

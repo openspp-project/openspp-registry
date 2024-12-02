@@ -1,12 +1,6 @@
 name: tests (PyPI)
 # fetching the OpenG2P dependencies from OpenSPP PyPI, locked to the version of the OpenSPP 17.0.1.2 (batanes) release
 
-on:
-  push:
-    branches:
-      - "17.0"
-      - "17.0-ocabot-*"
-      - "farmer-registry"
 env:
   OCA_GIT_USER_NAME: openspp
   OCA_GIT_USER_EMAIL: bot@openspp.org
@@ -88,7 +82,7 @@ jobs:
         env:
           EXCLUDE: "g2p_bank,g2p_entitlement_differential,g2p_entitlement_in_kind,g2p_entitlement_voucher,g2p_payment_cash,g2p_payment_files,g2p_payment_g2p_connect,g2p_payment_interop_layer,g2p_payment_phee,g2p_payment_simple_mpesa,g2p_program_approval,g2p_program_assessment,g2p_program_autoenrol,g2p_program_cycleless,g2p_program_documents,g2p_program_registrant_info,g2p_program_reimbursement,g2p_programs,g2p_proxy_means_test,g2p_registry_addl_info,g2p_registry_base,g2p_registry_group,g2p_registry_individual,g2p_registry_membership,muk_product,muk_web_appsbar,muk_web_chatter,muk_web_colors,muk_web_dialog,muk_web_theme,g2p_openid_vci_rest_api,g2p_openid_vci,g2p_registry_encryption,g2p_encryption,g2p_encryption_keymanager"
         run: oca_run_tests
-      - uses: codecov/codecov-action@v4
+      - uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Update .pot files

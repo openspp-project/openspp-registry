@@ -10,12 +10,17 @@
     "development_status": "Beta",
     "maintainers": ["jeremi", "gonzalesedwin1123"],
     "depends": [
+        "spp_base",
         "spp_change_request",
         "g2p_registry_base",
         "g2p_registry_individual",
         "g2p_registry_group",
         "g2p_registry_membership",
         "spp_service_points",
+        "spp_idpass",
+    ],
+    "excludes": [
+        "spp_farmer_registry_base",
     ],
     "data": [
         "security/change_request_security.xml",

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="config_attendance_location_tree" model="ir.ui.view">
+        <field name="name">config_attendance_location_tree</field>
+        <field name="model">spp.res.config.attendance.location</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="description" />
+                <field name="external_id" />
+                <field name="external_source" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="config_attendance_location_form" model="ir.ui.view">
+        <field name="name">config_attendance_location_form</field>
+        <field name="model">spp.res.config.attendance.location</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Location">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="description" />
+                        <field name="external_id" />
+                        <field name="external_source" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="config_attendance_location_window" model="ir.actions.act_window">
+        <field name="name">Attendance Location</field>
+        <field name="res_model">spp.res.config.attendance.location</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help">Create and manage the Attendance Location.</field>
+    </record>
+
+    <menuitem
+        id="menu_attendance_location"
+        name="Attendance Locations"
+        parent="spp_cycle_attendance_compliance.menu_attendance_settings"
+        sequence="20"
+        action="config_attendance_location_window"
+    />
+
+</odoo>
