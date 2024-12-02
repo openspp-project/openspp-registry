@@ -47,3 +47,5 @@ g2p_account_journal_g2p_program_cycle_approver,Account Journal Program Cycle Man
 g2p_account_move_g2p_program_cycle_approver,Account Move Program Cycle Manager Access,account.model_account_move,g2p_programs.g2p_program_cycle_approver,1,1,1,0
 g2p_account_move_line_g2p_program_cycle_approver,Account Move Line Program cycle Manager Access,account.model_account_move_line,g2p_programs.g2p_program_cycle_approver,1,1,1,0
 g2p_entitlement_g2p_program_cycle_approver,Entitlement Program Cycle Manager Access,g2p_programs.model_g2p_entitlement,g2p_programs.g2p_program_cycle_approver,1,0,0,0
+g2p_account_payment_g2p_program_cycle_approver,Account Payment Program Cycle Manager Access,account.model_account_payment,g2p_programs.g2p_program_cycle_approver,1,1,1,0
+
