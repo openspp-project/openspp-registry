@@ -199,7 +199,7 @@ class G2PGroup(models.Model):
         now = datetime.datetime.now()
         domain = [
             ("birthdate", "<", now - relativedelta(years=CHILDREN_AGE_LIMIT)),
-            ("gender", "=", "Female"),
+            ("gender", "=", self.env.ref("spp_base_demo.gender_female").id),
         ]
         self.compute_count_and_set_indicator("z_ind_grp_num_adults_woman", None, domain)
 
@@ -224,7 +224,7 @@ class G2PGroup(models.Model):
         now = datetime.datetime.now()
         domain = [
             ("birthdate", "<", now - relativedelta(years=CHILDREN_AGE_LIMIT)),
-            ("gender", "=", "Female"),
+            ("gender", "=", self.env.ref("spp_base_demo.gender_female").id),
         ]
         self.compute_count_and_set_indicator("z_ind_grp_is_woman_head_hh", ["Head"], domain, presence_only=True)
 
