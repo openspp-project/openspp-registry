@@ -38,8 +38,6 @@ class Farm(models.Model):
     farm_land_rec_id = fields.Many2one("spp.land.record", required=True, ondelete="cascade", string="Land Record")
     farmer_id = fields.Many2one("spp.farmer", required=True, ondelete="cascade", string="Farmer")
 
-    # TODO: Fix this function since res.partner is having an error when creating multiple records.
-    # e.g. self.env["res.partner"].create([{"name": "Test 1"}, {"name": "Test 2"}])
     @api.model_create_multi
     def create(self, vals):
         farm = super().create(vals)
