@@ -30,6 +30,9 @@
         "product",
         "stock",
     ],
+    "excludes": [
+        "spp_farmer_registry_base",
+    ],
     "external_dependencies": {"python": ["faker"]},
     "data": [
         "data/res_lang_data.xml",
