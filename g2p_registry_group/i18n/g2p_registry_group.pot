@@ -152,6 +152,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:g2p_registry_group.field_g2p_group_kind__name
 #: model:ir.model.fields,field_description:g2p_registry_group.field_res_partner__kind
 #: model:ir.model.fields,field_description:g2p_registry_group.field_res_users__kind
+#: model:ir.model.fields,field_description:g2p_registry_group.field_spp_attendance_subscriber__kind
 msgid "Kind"
 msgstr ""
 
@@ -178,6 +179,7 @@ msgstr ""
 #. module: g2p_registry_group
 #: model:ir.model.fields,field_description:g2p_registry_group.field_res_partner__is_partial_group
 #: model:ir.model.fields,field_description:g2p_registry_group.field_res_users__is_partial_group
+#: model:ir.model.fields,field_description:g2p_registry_group.field_spp_attendance_subscriber__is_partial_group
 msgid "Partial Group"
 msgstr ""
 
@@ -214,6 +216,7 @@ msgstr ""
 #. module: g2p_registry_group
 #: model:ir.model.fields,field_description:g2p_registry_group.field_res_partner__kind_as_str
 #: model:ir.model.fields,field_description:g2p_registry_group.field_res_users__kind_as_str
+#: model:ir.model.fields,field_description:g2p_registry_group.field_spp_attendance_subscriber__kind_as_str
 msgid "String Kind"
 msgstr ""
 

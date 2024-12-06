@@ -1,9 +1,13 @@
-from odoo import fields, models
+from odoo import _, fields, models
 
 
 class Attendance(models.Model):
     _name = "spp.attendance.list"
     _description = "Attendance List"
+
+    PRESENT = "present"
+    ABSENT = "absent"
+    ALLOWED_CATEGORIES = [PRESENT, ABSENT]
 
     subscriber_id = fields.Many2one("spp.attendance.subscriber", required=True, readonly=True)
     attendance_date = fields.Date(required=True, default=lambda self: fields.Date.today(), string="Date")
@@ -19,6 +23,12 @@ class Attendance(models.Model):
         required=True, default=lambda self: fields.Datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     )
     submission_source = fields.Char()
+    attendance_category = fields.Selection(
+        selection=[(PRESENT, _("Present")), (ABSENT, _("Absent"))],
+        string="Category",
+        default=PRESENT,
+        required=True,
+    )
 
     def get_unique_domain(self):
         self.ensure_one()

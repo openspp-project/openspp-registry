@@ -15,6 +15,9 @@
         "web",
         "spp_base",
     ],
+    "excludes": [
+        "spp_farmer_registry_base",
+    ],
     "data": [
         "views/res_partner_views.xml",
         "views/spp_area_views.xml",

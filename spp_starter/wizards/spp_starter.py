@@ -217,7 +217,8 @@ class SppStarter(models.TransientModel):
             res |= find_module("spp_change_request_change_info")
             res |= find_module("spp_event_data")
             if self.sp_mis_demo_management == "yes":
-                res |= find_module("spp_demo")
+                res |= find_module("spp_base_demo")
+                res |= find_module("spp_mis_demo")
             if self.location_assignment == "yes":
                 res |= find_module("spp_area")
             if self.service_point_management == "yes":
@@ -235,6 +236,7 @@ class SppStarter(models.TransientModel):
             if self.location_assignment == "yes":
                 res |= find_module("spp_area_gis")
             if self.farmer_demo_management == "yes":
+                res |= find_module("spp_base_demo")
                 res |= find_module("spp_farmer_registry_demo")
                 res |= find_module("spp_programs")
 

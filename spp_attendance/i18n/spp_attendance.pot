@@ -14,16 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__entitlements_count
-msgid "# Cash Entitlements"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__cycles_count
-msgid "# Cycles"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__event_count
 msgid "# Events"
 msgstr ""
@@ -31,11 +21,6 @@ msgstr ""
 #. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__meeting_count
 msgid "# Meetings"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__program_membership_count
-msgid "# Program Memberships"
 msgstr ""
 
 #. module: spp_attendance
@@ -116,7 +101,6 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_g2p_program_membership__addl_name
 #: model:ir.model.fields,field_description:spp_attendance.field_res_partner__addl_name
 #: model:ir.model.fields,field_description:spp_attendance.field_res_users__addl_name
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__addl_name
@@ -134,18 +118,8 @@ msgid "Addl. Name"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__address
-msgid "Address"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__type
 msgid "Address Type"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__age
-msgid "Age"
 msgstr ""
 
 #. module: spp_attendance
@@ -153,11 +127,6 @@ msgstr ""
 msgid ""
 "All the emails and documents sent to this contact will be translated in this"
 " language."
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__birthdate_not_exact
-msgid "Approximate Birthdate"
 msgstr ""
 
 #. module: spp_attendance
@@ -323,11 +292,6 @@ msgid "Bearer"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__birth_place
-msgid "Birth Place"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__is_blacklisted
 msgid "Blacklist"
 msgstr ""
@@ -345,6 +309,11 @@ msgstr ""
 #. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__message_bounce
 msgid "Bounce"
+msgstr ""
+
+#. module: spp_attendance
+#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__can_publish
+msgid "Can Publish"
 msgstr ""
 
 #. module: spp_attendance
@@ -375,11 +344,6 @@ msgstr ""
 #. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__city
 msgid "City"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__civil_status
-msgid "CivilState"
 msgstr ""
 
 #. module: spp_attendance
@@ -594,11 +558,6 @@ msgid "Customer Rank"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__cycle_ids
-msgid "Cycle Memberships"
-msgstr ""
-
-#. module: spp_attendance
 #. odoo-python
 #: code:addons/spp_attendance/wizard/import_attendance.py:0
 #, python-format
@@ -610,16 +569,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__date
 #: model_terms:ir.ui.view,arch_db:spp_attendance.spp_attendance_res_config_settings_view_form
 msgid "Date"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__disabled
-msgid "Date Disabled"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__birthdate
-msgid "Date of Birth"
 msgstr ""
 
 #. module: spp_attendance
@@ -640,11 +589,6 @@ msgid "Description"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__disabled_by
-msgid "Disabled By"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_api_client_credential__display_name
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_list__display_name
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_location__display_name
@@ -652,11 +596,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_type__display_name
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_import_attendance_wizard__display_name
 msgid "Display Name"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__district
-msgid "District"
 msgstr ""
 
 #. module: spp_attendance
@@ -702,17 +641,11 @@ msgid "Endpoint of the API to import attendance."
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__entitlement_ids
-msgid "Entitlements"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_list__attendance_external_url
 msgid "External URL"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_g2p_program_membership__family_name
 #: model:ir.model.fields,field_description:spp_attendance.field_res_config_settings__family_name_mapping
 #: model:ir.model.fields,field_description:spp_attendance.field_res_partner__family_name
 #: model:ir.model.fields,field_description:spp_attendance.field_res_users__family_name
@@ -754,11 +687,6 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__force_recompute_canary
-msgid "Force Recompute Canary"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__ubl_cii_format
 msgid "Format"
 msgstr ""
@@ -779,11 +707,9 @@ msgid "Full Name"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_g2p_program_membership__gender_char
 #: model:ir.model.fields,field_description:spp_attendance.field_res_config_settings__gender_mapping
 #: model:ir.model.fields,field_description:spp_attendance.field_res_partner__gender_char
 #: model:ir.model.fields,field_description:spp_attendance.field_res_users__gender_char
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__gender
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__gender_char
 #: model_terms:ir.ui.view,arch_db:spp_attendance.spp_attendance_res_config_settings_view_form
 msgid "Gender"
@@ -800,23 +726,12 @@ msgid "Geo Longitude"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_g2p_program_membership__given_name
 #: model:ir.model.fields,field_description:spp_attendance.field_res_config_settings__given_name_mapping
 #: model:ir.model.fields,field_description:spp_attendance.field_res_partner__given_name
 #: model:ir.model.fields,field_description:spp_attendance.field_res_users__given_name
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__given_name
 #: model_terms:ir.ui.view,arch_db:spp_attendance.spp_attendance_res_config_settings_view_form
 msgid "Given Name"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__is_group
-msgid "Group"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__group_membership_ids
-msgid "Group Members"
 msgstr ""
 
 #. module: spp_attendance
@@ -855,7 +770,6 @@ msgid "Icon to indicate an exception activity."
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_g2p_program_membership__identifier
 #: model:ir.model.fields,field_description:spp_attendance.field_res_partner__identifier
 #: model:ir.model.fields,field_description:spp_attendance.field_res_users__identifier
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__identifier
@@ -962,12 +876,16 @@ msgstr ""
 #. odoo-python
 #: code:addons/spp_attendance/wizard/import_attendance.py:0
 #, python-format
-msgid "Imported %s persons."
+msgid ""
+"Import successfully. \n"
+" Pagination information: %s"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__income
-msgid "Income"
+#. odoo-python
+#: code:addons/spp_attendance/wizard/import_attendance.py:0
+#, python-format
+msgid "Imported %s persons."
 msgstr ""
 
 #. module: spp_attendance
@@ -1024,6 +942,11 @@ msgid "Is Public"
 msgstr ""
 
 #. module: spp_attendance
+#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__is_published
+msgid "Is Published"
+msgstr ""
+
+#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__is_company
 msgid "Is a Company"
 msgstr ""
@@ -1036,11 +959,6 @@ msgstr ""
 #. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__journal_item_count
 msgid "Journal Items"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__kind
-msgid "Kind"
 msgstr ""
 
 #. module: spp_attendance
@@ -1149,11 +1067,6 @@ msgid "Meetings"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__individual_membership_ids
-msgid "Membership to Groups"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__message_has_error
 msgid "Message Delivery error"
 msgstr ""
@@ -1238,11 +1151,6 @@ msgid "Number of errors"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__z_ind_grp_num_individuals
-msgid "Number of individuals"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,help:spp_attendance.field_spp_attendance_subscriber__message_needaction_counter
 msgid "Number of messages requiring action"
 msgstr ""
@@ -1258,11 +1166,6 @@ msgid "OK"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__occupation
-msgid "Occupation"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_import_attendance_wizard__page
 msgid "Page"
 msgstr ""
@@ -1270,11 +1173,6 @@ msgstr ""
 #. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__parent_name
 msgid "Parent name"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__is_partial_group
-msgid "Partial Group"
 msgstr ""
 
 #. module: spp_attendance
@@ -1366,11 +1264,6 @@ msgid "Phone Blacklisted"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__phone_number_ids
-msgid "Phone Numbers"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__phone_mobile_search
 msgid "Phone/Mobile"
 msgstr ""
@@ -1398,11 +1291,6 @@ msgid "Pricelist"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__program_membership_ids
-msgid "Program Memberships"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_import_attendance_wizard__raw_body
 msgid "Raw Body for Authentication"
 msgstr ""
@@ -1413,33 +1301,8 @@ msgid "Raw Body for Import"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__disabled_reason
-msgid "Reason for Disabling"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__ref
 msgid "Reference"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__is_registrant
-msgid "Registrant"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__reg_ids
-msgid "Registrant IDs"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__tags_ids
-msgid "Registrant Tags"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__registration_date
-msgid "Registration Date"
 msgstr ""
 
 #. module: spp_attendance
@@ -1448,18 +1311,13 @@ msgid "Related Company"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__related_1_ids
-msgid "Related to registrant 1"
-msgstr ""
-
-#. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__related_2_ids
-msgid "Related to registrant 2"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__activity_user_id
 msgid "Responsible User"
+msgstr ""
+
+#. module: spp_attendance
+#: model:ir.model.fields,help:spp_attendance.field_spp_attendance_subscriber__website_id
+msgid "Restrict publishing to this website."
 msgstr ""
 
 #. module: spp_attendance
@@ -1597,11 +1455,6 @@ msgid "Street2"
 msgstr ""
 
 #. module: spp_attendance
-#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__kind_as_str
-msgid "String Kind"
-msgstr ""
-
-#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_list__submission_source
 msgid "Submission Source"
 msgstr ""
@@ -1661,6 +1514,11 @@ msgstr ""
 #: model:ir.model.fields,help:spp_attendance.field_spp_attendance_subscriber__property_account_position_id
 msgid ""
 "The fiscal position determines the taxes/accounts used for this contact."
+msgstr ""
+
+#. module: spp_attendance
+#: model:ir.model.fields,help:spp_attendance.field_spp_attendance_subscriber__website_url
+msgid "The full URL to access the document through the website."
 msgstr ""
 
 #. module: spp_attendance
@@ -1892,6 +1750,21 @@ msgid "Viewed?"
 msgstr ""
 
 #. module: spp_attendance
+#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__website_published
+msgid "Visible on current website"
+msgstr ""
+
+#. module: spp_attendance
+#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__visitor_ids
+msgid "Visitors"
+msgstr ""
+
+#. module: spp_attendance
+#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__website_id
+msgid "Website"
+msgstr ""
+
+#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__website
 msgid "Website Link"
 msgstr ""
@@ -1899,6 +1772,11 @@ msgstr ""
 #. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__website_message_ids
 msgid "Website Messages"
+msgstr ""
+
+#. module: spp_attendance
+#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__website_url
+msgid "Website URL"
 msgstr ""
 
 #. module: spp_attendance

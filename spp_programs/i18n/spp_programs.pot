@@ -25,7 +25,6 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/programs.py:0
-#: code:addons/spp_programs/models/programs.py:0
 #, python-format
 msgid "%s Imported Beneficiaries"
 msgstr ""
@@ -269,7 +268,6 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/entitlement.py:0
-#: code:addons/spp_programs/models/entitlement.py:0
 #: model:ir.model,name:spp_programs.model_g2p_entitlement
 #: model:ir.model,name:spp_programs.model_g2p_entitlement_inkind
 #, python-format
@@ -284,7 +282,6 @@ msgstr ""
 
 #. module: spp_programs
 #. odoo-python
-#: code:addons/spp_programs/models/entitlement.py:0
 #: code:addons/spp_programs/models/entitlement.py:0
 #, python-format
 msgid "Entitlement: (%s)"
@@ -368,7 +365,6 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/programs.py:0
-#: code:addons/spp_programs/models/programs.py:0
 #, python-format
 msgid "Import"
 msgstr ""
@@ -416,7 +412,6 @@ msgstr ""
 
 #. module: spp_programs
 #. odoo-python
-#: code:addons/spp_programs/wizard/inkind_entitlement_report_wiz.py:0
 #: code:addons/spp_programs/wizard/inkind_entitlement_report_wiz.py:0
 #: model:ir.actions.act_window,name:spp_programs.action_inkind_entitlement_report_wizard
 #, python-format
@@ -505,7 +500,6 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/programs.py:0
-#: code:addons/spp_programs/models/programs.py:0
 #, python-format
 msgid "No Eligibility Manager defined."
 msgstr ""
@@ -523,7 +517,6 @@ msgstr ""
 
 #. module: spp_programs
 #. odoo-python
-#: code:addons/spp_programs/models/entitlement.py:0
 #: code:addons/spp_programs/models/entitlement.py:0
 #, python-format
 msgid "Only draft entitlements are allowed to be deleted"
@@ -572,8 +565,13 @@ msgid "Program Approval Receipt"
 msgstr ""
 
 #. module: spp_programs
+#: model:ir.model.fields,field_description:spp_programs.field_g2p_program__view_id
+#: model:ir.model.fields,field_description:spp_programs.field_g2p_program_create_wizard__view_id
+msgid "Program UI Template"
+msgstr ""
+
+#. module: spp_programs
 #. odoo-python
-#: code:addons/spp_programs/wizard/create_program_wizard.py:0
 #: code:addons/spp_programs/wizard/create_program_wizard.py:0
 #, python-format
 msgid "Programs"
@@ -640,7 +638,6 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/programs.py:0
-#: code:addons/spp_programs/models/programs.py:0
 #, python-format
 msgid "Started importing %s beneficiaries"
 msgstr ""
@@ -688,14 +685,12 @@ msgstr ""
 #. module: spp_programs
 #. odoo-python
 #: code:addons/spp_programs/models/cycle.py:0
-#: code:addons/spp_programs/models/cycle.py:0
 #, python-format
 msgid "The \"End Date\" cannot be earlier than the \"Start Date\"."
 msgstr ""
 
 #. module: spp_programs
 #. odoo-python
-#: code:addons/spp_programs/models/cycle.py:0
 #: code:addons/spp_programs/models/cycle.py:0
 #, python-format
 msgid "The \"Start Date\" cannot be earlier than today."
@@ -790,7 +785,6 @@ msgstr ""
 
 #. module: spp_programs
 #. odoo-python
-#: code:addons/spp_programs/models/entitlement.py:0
 #: code:addons/spp_programs/models/entitlement.py:0
 #, python-format
 msgid "You have no access in the Entitlement List View"

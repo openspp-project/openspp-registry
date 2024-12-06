@@ -145,13 +145,6 @@ msgid "Registrant"
 msgstr ""
 
 #. module: spp_openid_vci
-#. odoo-python
-#: code:addons/spp_openid_vci/models/res_partner.py:0
-#, python-format
-msgid "The request to the credential issuer timed out."
-msgstr ""
-
-#. module: spp_openid_vci
 #: model:ir.model.fields,field_description:spp_openid_vci.field_g2p_program_membership__vc_qr_code
 #: model:ir.model.fields,field_description:spp_openid_vci.field_res_partner__vc_qr_code
 #: model:ir.model.fields,field_description:spp_openid_vci.field_res_users__vc_qr_code

@@ -14,6 +14,13 @@
                     <page name="individual_attendance" string="Member's Attendance Number">
                         <field name="cycle_group_membership_attendance_ids" readonly="1">
                             <tree>
+                                <button
+                                    name="open_members_form"
+                                    type="object"
+                                    icon="fa-external-link"
+                                    class="btn-success"
+                                    title="Open Member Form"
+                                />
                                 <field name="individual_id" />
                                 <field name="number_of_attendance_str" />
                                 <field
