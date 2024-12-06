@@ -119,11 +119,6 @@ class VCIIssuer(TransactionCase):
             self.res_partner_complete._issue_vc(self.vci_issuer_complete)
             issue_vc.assert_called_once()
 
-    def test_create_qr_code(self):
-        qr_img = self.res_partner_complete._create_qr_code("Test Data")
-        self.assertIsNotNone(qr_img)
-        self.assertIsInstance(qr_img, bytes)
-
     def test_registry_issue_card(self):
         registry_issue_card_action = self.res_partner_complete.registry_issue_card()
 

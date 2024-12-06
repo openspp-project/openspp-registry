@@ -1,15 +1,14 @@
-import base64
 import calendar
 import json
+import logging
 from datetime import datetime
-from io import BytesIO
-
-import qrcode
-import requests
-from qrcode.image.pil import PilImage
 
 from odoo import _, fields, models
 from odoo.exceptions import UserError
+
+from ..tools import create_qr_code
+
+_logger = logging.getLogger(__name__)
 
 
 class SPPRegistry(models.Model):
@@ -38,14 +37,7 @@ class SPPRegistry(models.Model):
         if not reg_id:
             raise UserError(f"No Registrant found with this ID Type: {vci_issuer.auth_sub_id_type_id.name}.")
 
-        web_base_url = self.env["ir.config_parameter"].sudo().get_param("web.base.url").rstrip("/")
-
-        url = f"{web_base_url}/api/v1/vci/.well-known/openid-credential-issuer/{vci_issuer.name}"
-        try:
-            credential_issuer_response = requests.get(url, timeout=5)
-        except requests.exceptions.Timeout as e:
-            raise UserError(_("The request to the credential issuer timed out.")) from e
-        issuer_data = credential_issuer_response.json()
+        issuer_data = self.env["g2p.openid.vci.issuers"].get_issuer_metadata_by_name(issuer_name=vci_issuer.name)
 
         credential_issuer = f"{issuer_data['credential_issuer']}/api/v1/security"
         credentials_supported = issuer_data.get("credentials_supported", None)
@@ -66,26 +58,6 @@ class SPPRegistry(models.Model):
         signed_data = encryption_provider_id.jwt_sign(data=dict_data)
 
         return self.env["g2p.openid.vci.issuers"].issue_vc(credential_request, signed_data)
-
-    def _create_qr_code(self, data):
-        qr = qrcode.QRCode(
-            error_correction=qrcode.constants.ERROR_CORRECT_L,
-            image_factory=PilImage,
-            box_size=10,
-            border=4,
-        )
-
-        qr.add_data(data)
-        qr.make(fit=True)
-
-        img = qr.make_image()
-
-        temp = BytesIO()
-        img.save(temp, format="PNG")
-        qr_img = base64.b64encode(temp.getvalue())
-        temp.close()
-
-        return qr_img
 
     def registry_issue_card(self):
         self.ensure_one()
@@ -112,7 +84,7 @@ class SPPRegistry(models.Model):
 
         result = self._issue_vc(vci_issuer)
 
-        qr_img = self._create_qr_code(json.dumps(result))
+        qr_img = create_qr_code(json.dumps(result))
 
         self.vc_qr_code = qr_img
 
