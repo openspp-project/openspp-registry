@@ -91,6 +91,13 @@ msgid "Field '%s', already exists!"
 msgstr ""
 
 #. module: spp_import_match
+#. odoo-python
+#: code:addons/spp_import_match/tests/test_res_partner_import_match.py:0
+#, python-format
+msgid "Field 'Name', already exists!"
+msgstr ""
+
+#. module: spp_import_match
 #: model:ir.model.fields,field_description:spp_import_match.field_spp_import_match__field_ids
 msgid "Fields"
 msgstr ""
