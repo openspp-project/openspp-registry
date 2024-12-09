@@ -251,6 +251,7 @@ msgstr ""
 
 #. module: spp_manual_entitlement
 #. odoo-python
+#: code:addons/spp_manual_entitlement/tests/test_manual_entitlement.py:0
 #: code:addons/spp_manual_entitlement/wizard/manual_entitlement_wizard.py:0
 #, python-format
 msgid "Only Excel and CSV files are allowed!"
@@ -271,6 +272,7 @@ msgstr ""
 #. module: spp_manual_entitlement
 #. odoo-python
 #: code:addons/spp_manual_entitlement/models/cycle_manager.py:0
+#: code:addons/spp_manual_entitlement/tests/test_manual_entitlement.py:0
 #, python-format
 msgid "Prepare entitlement for beneficiaries."
 msgstr ""
