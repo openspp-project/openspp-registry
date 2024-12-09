@@ -1288,11 +1288,6 @@ msgid "Conflict"
 msgstr ""
 
 #. module: g2p_programs
-#: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__consent_ids
-msgid "Consent IDS"
-msgstr ""
-
-#. module: g2p_programs
 #: model:ir.model,name:g2p_programs.model_res_partner
 #: model:ir.model.fields,field_description:g2p_programs.field_g2p_program_membership__child_ids
 msgid "Contact"
