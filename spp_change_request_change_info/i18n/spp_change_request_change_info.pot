@@ -479,6 +479,7 @@ msgstr ""
 #. module: spp_change_request_change_info
 #. odoo-python
 #: code:addons/spp_change_request_change_info/models/change_request_change_info.py:0
+#: code:addons/spp_change_request_change_info/tests/test_create_cr.py:0
 #, python-format
 msgid "Registrant Details"
 msgstr ""
@@ -575,6 +576,7 @@ msgstr ""
 #. module: spp_change_request_change_info
 #. odoo-python
 #: code:addons/spp_change_request_change_info/models/change_request_change_info.py:0
+#: code:addons/spp_change_request_change_info/tests/test_create_cr.py:0
 #, python-format
 msgid "The Given Name is required!"
 msgstr ""
