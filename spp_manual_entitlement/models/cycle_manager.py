@@ -38,13 +38,16 @@ class DefaultCycleManager(models.Model):
         counter = 1
         beneficiary_vals = []
         for beneficiary in beneficiaries:
-            if counter < self.MAX_ROW_JOB_QUEUE:
+            if counter <= self.MAX_ROW_JOB_QUEUE:
                 beneficiary_vals.append(beneficiary)
             else:
                 counter = 1
                 jobs.append(self.delayable()._prepare_manual_entitlements(cycle, beneficiary_vals))
                 beneficiary_vals = beneficiary
             counter += 1
+
+        if not jobs:
+            jobs.append(self.delayable()._prepare_manual_entitlements(cycle, beneficiary_vals))
 
         main_job = group(*jobs)
         main_job.on_done(self.delayable().mark_prepare_entitlement_as_done(cycle, _("Entitlement Ready.")))

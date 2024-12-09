@@ -21,7 +21,7 @@ class ChangeRequestBaseCustomDemo(models.Model):
                 res_model = rec.request_type
                 # Set the dms directory
                 _logger.debug("Change Request: DMS Directory Creation (%s)" % len(self.dms_directory_ids))
-                self.env.ref(self.env[res_model].DMS_STORAGE)
+                # self.env.ref(self.env[res_model].DMS_STORAGE)
                 dmsval = {
                     "is_root_directory": True,
                     "name": rec.name,

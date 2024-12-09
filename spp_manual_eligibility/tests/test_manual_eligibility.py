@@ -23,7 +23,7 @@ class TestManualEligibility(TransactionCase):
         cls.program = cls.env["g2p.program"].create({"name": "Program 1 [MANUAL ELIGIBILITY TEST]"})
         cls.manual_eligibility_manager = cls.env["g2p.program_membership.manager.default"].create(
             {
-                "name": "Entitlement Manager Cash 1 [MANUAL ELIGIBILITY TEST]",
+                "name": "Eligibility Manager Cash 1 [MANUAL ELIGIBILITY TEST]",
                 "is_manual_eligibility": True,
                 "eligibility_domain": None,
                 "program_id": cls.program.id,

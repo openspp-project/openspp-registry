@@ -6,10 +6,18 @@ from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase
 
 
-class ChangeRequestChangeInfoTest(TransactionCase):
+class ChangeRequestAddChildrenDemoTest(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+
+        cls.group = cls.env["res.partner"].create(
+            {
+                "name": "Test Group",
+                "is_registrant": True,
+                "is_group": True,
+            }
+        )
 
         cls.individual = cls.env["res.partner"].create(
             {
@@ -18,16 +26,24 @@ class ChangeRequestChangeInfoTest(TransactionCase):
                 "is_group": False,
             }
         )
+
+        cls.membership = cls.env["g2p.group.membership"].create(
+            {
+                "group": cls.group.id,
+                "individual": cls.individual.id,
+            }
+        )
+
         cls.change_request = cls.env["spp.change.request"].create(
             {
-                "request_type": "spp.change.request.change.info",
-                "registrant_id": cls.individual.id,
+                "request_type": "spp.change.request.add.children",
+                "registrant_id": cls.group.id,
                 "applicant_id": cls.individual.id,
                 "applicant_phone": "09123456789",
             }
         )
         cls.change_request.create_request_detail_no_redirect()
-        cls.res_id = cls.env["spp.change.request.change.info"].search(
+        cls.res_id = cls.env["spp.change.request.add.children"].search(
             [("id", "=", cls.change_request.request_type_ref_id.id)]
         )
 
@@ -56,29 +72,28 @@ class ChangeRequestChangeInfoTest(TransactionCase):
             gender = self.env["gender.type"].search([])[0]
 
         return {
-            "full_name": "Test Registrant",
-            "family_name": "Registrant",
+            "full_name": "Test Child",
+            "family_name": "Child",
             "given_name": "Test",
             "addl_name": "Jr",
+            "applicant_relation": "mother",
             "birth_place": "Hometown",
             "birthdate_not_exact": True,
             "birthdate": "1990-01-01",
             "gender": gender.value,
-            "image_1920": None,
-            # "highest_education_level": "primary", # NOTE: This field is not available in this module
             "phone": "09123456789",
-            "national_id_number": "123456789125",
+            "uid_number": "123456789125",
         }
 
     def test_01_validate_cr_without_attachments(self):
-        self.res_id.write({"family_name": "Test"})
-        with self.assertRaisesRegex(ValidationError, "The required document Change Info Request Form is missing."):
+        vals = self.get_vals()
+        self.res_id.write(vals)
+        with self.assertRaisesRegex(ValidationError, "The required document Add Children Request Form is missing."):
             self.res_id.action_submit()
 
     def test_02_validate_cr_with_complete_data(self):
-        cr_vals = self.get_vals()
-        self.res_id.write(cr_vals)
-
+        vals = self.get_vals()
+        self.res_id.write(vals)
         file = None
         filename = None
         file_path = f"{os.path.dirname(os.path.abspath(__file__))}/sample_document.jpeg"
@@ -89,9 +104,9 @@ class ChangeRequestChangeInfoTest(TransactionCase):
         vals = {
             "content": file,
             "name": filename,
-            "category_id": self.env.ref("spp_change_request_change_info.spp_dms_change_info").id,
+            "category_id": self.env.ref("spp_change_request_add_children_demo.spp_dms_add_children").id,
             "directory_id": self.res_id.dms_directory_ids[0].id,
-            "change_request_change_info_id": self.res_id.id,
+            "change_request_add_children_id": self.res_id.id,
         }
         self.env["spp.dms.file"].create(vals)
         self.res_id.action_submit()
@@ -111,13 +126,15 @@ class ChangeRequestChangeInfoTest(TransactionCase):
         open_form = self.res_id.open_registrant_details_form()
         self.assertEqual(
             open_form["name"],
-            _("Registrant Details"),
+            _("Group Details"),
             "Incorrect Name!",
         )
 
     def test_03_validate_cr_with_invalid_data(self):
         reg_vals = {
-            "family_name": "Test",
+            "birth_place": "Hometown",
+            "phone": "09123456789",
+            "uid_number": "123456789125",
         }
         self.res_id.write(reg_vals)
 
@@ -129,20 +146,51 @@ class ChangeRequestChangeInfoTest(TransactionCase):
         vals = {
             "content": file,
             "name": filename,
-            "category_id": self.env.ref("spp_change_request_change_info.spp_dms_change_info").id,
+            "category_id": self.env.ref("spp_change_request_add_children_demo.spp_dms_add_children").id,
             "directory_id": self.res_id.dms_directory_ids[0].id,
-            "change_request_change_info_id": self.res_id.id,
+            "change_request_add_children_id": self.res_id.id,
         }
         self.env["spp.dms.file"].create(vals)
-        error_message = [_("The Given Name is required!")]
+        error_message = [
+            _("The Family Name is required!"),
+            _("The First Name is required!"),
+            _("The Date of Birth is required!"),
+            _("The Relationship to Applicant is required!"),
+            _("The Gender is required!"),
+        ]
         error_message = "\n".join(error_message)
         with self.assertRaisesRegex(ValidationError, error_message):
             self.res_id.validate_data()
 
-    def test_04_update_live_data_without_phone_national_id(self):
+    def test_04_update_live_data_with_kinds(self):
+        vals = self.get_vals()
+        kind = self.env.ref("g2p_registry_membership.group_membership_kind_head").id
+        vals["kind"] = [(6, 0, [kind])]
+        self.res_id.write(vals)
+        file = None
+        filename = None
+        file_path = f"{os.path.dirname(os.path.abspath(__file__))}/sample_document.jpeg"
+        with open(file_path, "rb") as f:
+            filename = f.name
+            file = base64.b64encode(f.read())
+
+        vals = {
+            "content": file,
+            "name": filename,
+            "category_id": self.env.ref("spp_change_request_add_children_demo.spp_dms_add_children").id,
+            "directory_id": self.res_id.dms_directory_ids[0].id,
+            "change_request_add_children_id": self.res_id.id,
+        }
+        self.env["spp.dms.file"].create(vals)
+        self.res_id.update_live_data()
+
+        individual_id = self.env["g2p.group.membership"].search([("group", "=", self.group.id), ("kind", "in", kind)])
+        self.assertTrue(individual_id, "Individual not found!")
+
+    def test_05_update_live_data_without_phone_uid(self):
         vals = self.get_vals()
         vals.pop("phone")
-        vals.pop("national_id_number")
+        vals.pop("uid_number")
 
         self.res_id.write(vals)
         file = None
@@ -155,26 +203,25 @@ class ChangeRequestChangeInfoTest(TransactionCase):
         vals = {
             "content": file,
             "name": filename,
-            "category_id": self.env.ref("spp_change_request_change_info.spp_dms_change_info").id,
+            "category_id": self.env.ref("spp_change_request_add_children_demo.spp_dms_add_children").id,
             "directory_id": self.res_id.dms_directory_ids[0].id,
-            "change_request_change_info_id": self.res_id.id,
+            "change_request_add_children_id": self.res_id.id,
         }
         self.env["spp.dms.file"].create(vals)
         self.res_id.update_live_data()
 
-        individual_id = self.env["res.partner"].search([("name", "=", "Test Registrant")])
+        individual_id = self.env["res.partner"].search([("name", "=", "Test Child")])
         self.assertFalse(individual_id.phone_number_ids, "Should not have phone number!")
         self.assertFalse(individual_id.reg_ids, "Should not have registrant ID!")
 
-    # NOTE: Fix below test, it is failing on CI.
-    # def test_05_create_request_detail_demo(self):
-    #     change_request = self.env["spp.change.request"].create(
-    #         {
-    #             "request_type": "spp.change.request.add.farmer",
-    #             "registrant_id": self.individual.id,
-    #             "applicant_id": self.individual.id,
-    #             "applicant_phone": "09123456789",
-    #         }
-    #     )
-    #     change_request.create_request_detail_demo()
-    #     self.assertTrue(change_request.request_type_ref_id, "Request Type Reference ID not set!")
+    def test_06_create_request_detail_demo(self):
+        change_request = self.env["spp.change.request"].create(
+            {
+                "request_type": "spp.change.request.add.children",
+                "registrant_id": self.group.id,
+                "applicant_id": self.individual.id,
+                "applicant_phone": "09123456789",
+            }
+        )
+        change_request.create_request_detail_demo()
+        self.assertTrue(change_request.request_type_ref_id, "Request Type Reference ID not set!")

@@ -59,3 +59,22 @@ class TestRecordConsentWiz(Common):
             "Default-Tywin Lannister",
             "Consent Wizard should change name!",
         )
+
+    def test_04_get_view(self):
+        arch, view = (
+            self.env["spp.record.consent.wizard"]
+            .with_context(active_id=self._test_group.id)
+            ._get_view(view_type="form")
+        )
+        self.assertEqual(len(arch.xpath("//field[@name='signatory_id']")), 1)
+
+    def test_05_get_members(self):
+        consent_wizard = self._model.create({"group_id": self._test_group.id})
+
+        members = consent_wizard._get_members()
+        self.assertIn("domain", members)
+        self.assertIn("signatory_id", members["domain"])
+        self.assertIn(self._test_individual_1.id, members["domain"]["signatory_id"][0][2])
+        self.assertIn(self._test_individual_2.id, members["domain"]["signatory_id"][0][2])
+        self.assertIn(self._test_individual_3.id, members["domain"]["signatory_id"][0][2])
+        self.assertIn(self._test_individual_4.id, members["domain"]["signatory_id"][0][2])

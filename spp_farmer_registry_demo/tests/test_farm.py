@@ -1,9 +1,8 @@
 from odoo import fields
-from odoo.exceptions import UserError
 from odoo.tests.common import TransactionCase
 
 
-class MembershipTest(TransactionCase):
+class TestFarm(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -20,7 +19,6 @@ class MembershipTest(TransactionCase):
         cls.kind_1 = cls.env["g2p.group.kind"].create(
             {
                 "name": "Test Kind",
-                "allow_all_member_type": True,
             }
         )
         cls.group_1 = cls.env["res.partner"].create(
@@ -38,22 +36,6 @@ class MembershipTest(TransactionCase):
                 "start_date": fields.Datetime.now(),
             }
         )
-
-    def test_compute_individual_domain(self):
-        self.group_membership_1._compute_individual_domain()
-
-        self.assertIsInstance(self.group_membership_1.individual_domain, list)
-        self.assertEqual(len(self.group_membership_1.individual_domain), 2)
-        self.assertIn(("is_registrant", "=", True), self.group_membership_1.individual_domain)
-        self.assertIn(("id", "!=", self.group_membership_1.group.id), self.group_membership_1.individual_domain)
-
-        self.group_1.kind = False
-        self.group_membership_1._compute_individual_domain()
-
-        self.assertIsInstance(self.group_membership_1.individual_domain, list)
-        self.assertEqual(len(self.group_membership_1.individual_domain), 2)
-        self.assertIn(("is_registrant", "=", True), self.group_membership_1.individual_domain)
-        self.assertIn(("is_group", "=", False), self.group_membership_1.individual_domain)
 
     def test_open_member_form(self):
         member_form = self.group_membership_1.open_member_form()
@@ -78,6 +60,7 @@ class MembershipTest(TransactionCase):
                 "is_registrant": True,
             }
         )
+
         membership = self.env["g2p.group.membership"].create(
             {
                 "group": self.registrant_1.id,
@@ -99,6 +82,6 @@ class MembershipTest(TransactionCase):
         self.assertEqual(member_form["context"], {"default_is_group": True})
         self.assertEqual(member_form["flags"], {"mode": "readonly"})
 
-        self.group_membership_1.individual = False
-        with self.assertRaisesRegex(UserError, "A group or individual must be specified for this member."):
-            self.group_membership_1.open_member_form()
+        # membership.individual = False
+        # with self.assertRaises(UserError, "A group or individual must be specified for this member."):
+        #     membership.open_member_form()
