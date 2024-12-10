@@ -11,7 +11,7 @@
     "license": "LGPL-3",
     "development_status": "Production/Stable",
     "maintainers": ["jeremi", "gonzalesedwin1123"],
-    "depends": ["base", "g2p_registry_base", "base_import", "queue_job"],
+    "depends": ["base", "spp_registry_base", "base_import", "queue_job"],
     "data": [
         "data/queue_job_data.xml",
         "security/ir.model.access.csv",
@@ -20,7 +20,6 @@
     "assets": {
         "web.assets_backend": [
             "/spp_import_match/static/src/legacy/js/custom_base_import.js",
-            "/spp_import_match/static/src/legacy/js/import_records.js",
         ],
         "web.assets_qweb": [
             "spp_import_match/static/src/legacy/xml/custom_base_import.xml",
