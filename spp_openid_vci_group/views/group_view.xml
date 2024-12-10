@@ -9,7 +9,13 @@
                 expr="//div[@name='button_box']/button[@name='%(g2p_registry_base.action_disable_registrant_wizard)d']"
                 position="before"
             >
-                <button type="object" class="oe_stat_button" icon="fa-indent" name="registry_issue_card">
+                <button
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-indent"
+                    name="registry_issue_card"
+                    groups="spp_openid_vci.generate_vc"
+                >
                     <div class="o_form_field o_stat_info">
                         <span class="o_stat_text">Issue Card</span>
                     </div>
