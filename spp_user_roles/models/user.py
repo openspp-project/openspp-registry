@@ -73,10 +73,10 @@ class ResUsersCustomSPP(models.Model):
                 if group in groups_to_remove:
                     groups_to_remove.remove(group)
 
-            to_add = [(4, gr) for gr in groups_to_add]
-            to_remove = [(3, gr) for gr in groups_to_remove]
-            groups = to_remove + to_add
-            if groups:
-                vals = {"groups_id": groups}
-                super(ResUsersCustomSPP, user).write(vals)
+            # To fix the recurssion error caused by calling the write function of res.users
+            add_group_ids = self.env["res.groups"].browse(groups_to_add)
+            add_group_ids.write({"users": [(4, user.id)]})
+
+            remove_group_ids = self.env["res.groups"].browse(groups_to_remove)
+            remove_group_ids.write({"users": [(3, user.id)]})
         return True
