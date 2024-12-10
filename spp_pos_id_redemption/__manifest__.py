@@ -17,7 +17,7 @@
         "g2p_registry_individual",
         "g2p_registry_group",
         "g2p_programs",
-        "g2p_entitlement_cash",
+        "spp_entitlement_cash",
     ],
     "assets": {
         "point_of_sale._assets_pos": [
