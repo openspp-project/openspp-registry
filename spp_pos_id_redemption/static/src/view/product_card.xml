@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="spp_pos_id_redemption.IdRedemptionProductCard" t-inherit="point_of_sale.ProductCard">
+        <xpath expr="//div[hasclass('product-name')]" position="before">
+            <span
+                t-if="props.program_id_str"
+                style="font-size: 8pt; font-weight: bold"
+                t-esc="props.program_id_str"
+            />
+            <span
+                t-if="props.cycle_id_str"
+                style="font-size: 8pt; font-weight: bold"
+                t-esc="props.cycle_id_str"
+            />
+            <t t-if="props.entitlement_valid_until">
+                <span style="font-size: 8pt">
+                    (ends <span t-esc="props.entitlement_valid_until" />)</span>
+            </t>
+        </xpath>
+    </t>
+</templates>
