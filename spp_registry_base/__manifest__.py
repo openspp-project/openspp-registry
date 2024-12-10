@@ -19,7 +19,12 @@
         "g2p_registry_membership",
         "spp_user_roles",
     ],
-    "data": [],
+    "data": [
+        "security/security_access.xml",
+        "security/ir.model.access.csv",
+        "views/groups_view.xml",
+        "views/individuals_view.xml",
+    ],
     "assets": {
         "web.assets_backend": [
             "spp_registry/static/src/import_records/import_records.js",
