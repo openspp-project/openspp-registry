@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="approve_registry" model="res.groups">
+        <field name="name">Approve Registry</field>
+        <field name="category_id" ref="spp_registry_base.registry_access_module" />
+        <field
+            name="implied_ids"
+            eval="[
+                Command.link(ref('spp_registry_base.read_registry'))
+            ]"
+        />
+        <field
+            name="users"
+            eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"
+        />
+    </record>
+
+    <record id="reject_registry" model="res.groups">
+        <field name="name">Reject Registry</field>
+        <field name="category_id" ref="spp_registry_base.registry_access_module" />
+        <field
+            name="implied_ids"
+            eval="[
+                Command.link(ref('spp_registry_base.read_registry'))
+            ]"
+        />
+        <field
+            name="users"
+            eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"
+        />
+    </record>
+
+    <record id="reset_to_draft_registry" model="res.groups">
+        <field name="name">Reset to Draft Registry</field>
+        <field name="category_id" ref="spp_registry_base.registry_access_module" />
+        <field
+            name="implied_ids"
+            eval="[
+                Command.link(ref('spp_registry_base.read_registry'))
+            ]"
+        />
+        <field
+            name="users"
+            eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"
+        />
+    </record>
+
+</odoo>
