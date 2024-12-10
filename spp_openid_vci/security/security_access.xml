@@ -1,0 +1,12 @@
+<odoo>
+    <record model="ir.module.category" id="verifiable_credential_access_module">
+        <field name="name">Verifiable Credential Module Access</field>
+        <field name="description">User access level for Verifiable Credential</field>
+        <field name="sequence">5</field>
+    </record>
+
+    <record id="generate_vc" model="res.groups">
+        <field name="name">Generator</field>
+        <field name="category_id" ref="spp_openid_vci.verifiable_credential_access_module" />
+    </record>
+</odoo>

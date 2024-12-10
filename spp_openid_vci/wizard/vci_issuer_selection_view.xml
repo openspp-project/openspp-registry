@@ -10,7 +10,6 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="partner_id" invisible="1" />
                         <field name="issuer_id" options="{'no_create':True, 'no_edit':True}" />
                     </group>
 
