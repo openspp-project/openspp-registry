@@ -6,3 +6,6 @@ ir_attachment_registrar_access,IR Attachment Registrar Access,base.model_ir_atta
 spp_issue_card_wizard_crypto_admin,Issue Card Wizard Crypto Admin Access,spp_openid_vci.model_spp_issue_card_wizard,g2p_encryption.crypto_admin,1,1,1,1
 spp_issue_card_wizard_admin,Issue Card Wizard Admin Access,spp_openid_vci.model_spp_issue_card_wizard,g2p_registry_base.group_g2p_admin,1,1,1,1
 spp_issue_card_wizard_registrar,Issue Card Wizard Registrar Access,spp_openid_vci.model_spp_issue_card_wizard,g2p_registry_base.group_g2p_registrar,1,1,1,0
+
+openid_vci_issuer_generator_access,OpenID VCI Issuer Generator Access,model_g2p_openid_vci_issuers,spp_openid_vci.generate_vc,1,1,1,1
+issue_card_wizard_generator_access,Issue Card Wizard Generator Access,spp_openid_vci.model_spp_issue_card_wizard,spp_openid_vci.generate_vc,1,1,1,1

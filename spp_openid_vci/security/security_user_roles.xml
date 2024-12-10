@@ -1,0 +1,13 @@
+<odoo>
+    <record id="global_vc_generator" model="res.users.role">
+        <field name="name">Verifiable Credential Generator</field>
+        <field name="role_type">global</field>
+        <field
+            name="implied_ids"
+            eval="
+            [
+                Command.link(ref('spp_openid_vci.generate_vc')),
+            ]"
+        />
+    </record>
+</odoo>
