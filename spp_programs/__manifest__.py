@@ -22,6 +22,7 @@
     ],
     "data": [
         "data/user_roles.xml",
+        "security/security_access.xml",
         "security/ir.model.access.csv",
         "views/main_view.xml",
         "views/entitlement_view.xml",
@@ -42,6 +43,8 @@
         "web.assets_backend": [
             "spp_programs/static/src/js/domain_field.js",
             "spp_programs/static/src/js/custom_open_list.js",
+            "spp_programs/static/src/js/create_program.js",
+            "spp_programs/static/src/xml/create_program_template.xml",
         ],
     },
     "demo": [],

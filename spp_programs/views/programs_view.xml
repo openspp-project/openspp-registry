@@ -144,4 +144,7 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
         <field name="context">{}</field>
     </record>
 
+    <record id="g2p_programs.menu_program_list" model="ir.ui.menu">
+        <field name="groups_id" eval="[(4,ref('spp_programs.read_program_cycle_entitlement'))]" />
+    </record>
 </odoo>

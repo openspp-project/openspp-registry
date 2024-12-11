@@ -1,0 +1,36 @@
+<odoo>
+    <record model="ir.module.category" id="program_access_module">
+        <field name="name">Program Access</field>
+        <field name="description">User access level for Program</field>
+        <field name="sequence">3</field>
+    </record>
+
+    <record id="read_program_cycle_entitlement" model="res.groups">
+        <field name="name">Read Program/Cycle/Entitlement</field>
+        <field name="category_id" ref="spp_programs.program_access_module" />
+        <field
+            name="users"
+            eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"
+        />
+    </record>
+
+    <record id="write_program_cycle_entitlement" model="res.groups">
+        <field name="name">Write Program/Cycle/Entitlement</field>
+        <field name="category_id" ref="spp_programs.program_access_module" />
+        <field name="implied_ids" eval="[Command.link(ref('spp_programs.read_program_cycle_entitlement'))]" />
+        <field
+            name="users"
+            eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"
+        />
+    </record>
+
+    <record id="create_program_cycle_entitlement" model="res.groups">
+        <field name="name">Create Program/Cycle/Entitlement</field>
+        <field name="category_id" ref="spp_programs.program_access_module" />
+        <field name="implied_ids" eval="[Command.link(ref('spp_programs.read_program_cycle_entitlement'))]" />
+        <field
+            name="users"
+            eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"
+        />
+    </record>
+</odoo>
