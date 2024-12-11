@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template xml:space="preserve">
+
+    <t t-inherit="web.ListView.Buttons" t-inherit-mode="extension">
+        <xpath expr="//button[contains(@class, 'o_list_button_add_program')]" position="attributes">
+            <attribute name="t-if">model.root.resModel == 'g2p.program' and canCreateProgram</attribute>
+        </xpath>
+    </t>
+
+</template>
