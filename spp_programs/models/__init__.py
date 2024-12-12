@@ -9,3 +9,4 @@ from . import stock
 from . import managers
 from . import programs
 from . import eligibility
+from . import g2p_entitlement
