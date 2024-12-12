@@ -122,3 +122,5 @@ create_program_wizard_access,Create Program Wizard Access,g2p_programs.model_g2p
 approve_entitlement_access,Approve Entitlement Access,g2p_programs.model_g2p_entitlement,spp_programs.approve_entitlement,1,0,0,0
 
 reject_entitlement_access,Reject Entitlement Access,g2p_programs.model_g2p_entitlement,spp_programs.reject_entitlement,1,0,0,0
+
+entitlement_inkind_read_registry_access,Entitlement Inkind Read Access,spp_programs.model_g2p_entitlement_inkind,spp_registry_base.read_registry,1,0,0,0
