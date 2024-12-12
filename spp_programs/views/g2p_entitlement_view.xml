@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="inherit_view_entitlement_form" model="ir.ui.view">
+        <field name="name">inherit_view_entitlement_form</field>
+        <field name="model">g2p.entitlement</field>
+        <field name="priority">1</field>
+        <field name="inherit_id" ref="g2p_programs.view_entitlement_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='approve_entitlement']" position="attributes">
+                <attribute
+                    name="groups"
+                >g2p_registry_base.group_g2p_admin,g2p_programs.g2p_program_manager,g2p_programs.g2p_finance_validator,spp_programs.approve_entitlement</attribute>
+            </xpath>
+            <xpath expr="//button[@name='approve_entitlement']" position="after">
+                <button
+                    type="object"
+                    class="btn-danger"
+                    icon="fa-thumbs-o-down"
+                    name="reject_entitlement"
+                    title="Reject entitlement"
+                    invisible="state not in ('draft','pending_validation')"
+                    string="Reject Entitlement"
+                    confirm="Are you sure you want to reject this entitlement?"
+                    groups="g2p_registry_base.group_g2p_admin,g2p_programs.g2p_program_manager,g2p_programs.g2p_finance_validator,spp_programs.reject_entitlement"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="g2p_programs.menu_entitlement" model="ir.ui.menu">
+        <field name="groups_id" eval="[(4,ref('spp_programs.read_program_cycle_entitlement'))]" />
+    </record>
+
+</odoo>

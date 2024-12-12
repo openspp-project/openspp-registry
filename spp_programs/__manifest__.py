@@ -19,6 +19,7 @@
         "product",
         "stock",
         "spp_user_roles",
+        "spp_registry_base",
     ],
     "data": [
         "data/user_roles.xml",
@@ -33,6 +34,7 @@
         "views/inkind_entitlement_report_view.xml",
         "views/managers/eligibility_manager_view.xml",
         "views/managers/entitlement_manager_view.xml",
+        "views/g2p_entitlement_view.xml",
         "wizard/inkind_entitlement_report_wiz.xml",
         "wizard/create_program_wizard.xml",
         "wizard/multi_inkind_entitlement_approval_wizard.xml",

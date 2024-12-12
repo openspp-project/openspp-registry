@@ -62,6 +62,34 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
             <xpath expr="//button[@name='copy_beneficiaries_from_program']" position="attributes">
                 <attribute name="string">Copy New Beneficiaries from Program</attribute>
                 <attribute name="title">Copy New Beneficiaries from Program</attribute>
+                <attribute
+                    name="groups"
+                >g2p_registry_base.group_g2p_admin,g2p_programs.g2p_program_manager,spp_programs.write_program_cycle_entitlement</attribute>
+            </xpath>
+            <xpath expr="//button[@name='check_eligibility']" position="attributes">
+                <attribute
+                    name="groups"
+                >g2p_registry_base.group_g2p_admin,g2p_programs.g2p_program_manager,spp_programs.write_program_cycle_entitlement</attribute>
+            </xpath>
+            <xpath expr="//button[@name='prepare_entitlement']" position="attributes">
+                <attribute
+                    name="groups"
+                >g2p_registry_base.group_g2p_admin,g2p_programs.g2p_program_manager,spp_programs.create_program_cycle_entitlement</attribute>
+            </xpath>
+            <xpath expr="//button[@name='approve']" position="attributes">
+                <attribute
+                    name="groups"
+                >g2p_registry_base.group_g2p_admin,g2p_programs.g2p_program_manager,g2p_programs.g2p_program_cycle_approver</attribute>
+            </xpath>
+            <xpath expr="//button[@name='to_approve']" position="attributes">
+                <attribute
+                    name="groups"
+                >g2p_registry_base.group_g2p_admin,g2p_programs.g2p_program_manager,g2p_programs.g2p_program_cycle_approver</attribute>
+            </xpath>
+            <xpath expr="//button[@name='reset_draft']" position="attributes">
+                <attribute
+                    name="groups"
+                >g2p_registry_base.group_g2p_admin,g2p_programs.g2p_program_manager,g2p_programs.g2p_program_cycle_approver</attribute>
             </xpath>
             <xpath expr="//button[@name='open_payments_form']" position="attributes">
                 <attribute name="icon">fa-file-text-o</attribute>
