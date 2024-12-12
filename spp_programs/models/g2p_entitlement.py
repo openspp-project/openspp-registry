@@ -54,5 +54,5 @@ class G2PEntitlement(models.Model):
 
     def approve_entitlement(self):
         if self.env.user.has_group("spp_programs.approve_entitlement"):
-            super(G2PEntitlement, self.sudo()).approve_entitlement()
-        super().approve_entitlement()
+            return super(G2PEntitlement, self.sudo()).approve_entitlement()
+        return super().approve_entitlement()
