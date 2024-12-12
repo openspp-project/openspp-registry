@@ -7,6 +7,7 @@ class G2PEntitlement(models.Model):
     state = fields.Selection(
         selection_add=[("reject", "Rejected")],
     )
+    rejected_reason = fields.Text(string="Rejected Reason")
 
     @api.model
     def _get_view(self, view_id=None, view_type="form", **options):
