@@ -25,6 +25,7 @@
         <field name="inherit_id" ref="g2p_registry_individual.view_individuals_form" />
         <field name="arch" type="xml">
             <xpath expr="//sheet" position="before">
+                <field name="id" invisible="1" />
                 <header>
                     <button
                         name="approve_registry"
@@ -34,7 +35,7 @@
                         icon="fa-check"
                         title="Approve"
                         groups="spp_registry_approval.approve_registry"
-                        invisible="state != 'draft'"
+                        invisible="state != 'draft' or not id"
                         confirm="Are you sure you want to approve this registry?"
                     />
                     <button
@@ -45,7 +46,7 @@
                         icon="fa-times"
                         title="Reject"
                         groups="spp_registry_approval.reject_registry"
-                        invisible="state != 'draft'"
+                        invisible="state != 'draft' or not id"
                         confirm="Are you sure you want to reject this registry?"
                     />
                     <button
@@ -56,7 +57,7 @@
                         icon="fa-repeat"
                         title="Reset to Draft"
                         groups="spp_registry_approval.reset_to_draft_registry"
-                        invisible="state == 'draft'"
+                        invisible="state == 'draft' or not id"
                         confirm="Are you sure you want to reset this registry back to draft?"
                     />
                     <field name="state" widget="statusbar" />
