@@ -38,6 +38,8 @@
         "wizard/inkind_entitlement_report_wiz.xml",
         "wizard/create_program_wizard.xml",
         "wizard/multi_inkind_entitlement_approval_wizard.xml",
+        "wizard/reject_entitlement_wizard.xml",
+        "wizard/reset_to_pending_wizard.xml",
         "report/program_approval_receipt.xml",
         "report/report_format.xml",
     ],

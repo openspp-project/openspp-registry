@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="reject_entitlement_wizard" model="ir.ui.view">
+        <field name="name">reject_entitlement_wizard</field>
+        <field name="model">spp.reject.entitlement.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="reject_reason" />
+                    </group>
+                    <field name="entitlement_ids" nolabel="1" colspan="2">
+                        <tree create="0" editable="bottom">
+                            <field name="cycle_id" />
+                            <field name="entitlement_id" column_invisible="1" />
+                            <field name="partner_id" readonly="1" />
+                            <field name="code" readonly="1" />
+                            <field name="initial_amount" string="Amount" />
+                            <field name="currency_id" readonly="1" />
+                        </tree>
+                    </field>
+                </sheet>
+                <footer>
+                    <button
+                        name="reject_entitlements"
+                        string="Reject"
+                        type="object"
+                        class="oe_highlight"
+                        title="Reject Entitlement"
+                    />
+                    <button
+                        name="close_wizard"
+                        string="Cancel"
+                        type="object"
+                        class="btn-secondary"
+                        title="Cancel"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_reject_entitlement_wizard" model="ir.actions.act_window">
+        <field name="name">Reject Entitlement</field>
+        <field name="res_model">spp.reject.entitlement.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
