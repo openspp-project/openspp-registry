@@ -13,6 +13,10 @@ spp_programs_stock_move_admin,SPP Entitlement Stock Move Admin Access,stock.mode
 spp_programs_stock_rule_admin,SPP Entitlement Stock Rule Admin Access,stock.model_stock_rule,g2p_registry_base.group_g2p_admin,1,1,1,1
 spp_multi_inkind_entitlement_approval_wizard_admin_access,Multi Inkind Entitlement Approval Wizard Admin Access,spp_programs.model_spp_multi_inkind_entitlement_approval_wizard,g2p_registry_base.group_g2p_admin,1,1,1,1
 spp_multi_inkind_entitlement_approval_admin_access,Multi Inkind Entitlement Approval Admin Access,spp_programs.model_spp_multi_inkind_entitlement_approval,g2p_registry_base.group_g2p_admin,1,1,1,1
+reject_entitlement_wizard_admin_access,Reject Entitlement Wizard Admin Access,spp_programs.model_spp_reject_entitlement_wizard,g2p_registry_base.group_g2p_admin,1,1,1,1
+spp_entitlement_reject_admin_access,SPP Entitlement Reject Admin Access,spp_programs.model_spp_entitlement_reject,g2p_registry_base.group_g2p_admin,1,1,1,1
+spp_entitlement_reset_to_pending_wizard_admin_access,SPP Entitlement Reset to Pending Wizard Admin Access,spp_programs.model_spp_reset_pending_entitlement_wizard,g2p_registry_base.group_g2p_admin,1,1,1,1
+spp_entitlement_reset_to_pending_admin_access,SPP Entitlement Reset to Pending Admin Access,spp_programs.model_spp_entitlement_reset_pending,g2p_registry_base.group_g2p_admin,1,1,1,1
 
 spp_programs_entitlement_inkind_registrar,SPP Entitlement In-Kind Registrar Access,spp_programs.model_g2p_entitlement_inkind,g2p_registry_base.group_g2p_registrar,1,1,1,1
 g2p_entitlement_inkind_report_wizard_registrar,SPP Entitlement In-Kind Report Wizard Registrar Access,spp_programs.model_g2p_entitlement_inkind_report_wizard,g2p_registry_base.group_g2p_registrar,1,1,1,1
@@ -30,6 +34,10 @@ spp_programs_stock_route_program_manager,SPP Entitlement Stock Location Route Pr
 spp_programs_stock_move_program_manager,SPP Entitlement Stock Move Program Manager Access,stock.model_stock_move,g2p_programs.g2p_program_manager,1,1,1,0
 spp_programs_stock_rule_program_manager,SPP Entitlement Stock Rule Program Manager Access,stock.model_stock_rule,g2p_programs.g2p_program_manager,1,0,0,0
 spp_programs_spp_area_program_manager,SPP Area Program Manager Access,spp_area.model_spp_area,g2p_programs.g2p_program_manager,1,0,0,0
+reject_entitlement_wizard_program_manager_access,Reject Entitlement Wizard Program Manager Access,spp_programs.model_spp_reject_entitlement_wizard,g2p_programs.g2p_program_manager,1,1,1,1
+spp_entitlement_reject_program_manager_access,SPP Entitlement Reject Program Manager Access,spp_programs.model_spp_entitlement_reject,g2p_programs.g2p_program_manager,1,1,1,1
+spp_entitlement_reset_to_pending_wizard_program_manager_access,SPP Entitlement Reset to Pending Wizard Program Manager Access,spp_programs.model_spp_reset_pending_entitlement_wizard,g2p_programs.g2p_program_manager,1,1,1,1
+spp_entitlement_reset_to_pending_program_manager_access,SPP Entitlement Reset to Pending Program Manager Access,spp_programs.model_spp_entitlement_reset_pending,g2p_programs.g2p_program_manager,1,1,1,1
 
 spp_programs_entitlement_inkind_program_validator,SPP Entitlement In-Kind Program Validator Access,spp_programs.model_g2p_entitlement_inkind,g2p_programs.g2p_program_validator,1,1,0,0
 g2p_entitlement_inkind_report_wizard_program_validator,SPP Entitlement In-Kind Report Wizard Program Validator Access,spp_programs.model_g2p_entitlement_inkind_report_wizard,g2p_programs.g2p_program_validator,1,1,1,1
@@ -122,5 +130,10 @@ create_program_wizard_access,Create Program Wizard Access,g2p_programs.model_g2p
 approve_entitlement_access,Approve Entitlement Access,g2p_programs.model_g2p_entitlement,spp_programs.approve_entitlement,1,0,0,0
 
 reject_entitlement_access,Reject Entitlement Access,g2p_programs.model_g2p_entitlement,spp_programs.reject_entitlement,1,0,0,0
+reject_entitlement_wizard_access,Reject Entitlement Wizard Access,spp_programs.model_spp_reject_entitlement_wizard,spp_programs.reject_entitlement,1,1,1,1
+spp_entitlement_reject_access,SPP Entitlement Reject Access,spp_programs.model_spp_entitlement_reject,spp_programs.reject_entitlement,1,1,1,1
 
 entitlement_inkind_read_registry_access,Entitlement Inkind Read Access,spp_programs.model_g2p_entitlement_inkind,spp_registry_base.read_registry,1,0,0,0
+
+reject_entitlement_wizard_finance_validator_access,Reject Entitlement Wizard Finance Validator Access,spp_programs.model_spp_reject_entitlement_wizard,g2p_programs.g2p_finance_validator,1,1,1,1
+spp_entitlement_reject_finance_validator_access,SPP Entitlement Reject Finance Validator Access,spp_programs.model_spp_entitlement_reject,g2p_programs.g2p_finance_validator,1,1,1,1
