@@ -41,8 +41,16 @@ class RejectEntitlementWiz(models.TransientModel):
         string="Entitlements",
         required=True,
     )
+    number_of_beneficiaries = fields.Integer(
+        compute="_compute_number_of_beneficiaries",
+        string="Number of Beneficiaries",
+    )
     reject_reason = fields.Text(string="Reason")
     to_state = fields.Char("To State", default="reject")
+
+    @api.depends("entitlement_ids")
+    def _compute_number_of_beneficiaries(self):
+        self.number_of_beneficiaries = len(self.entitlement_ids)
 
     def reject_entitlements(self):
         if self.entitlement_ids:

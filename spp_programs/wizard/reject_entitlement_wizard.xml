@@ -6,8 +6,9 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
+                    <group name="fields">
                         <field name="reject_reason" />
+                        <field name="number_of_beneficiaries" />
                     </group>
                     <field name="entitlement_ids" nolabel="1" colspan="2">
                         <tree create="0" editable="bottom">
@@ -15,7 +16,12 @@
                             <field name="entitlement_id" column_invisible="1" />
                             <field name="partner_id" readonly="1" />
                             <field name="code" readonly="1" />
-                            <field name="initial_amount" string="Amount" />
+                            <field
+                                name="initial_amount"
+                                readonly="1"
+                                sum="total_initial_amount"
+                                string="Amount"
+                            />
                             <field name="currency_id" readonly="1" />
                         </tree>
                     </field>
