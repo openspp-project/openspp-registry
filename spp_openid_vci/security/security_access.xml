@@ -8,5 +8,9 @@
     <record id="generate_vc" model="res.groups">
         <field name="name">Generator</field>
         <field name="category_id" ref="spp_openid_vci.verifiable_credential_access_module" />
+        <field
+            name="users"
+            eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"
+        />
     </record>
 </odoo>
