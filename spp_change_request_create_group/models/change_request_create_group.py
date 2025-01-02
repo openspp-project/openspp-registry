@@ -267,9 +267,8 @@ class ChangeRequestCreateGroup(models.Model):
             "is_registrant": True,
             "is_group": True,
         }
-        # if self.group_kind:
-        #     group_kinds = [(Command.link(self.group_kind.id))]
-        #     group_vals["kind"] = group_kinds
+        if self.group_kind:
+            group_vals["kind"] = self.group_kind.id
         group = self.env["res.partner"].create(group_vals)
 
         # Add membership if individual is created

@@ -16,9 +16,10 @@
         "g2p_registry_membership",
         "spp_service_points",
         "spp_idpass",
+        "spp_base",
     ],
     "excludes": [
-        "spp_base",
+        "spp_farmer_change_request_add_group",
     ],
     "data": [
         "security/change_request_security.xml",

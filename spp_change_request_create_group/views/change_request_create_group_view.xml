@@ -144,7 +144,10 @@
                     </div>
                     <notebook>
                         <page string="Request Details">
-                            <div style="width: 100%; padding-top: 10px; padding-left: 10px; ">
+                            <div
+                                style="width: 100%; padding-top: 10px; padding-left: 10px; "
+                                name="div_main_section"
+                            >
                                 <h3>Group Information</h3>
                                 <hr />
                                 <div class="row mt16 o_settings_container" name="div_section_group_info">
