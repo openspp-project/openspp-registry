@@ -1,14 +1,14 @@
 <odoo>
     <menuitem
-        id="menu_change_request_create_group_root"
-        name="Create Group Change Requests"
+        id="menu_change_request_create_farm_root"
+        name="Create Farm Change Requests"
         parent="spp_change_request.spp_change_request_request_root"
         sequence="10"
     />
 
-    <record id="view_change_request_create_group_tree" model="ir.ui.view">
-        <field name="name">change_request_create_group_tree</field>
-        <field name="model">spp.change.request.create.group</field>
+    <record id="view_change_request_create_farm_tree" model="ir.ui.view">
+        <field name="name">change_request_create_farm_tree</field>
+        <field name="model">spp.change.request.create.farm</field>
         <field name="priority">0</field>
         <field name="arch" type="xml">
             <tree sample="1" create="0">
@@ -31,12 +31,12 @@
         </field>
     </record>
 
-    <record id="view_change_request_create_group_form" model="ir.ui.view">
-        <field name="name">view_change_request_create_group_form</field>
-        <field name="model">spp.change.request.create.group</field>
+    <record id="view_change_request_create_farm_form" model="ir.ui.view">
+        <field name="name">view_change_request_create_farm_form</field>
+        <field name="model">spp.change.request.create.farm</field>
         <field name="priority">0</field>
         <field name="arch" type="xml">
-            <form string="Create Group Change Request">
+            <form string="Create Farm Change Request">
                 <header>
                     <button
                         name="action_submit"
@@ -305,7 +305,7 @@
                                     type="object"
                                     string="Request Form"
                                     class="btn-primary"
-                                    context="{'category_id':%(spp_dms_create_group)d}"
+                                    context="{'category_id':%(spp_dms_create_farm)d}"
                                     style="margin-left: 10px;"
                                 />
                                 <button
@@ -411,12 +411,12 @@
         </field>
     </record>
 
-    <record id="view_change_request_create_group_validation_form" model="ir.ui.view">
-        <field name="name">view_change_request_create_group_validation_form</field>
-        <field name="model">spp.change.request.create.group</field>
+    <record id="view_change_request_create_farm_validation_form" model="ir.ui.view">
+        <field name="name">view_change_request_create_farm_validation_form</field>
+        <field name="model">spp.change.request.create.farm</field>
         <field name="priority">100</field>
         <field name="arch" type="xml">
-            <form string="Create Group Change Request" edit="0">
+            <form string="Create Farm Change Request" edit="0">
                 <header>
                     <button
                         name="open_user_assignment_wiz"
@@ -626,12 +626,12 @@
         </field>
     </record>
 
-    <record id="change_request_create_group_filter" model="ir.ui.view">
-        <field name="name">change_request_create_group_filter</field>
-        <field name="model">spp.change.request.create.group</field>
+    <record id="change_request_create_farm_filter" model="ir.ui.view">
+        <field name="name">change_request_create_farm_filter</field>
+        <field name="model">spp.change.request.create.farm</field>
         <field name="priority" eval="1" />
         <field name="arch" type="xml">
-            <search string="Search Change Request: Create Group">
+            <search string="Search Change Request: Create Farm">
                 <field name="group_name" />
                 <field name="group_kind" />
                 <filter
@@ -644,91 +644,91 @@
     </record>
 
     <!-- All Add Children Change Requests -->
-    <record id="action_change_request_create_group" model="ir.actions.act_window">
-        <field name="name">Create Group Change Request</field>
+    <record id="action_change_request_create_farm" model="ir.actions.act_window">
+        <field name="name">Create Farm Change Request</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">spp.change.request.create.group</field>
+        <field name="res_model">spp.change.request.create.farm</field>
         <field name="view_mode">tree,form</field>
-        <field name="search_view_id" ref="change_request_create_group_filter" />
+        <field name="search_view_id" ref="change_request_create_farm_filter" />
         <field name="context">{}</field>
         <field name="domain">[]</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                No 'Create Group' change requests found!
+                No 'Create Farm' change requests found!
             </p><p>
                 There are no records found based on the current filter.
             </p>
         </field>
     </record>
 
-    <record id="action_change_request_create_group_tree_view" model="ir.actions.act_window.view">
+    <record id="action_change_request_create_farm_tree_view" model="ir.actions.act_window.view">
         <field name="sequence" eval="1" />
         <field name="view_mode">tree</field>
-        <field name="view_id" ref="view_change_request_create_group_tree" />
-        <field name="act_window_id" ref="action_change_request_create_group" />
+        <field name="view_id" ref="view_change_request_create_farm_tree" />
+        <field name="act_window_id" ref="action_change_request_create_farm" />
     </record>
 
-    <record id="action_change_request_create_group_form_view" model="ir.actions.act_window.view">
+    <record id="action_change_request_create_farm_form_view" model="ir.actions.act_window.view">
         <field name="sequence" eval="1" />
         <field name="view_mode">form</field>
-        <field name="view_id" ref="view_change_request_create_group_validation_form" />
-        <field name="act_window_id" ref="action_change_request_create_group" />
+        <field name="view_id" ref="view_change_request_create_farm_validation_form" />
+        <field name="act_window_id" ref="action_change_request_create_farm" />
     </record>
 
     <menuitem
-        id="menu_change_request_create_group"
-        name="All Create Group Requests"
-        action="action_change_request_create_group"
-        parent="menu_change_request_create_group_root"
+        id="menu_change_request_create_farm"
+        name="All Create Farm Requests"
+        action="action_change_request_create_farm"
+        parent="menu_change_request_create_farm_root"
         sequence="0"
         groups="g2p_registry_base.group_g2p_admin,spp_change_request.group_spp_change_request_administrator"
     />
 
     <!-- Pending Validation -->
-    <record id="action_change_request_create_group_pending" model="ir.actions.act_window">
-        <field name="name">Create Group</field>
+    <record id="action_change_request_create_farm_pending" model="ir.actions.act_window">
+        <field name="name">Create Farm</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">spp.change.request.create.group</field>
+        <field name="res_model">spp.change.request.create.farm</field>
         <field name="view_mode">tree,form</field>
-        <field name="search_view_id" ref="change_request_create_group_filter" />
+        <field name="search_view_id" ref="change_request_create_farm_filter" />
         <field name="context">{'search_default_filter_validator': 1}</field>
         <field name="domain">[('state','=','pending')]</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                No pending 'Create Group' change requests found!
+                No pending 'Create Farm' change requests found!
             </p><p>
                 There are no records found based on the current filter.
             </p>
         </field>
     </record>
 
-    <record id="action_change_request_create_group_pending_tree_view" model="ir.actions.act_window.view">
+    <record id="action_change_request_create_farm_pending_tree_view" model="ir.actions.act_window.view">
         <field name="sequence" eval="1" />
         <field name="view_mode">tree</field>
-        <field name="view_id" ref="view_change_request_create_group_tree" />
-        <field name="act_window_id" ref="action_change_request_create_group_pending" />
+        <field name="view_id" ref="view_change_request_create_farm_tree" />
+        <field name="act_window_id" ref="action_change_request_create_farm_pending" />
     </record>
 
-    <record id="action_change_request_create_group_pending_form_view" model="ir.actions.act_window.view">
+    <record id="action_change_request_create_farm_pending_form_view" model="ir.actions.act_window.view">
         <field name="sequence" eval="1" />
         <field name="view_mode">form</field>
-        <field name="view_id" ref="view_change_request_create_group_validation_form" />
-        <field name="act_window_id" ref="action_change_request_create_group_pending" />
+        <field name="view_id" ref="view_change_request_create_farm_validation_form" />
+        <field name="act_window_id" ref="action_change_request_create_farm_pending" />
     </record>
 
     <menuitem
-        id="menu_change_request_create_group_pending"
+        id="menu_change_request_create_farm_pending"
         name="Pending Validation"
-        action="action_change_request_create_group_pending"
-        parent="menu_change_request_create_group_root"
+        action="action_change_request_create_farm_pending"
+        parent="menu_change_request_create_farm_root"
         sequence="10"
         groups="g2p_registry_base.group_g2p_admin,spp_change_request.group_spp_change_request_administrator"
     />
 
     <menuitem
-        id="menu_change_request_create_group_for_validation"
-        name="Create Group"
-        action="action_change_request_create_group_pending"
+        id="menu_change_request_create_farm_for_validation"
+        name="Create Farm"
+        action="action_change_request_create_farm_pending"
         parent="spp_change_request.spp_change_request_pending_validation_root"
         sequence="10"
         groups="spp_change_request.group_spp_change_request_validator,spp_change_request.group_spp_change_request_hq_validator"

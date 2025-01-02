@@ -8,7 +8,7 @@ from odoo.addons.phone_validation.tools import phone_validation
 _logger = logging.getLogger(__name__)
 
 
-class ChangeRequestTypeCustomCreateGroup(models.Model):
+class ChangeRequestTypeCustomCreateFarm(models.Model):
     _inherit = "spp.change.request"  # Not merging classes as it might require significant refactoring.
 
     registrant_id = fields.Many2one(
@@ -20,25 +20,25 @@ class ChangeRequestTypeCustomCreateGroup(models.Model):
     @api.model
     def _selection_request_type_ref_id(self):
         selection = super()._selection_request_type_ref_id()
-        new_request_type = ("spp.change.request.create.group", "Create Group")
+        new_request_type = ("spp.change.request.create.farm", "Create Farm")
         if new_request_type not in selection:
             selection.append(new_request_type)
         return selection
 
 
-class ChangeRequestCreateGroup(models.Model):
-    _name = "spp.change.request.create.group"
+class ChangeRequestCreateFarm(models.Model):
+    _name = "spp.change.request.create.farm"
     _inherit = [
         "spp.change.request.source.mixin",
         "spp.change.request.validation.sequence.mixin",
     ]
-    _description = "Create Group Change Request Type"
+    _description = "Create Farm Change Request Type"
     _order = "id desc"
 
     # Initialize CR constants
-    VALIDATION_FORM = "spp_change_request_create_group.view_change_request_create_group_validation_form"
+    VALIDATION_FORM = "spp_change_request_create_farm.view_change_request_create_farm_validation_form"
     REQUIRED_DOCUMENT_TYPE = [
-        "spp_change_request_create_group.spp_dms_create_group",
+        "spp_change_request_create_farm.spp_dms_create_farm",
         # "spp_change_request.spp_dms_birth_certificate",
         # "spp_change_request.spp_dms_applicant_spp_card",
         # "spp_change_request.spp_dms_applicant_uid_card",
@@ -88,26 +88,26 @@ class ChangeRequestCreateGroup(models.Model):
     birthdate = fields.Date()
     birthdate_not_exact = fields.Boolean()
     email = fields.Char()
-    uid_number = fields.Char("UID Number")
+    national_id_number = fields.Char("National ID Number")
 
     membership_kind = fields.Many2one("g2p.group.membership.kind")
 
     # Add domain to inherited field: validation_ids
     validation_ids = fields.Many2many(
-        relation="spp_change_request_create_group_rel",
+        relation="spp_change_request_create_farm_rel",
         domain=[("request_type", "=", _name)],
     )
 
     # DMS Field
     dms_directory_ids = fields.One2many(
         "spp.dms.directory",
-        "change_request_create_group_id",
+        "change_request_create_farm_id",
         string="DMS Directories",
         auto_join=True,
     )
     dms_file_ids = fields.One2many(
         "spp.dms.file",
-        "change_request_create_group_id",
+        "change_request_create_farm_id",
         string="DMS Files",
         auto_join=True,
     )
@@ -140,13 +140,6 @@ class ChangeRequestCreateGroup(models.Model):
                 phone_validation.phone_parse(rec.mobile_tel, country_code)
             except UserError as e:
                 raise ValidationError(_("Incorrect phone number format")) from e
-
-    @api.constrains("uid_number")
-    def _check_unified_id(self):
-        for rec in self:
-            if rec.uid_number and len(rec.uid_number) > 0:
-                if len(rec.uid_number) != 12:
-                    raise ValidationError(_("UID Number must be 12 digits long."))
 
     @api.depends("given_name", "additional_name", "family_name")
     def _compute_full_name(self):
@@ -246,13 +239,13 @@ class ChangeRequestCreateGroup(models.Model):
                     (
                         Command.create(
                             {
-                                "id_type": self.env.ref("spp_change_request_create_group.unified_id_type").id,
-                                "value": self.uid_number,
+                                "id_type": self.env.ref("spp_farmer_registry_base.id_type_national_id").id,
+                                "value": self.national_id_number,
                             }
                         )
                     )
                 ]
-                if self.uid_number
+                if self.national_id_number
                 else []
             )
             if reg_ids:

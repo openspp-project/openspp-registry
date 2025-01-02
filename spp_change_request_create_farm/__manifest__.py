@@ -1,6 +1,6 @@
 {
-    "name": "OpenSPP Change Request: Create Group",
-    "summary": "Provides a specialized workflow for adding new group in the registry.",
+    "name": "OpenSPP Change Request: Create Farm",
+    "summary": "Provides a specialized workflow for adding new farm in the registry.",
     "category": "OpenSPP",
     "version": "17.0.1.3.0",
     "sequence": 1,
@@ -16,10 +16,10 @@
         "g2p_registry_membership",
         "spp_service_points",
         "spp_idpass",
-        "spp_base",
+        "spp_farmer_registry_base",
     ],
     "excludes": [
-        "spp_change_request_create_farm",
+        "spp_change_request_create_group",
     ],
     "data": [
         "security/change_request_security.xml",
@@ -28,8 +28,7 @@
         "data/change_request_stage.xml",
         "data/change_request_sequence.xml",
         "data/change_request_target.xml",
-        "data/id_type.xml",
-        "views/change_request_create_group_view.xml",
+        "views/change_request_create_farm_view.xml",
         "views/dms_file_view.xml",
     ],
     "assets": {},
