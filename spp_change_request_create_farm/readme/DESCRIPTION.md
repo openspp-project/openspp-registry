@@ -35,4 +35,4 @@ The module relies heavily on the following modules:
 
 ## Conclusion
 
-The [spp_change_request_create_group](spp_change_request_create_farm) module provides a robust and specialized workflow for adding new Farm within the OpenSPP registry. By seamlessly integrating with core change management and registry modules, it ensures data accuracy, consistency, and a streamlined user experience for managing farmer additions.
+The [spp_change_request_create_farm](spp_change_request_create_farm) module provides a robust and specialized workflow for adding new Farm within the OpenSPP registry. By seamlessly integrating with core change management and registry modules, it ensures data accuracy, consistency, and a streamlined user experience for managing farmer additions.

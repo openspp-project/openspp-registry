@@ -4,7 +4,7 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
 -->
 <odoo noupdate="0">
 
-    <record id="spp_cr_create_far _target" model="spp.change.request.targets">
+    <record id="spp_cr_create_farm_target" model="spp.change.request.targets">
         <field name="name">spp.change.request.create.farm</field>
         <field name="target">group</field>
     </record>

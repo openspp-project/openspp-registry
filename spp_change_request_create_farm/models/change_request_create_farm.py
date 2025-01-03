@@ -1,6 +1,6 @@
 import logging
 
-from odoo import Command, _, api, fields, models
+from odoo import _, api, fields, models
 from odoo.exceptions import UserError, ValidationError
 
 from odoo.addons.phone_validation.tools import phone_validation
@@ -68,29 +68,67 @@ class ChangeRequestCreateFarm(models.Model):
     # Group Details
     group_name = fields.Char("Group Name")
     group_kind = fields.Many2one("g2p.group.kind", string="Group Kind")
+    farm_crop_act_ids = fields.One2many("spp.farm.activity", "crop_cr_farm_id", string="Crop Agricultural Activities")
+    farm_live_act_ids = fields.One2many(
+        "spp.farm.activity", "live_cr_farm_id", string="Livestock Agricultural Activities"
+    )
+    farm_aqua_act_ids = fields.One2many(
+        "spp.farm.activity",
+        "aqua_cr_farm_id",
+        string="Aquaculture Agricultural Activities",
+    )
+    farm_asset_ids = fields.One2many("spp.farm.asset", "asset_cr_farm_id", string="Farm Assets")
+    farm_machinery_ids = fields.One2many("spp.farm.asset", "machinery_cr_farm_id", string="Farm Machinery")
 
     # Member Details
-    full_name = fields.Char(compute="_compute_full_name", readonly=True)
-    family_name = fields.Char()
-    given_name = fields.Char()
-    additional_name = fields.Char()
-    mobile_tel = fields.Char()
-    sex = fields.Many2one("gender.type")
-    marital_status = fields.Selection(
+    farmer_family_name = fields.Char()
+    farmer_given_name = fields.Char()
+    farmer_addtnl_name = fields.Char(string="Farmer Additional Name")
+    farmer_national_id = fields.Char(string="National ID Number")
+    farmer_mobile_tel = fields.Char(string="Mobile Telephone Number")
+    farmer_sex = fields.Many2one("gender.type", "Sex")
+    farmer_birthdate = fields.Date("Farmer Date of Birth")
+    farmer_household_size = fields.Char()
+    farmer_postal_address = fields.Char("Postal Address")
+    farmer_email = fields.Char("E-mail Address")
+    farmer_formal_agricultural = fields.Boolean()
+    farmer_highest_education_level = fields.Selection(
+        [
+            ("none", "None"),
+            ("primary", "Primary"),
+            ("secondary", "Secondary"),
+            ("tertiary", "Tertiary"),
+        ],
+        string="Farmer Highest Educational Level",
+    )
+    farmer_marital_status = fields.Selection(
         [
             ("single", "Single"),
-            ("widowed", "Widowed"),
             ("married", "Married"),
+            ("widowed", "Widowed"),
             ("separated", "Separated"),
-        ],
+        ]
     )
-    birth_place = fields.Char()
-    birthdate = fields.Date()
-    birthdate_not_exact = fields.Boolean()
-    email = fields.Char()
-    national_id_number = fields.Char("National ID Number")
 
-    membership_kind = fields.Many2one("g2p.group.membership.kind")
+    # Land Record
+    land_name = fields.Char(string="Parcel Name/ID")
+    land_acreage = fields.Float()
+    land_coordinates = fields.GeoPointField()
+    land_geo_polygon = fields.GeoPolygonField(string="Land Polygons")
+
+    # Farm Details
+    details_legal_status = fields.Selection(
+        [
+            ("self", "Owned by self"),
+            ("family", "Owned by family"),
+            ("extended community", "Owned by extended community"),
+            ("cooperative", "Owned by cooperative"),
+            ("government", "Owned by Government"),
+            ("leased", "Leased from actual owner"),
+            ("unknown", "Do not Know"),
+        ],
+        string="Legal Status",
+    )
 
     # Add domain to inherited field: validation_ids
     validation_ids = fields.Many2many(
@@ -116,13 +154,13 @@ class ChangeRequestCreateFarm(models.Model):
     def _onchange_registrant_id(self):
         return
 
-    @api.onchange("birthdate")
-    def _onchange_birthdate(self):
-        if self.birthdate and self.birthdate > fields.date.today():
+    @api.onchange("farmer_birthdate")
+    def _onchange_farmer_birthdate(self):
+        if self.farmer_birthdate and self.farmer_birthdate > fields.date.today():
             raise ValidationError(_("Birthdate should not be on a later date."))
 
-    @api.constrains("mobile_tel")
-    def _check_mobile_tel(self):
+    @api.constrains("farmer_mobile_tel")
+    def _check_farmer_mobile_tel(self):
         for rec in self:
             cr = rec.change_request_id
             country_code = (
@@ -137,15 +175,9 @@ class ChangeRequestCreateFarm(models.Model):
                     else None
                 )
             try:
-                phone_validation.phone_parse(rec.mobile_tel, country_code)
+                phone_validation.phone_parse(rec.farmer_mobile_tel, country_code)
             except UserError as e:
                 raise ValidationError(_("Incorrect phone number format")) from e
-
-    @api.depends("given_name", "additional_name", "family_name")
-    def _compute_full_name(self):
-        for rec in self:
-            full_name = f"{rec.family_name or ''}, {rec.given_name or ''}" f" {rec.additional_name or ''}"
-            rec.full_name = full_name.title()
 
     @api.onchange("id_document_details")
     def _onchange_scan_id_document_details(self):
@@ -194,7 +226,7 @@ class ChangeRequestCreateFarm(models.Model):
         """
         Get the default field name for change request id.
         """
-        return "default_change_request_create_group_id"
+        return "default_change_request_create_farm_id"
 
     def validate_data(self):
         super().validate_data()
@@ -211,47 +243,6 @@ class ChangeRequestCreateFarm(models.Model):
 
     def update_live_data(self):
         self.ensure_one()
-        individual = None
-
-        if self.family_name or self.given_name:
-            # Create a new individual (res.partner)
-
-            individual_vals = {
-                "name": self.full_name,
-                "family_name": self.family_name,
-                "given_name": self.given_name,
-                "addl_name": self.additional_name,
-                "phone": self.mobile_tel,
-                "gender": self.sex.id,
-                "birth_place": self.birth_place,
-                "birthdate": self.birthdate,
-                "birthdate_not_exact": self.birthdate_not_exact,
-                "email": self.email,
-                "is_registrant": True,
-                "is_group": False,
-            }
-            phone = [(Command.create({"phone_no": self.mobile_tel}))] if self.mobile_tel else []
-            if phone:
-                individual_vals["phone_number_ids"] = phone
-
-            reg_ids = (
-                [
-                    (
-                        Command.create(
-                            {
-                                "id_type": self.env.ref("spp_farmer_registry_base.id_type_national_id").id,
-                                "value": self.national_id_number,
-                            }
-                        )
-                    )
-                ]
-                if self.national_id_number
-                else []
-            )
-            if reg_ids:
-                individual_vals["reg_ids"] = reg_ids
-
-            individual = self.env["res.partner"].create(individual_vals)
 
         # Create the group (res.partner)
 
@@ -259,22 +250,44 @@ class ChangeRequestCreateFarm(models.Model):
             "name": self.group_name,
             "is_registrant": True,
             "is_group": True,
+            "farmer_family_name": self.farmer_family_name or None,
+            "farmer_given_name": self.farmer_given_name or None,
+            "farmer_addtnl_name": self.farmer_addtnl_name or None,
+            "farmer_national_id": self.farmer_national_id or None,
+            "farmer_mobile_tel": self.farmer_mobile_tel or None,
+            "farmer_sex": self.farmer_sex.id if self.farmer_sex else None,
+            "farmer_birthdate": self.farmer_birthdate or None,
+            "farmer_household_size": self.farmer_household_size or None,
+            "farmer_postal_address": self.farmer_postal_address or None,
+            "farmer_email": self.farmer_email or None,
+            "farmer_formal_agricultural": self.farmer_formal_agricultural or False,
+            "farmer_highest_education_level": self.farmer_highest_education_level or None,
+            "farmer_marital_status": self.farmer_marital_status or None,
+            "land_name": self.land_name or None,
+            "land_acreage": self.land_acreage or None,
+            "land_coordinates": self.land_coordinates or None,
+            "land_geo_polygon": self.land_geo_polygon or None,
+            "details_legal_status": self.details_legal_status or None,
         }
         if self.group_kind:
             group_vals["kind"] = self.group_kind.id
         group = self.env["res.partner"].create(group_vals)
 
-        # Add membership if individual is created
-        if individual:
-            vals_membership = {
-                "group": group.id,
-                "individual": individual.id,
-            }
-            if self.membership_kind:
-                memberships_kind = [Command.link(self.membership_kind.id)]
-                vals_membership["kind"] = memberships_kind
-
-            self.env["g2p.group.membership"].create(vals_membership)
+        if self.farm_crop_act_ids:
+            for act in self.farm_crop_act_ids:
+                act.crop_farm_id = group.id
+        if self.farm_live_act_ids:
+            for act in self.farm_live_act_ids:
+                act.live_farm_id = group.id
+        if self.farm_aqua_act_ids:
+            for act in self.farm_aqua_act_ids:
+                act.aqua_farm_id = group.id
+        if self.farm_asset_ids:
+            for asset in self.farm_asset_ids:
+                asset.asset_farm_id = group.id
+        if self.farm_machinery_ids:
+            for machinery in self.farm_machinery_ids:
+                machinery.machinery_farm_id = group.id
 
     def open_registrant_details_form(self):
         self.ensure_one()
@@ -297,3 +310,18 @@ class ChangeRequestCreateFarm(models.Model):
             }
         )
         return action
+
+
+class ChangeRequestCreateFarmAgriculturalActivity(models.Model):
+    _inherit = "spp.farm.activity"
+
+    crop_cr_farm_id = fields.Many2one("spp.change.request.create.farm", string="Crop Farm")
+    live_cr_farm_id = fields.Many2one("spp.change.request.create.farm", string="Livestock Farm")
+    aqua_cr_farm_id = fields.Many2one("spp.change.request.create.farm", string="Aqua Farm")
+
+
+class ChangeRequestCreateFarmAssets(models.Model):
+    _inherit = "spp.farm.asset"
+
+    asset_cr_farm_id = fields.Many2one("spp.change.request.create.farm", string="Asset Farm")
+    machinery_cr_farm_id = fields.Many2one("spp.change.request.create.farm", string="Machinery Farm")

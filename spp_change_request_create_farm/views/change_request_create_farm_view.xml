@@ -13,8 +13,7 @@
         <field name="arch" type="xml">
             <tree sample="1" create="0">
                 <field name="change_request_id" />
-                <field name="full_name" />
-                <field name="sex" />
+                <field name="group_name" />
                 <field name="create_date" />
                 <field name="last_validated_by_id" widget="many2one_avatar_user" />
                 <field name="date_validated" />
@@ -172,129 +171,296 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h3>Member Information</h3>
-                                <hr />
-                                <div class="row mt16 o_settings_container" name="div_section_member_info">
-                                    <div class="col-4 o_setting_box" name="div_given_name">
-                                        <div class="o_setting_left_pane">
-                                        </div>
-                                        <div class="o_setting_right_pane">
-                                            <label for="given_name" string="Given Name" />
-                                            <div>
+                                <notebook>
+                                    <page string="Farmer" name="farmer_page">
+                                        <div
+                                            class="row mt16 o_settings_container"
+                                            name="div_section_member_info"
+                                        >
+                                            <div class="col-4 o_setting_box" name="div_given_name">
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label for="farmer_given_name" string="Given Name" />
+                                                    <div>
+                                                    </div>
+                                                    <field name="farmer_given_name" />
+                                                </div>
                                             </div>
-                                            <field name="given_name" />
-                                        </div>
-                                    </div>
-                                    <div class="col-4 o_setting_box" name="div_family_name">
-                                        <div class="o_setting_left_pane">
-                                        </div>
-                                        <div class="o_setting_right_pane">
-                                            <label for="family_name" string="Family Name" />
-                                            <div>
+                                            <div class="col-4 o_setting_box" name="div_family_name">
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label for="farmer_family_name" string="Family Name" />
+                                                    <div>
+                                                    </div>
+                                                    <field name="farmer_family_name" />
+                                                </div>
                                             </div>
-                                            <field name="family_name" />
-                                        </div>
-                                    </div>
-                                    <div class="col-4 o_setting_box" name="div_additional_name">
-                                        <div class="o_setting_left_pane">
-                                        </div>
-                                        <div class="o_setting_right_pane">
-                                            <label for="additional_name" string="Additional Name" />
-                                            <div>
+                                            <div class="col-4 o_setting_box" name="div_additional_name">
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label
+                                                        for="farmer_addtnl_name"
+                                                        string="Additional Name"
+                                                    />
+                                                    <div>
+                                                    </div>
+                                                    <field name="farmer_addtnl_name" />
+                                                </div>
                                             </div>
-                                            <field name="additional_name" />
-                                        </div>
-                                    </div>
-                                    <div class="col-4 o_setting_box" name="div_sex">
-                                        <div class="o_setting_left_pane">
-                                        </div>
-                                        <div class="o_setting_right_pane">
-                                            <label for="sex" string="Gender" />
-                                            <div>
+                                            <div class="col-4 o_setting_box" name="div_national_id_number">
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label
+                                                        for="farmer_national_id"
+                                                        string="National ID Number"
+                                                    />
+                                                    <div>
+                                                    </div>
+                                                    <field name="farmer_national_id" />
+                                                </div>
                                             </div>
-                                            <field name="sex" />
-                                        </div>
-                                    </div>
-                                    <div class="col-4 o_setting_box" name="div_email">
-                                        <div class="o_setting_left_pane">
-                                        </div>
-                                        <div class="o_setting_right_pane">
-                                            <label for="email" string="Email" />
-                                            <div>
+                                            <div class="col-4 o_setting_box" name="div_mobile_tel">
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label for="farmer_mobile_tel" string="Mobile Number" />
+                                                    <div>
+                                                    </div>
+                                                    <field name="farmer_mobile_tel" />
+                                                </div>
                                             </div>
-                                            <field name="email" />
-                                        </div>
-                                    </div>
-                                    <div class="col-4 o_setting_box" name="div_mobile_tel">
-                                        <div class="o_setting_left_pane">
-                                        </div>
-                                        <div class="o_setting_right_pane">
-                                            <label for="mobile_tel" string="Mobile Number" />
-                                            <div>
+                                            <div class="col-4 o_setting_box" name="div_sex">
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label for="farmer_sex" string="Gender" />
+                                                    <div>
+                                                    </div>
+                                                    <field name="farmer_sex" />
+                                                </div>
                                             </div>
-                                            <field name="mobile_tel" />
-                                        </div>
-                                    </div>
-                                    <div class="col-4 o_setting_box" name="div_marital_status">
-                                        <div class="o_setting_left_pane">
-                                        </div>
-                                        <div class="o_setting_right_pane">
-                                            <label for="marital_status" string="Marital Status" />
-                                            <div>
+                                            <div class="col-4 o_setting_box" name="div_birthdate">
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label for="farmer_birthdate" string="Birthdate" />
+                                                    <div>
+                                                    </div>
+                                                    <field name="farmer_birthdate" />
+                                                </div>
                                             </div>
-                                            <field name="marital_status" />
-                                        </div>
-                                    </div>
-                                    <div class="col-4 o_setting_box" name="div_uid_number">
-                                        <div class="o_setting_left_pane">
-                                        </div>
-                                        <div class="o_setting_right_pane">
-                                            <label for="uid_number" string="UID Number" />
-                                            <div>
+                                            <div class="col-4 o_setting_box" name="div_farmer_household_size">
+                                                <div class="o_setting_left_pane">
+                                                    <field name="farmer_household_size" />
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label
+                                                        for="farmer_household_size"
+                                                        string="Household Size"
+                                                    />
+                                                </div>
                                             </div>
-                                            <field name="uid_number" />
-                                        </div>
-                                    </div>
-                                    <div class="col-4 o_setting_box" name="div_birthdate">
-                                        <div class="o_setting_left_pane">
-                                        </div>
-                                        <div class="o_setting_right_pane">
-                                            <label for="birthdate" string="Birthdate" />
-                                            <div>
+                                            <div class="col-4 o_setting_box" name="div_farmer_postal_address">
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label
+                                                        for="farmer_postal_address"
+                                                        string="Postal Address"
+                                                    />
+                                                    <div>
+                                                    </div>
+                                                    <field name="farmer_postal_address" />
+                                                </div>
                                             </div>
-                                            <field name="birthdate" />
-                                        </div>
-                                    </div>
-                                    <div class="col-4 o_setting_box" name="div_birthdate_not_exact">
-                                        <div class="o_setting_left_pane">
-                                            <field name="birthdate_not_exact" />
-                                        </div>
-                                        <div class="o_setting_right_pane">
-                                            <label for="birthdate_not_exact" string="Birthdate Not Exact" />
-                                        </div>
-                                    </div>
-                                    <div class="col-4 o_setting_box" name="div_birth_place">
-                                        <div class="o_setting_left_pane">
-                                        </div>
-                                        <div class="o_setting_right_pane">
-                                            <label for="birth_place" string="Birth Place" />
-                                            <div>
+                                            <div class="col-4 o_setting_box" name="div_email">
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label for="farmer_email" string="Email" />
+                                                    <div>
+                                                    </div>
+                                                    <field name="farmer_email" />
+                                                </div>
                                             </div>
-                                            <field name="birth_place" />
-                                        </div>
-                                    </div>
-                                    <div class="col-4 o_setting_box" name="div_membership_kind">
-                                        <div class="o_setting_left_pane">
-                                        </div>
-                                        <div class="o_setting_right_pane">
-                                            <label for="membership_kind" string="Membership Kind" />
-                                            <div>
+                                            <div
+                                                class="col-4 o_setting_box"
+                                                name="div_farmer_formal_agricultural"
+                                            >
+                                                <div class="o_setting_left_pane">
+                                                    <field name="farmer_formal_agricultural" />
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label
+                                                        for="farmer_formal_agricultural"
+                                                        string="Do you have formal training in agriculture?"
+                                                    />
+                                                </div>
                                             </div>
-                                            <field name="membership_kind" />
+                                            <div
+                                                class="col-4 o_setting_box"
+                                                name="div_farmer_highest_education_level"
+                                            >
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label
+                                                        for="farmer_highest_education_level"
+                                                        string="Formal Agricultural"
+                                                    />
+                                                    <div>
+                                                    </div>
+                                                    <field name="farmer_highest_education_level" />
+                                                </div>
+                                            </div>
+                                            <div class="col-4 o_setting_box" name="div_marital_status">
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label
+                                                        for="farmer_marital_status"
+                                                        string="Marital Status"
+                                                    />
+                                                    <div>
+                                                    </div>
+                                                    <field name="farmer_marital_status" />
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <field name="full_name" invisible="1" />
+                                    </page>
+                                    <page string="Farm Details" name="farm_details_page">
+                                        <div class="row mt16 o_settings_container" name="div_section_details">
+                                            <div class="col-12 col-lg-6 o_setting_box" name="div_land_name">
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label for="land_name" />
+                                                    <div class="text-muted">
+                                                    </div>
+                                                    <field name="land_name" />
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="col-12 col-lg-6 o_setting_box"
+                                                name="div_land_acreage"
+                                            >
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label for="land_acreage" />
+                                                    <div class="text-muted">
+                                                    </div>
+                                                    <field name="land_acreage" />
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="col-12 col-lg-6 o_setting_box"
+                                                name="div_details_legal_status"
+                                            >
+                                                <div class="o_setting_left_pane">
+                                                </div>
+                                                <div class="o_setting_right_pane">
+                                                    <label for="details_legal_status" />
+                                                    <div>
+                                                    </div>
+                                                    <field name="details_legal_status" />
+                                                </div>
+                                            </div>
+                                            <notebook>
+                                                <page name="address_coordinates" string="Address Coordinates">
+                                                    <div
+                                                        class="col-12 o_setting_box"
+                                                        name="div_land_coordinates"
+                                                    >
+                                                        <field name="land_coordinates" />
+                                                    </div>
+                                                </page>
+                                                <page name="farm_land" string="Farm Land">
+                                                    <div
+                                                        class="col-12 o_setting_box"
+                                                        name="div_land_geo_polygon"
+                                                    >
+                                                        <field name="land_geo_polygon" />
+                                                    </div>
+                                                </page>
+                                            </notebook>
+                                        </div>
+                                    </page>
+                                    <page name="section_crop" string="Crop Agriculture">
+                                        <field
+                                            name="farm_crop_act_ids"
+                                            domain="[('activity_type', '=', 'crop')]"
+                                            context="{'default_activity_type': 'crop'}"
+                                        >
+                                            <tree editable="bottom">
+                                                <field name="crop_cr_farm_id" column_invisible="1" />
+                                                <field name="activity_type" column_invisible="1" />
+                                                <field
+                                                    name="species_id"
+                                                    context="{'default_species_type': 'crop'}"
+                                                />
+                                                <field name="purpose" />
+                                            </tree>
+                                        </field>
+                                    </page>
+                                    <page name="section_livestock" string="Livestock">
+                                        <field
+                                            name="farm_live_act_ids"
+                                            domain="[('activity_type', '=', 'livestock')]"
+                                            context="{'default_activity_type': 'livestock'}"
+                                        >
+                                            <tree editable="bottom">
+                                                <field name="live_cr_farm_id" column_invisible="1" />
+                                                <field name="activity_type" column_invisible="1" />
+                                                <field
+                                                    name="species_id"
+                                                    context="{'default_species_type': 'livestock'}"
+                                                />
+                                            </tree>
+                                        </field>
+                                    </page>
+                                    <page name="section_aquaculture" string="Aquaculture">
+                                        <field
+                                            name="farm_aqua_act_ids"
+                                            domain="[('activity_type', '=', 'aquaculture')]"
+                                            context="{'default_activity_type': 'aquaculture'}"
+                                        >
+                                            <tree editable="bottom">
+                                                <field name="aqua_cr_farm_id" column_invisible="1" />
+                                                <field name="activity_type" column_invisible="1" />
+                                                <field
+                                                    name="species_id"
+                                                    context="{'default_species_type': 'aquaculture'}"
+                                                    width="50%"
+                                                />
+                                            </tree>
+                                        </field>
+                                        <div name="div_production_system">
+                                            <h3>Production Systems</h3><br />
+                                            <field name="farm_asset_ids">
+                                                <tree editable="bottom">
+                                                    <field name="asset_cr_farm_id" column_invisible="1" />
+                                                    <field name="asset_type" width="40%" />
+                                                </tree>
+                                            </field>
+                                        </div>
+                                    </page>
+                                    <page name="section_farm_tech" string="Technology and Assets">
+                                        <field name="farm_machinery_ids">
+                                            <tree editable="bottom">
+                                                <field name="machinery_cr_farm_id" column_invisible="1" />
+                                                <field name="machinery_type" />
+                                                <field name="quantity" width="20%" />
+                                                <field name="machine_working_status" />
+                                            </tree>
+                                        </field>
+                                    </page>
+                                </notebook>
+
                             </div>
                         </page>
                         <page string="Attachments">
@@ -556,22 +722,22 @@
                                     <field name="group_kind" />
                                 </group>
                                 <group colspan="2" col="2" string="New Group Member" name="group_member">
-                                    <field name="full_name" readonly="1" class="oe_read_only" />
-                                    <field name="family_name" readonly="1" class="oe_edit_only" />
-                                    <field name="given_name" readonly="1" class="oe_edit_only" />
-                                    <field name="additional_name" readonly="1" class="oe_edit_only" />
-                                    <field name="sex" readonly="1" />
+                                    <field name="farmer_family_name" readonly="1" class="oe_read_only" />
+                                    <field name="farmer_given_name" readonly="1" class="oe_edit_only" />
+                                    <field name="farmer_addtnl_name" readonly="1" class="oe_edit_only" />
+                                    <field name="farmer_national_id" readonly="1" class="oe_edit_only" />
+                                    <field name="farmer_sex" readonly="1" />
                                     <field
-                                            name="mobile_tel"
+                                            name="farmer_mobile_tel"
                                             readonly="1"
                                             widget="phone"
                                             options="{'enable_sms': false}"
                                         />
-                                    <field name="marital_status" readonly="1" />
-                                    <field name="uid_number" readonly="1" />
-                                    <field name="birth_place" readonly="1" />
-                                    <field name="birthdate_not_exact" readonly="1" />
-                                    <field name="birthdate" readonly="1" />
+                                    <field name="farmer_marital_status" readonly="1" />
+                                    <field name="farmer_birthdate" readonly="1" />
+                                    <field name="farmer_household_size" readonly="1" />
+                                    <field name="farmer_postal_address" readonly="1" />
+                                    <field name="farmer_formal_agricultural" readonly="1" />
                                 </group>
 
                             </page>
@@ -733,5 +899,52 @@
         sequence="10"
         groups="spp_change_request.group_spp_change_request_validator,spp_change_request.group_spp_change_request_hq_validator"
     />
+
+    <record id="ir_ui_view_gis_change_request_create_farm" model="ir.ui.view">
+        <field name="name">Change Request Create Farm view</field>
+        <field eval="16" name="priority" />
+        <field name="model">spp.change.request.create.farm</field>
+        <field name="arch" type="xml">
+            <gis editable="1">
+                <field name="id" />
+                <field name="group_name" select="1" />
+                <field name="farmer_family_name" />
+            </gis>
+        </field>
+    </record>
+
+    <record id="gis_data_layer_cr_create_farm_coordinates" model="spp.gis.data.layer">
+        <field
+            name="geo_field_id"
+            ref="spp_change_request_create_farm.field_spp_change_request_create_farm__land_coordinates"
+        />
+        <field name="name">Change Request Farm Coordinates</field>
+        <field eval="1" name="sequence" />
+        <field name="view_id" ref="ir_ui_view_gis_change_request_create_farm" />
+        <field name="geo_repr">basic</field>
+        <field name="active_on_startup" eval="True" />
+        <field name="layer_opacity">0.8</field>
+        <field name="begin_color">#FF680A</field>
+    </record>
+
+    <record id="gis_data_layer_cr_create_farm_geo_polygon" model="spp.gis.data.layer">
+        <field
+            name="geo_field_id"
+            ref="spp_change_request_create_farm.field_spp_change_request_create_farm__land_geo_polygon"
+        />
+        <field name="name">Change Request Farm Geo Polygon</field>
+        <field eval="1" name="sequence" />
+        <field name="view_id" ref="ir_ui_view_gis_change_request_create_farm" />
+        <field name="geo_repr">basic</field>
+        <field name="active_on_startup" eval="True" />
+        <field name="layer_opacity">0.8</field>
+        <field name="begin_color">#FF680A</field>
+    </record>
+
+    <record id="gis_raster_layer_cr_create_farm_osm" model="spp.gis.raster.layer">
+        <field name="raster_type">osm</field>
+        <field name="name">Change Request Farm Land Information</field>
+        <field name="view_id" ref="ir_ui_view_gis_change_request_create_farm" />
+    </record>
 
 </odoo>
