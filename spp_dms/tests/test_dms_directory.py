@@ -1,79 +1,97 @@
-from unittest.mock import patch
-
-from odoo.tests.common import TransactionCase
+from odoo.tests import TransactionCase
 
 
-class TestSPPDMSDirectory(TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.directory = self.env["spp.dms.directory"].create(
-            {
-                "name": "Test Directory",
-                "is_root_directory": True,
-            }
+class TestDmsDirectory(TransactionCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+
+        cls.dms_directory_model = cls.env["spp.dms.directory"]
+        cls.dms_directry_id = cls.dms_directory_model.create({"name": "Test Directory"})
+
+        cls.dms_directry_parent_id = cls.dms_directory_model.create({"name": "Parent Directory"})
+        cls.dms_directory_with_parent_id = cls.dms_directory_model.create(
+            {"name": "Child Directory", "parent_id": cls.dms_directry_parent_id.id}
         )
 
-    def test_compute_complete_name_with_parent(self):
-        child_directory = self.env["spp.dms.directory"].create(
-            {
-                "name": "Child Directory",
-                "parent_id": self.directory.id,
-            }
-        )
-        self.assertEqual(child_directory.complete_name, "Test Directory / Child Directory")
+    def test_default_parent_id(self):
+        parent_id = self.dms_directory_model.with_context(
+            active_model="spp.dms.directory", active_id=1
+        )._default_parent_id()
+        self.assertEqual(parent_id, 1)
 
-    def test_compute_complete_name_without_parent(self):
-        self.assertEqual(self.directory.complete_name, "Test Directory")
+        parent_id = self.dms_directory_model.with_context(active_id=False)._default_parent_id()
+        self.assertFalse(parent_id)
 
-    def test_compute_parent_id_for_non_root_directory(self):
-        child_directory = self.env["spp.dms.directory"].create(
-            {
-                "name": "Child Directory",
-                "parent_id": self.directory.id,
-            }
-        )
-        self.assertEqual(child_directory.parent_id, self.directory)
+    def test_compute_complete_name(self):
+        self.dms_directry_id._compute_complete_name()
+        self.assertEqual(self.dms_directry_id.complete_name, "Test Directory")
 
-    def test_compute_root_id_for_root_directory(self):
-        self.assertEqual(self.directory.root_directory_id, self.directory)
+        self.dms_directory_with_parent_id._compute_complete_name()
+        self.assertEqual(self.dms_directory_with_parent_id.complete_name, "Parent Directory / Child Directory")
 
-    def test_compute_root_id_for_non_root_directory(self):
-        child_directory = self.env["spp.dms.directory"].create(
-            {
-                "name": "Child Directory",
-                "parent_id": self.directory.id,
-            }
-        )
-        self.assertEqual(child_directory.root_directory_id, self.directory)
+    def test_compute_size(self):
+        new_dms = self.dms_directory_model.new({"name": "New Directory"})
+        new_dms._compute_size()
+        self.assertEqual(new_dms.size, 0)
 
-    def test_compute_size_with_files(self):
-        # Create files to test size computation
-        file1 = self.env["spp.dms.file"].create({"name": "File1", "directory_id": self.directory.id, "size": 1024})
-        file2 = self.env["spp.dms.file"].create({"name": "File2", "directory_id": self.directory.id, "size": 2048})
-        self.directory._compute_size()
-        self.assertEqual(self.directory.size, file1.size + file2.size)
-
-    def test_compute_size_with_mocking(self):
-        with patch("odoo.addons.spp_dms.models.dms_file.SPPDMSFile.search_read", return_value=[{"size": 512}]):
-            self.directory._compute_size()
-            self.assertEqual(self.directory.size, 512)
+        self.dms_directry_id._compute_size()
+        self.assertEqual(self.dms_directry_id.size, 0)
 
     def test_compute_human_size(self):
-        self.assertEqual(self.directory.human_size, False)
+        self.dms_directry_id.size = 1024
+        self.dms_directry_id._compute_human_size()
+        self.assertEqual(self.dms_directry_id.human_size, "1.00 Kb")
 
     def test_compute_count_directories(self):
-        self.assertEqual(self.directory.count_directories, 0)
+        self.dms_directory_with_parent_id._compute_count_directories()
+        self.assertEqual(self.dms_directory_with_parent_id.count_directories, 0)
+        self.assertEqual(self.dms_directory_with_parent_id.count_directories_title, "0 Subdirectories")
 
     def test_compute_count_files(self):
-        self.assertEqual(self.directory.count_files, 0)
+        self.dms_directory_with_parent_id._compute_count_files()
+        self.assertEqual(self.dms_directory_with_parent_id.count_files, 0)
+        self.assertEqual(self.dms_directory_with_parent_id.count_files_title, "0 Files")
 
     def test_compute_count_elements(self):
-        self.assertEqual(self.directory.count_elements, 0)
+        self.dms_directory_with_parent_id._compute_count_elements()
+        self.assertEqual(self.dms_directory_with_parent_id.count_elements, 0)
+
+    def test_compute_count_total_directories(self):
+        self.dms_directory_with_parent_id._compute_count_total_directories()
+        self.assertEqual(self.dms_directory_with_parent_id.count_total_directories, 0)
+
+    def test_compute_count_total_files(self):
+        self.dms_directory_with_parent_id._compute_count_total_files()
+        self.assertEqual(self.dms_directory_with_parent_id.count_total_files, 0)
 
     def test_action_spp_dms_directories_all_directory(self):
-        action = self.directory.action_spp_dms_directories_all_directory()
-        self.assertEqual(action["context"]["default_parent_id"], self.directory.id)
+        action = self.dms_directry_id.action_spp_dms_directories_all_directory()
+
+        self.assertEqual(action["res_model"], "spp.dms.directory")
+        self.assertEqual(action["target"], "current")
+        self.assertEqual(action["view_mode"], "tree,form")
+        self.assertEqual(action["context"]["default_parent_id"], self.dms_directry_id.id)
+        self.assertEqual(action["context"]["searchpanel_default_parent_id"], self.dms_directry_id.id)
+        self.assertEqual(action["domain"], [("parent_id", "child_of", self.dms_directry_id.id)])
+        self.assertEqual(action["limit"], 80)
+        self.assertFalse(action["res_id"])
+        self.assertFalse(action["view_id"])
+        self.assertFalse(action["groups_id"])
+        self.assertFalse(action["search_view_id"])
+        self.assertFalse(action["filter"])
 
     def test_action_spp_dms_files_all_directory(self):
-        action = self.directory.action_spp_dms_files_all_directory()
-        self.assertEqual(action["context"]["default_directory_id"], self.directory.id)
+        action = self.dms_directry_id.action_spp_dms_files_all_directory()
+
+        self.assertEqual(action["res_model"], "spp.dms.file")
+        self.assertEqual(action["target"], "current")
+        self.assertEqual(action["view_mode"], "tree,form")
+        self.assertEqual(action["context"]["default_directory_id"], self.dms_directry_id.id)
+        self.assertEqual(action["context"]["searchpanel_default_directory_id"], self.dms_directry_id.id)
+        self.assertEqual(action["domain"], [("directory_id", "child_of", self.dms_directry_id.id)])
+        self.assertEqual(action["limit"], 80)
+        self.assertFalse(action["res_id"])
+        self.assertFalse(action["view_id"])
+        self.assertFalse(action["groups_id"])
+        self.assertFalse(action["search_view_id"])

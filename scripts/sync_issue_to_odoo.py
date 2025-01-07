@@ -27,6 +27,7 @@ project_name = "OpenSPP"  # Project name in Odoo
 issue_title = sanitize(os.getenv("TITLE", "")[:256])
 issue_body = sanitize(os.getenv("BODY", "")[:256])
 github_issue_id = sanitize(os.getenv("ISSUE", "")[:256])
+prefixed_title = f"GH-{github_issue_id} - {issue_title}"
 
 # XML-RPC endpoints for Odoo
 common = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/common")
@@ -60,7 +61,7 @@ if task_id:
         [
             task_id,
             {
-                "name": issue_title,
+                "name": prefixed_title,
                 "description": issue_body,
             },
         ],
@@ -76,7 +77,7 @@ else:
         "create",
         [
             {
-                "name": issue_title,
+                "name": prefixed_title,
                 "description": issue_body,
                 "project_id": project_id[0],
                 "x_github_issue_id": github_issue_id,  # Set the GitHub issue ID

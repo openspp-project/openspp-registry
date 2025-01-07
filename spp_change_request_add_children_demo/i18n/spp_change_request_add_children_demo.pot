@@ -281,6 +281,7 @@ msgstr ""
 #. module: spp_change_request_add_children_demo
 #. odoo-python
 #: code:addons/spp_change_request_add_children_demo/models/change_request_add_children.py:0
+#: code:addons/spp_change_request_add_children_demo/tests/test_create_cr.py:0
 #, python-format
 msgid "Group Details"
 msgstr ""
@@ -510,6 +511,7 @@ msgstr ""
 #. module: spp_change_request_add_children_demo
 #. odoo-python
 #: code:addons/spp_change_request_add_children_demo/models/change_request_add_children.py:0
+#: code:addons/spp_change_request_add_children_demo/tests/test_create_cr.py:0
 #, python-format
 msgid "The Date of Birth is required!"
 msgstr ""
@@ -517,6 +519,7 @@ msgstr ""
 #. module: spp_change_request_add_children_demo
 #. odoo-python
 #: code:addons/spp_change_request_add_children_demo/models/change_request_add_children.py:0
+#: code:addons/spp_change_request_add_children_demo/tests/test_create_cr.py:0
 #, python-format
 msgid "The Family Name is required!"
 msgstr ""
@@ -524,6 +527,7 @@ msgstr ""
 #. module: spp_change_request_add_children_demo
 #. odoo-python
 #: code:addons/spp_change_request_add_children_demo/models/change_request_add_children.py:0
+#: code:addons/spp_change_request_add_children_demo/tests/test_create_cr.py:0
 #, python-format
 msgid "The First Name is required!"
 msgstr ""
@@ -531,6 +535,7 @@ msgstr ""
 #. module: spp_change_request_add_children_demo
 #. odoo-python
 #: code:addons/spp_change_request_add_children_demo/models/change_request_add_children.py:0
+#: code:addons/spp_change_request_add_children_demo/tests/test_create_cr.py:0
 #, python-format
 msgid "The Gender is required!"
 msgstr ""
@@ -538,6 +543,7 @@ msgstr ""
 #. module: spp_change_request_add_children_demo
 #. odoo-python
 #: code:addons/spp_change_request_add_children_demo/models/change_request_add_children.py:0
+#: code:addons/spp_change_request_add_children_demo/tests/test_create_cr.py:0
 #, python-format
 msgid "The Relationship to Applicant is required!"
 msgstr ""

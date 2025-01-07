@@ -9,3 +9,5 @@ g2p_prog_entitle_manager_cash_item_program_validator,Program Entitlement Manager
 
 g2p_program_create_wizard_entitlement_cash_item_admin,Create Program Wizard Entitlement Cash Items Admin Access,spp_entitlement_cash.model_g2p_program_create_wizard_entitlement_cash_item,g2p_registry_base.group_g2p_admin,1,1,1,1
 g2p_program_create_wizard_entitlement_cash_item_program_manager,Create Program Wizard Program Entitlement Cash Items Manager Access,spp_entitlement_cash.model_g2p_program_create_wizard_entitlement_cash_item,g2p_programs.g2p_program_manager,1,1,1,1
+
+g2p_ir_model_program_manager,Model Program Manager Access,base.model_ir_model,g2p_programs.g2p_program_manager,1,0,0,0
