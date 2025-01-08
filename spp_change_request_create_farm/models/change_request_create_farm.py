@@ -17,6 +17,16 @@ class ChangeRequestTypeCustomCreateFarm(models.Model):
         domain=[("is_registrant", "=", True), ("is_group", "=", True)],
     )
 
+    def _check_phone_exist(self):
+        """
+        Checks if phone is existing
+
+        :raise UserError: Exception raised when applicant_phone is not existing.
+        """
+        if not self.request_type == "spp.change.request.create.farm":
+            if not self.applicant_phone:
+                raise UserError(_("Phone No. is required."))
+
     @api.model
     def _selection_request_type_ref_id(self):
         selection = super()._selection_request_type_ref_id()
@@ -235,6 +245,10 @@ class ChangeRequestCreateFarm(models.Model):
             error_message.append(_("The Group Name is required!"))
         if not self.group_kind:
             error_message.append(_("The Group Kind is required!"))
+        if not self.farmer_family_name:
+            error_message.append(_("The Family Name is required!"))
+        if not self.farmer_given_name:
+            error_message.append(_("The Given Name is required!"))
 
         if error_message:
             raise ValidationError("\n".join(error_message))
@@ -288,6 +302,17 @@ class ChangeRequestCreateFarm(models.Model):
         if self.farm_machinery_ids:
             for machinery in self.farm_machinery_ids:
                 machinery.machinery_farm_id = group.id
+
+        cr_vals = {
+            "applicant_phone": self.farmer_mobile_tel or None,
+            "registrant_id": group.id,
+        }
+        if group.group_membership_ids:
+            cr_vals["applicant_id"] = group.group_membership_ids[0].individual.id
+
+        self.change_request_id.write(cr_vals)
+
+        return group
 
     def open_registrant_details_form(self):
         self.ensure_one()

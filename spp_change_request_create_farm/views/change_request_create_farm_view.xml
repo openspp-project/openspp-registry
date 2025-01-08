@@ -1,4 +1,5 @@
 <odoo>
+
     <menuitem
         id="menu_change_request_create_farm_root"
         name="Create Farm Change Requests"
@@ -554,7 +555,6 @@
                                     <field
                                         name="applicant_phone"
                                         string="Applicant's Phone #"
-                                        required="1"
                                         widget="phone"
                                         options="{'enable_sms': false}"
                                         readonly="state != 'draft'"

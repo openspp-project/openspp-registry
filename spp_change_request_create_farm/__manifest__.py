@@ -29,6 +29,7 @@
         "data/change_request_sequence.xml",
         "data/change_request_target.xml",
         "views/change_request_create_farm_view.xml",
+        "views/change_request_view.xml",
         "views/dms_file_view.xml",
     ],
     "assets": {},
