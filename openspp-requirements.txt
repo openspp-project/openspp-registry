@@ -81,7 +81,7 @@ bravado_core
 faker
 geojson
 jsonschema
-jwcrypto
+jwcrypto>=1.5.6
 pyjwt>=2.4.0
 pyproj
 python-magic

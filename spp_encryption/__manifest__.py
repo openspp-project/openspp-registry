@@ -9,7 +9,7 @@
     "development_status": "Beta",
     "maintainers": ["jeremi", "gonzalesedwin1123"],
     "depends": ["g2p_encryption"],
-    "external_dependencies": {"python": ["jwcrypto"]},
+    "external_dependencies": {"python": ["jwcrypto>=1.5.6"]},
     "data": ["views/encryption_provider.xml"],
     "assets": {},
     "demo": [],
