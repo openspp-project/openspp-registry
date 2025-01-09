@@ -9,7 +9,7 @@ class TestDataSource(TransactionCase):
         cls.data_source = cls.env["spp.data.source"].create(
             {
                 "name": "Test Data Source",
-                "url": "http://test.com",
+                "url": "https://test.com",
                 "auth_type": "basic_authentication",
             }
         )
@@ -53,5 +53,5 @@ class TestDataSource(TransactionCase):
     def test_get_source_path_id_key_full_path_pair(self):
         self.assertEqual(
             self.data_source.get_source_path_id_key_full_path_pair(),
-            {"test_path": "http://test.com/test"},
+            {"test_path": "https://test.com/test"},
         )
