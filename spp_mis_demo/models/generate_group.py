@@ -69,8 +69,7 @@ class G2PGenerateData(models.Model):
         fake = Faker(locales)
 
         # Get available gender field selections
-        options = self.env["gender.type"].search([])
-        sex_choices = [option.value for option in options]
+        sex_choices = self.env["gender.type"].search([]).mapped("id")
         sex_choice_range = sex_choices * 50
 
         age_group_range = ["A", "C"] * 2 + ["E"]

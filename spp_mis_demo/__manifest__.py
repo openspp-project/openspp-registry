@@ -12,6 +12,7 @@
     "maintainers": ["jeremi", "gonzalesedwin1123"],
     "depends": [
         "spp_base_demo",
+        "spp_base",
         "g2p_registry_base",
         "g2p_registry_individual",
         "g2p_registry_group",
@@ -28,6 +29,9 @@
         "g2p_programs",
         "product",
         "stock",
+    ],
+    "excludes": [
+        "spp_farmer_registry_base",
     ],
     "external_dependencies": {"python": ["faker"]},
     "data": [

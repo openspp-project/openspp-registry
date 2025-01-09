@@ -3,3 +3,4 @@
 from . import reg_id
 from . import spp_unique_id
 from . import registrant
+from . import group_membership
