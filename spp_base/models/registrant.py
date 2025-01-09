@@ -9,6 +9,6 @@ _logger = logging.getLogger(__name__)
 class OpenSPPResPartner(models.Model):
     _inherit = "res.partner"
 
-    tags_ids = fields.Many2many("g2p.registrant.tags", string="Registrant Tags")
+    tags_ids = fields.Many2many("g2p.registrant.tags", string="Registrant Tags", allow_filter=True)
     kind_as_str = fields.Char(related="kind.name", string="String Kind")
     gender = fields.Many2one("gender.type", ondelete="restrict")

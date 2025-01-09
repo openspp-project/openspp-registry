@@ -20,6 +20,7 @@
         "spp_farmer_registry_default_ui",
         "spp_base_demo",
         "queue_job",
+        "spp_custom_filter_farmer_registry",
     ],
     "excludes": [
         "spp_base",
