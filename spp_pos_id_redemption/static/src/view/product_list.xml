@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="spp_pos_id_redemption.IdRedemptionProductWidget" t-inherit="point_of_sale.ProductsWidget">
+        <xpath expr="//ProductCard" position="replace">
+            <IdRedemptionProductCard
+                class="pos.productViewMode"
+                name="product.display_name"
+                productId="product.id"
+                program_id_str="product.program_id_str"
+                cycle_id_str="product.cycle_id_str"
+                entitlement_valid_until="product.entitlement_valid_until"
+                price="product.getFormattedUnitPrice()"
+                imageUrl="pos.show_product_images and product.getImageUrl()"
+                onClick="() =>this.pos.addProductToCurrentOrder(product)"
+                productInfo="true"
+                onProductInfoClick="() => this.onProductInfoClick(product)"
+            />
+        </xpath>
+    </t>
+</templates>
