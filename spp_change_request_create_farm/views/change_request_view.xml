@@ -8,6 +8,31 @@
             <xpath expr="//field[@name='applicant_id']" position="attributes">
                 <attribute name="required">request_type != 'spp.change.request.create.farm'</attribute>
             </xpath>
+            <xpath expr="//label[@for='registrant_id']" position="attributes">
+                <attribute
+                    name="invisible"
+                >request_type == 'spp.change.request.create.farm' and not registrant_id</attribute>
+            </xpath>
+            <xpath expr="//field[@name='registrant_id']" position="attributes">
+                <attribute
+                    name="invisible"
+                >request_type == 'spp.change.request.create.farm' and not registrant_id</attribute>
+            </xpath>
+            <xpath expr="//label[@for='applicant_id']" position="attributes">
+                <attribute
+                    name="invisible"
+                >request_type == 'spp.change.request.create.farm' and not registrant_id</attribute>
+            </xpath>
+            <xpath expr="//field[@name='applicant_id']" position="attributes">
+                <attribute
+                    name="invisible"
+                >request_type == 'spp.change.request.create.farm' and not registrant_id</attribute>
+            </xpath>
+            <xpath expr="//group[1]" position="attributes">
+                <attribute
+                    name="invisible"
+                >request_type == 'spp.change.request.create.farm' and not registrant_id</attribute>
+            </xpath>
         </field>
     </record>
 </odoo>

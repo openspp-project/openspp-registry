@@ -77,7 +77,11 @@ class ChangeRequestCreateFarm(models.Model):
 
     # Group Details
     group_name = fields.Char("Group Name")
-    group_kind = fields.Many2one("g2p.group.kind", string="Group Kind")
+    group_kind = fields.Many2one(
+        "g2p.group.kind",
+        string="Group Kind",
+        default=lambda self: self.env.ref("spp_farmer_registry_base.kind_farm", raise_if_not_found=False),
+    )
     farm_crop_act_ids = fields.One2many("spp.farm.activity", "crop_cr_farm_id", string="Crop Agricultural Activities")
     farm_live_act_ids = fields.One2many(
         "spp.farm.activity", "live_cr_farm_id", string="Livestock Agricultural Activities"

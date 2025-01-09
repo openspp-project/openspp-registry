@@ -117,24 +117,6 @@
                         </button>
                     </div>
                     <div class="oe_title mb24">
-                        <label for="applicant_id" string="Applicant:" />
-                        <h2>
-                            <field
-                                name="applicant_id"
-                                options="{'no_create': True,'no_open':True}"
-                                readonly="1"
-                                class="oe_inline"
-                            />
-                            <button
-                                name="open_applicant_details_form"
-                                type="object"
-                                icon="fa-external-link "
-                                title="Open Applicant Details"
-                                class="btn-success"
-                                style="margin-left: 10px;"
-                                invisible="not applicant_id"
-                            />
-                        </h2>
                         <div class="o_row">
                             <h2>
                                 <label for="request_type" string="Request Type:" />
