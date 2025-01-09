@@ -16,8 +16,8 @@ def sanitize(input_string):
 
 # Ensure the URL is correctly formatted
 url = os.getenv("ODOO_URL")
-if not url.startswith("http://") and not url.startswith("https://"):
-    logger.error("Error: ODOO_URL should start with http:// or https://")
+if not url.startswith("https://"):
+    logger.error("Error: ODOO_URL should start with https://")
     sys.exit(1)
 
 db = os.getenv("ODOO_DB")
