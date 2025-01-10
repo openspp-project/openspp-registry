@@ -33,14 +33,14 @@ class Registrant(models.Model):
             if rec.given_name:
                 name.append(rec.given_name)
             if rec.addl_name:
-                name.append(self.addl_name)
+                name.append(rec.addl_name)
             rec.name = ", ".join(name).upper()
 
     def _inverse_name(self):
         for rec in self:
             if not rec.is_registrant or rec.is_group:
                 continue
-            name = list(map(lambda i: i, self.name.split(", ")))
+            name = list(map(lambda i: i, rec.name.split(", ")))
             if len(name) == 1:
                 rec.given_name = name[0]
             elif len(name) == 2:
