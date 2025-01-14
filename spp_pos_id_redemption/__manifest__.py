@@ -18,6 +18,7 @@
         "g2p_registry_group",
         "g2p_programs",
         "spp_entitlement_cash",
+        "spp_area",
     ],
     "assets": {
         "point_of_sale._assets_pos": [
@@ -48,7 +49,10 @@
         "views/entitlements_view.xml",
         "views/cycle_view.xml",
         "views/pos_view.xml",
+        "views/pos_config_view.xml",
         "wizard/create_program_wizard.xml",
+        "report/paper_format.xml",
+        "report/id_barcode_printout.xml",
     ],
     "demo": [],
     "images": [],

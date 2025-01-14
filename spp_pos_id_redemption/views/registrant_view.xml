@@ -19,6 +19,15 @@
             <xpath expr="//page[@name='ids']" position="inside">
                <field name="draft_barcode" invisible="1" />
             </xpath>
+            <xpath expr="//field[@name='reg_ids']/tree" position="inside">
+                <button
+                    name="generate_id_card"
+                    type="object"
+                    icon="fa-print"
+                    title="Print ID"
+                    class="btn-success"
+                />
+            </xpath>
         </field>
     </record>
 

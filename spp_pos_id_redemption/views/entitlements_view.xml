@@ -17,4 +17,14 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
             </xpath>
         </field>
     </record>
+    <record id="view_entitlement_custom_tree" model="ir.ui.view">
+        <field name="name">view_entitlement_custom_tree</field>
+        <field name="model">g2p.entitlement</field>
+        <field name="inherit_id" ref="g2p_programs.view_entitlement_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="voucher_redeemed" string="Redeemed" />
+            </xpath>
+        </field>
+    </record>
 </odoo>

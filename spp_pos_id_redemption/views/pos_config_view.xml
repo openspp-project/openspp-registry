@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_config_custom_view_form" model="ir.ui.view">
+        <field name="name">pos_config_custom_view_form</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[4]" position="inside">
+                <setting id="area_setting" string="Area" help="Configure the Area for this POS">
+                    <field
+                        name="area_id"
+                        options="{'no_open':True, 'no_create_edit':True,'no_create':True}"
+                    />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_pos_config_custom_kanban" model="ir.ui.view">
+        <field name="name">view_pos_config_custom_kanban</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="default_group_by">area_id</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('o_kanban_card_content')]/div/div[1]" position="attributes">
+                <attribute name="class">col-12 o_kanban_primary_left</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('o_kanban_card_content')]/div/div[1]" position="after">
+                <br />
+                <br />
+            </xpath>
+        </field>
+    </record>
+</odoo>
