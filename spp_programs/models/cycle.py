@@ -16,10 +16,43 @@ class G2PCycle(models.Model):
 
     validate_async_err = fields.Boolean(default=False)
 
+    prev_cycle_id = fields.Many2one("g2p.cycle", "Previous Cycle", readonly=True)
+    next_cycle_id = fields.Many2one("g2p.cycle", "Next Cycle", readonly=True)
+
     def _compute_inkind_entitlements_count(self):
         for rec in self:
             entitlements_count = self.env["g2p.entitlement.inkind"].search_count([("cycle_id", "=", rec.id)])
             rec.update({"inkind_entitlements_count": entitlements_count})
+
+    def get_previous_cycle(self):
+        self.ensure_one()
+        if self.prev_cycle_id:
+            return self.prev_cycle_id
+        else:
+            sorted_cycles = self.program_id.cycle_ids.sorted(key="create_date")
+            current_index = sorted_cycles.ids.index(self.id)
+            if current_index > 0:
+                # Return the previous cycle
+                self.prev_cycle_id = sorted_cycles[current_index - 1]
+                return sorted_cycles[current_index - 1]
+            else:
+                # Return None or False if there is no previous cycle
+                return None
+
+    def get_next_cycle(self):
+        self.ensure_one()
+        if self.next_cycle_id:
+            return self.next_cycle_id
+        else:
+            sorted_cycles = self.program_id.cycle_ids.sorted(key="create_date")
+            current_index = sorted_cycles.ids.index(self.id)
+            if current_index < len(sorted_cycles) - 1:
+                # Return the next cycle
+                self.next_cycle_id = sorted_cycles[current_index + 1]
+                return sorted_cycles[current_index + 1]
+            else:
+                # Return None or False if there is no next cycle
+                return None
 
     def get_entitlements(
         self,
