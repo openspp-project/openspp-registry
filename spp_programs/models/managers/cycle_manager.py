@@ -37,3 +37,11 @@ class CustomDefaultCycleManager(models.Model):
             # Update Statistics
             cycle._compute_inkind_entitlements_count()
         return
+
+    def new_cycle(self, name, new_start_date, sequence):
+        for rec in self:
+            latest_cycle = rec.program_id.cycle_ids.sorted(key="create_date", reverse=True)[:1]
+            cycle = super(CustomDefaultCycleManager, rec).new_cycle(name, new_start_date, sequence)
+            latest_cycle.write({"next_cycle_id": cycle.id})
+            cycle.write({"prev_cycle_id": latest_cycle.id})
+            return cycle
