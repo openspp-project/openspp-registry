@@ -16,6 +16,22 @@ patch(ProductsWidget.prototype, {
         });
         this.list = [];
         this.partner_product_mapper = {};
+
+        // Check if Geolocation API is available and get permission from the user to share location
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    console.log("Latitude: " + position.coords.latitude);
+                    console.log("Longitude: " + position.coords.longitude);
+                },
+                (error) => {
+                    // Log the error but proceed without location data
+                    console.error(`Geolocation error: ${error.message}`);
+                }
+            );
+        } else {
+            console.error("Geolocation is not supported by this browser.");
+        }
     },
     getProductListToNotDisplay() {
         const products = super.getProductListToNotDisplay();

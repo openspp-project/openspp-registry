@@ -18,6 +18,9 @@ class OpenSPPEntitlement(models.Model):
         readonly=True,
     )
 
+    longitude = fields.Text()
+    latitude = fields.Text()
+
     _sql_constraints = [
         (
             "product_template_unique",
