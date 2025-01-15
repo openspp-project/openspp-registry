@@ -9,12 +9,11 @@ patch(PartnerListScreen.prototype, {
         this.clearAllLines();
     },
 
-    clearAllLines(){
+    clearAllLines() {
         var order = this.pos.get_order();
         var lines = order.get_orderlines();
-        if (lines.length){
-            lines.filter(line => line.get_product())
-                        .forEach(line => order.removeOrderline(line));
+        if (lines.length) {
+            lines.filter((line) => line.get_product()).forEach((line) => order.removeOrderline(line));
         }
-    }
+    },
 });
