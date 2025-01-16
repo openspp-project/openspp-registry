@@ -24,6 +24,7 @@
             <xpath expr="//kanban" position="attributes">
                 <attribute name="default_group_by">area_id</attribute>
                 <attribute name="group_create">False</attribute>
+                <attribute name="records_draggable">False</attribute>
             </xpath>
             <xpath expr="//div[hasclass('o_kanban_card_content')]/div/div[1]" position="attributes">
                 <attribute name="class">col-12 o_kanban_primary_left</attribute>

@@ -22,32 +22,32 @@
                         >
                             <table
                                 id="cust1"
-                                style="width: 100%; border-collapse: collapse; table-layout: fixed;"
+                                style="width: 100%; border-collapse: collapse; table-layout: fixed; border: 1px solid #fff;"
                             >
                                 <tr>
                                     <td style="width: 40%;" />
                                     <td style="width: 20%;" />
                                     <td style="width: 40%;" />
                                 </tr>
-                                <tr style="height: 15pt;">
+                                <tr style="height: 15pt; border: 1px solid #fff;">
                                     <td
                                         colspan="3"
-                                        style="text-align: left; font-size: 18px; color: black; font-weight: bold;"
+                                        style="text-align: left; font-size: 18px; color: black; font-weight: bold; border: 1px solid #fff;"
                                     >
                                         <span t-esc="id_val.partner_id.name" />
                                         <hr />
                                     </td>
                                 </tr>
-                                <tr style="height: 100pt;">
+                                <tr style="height: 100pt; border: 1px solid #fff;">
                                     <td
-                                        style="vertical-align: bottom; text-align: left; font-size: 16px; color: black;"
+                                        style="vertical-align: bottom; text-align: left; font-size: 16px; color: black; border: 1px solid #fff;"
                                     >
                                         <span t-esc="id_val.id_type.name" /><br />
                                         <span t-esc="id_val.value" />
                                     </td>
                                     <td
                                         colspan="2"
-                                        style="text-align: right; vertical-align: middle; font-size: 24px; color: black; font-weight: bold;"
+                                        style="text-align: right; vertical-align: middle; font-size: 24px; color: black; font-weight: bold; border: 1px solid #fff;"
                                     >
                                         <img
                                             alt="Barcode"
