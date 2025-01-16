@@ -31,6 +31,7 @@
             "spp_pos_id_redemption/static/src/view/partner_list.xml",
             "spp_pos_id_redemption/static/src/view/payment_screen.xml",
             "spp_pos_id_redemption/static/src/view/customer_note.xml",
+            "spp_pos_id_redemption/static/src/view/ticket_screen.xml",
             "spp_pos_id_redemption/static/src/js/popup_voucher.js",
             "spp_pos_id_redemption/static/src/js/entitlement_product_list.js",
             "spp_pos_id_redemption/static/src/js/pos_store.js",
@@ -40,6 +41,7 @@
             "spp_pos_id_redemption/static/src/js/product_card.js",
             "spp_pos_id_redemption/static/src/js/partner_list.js",
             "spp_pos_id_redemption/static/src/js/db.js",
+            "spp_pos_id_redemption/static/src/js/customer_note.js",
         ],
     },
     "data": [
