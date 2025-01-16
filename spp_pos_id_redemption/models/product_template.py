@@ -51,7 +51,9 @@ class ProductTemplate(models.Model):
                 rec.entitlement_id.longitude = longitude
                 rec.entitlement_id.latitude = latitude
 
-    def unredeem_voucher(self):
+    def undo_redeem_voucher(self, longitude=None, latitude=None):
         for rec in self:
             if rec.entitlement_id:
                 rec.entitlement_id.voucher_redeemed = False
+                rec.entitlement_id.longitude = longitude
+                rec.entitlement_id.latitude = latitude
