@@ -18,7 +18,7 @@ registrant_tag_write_registry_access,Registrant Tags Write Access,g2p_registry_b
 id_type_write_registry_access,ID Type Write Access,g2p_registry_base.model_g2p_id_type,spp_registry_base.write_registry,1,1,0,0
 
 res_partner_create_registry_access,Registry Create Access,base.model_res_partner,spp_registry_base.create_registry,1,0,1,0
-group_membership_create_registry_access,Group Membership Create Access,g2p_registry_membership.model_g2p_group_membership,spp_registry_base.create_registry,1,0,1,0
+group_membership_create_registry_access,Group Membership Create Access,g2p_registry_membership.model_g2p_group_membership,spp_registry_base.create_registry,1,1,1,0
 phone_number_create_registry_access,Phone Number Create Access,g2p_registry_base.model_g2p_phone_number,spp_registry_base.create_registry,1,0,1,0
 reg_id_create_registry_access,Reg ID Create Access,g2p_registry_base.model_g2p_reg_id,spp_registry_base.create_registry,1,0,1,0
 reg_rel_create_registry_access,Reg Rel Create Access,g2p_registry_base.model_g2p_reg_rel,spp_registry_base.create_registry,1,0,1,0
