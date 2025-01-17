@@ -28,15 +28,12 @@ function getLocation() {
 
 patch(PaymentScreen.prototype, {
     async _finalizeValidation() {
-        super._finalizeValidation();
-
-        // Get location data using async/await
         const {latitude, longitude} = await getLocation();
 
-        // Process orderlines
-        for (const orderline of this.pos.get_order().orderlines) {
+        const promises = this.pos.get_order().orderlines.map(async (orderline) => {
             if (orderline.product.created_from_entitlement) {
                 const productId = orderline.product.id;
+
                 if (orderline.quantity >= 1) {
                     await this.orm.call("product.template", "redeem_voucher", [
                         productId,
@@ -53,7 +50,11 @@ patch(PaymentScreen.prototype, {
                     orderline.product.voucher_redeemed = false;
                 }
             }
-        }
+        });
+
+        await Promise.all(promises); // Wait for all promises to resolve
+
+        super._finalizeValidation();
     },
 
     backToPOS() {
