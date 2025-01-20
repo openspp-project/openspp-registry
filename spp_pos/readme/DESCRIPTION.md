@@ -10,7 +10,7 @@ The [spp_pos](spp_pos) module bridges the gap between beneficiary entitlements a
 * **Secure Identification**:  Integrates with beneficiary identification mechanisms within OpenSPP to ensure secure and accurate transaction processing.
 * **Real-time Validation**: Verifies entitlement validity and beneficiary eligibility in real-time at the point of sale.
 * **Transaction Tracking**: Records all entitlement redemption transactions, linking them to specific beneficiaries, programs, and POS locations.
-* **Offline Capability**:  Supports offline functionality to handle situations where internet connectivity is unreliable, ensuring service continuity. 
+* **Offline Capability**:  Supports offline functionality to handle situations where internet connectivity is unreliable, ensuring service continuity.
 
 ## Module Dependencies and Integration
 
@@ -19,7 +19,7 @@ The [spp_pos](spp_pos) module bridges the gap between beneficiary entitlements a
 
 2. **Point of Sale (point_of_sale)**:
     * Extends the core Odoo POS module with additional features tailored for social protection programs.
-    * Integrates seamlessly with the existing POS interface, minimizing disruptions to established workflows. 
+    * Integrates seamlessly with the existing POS interface, minimizing disruptions to established workflows.
 
 3. **G2P Programs ([g2p_programs](g2p_programs))**:
     * Interfaces with the G2P Programs module to retrieve and validate entitlement information.
@@ -36,12 +36,12 @@ The [spp_pos](spp_pos) module bridges the gap between beneficiary entitlements a
 * **POS Interface Enhancements**: Extends the POS interface with specific features for entitlement redemption:
     * **Beneficiary Identification**:  Provides mechanisms for beneficiary authentication, such as scanning QR codes linked to their OpenSPP profiles or manual entry of identification details.
     * **Entitlement Selection**:  Displays available entitlements for the identified beneficiary, allowing POS operators to select and apply them to the transaction.
-    * **Real-time Validation**: Upon entitlement selection, the module communicates with the G2P Programs module to validate its authenticity, current status, and available balance. 
+    * **Real-time Validation**: Upon entitlement selection, the module communicates with the G2P Programs module to validate its authenticity, current status, and available balance.
     * **Transaction Completion**:  Processes the redemption, deducting the redeemed amount from the entitlement balance and generating a transaction record within both the POS and OpenSPP systems.
 
 * **Offline Mode Operations**: In scenarios with limited or no internet connectivity:
-    * The module enables offline transaction processing by storing entitlement data locally. 
-    * Once connectivity is restored, offline transactions are synchronized with the central OpenSPP system, ensuring data consistency and accurate reporting. 
+    * The module enables offline transaction processing by storing entitlement data locally.
+    * Once connectivity is restored, offline transactions are synchronized with the central OpenSPP system, ensuring data consistency and accurate reporting.
 
 ## Conclusion
 

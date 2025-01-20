@@ -36,16 +36,17 @@ class G2PCreateNewProgramWiz(models.TransientModel):
                     "is_pos_cash": is_pos_cash,
                 }
             )
+            if def_mgr:
+                # Add a new record to entitlement manager parent model
+                man_obj = self.env["g2p.program.entitlement.manager"]
+                mgr = man_obj.create(
+                    {
+                        "program_id": program_id,
+                        "manager_ref_id": f"{def_mgr_obj},{str(def_mgr.id)}",
+                    }
+                )
+                val = {"entitlement_managers": [(4, mgr.id)]}
 
-        if def_mgr:
-            # Add a new record to entitlement manager parent model
-            man_obj = self.env["g2p.program.entitlement.manager"]
-            mgr = man_obj.create(
-                {
-                    "program_id": program_id,
-                    "manager_ref_id": f"{def_mgr_obj},{str(def_mgr.id)}",
-                }
-            )
-            val = {"entitlement_managers": [(4, mgr.id)]}
-
-            return val
+                return val
+        else:
+            return super()._get_entitlement_manager(program_id)

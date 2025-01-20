@@ -18,6 +18,7 @@
         "g2p_registry_group",
         "g2p_programs",
         "spp_entitlement_cash",
+        "spp_area",
     ],
     "assets": {
         "point_of_sale._assets_pos": [
@@ -30,6 +31,7 @@
             "spp_pos_id_redemption/static/src/view/partner_list.xml",
             "spp_pos_id_redemption/static/src/view/payment_screen.xml",
             "spp_pos_id_redemption/static/src/view/customer_note.xml",
+            "spp_pos_id_redemption/static/src/view/ticket_screen.xml",
             "spp_pos_id_redemption/static/src/js/popup_voucher.js",
             "spp_pos_id_redemption/static/src/js/entitlement_product_list.js",
             "spp_pos_id_redemption/static/src/js/pos_store.js",
@@ -39,6 +41,7 @@
             "spp_pos_id_redemption/static/src/js/product_card.js",
             "spp_pos_id_redemption/static/src/js/partner_list.js",
             "spp_pos_id_redemption/static/src/js/db.js",
+            "spp_pos_id_redemption/static/src/js/customer_note.js",
         ],
     },
     "data": [
@@ -48,6 +51,10 @@
         "views/entitlements_view.xml",
         "views/cycle_view.xml",
         "views/pos_view.xml",
+        "views/pos_config_view.xml",
+        "wizard/create_program_wizard.xml",
+        "report/paper_format.xml",
+        "report/id_barcode_printout.xml",
         "wizard/create_program_wizard.xml",
     ],
     "demo": [],

@@ -3,16 +3,58 @@
 import {PaymentScreen} from "@point_of_sale/app/screens/payment_screen/payment_screen";
 import {patch} from "@web/core/utils/patch";
 
+// Utility function to wrap getCurrentPosition in a Promise
+function getLocation() {
+    return new Promise((resolve) => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    resolve({
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude,
+                    });
+                },
+                (error) => {
+                    console.error(`Geolocation error: ${error.message}`);
+                    resolve({latitude: null, longitude: null}); // Proceed without location
+                }
+            );
+        } else {
+            console.error("Geolocation is not supported by this browser.");
+            resolve({latitude: null, longitude: null}); // Proceed without location
+        }
+    });
+}
+
 patch(PaymentScreen.prototype, {
     async _finalizeValidation() {
-        super._finalizeValidation();
-        for (const orderline of this.pos.get_order().orderlines) {
+        const {latitude, longitude} = await getLocation();
+
+        const promises = this.pos.get_order().orderlines.map(async (orderline) => {
             if (orderline.product.created_from_entitlement) {
                 const productId = orderline.product.id;
-                await this.orm.call("product.template", "redeem_voucher", [productId]);
-                orderline.product.voucher_redeemed = true;
+
+                if (orderline.quantity >= 1) {
+                    await this.orm.call("product.template", "redeem_voucher", [
+                        productId,
+                        latitude,
+                        longitude,
+                    ]);
+                    orderline.product.voucher_redeemed = true;
+                } else {
+                    await this.orm.call("product.template", "undo_redeem_voucher", [
+                        productId,
+                        latitude,
+                        longitude,
+                    ]);
+                    orderline.product.voucher_redeemed = false;
+                }
             }
-        }
+        });
+
+        await Promise.all(promises); // Wait for all promises to resolve
+
+        super._finalizeValidation();
     },
 
     backToPOS() {

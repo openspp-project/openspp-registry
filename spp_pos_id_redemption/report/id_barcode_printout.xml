@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="action_report_id_barcode_printout" model="ir.actions.report">
+        <field name="name">ID Barcode Printout</field>
+        <field name="model">g2p.reg.id</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">spp_pos_id_redemption.report_id_barcode_printout</field>
+        <field name="report_file">spp_pos_id_redemption.report_id_barcode_printout</field>
+        <field name="print_report_name">'ID Barcode - %s' % (object.partner_id.name).replace('/', '')</field>
+        <field name="binding_model_id" ref="model_g2p_reg_id" />
+        <field name="paperformat_id" ref="spp_pos_id_redemption.paperformat_long_bond" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <data>
+        <template id="report_id_barcode_printout">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <t t-foreach="docs" t-as="id_val">
+                        <div
+                            style="width: 50%; border: 1px solid #000; padding: 10px; box-sizing: border-box;"
+                        >
+                            <table
+                                id="cust1"
+                                style="width: 100%; border-collapse: collapse; table-layout: fixed; border: 1px solid #fff;"
+                            >
+                                <tr>
+                                    <td style="width: 40%;" />
+                                    <td style="width: 20%;" />
+                                    <td style="width: 40%;" />
+                                </tr>
+                                <tr style="height: 15pt; border: 1px solid #fff;">
+                                    <td
+                                        colspan="3"
+                                        style="text-align: left; font-size: 18px; color: black; font-weight: bold; border: 1px solid #fff;"
+                                    >
+                                        <span t-esc="id_val.partner_id.name" />
+                                        <hr />
+                                    </td>
+                                </tr>
+                                <tr style="height: 100pt; border: 1px solid #fff;">
+                                    <td
+                                        style="vertical-align: bottom; text-align: left; font-size: 16px; color: black; border: 1px solid #fff;"
+                                    >
+                                        <span t-esc="id_val.id_type.name" /><br />
+                                        <span t-esc="id_val.value" />
+                                    </td>
+                                    <td
+                                        colspan="2"
+                                        style="text-align: right; vertical-align: middle; font-size: 24px; color: black; font-weight: bold; border: 1px solid #fff;"
+                                    >
+                                        <img
+                                            alt="Barcode"
+                                            t-if="id_val.value"
+                                            t-att-src="'/report/barcode/QR/' + id_val.value"
+                                            style="height: 90pt; width: 90pt; margin: 5px;"
+                                        />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </div>
+
+            </t>
+            <div class="footer">
+            </div>
+        </template>
+    </data>
+
+</odoo>

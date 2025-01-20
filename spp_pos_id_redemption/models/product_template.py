@@ -44,12 +44,16 @@ class ProductTemplate(models.Model):
         for rec in self:
             rec.created_from_entitlement = bool(rec.entitlement_id)
 
-    def redeem_voucher(self):
+    def redeem_voucher(self, longitude=None, latitude=None):
         for rec in self:
             if rec.entitlement_id:
                 rec.entitlement_id.voucher_redeemed = True
+                rec.entitlement_id.longitude = longitude
+                rec.entitlement_id.latitude = latitude
 
-    def unredeem_voucher(self):
+    def undo_redeem_voucher(self, longitude=None, latitude=None):
         for rec in self:
             if rec.entitlement_id:
                 rec.entitlement_id.voucher_redeemed = False
+                rec.entitlement_id.longitude = longitude
+                rec.entitlement_id.latitude = latitude
