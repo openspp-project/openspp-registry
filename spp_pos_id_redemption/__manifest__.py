@@ -55,6 +55,7 @@
         "wizard/create_program_wizard.xml",
         "report/paper_format.xml",
         "report/id_barcode_printout.xml",
+        "wizard/create_program_wizard.xml",
     ],
     "demo": [],
     "images": [],

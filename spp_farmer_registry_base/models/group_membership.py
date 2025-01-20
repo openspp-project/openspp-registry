@@ -1,9 +1,11 @@
-from odoo import _, models
+from odoo import _, fields, models
 from odoo.exceptions import UserError
 
 
 class G2PGroupMembership(models.Model):
     _inherit = "g2p.group.membership"
+
+    individual_gender = fields.Many2one("gender.type", related="individual.gender", readonly=True)
 
     def unlink(self):
         for rec in self:

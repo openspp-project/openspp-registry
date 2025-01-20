@@ -19,6 +19,7 @@
         "product",
         "stock",
         "spp_user_roles",
+        "account",
     ],
     "data": [
         "data/user_roles.xml",

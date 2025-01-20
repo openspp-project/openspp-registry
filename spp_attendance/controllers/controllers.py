@@ -205,6 +205,8 @@ class SppAttendanceController(Controller):
         attendance_list_data = []
         person_id_list = []
 
+        ALLOWED_CATEGORIES = req.env["spp.attendance.list"].ALLOWED_CATEGORIES
+
         for person_data in data["records"]:
             if missing_required_fields := self.check_required_fields(person_data, ["time_card", "person_id"]):
                 return self.error_wrapper(400, f"Missing required fields: {', '.join(missing_required_fields)}")
@@ -230,6 +232,13 @@ class SppAttendanceController(Controller):
                 attendance_date = str(attendance_datetime.date())
                 attendance_time = str(attendance_datetime.time())
 
+                category = time_card.get("attendance_category", "present")
+                category = category.lower()
+                if category not in ALLOWED_CATEGORIES:
+                    return self.error_wrapper(
+                        400, f"Invalid category. Allowed categories are {', '.join(ALLOWED_CATEGORIES)}."
+                    )
+
                 attendance_type = time_card.get("attendance_type", False) or False
                 if result := self.validate_attendance_type(attendance_type):
                     return result
@@ -247,6 +256,7 @@ class SppAttendanceController(Controller):
                     "attendance_date": attendance_date,
                     "attendance_time": attendance_time,
                     "attendance_type_id": attendance_type,
+                    "attendance_category": category,
                     "attendance_location_id": attendance_location,
                     "attendance_description": attendance_description,
                     "attendance_external_url": attendance_external_url,
@@ -272,6 +282,50 @@ class SppAttendanceController(Controller):
         return self.response_wrapper(
             200, {"message": "Attendance list created successfully.", "person_ids": person_id_list}
         )
+
+    def get_time_card_vals(self, time_card):
+        ALLOWED_CATEGORIES = request.env["spp.attendance.list"].ALLOWED_CATEGORIES
+        vals = {}
+        if "date_time" in time_card:
+            attendance_datetime = time_card.get("date_time")
+            attendance_datetime = datetime.strptime(attendance_datetime, "%Y-%m-%d %H:%M:%S")
+            attendance_date = str(attendance_datetime.date())
+            attendance_time = str(attendance_datetime.time())
+
+            vals["attendance_date"] = attendance_date
+            vals["attendance_time"] = attendance_time
+
+        if "attendance_type" in time_card:
+            attendance_type = time_card.get("attendance_type")
+            if result := self.validate_attendance_type(attendance_type):
+                return result
+            attendance_type = int(attendance_type)
+            vals["attendance_type_id"] = attendance_type
+
+        if "attendance_location" in time_card:
+            attendance_location = time_card.get("attendance_location")
+            if result := self.validate_attendance_location(attendance_location):
+                return result
+            attendance_location = int(attendance_location)
+            vals["attendance_location_id"] = attendance_location
+
+        if "attendance_description" in time_card:
+            attendance_description = time_card.get("attendance_description")
+            vals["attendance_description"] = attendance_description
+
+        if "attendance_external_url" in time_card:
+            attendance_external_url = time_card.get("attendance_external_url")
+            vals["attendance_external_url"] = attendance_external_url
+
+        if "attendance_category" in time_card:
+            category = time_card["attendance_category"]
+            category = category.lower()
+            if category not in ALLOWED_CATEGORIES:
+                return self.error_wrapper(
+                    400, f"Invalid category. Allowed categories are {', '.join(ALLOWED_CATEGORIES)}."
+                )
+            vals["attendance_category"] = category
+        return vals
 
     @route(
         "/attendances",
@@ -317,38 +371,10 @@ class SppAttendanceController(Controller):
             if not isinstance(time_card, dict):
                 return self.error_wrapper(400, "time_card must be an object.")
 
-            vals = {}
-
-            if "date_time" in time_card:
-                attendance_datetime = time_card.get("date_time")
-                attendance_datetime = datetime.strptime(attendance_datetime, "%Y-%m-%d %H:%M:%S")
-                attendance_date = str(attendance_datetime.date())
-                attendance_time = str(attendance_datetime.time())
-
-                vals["attendance_date"] = attendance_date
-                vals["attendance_time"] = attendance_time
-
-            if "attendance_type" in time_card:
-                attendance_type = time_card.get("attendance_type")
-                if result := self.validate_attendance_type(attendance_type):
-                    return result
-                attendance_type = int(attendance_type)
-                vals["attendance_type_id"] = attendance_type
-
-            if "attendance_location" in time_card:
-                attendance_location = time_card.get("attendance_location")
-                if result := self.validate_attendance_location(attendance_location):
-                    return result
-                attendance_location = int(attendance_location)
-                vals["attendance_location_id"] = attendance_location
-
-            if "attendance_description" in time_card:
-                attendance_description = time_card.get("attendance_description")
-                vals["attendance_description"] = attendance_description
-
-            if "attendance_external_url" in time_card:
-                attendance_external_url = time_card.get("attendance_external_url")
-                vals["attendance_external_url"] = attendance_external_url
+            vals = self.get_time_card_vals(time_card)
+            if not isinstance(vals, dict):
+                # it returns an error if it is not a dict: return the vals
+                return vals
 
             if vals:
                 vals["submitted_by"] = submitted_by

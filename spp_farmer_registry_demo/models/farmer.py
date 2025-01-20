@@ -8,7 +8,8 @@ class Farmer(models.Model):
         selection_add=[
             ("married_monogamous", "Married Monogamous"),
             ("married_polygamous", "Married Polygamous"),
-        ]
+        ],
+        allow_filter=True,
     )
     highest_education_level = fields.Selection(
         selection_add=[
@@ -20,6 +21,7 @@ class Farmer(models.Model):
             ("university", "University"),
             ("tertiary", "Tertiary"),
         ],
+        allow_filter=True,
     )
 
 

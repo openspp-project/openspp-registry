@@ -136,8 +136,10 @@ class AttendanceSubscriber(models.Model):
             domain, offset=offset, limit=limit, order="attendance_date desc, attendance_time desc"
         )
         total_attendances = self.env["spp.attendance.list"].sudo().search_count(domain)
+
+        present_domain = domain + [("attendance_category", "=", "present")]
         number_of_days_present = list(
-            set(self.env["spp.attendance.list"].sudo().search(domain).mapped("attendance_date"))
+            set(self.env["spp.attendance.list"].sudo().search(present_domain).mapped("attendance_date"))
         )
 
         return total_attendances, {
@@ -168,6 +170,7 @@ class AttendanceSubscriber(models.Model):
                     "submitted_by": attendance.submitted_by,
                     "submitted_datetime": attendance.submitted_datetime,
                     "submission_source": attendance.submission_source or "",
+                    "attendance_category": attendance.attendance_category,
                 }
                 for attendance in attendance_list_ids
             ],
