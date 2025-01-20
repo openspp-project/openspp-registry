@@ -20,9 +20,9 @@ class OpenSPPEntitlement(models.Model):
 
     longitude = fields.Text()
     latitude = fields.Text()
-    
+
     is_pos_cash_entitlement = fields.Boolean(compute="_compute_is_pos_cash_entitlement")
-    
+
     _sql_constraints = [
         (
             "product_template_unique",
@@ -30,7 +30,6 @@ class OpenSPPEntitlement(models.Model):
             "The product template must be unique across entitlement records.",
         ),
     ]
-
 
     def _compute_is_pos_cash_entitlement(self):
         for rec in self:
