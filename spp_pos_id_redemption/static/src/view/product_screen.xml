@@ -4,6 +4,9 @@
         <xpath expr="//ProductsWidget" position="attributes">
             <attribute name="partner">partner</attribute>
         </xpath>
+        <xpath expr="//ActionpadWidget" position="attributes">
+            <attribute name="actionName.translate">Redemption</attribute>
+        </xpath>
     </t>
 
 </templates>
