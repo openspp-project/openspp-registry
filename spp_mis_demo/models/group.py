@@ -77,6 +77,7 @@ class G2PGroup(models.Model):
         compute="_compute_ind_grp_is_hh_with_children",
         store=True,
         recompute_daily=True,
+        allow_filter=True,
     )
 
     # z_ind_grp_is_hh_with_disabled = fields.Boolean("HHs with disabled (mental or physical) members",
@@ -110,6 +111,7 @@ class G2PGroup(models.Model):
         compute="_compute_ind_grp_is_hh_with_medical_condition",
         help="HHs with members that have chronic illness/medical conditions",
         store=True,
+        allow_filter=True,
     )
 
     z_ind_grp_is_single_head_hh = fields.Boolean(
@@ -117,6 +119,7 @@ class G2PGroup(models.Model):
         compute="_compute_ind_grp_is_single_head_hh",
         help="Single-headed HH - extracted from demographic data of " "HH adult members",
         store=True,
+        allow_filter=True,
     )
     z_ind_grp_is_woman_head_hh = fields.Boolean(
         "Is female-headed household",
@@ -199,7 +202,7 @@ class G2PGroup(models.Model):
         now = datetime.datetime.now()
         domain = [
             ("birthdate", "<", now - relativedelta(years=CHILDREN_AGE_LIMIT)),
-            ("gender", "=", "Female"),
+            ("gender", "=", self.env.ref("spp_base_demo.gender_female").id),
         ]
         self.compute_count_and_set_indicator("z_ind_grp_num_adults_woman", None, domain)
 
@@ -224,7 +227,7 @@ class G2PGroup(models.Model):
         now = datetime.datetime.now()
         domain = [
             ("birthdate", "<", now - relativedelta(years=CHILDREN_AGE_LIMIT)),
-            ("gender", "=", "Female"),
+            ("gender", "=", self.env.ref("spp_base_demo.gender_female").id),
         ]
         self.compute_count_and_set_indicator("z_ind_grp_is_woman_head_hh", ["Head"], domain, presence_only=True)
 

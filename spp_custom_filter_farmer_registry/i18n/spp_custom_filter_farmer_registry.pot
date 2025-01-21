@@ -1,0 +1,59 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* spp_custom_filter_farmer_registry
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: spp_custom_filter_farmer_registry
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_g2p_program_membership__tags_ids
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_res_partner__tags_ids
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_res_users__tags_ids
+msgid "Registrant Tags"
+msgstr ""
+
+#. module: spp_custom_filter_farmer_registry
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_g2p_program_membership__farmer_national_id
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_res_partner__farmer_national_id
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_res_users__farmer_national_id
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_spp_farmer__farmer_national_id
+msgid "National ID Number"
+msgstr ""
+
+#. module: spp_custom_filter_farmer_registry
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_g2p_program_membership__farmer_postal_address
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_res_partner__farmer_postal_address
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_res_users__farmer_postal_address
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_spp_farmer__farmer_postal_address
+msgid "Postal Address"
+msgstr ""
+
+#. module: spp_custom_filter_farmer_registry
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_g2p_program_membership__marital_status
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_res_partner__marital_status
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_res_users__marital_status
+msgid "Marital Status"
+msgstr ""
+
+#. module: spp_custom_filter_farmer_registry
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_g2p_program_membership__highest_education_level
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_res_partner__highest_education_level
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_res_users__highest_education_level
+msgid "Highest Educational Level"
+msgstr ""
+
+#. module: spp_custom_filter_farmer_registry
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_g2p_program_membership__farmer_household_size
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_res_partner__farmer_household_size
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_res_users__farmer_household_size
+#: model:ir.model.fields,field_description:spp_custom_filter_farmer_registry.field_spp_farmer__farmer_household_size
+msgid "Farmer Household Size"
+msgstr ""

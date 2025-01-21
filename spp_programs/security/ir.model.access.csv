@@ -43,3 +43,8 @@ spp_programs_stock_location_program_validator,SPP Entitlement Stock Location Pro
 spp_programs_stock_route_program_validator,SPP Entitlement Stock Location Route Program Validator Access,stock.model_stock_route,g2p_programs.g2p_program_validator,1,0,0,0
 spp_programs_stock_move_program_validator,SPP Entitlement Stock Move Program Validator Access,stock.model_stock_move,g2p_programs.g2p_program_validator,1,1,1,0
 spp_programs_stock_rule_program_validator,SPP Entitlement Stock Rule Program Validator Access,stock.model_stock_rule,g2p_programs.g2p_program_validator,1,0,0,0
+g2p_account_journal_g2p_program_cycle_approver,Account Journal Program Cycle Manager Access,account.model_account_journal,g2p_programs.g2p_program_cycle_approver,1,1,1,1
+g2p_account_move_g2p_program_cycle_approver,Account Move Program Cycle Manager Access,account.model_account_move,g2p_programs.g2p_program_cycle_approver,1,1,1,1
+g2p_account_move_line_g2p_program_cycle_approver,Account Move Line Program cycle Manager Access,account.model_account_move_line,g2p_programs.g2p_program_cycle_approver,1,1,1,1
+g2p_entitlement_g2p_program_cycle_approver,Entitlement Program Cycle Manager Access,g2p_programs.model_g2p_entitlement,g2p_programs.g2p_program_cycle_approver,1,1,1,1
+g2p_account_payment_g2p_program_cycle_approver,Account Payment Program Cycle Manager Access,account.model_account_payment,g2p_programs.g2p_program_cycle_approver,1,1,1,1

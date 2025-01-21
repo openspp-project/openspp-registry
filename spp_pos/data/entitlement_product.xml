@@ -8,6 +8,7 @@
     <record id="entitlement_product" model="product.template">
         <field name="name">Entitlement</field>
         <field name="available_in_pos">1</field>
+        <field name="active">0</field>
         <field name="list_price">0</field>
         <field name="is_locked">1</field>
         <field name="categ_id" ref="spp_pos.entitlement_product_categ" />

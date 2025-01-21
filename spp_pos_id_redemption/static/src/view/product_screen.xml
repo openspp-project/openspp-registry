@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="spp_pos_id_redemption.ProductScreen" t-inherit="point_of_sale.ProductScreen">
+        <xpath expr="//ProductsWidget" position="attributes">
+            <attribute name="partner">partner</attribute>
+        </xpath>
+    </t>
+
+</templates>
