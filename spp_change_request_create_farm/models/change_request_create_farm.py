@@ -23,7 +23,8 @@ class ChangeRequestTypeCustomCreateFarm(models.Model):
 
         :raise UserError: Exception raised when applicant_phone is not existing.
         """
-        if not self.request_type == "spp.change.request.create.farm":
+        request_type = self.request_type
+        if "farm" not in request_type:
             if not self.applicant_phone:
                 raise UserError(_("Phone No. is required."))
 
