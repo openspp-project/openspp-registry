@@ -19,7 +19,7 @@
                                     title="Open Form"
                                     class="btn-success"
                                     invisible="not manager_ref_id"
-                                    context="{'default_program_id': id, 'create': False, 'compliance_manager': True}"
+                                    context="{'default_program_id': id, 'create': False}"
                                 />
                                 <field
                                     name="manager_ref_id"
