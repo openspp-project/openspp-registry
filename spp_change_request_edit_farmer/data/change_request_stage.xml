@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Part of OpenSPP. See LICENSE file for full copyright and licensing details.
+-->
+<odoo noupdate="0">
+
+    <record id="spp_cr_val_stage_local" model="spp.change.request.validation.stage">
+        <field name="name">Local</field>
+    </record>
+
+    <record id="spp_cr_val_stage_hq" model="spp.change.request.validation.stage">
+        <field name="name">HQ</field>
+    </record>
+
+</odoo>
