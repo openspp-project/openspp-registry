@@ -22,3 +22,6 @@ spp_farmer_registrar_access,Temporary Model for Farmer Registrar Access,spp_farm
 spp_farm_chemical_registrar_access,Farm Chemical Interventions Types Registrar Access,spp_farmer_registry_base.model_spp_farm_chemical,g2p_registry_base.group_g2p_registrar,1,1,1,1
 spp_fertilizer_registrar_access,Fertilizer Interventions Types Registrar Access,spp_farmer_registry_base.model_spp_fertilizer,g2p_registry_base.group_g2p_registrar,1,1,1,1
 spp_feed_items_registrar_access,Feed Items Types Registrar Access,spp_farmer_registry_base.model_spp_feed_items,g2p_registry_base.group_g2p_registrar,1,1,1,1
+
+access_spp_farm_season_user,spp.farm.season.user,spp_farmer_registry_base.model_spp_farm_season,spp_farmer_registry_base.group_spp_farm_user,1,0,0,0
+access_spp_farm_season_manager,spp.farm.season.manager,spp_farmer_registry_base.model_spp_farm_season,spp_farmer_registry_base.group_spp_farm_manager,1,1,1,1

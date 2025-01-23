@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_spp_farm_season_form" model="ir.ui.view">
+        <field name="name">view_spp_farm_season_form</field>
+        <field name="model">spp.farm.season</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="can_activate" invisible="1" />
+                <field name="can_close" invisible="1" />
+                <field name="can_edit" invisible="1" />
+                <header>
+                    <button
+                        name="action_activate"
+                        string="Activate"
+                        type="object"
+                        class="oe_highlight"
+                        invisible="not can_activate"
+                    />
+                    <button
+                        name="action_close"
+                        string="Close"
+                        type="object"
+                        class="oe_highlight"
+                        invisible="not can_close"
+                    />
+                    <button
+                        name="action_draft"
+                        string="Reset to Draft"
+                        type="object"
+                        invisible="not can_edit or state == 'draft'"
+                    />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,active,closed" />
+                </header>
+                <sheet>
+                    <!-- <div class="oe_button_box" name="button_box">
+                        <button name="action_view_activities"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-tasks"
+                                invisible="state == 'draft'">
+                            <field name="activity_count" widget="statinfo" string="Activities"/>
+                        </button>
+                    </div> -->
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" placeholder="Season Name" readonly="not can_edit" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field
+                                name="date_start"
+                                readonly="not can_edit"
+                                context="{'allow_overlap': allow_overlap}"
+                            />
+                            <field
+                                name="date_end"
+                                readonly="not can_edit"
+                                context="{'allow_overlap': allow_overlap}"
+                            />
+                        </group>
+                        <group>
+                            <field
+                                name="allow_overlap"
+                                invisible="state != 'draft'"
+                                readonly="not can_edit"
+                            />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field
+                                name="description"
+                                placeholder="Add a description..."
+                                readonly="not can_edit"
+                            />
+                        </page>
+                        <page string="Activities" name="activities" invisible="state == 'draft'">
+                            <field name="activity_ids" readonly="1">
+                                <tree>
+                                    <field name="activity_type" />
+                                    <field name="species_id" />
+                                    <field name="purpose" />
+                                    <field name="create_date" />
+                                    <field name="write_date" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_spp_farm_season_tree" model="ir.ui.view">
+        <field name="name">spp.farm.season.tree</field>
+        <field name="model">spp.farm.season</field>
+        <field name="arch" type="xml">
+            <tree
+                decoration-info="state == 'draft'"
+                decoration-success="state == 'active'"
+                decoration-muted="state == 'closed'"
+                sample="1"
+            >
+                <field name="name" />
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="activity_count" />
+                <field
+                    name="state"
+                    decoration-info="state == 'draft'"
+                    decoration-success="state == 'active'"
+                    decoration-danger="state == 'closed'"
+                    invisible="1"
+                />
+                <field name="create_date" optional="hide" />
+                <field name="write_date" optional="hide" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_spp_farm_season_search" model="ir.ui.view">
+        <field name="name">spp.farm.season.search</field>
+        <field name="model">spp.farm.season</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="description" />
+                <field name="date_start" />
+                <field name="date_end" />
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]" />
+                <filter string="Active" name="active" domain="[('state', '=', 'active')]" />
+                <filter string="Closed" name="closed" domain="[('state', '=', 'closed')]" />
+                <separator />
+                <filter
+                    string="Current Season"
+                    name="current_season"
+                    domain="[('date_start', '&lt;=', context_today()), ('date_end', '&gt;=', context_today()), ('state', '=', 'active')]"
+                />
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]" />
+                <group expand="0" string="Group By">
+                    <filter string="Status" name="group_by_state" context="{'group_by': 'state'}" />
+                    <filter
+                        string="Start Date"
+                        name="group_by_date_start"
+                        context="{'group_by': 'date_start:month'}"
+                    />
+                    <filter
+                        string="End Date"
+                        name="group_by_date_end"
+                        context="{'group_by': 'date_end:month'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_spp_farm_season" model="ir.actions.act_window">
+        <field name="name">Agricultural Seasons</field>
+        <field name="res_model">spp.farm.season</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_spp_farm_season_search" />
+        <field name="context">{
+            'search_default_active': 1,
+            'search_default_current_season': 1
+        }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first agricultural season!
+            </p>
+            <p>
+                Organize your farming activities by seasons to better track and manage agricultural operations.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem
+        id="menu_farm_season"
+        name="Seasons"
+        parent="g2p_registry_base.g2p_configuration_menu_root"
+        action="action_spp_farm_season"
+        sequence="15"
+    />
+</odoo>
