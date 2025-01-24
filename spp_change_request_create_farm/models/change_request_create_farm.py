@@ -250,10 +250,11 @@ class ChangeRequestCreateFarm(models.Model):
             error_message.append(_("The Group Name is required!"))
         if not self.group_kind:
             error_message.append(_("The Group Kind is required!"))
-        if not self.farmer_family_name:
-            error_message.append(_("The Family Name is required!"))
-        if not self.farmer_given_name:
-            error_message.append(_("The Given Name is required!"))
+        if self.group_kind and self.group_kind.id == self.env.ref("spp_farmer_registry_base.kind_farm").id:
+            if not self.farmer_family_name:
+                error_message.append(_("The Family Name is required!"))
+            if not self.farmer_given_name:
+                error_message.append(_("The Given Name is required!"))
 
         if error_message:
             raise ValidationError("\n".join(error_message))
