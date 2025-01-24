@@ -7,9 +7,9 @@ from . import feed_items
 from . import extension_services
 from . import farm_asset
 from . import farm_details
+from . import group_membership
 from . import farmer
 from . import species
 from . import farm
 from . import land_record
 from . import base_import
-from . import group_membership

@@ -35,9 +35,10 @@
                                     <field name="attendance_date" />
                                     <field name="attendance_time" />
                                     <field name="attendance_type_id" />
-                                    <field name="attendance_location_id" />
-                                    <field name="attendance_description" />
-                                    <field name="attendance_external_url" />
+                                    <field name="attendance_category" />
+                                    <field name="attendance_location_id" optional="hide" />
+                                    <field name="attendance_description" optional="hide" />
+                                    <field name="attendance_external_url" optional="hide" />
                                     <field name="submission_source" />
                                     <field name="submitted_by" />
                                     <field name="submitted_datetime" />
