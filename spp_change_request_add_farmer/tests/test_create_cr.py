@@ -79,7 +79,7 @@ class ChangeRequestAddFarmerTest(TransactionCase):
             "birth_place": "Hometown",
             "birthdate_not_exact": True,
             "birthdate": "1990-01-01",
-            "gender": gender.value,
+            "gender": gender.id,
             "image_1920": None,
             "experience_years": 2,
             "formal_agricultural_training": True,
