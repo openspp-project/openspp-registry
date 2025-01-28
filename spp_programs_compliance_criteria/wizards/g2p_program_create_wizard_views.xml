@@ -35,42 +35,6 @@
                             required="compliance_kind == 'g2p.program_membership.manager.default'"
                         />
                     </group>
-                    <group
-                        name="compliance_sql"
-                        colspan="4"
-                        col="4"
-                        invisible="compliance_kind != 'g2p.program_membership.manager.sql'"
-                    >
-                        <field name="compliance_sql" colspan="4" />
-                        <label for="compliance_sql_query_valid" />
-                        <div colspan="3">
-                            <field
-                                name="compliance_sql_query_valid"
-                                readonly="1"
-                                force_save="1"
-                                class="oe_inline"
-                            />
-                            <button
-                                name="test_compliance_sql_query"
-                                type="object"
-                                icon="fa-check-square-o"
-                                title="Validate Query"
-                                class="btn-success"
-                                style="margin-left: 10px;"
-                                string="Validate Query"
-                            />
-                        </div>
-                    </group>
-                    <group
-                        name="compliance_tags"
-                        invisible="compliance_kind != 'g2p.program_membership.manager.tags'"
-                    >
-                        <field
-                            name="compliance_tag_id"
-                            options="{'no_open': True, 'no_create_edit': True}"
-                            required="compliance_kind == 'g2p.program_membership.manager.tags'"
-                        />
-                    </group>
                 </page>
             </xpath>
         </field>

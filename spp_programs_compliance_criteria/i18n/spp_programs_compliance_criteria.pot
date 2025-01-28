@@ -323,11 +323,6 @@ msgid "State"
 msgstr ""
 
 #. module: spp_programs_compliance_criteria
-#: model:ir.model.fields.selection,name:spp_programs_compliance_criteria.selection__g2p_program_create_wizard__compliance_kind__g2p_program_membership_manager_tags
-msgid "Tag-based"
-msgstr ""
-
-#. module: spp_programs_compliance_criteria
 #: model:ir.model.fields.selection,name:spp_programs_compliance_criteria.selection__g2p_program_create_wizard__compliance_sql_query_valid__valid
 msgid "Valid"
 msgstr ""
