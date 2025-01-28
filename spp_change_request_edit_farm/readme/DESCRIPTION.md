@@ -1,4 +1,4 @@
-# OpenSPP Change Request: Create Group
+# OpenSPP Change Request: Edit Farm
 
 ## Overview
 
@@ -31,7 +31,7 @@ The module relies heavily on the following modules:
 * **Automated Individual and Membership Creation**: Upon validation and approval of the change request, the module automatically creates:
     * A new individual registrant record (`res.partner`) for the Individual, populating it with the submitted data.
     * A corresponding group membership record (`g2p.group.membership`), linking the newly created Individual to the designated group.
-* **Enhanced User Interface**: Adds specific menu items and actions to the OpenSPP interface, allowing users to efficiently manage `Create Group` requests.
+* **Enhanced User Interface**: Adds specific menu items and actions to the OpenSPP interface, allowing users to efficiently manage `Edit Farm` requests.
 
 ## Conclusion
 
