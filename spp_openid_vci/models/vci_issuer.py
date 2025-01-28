@@ -1,4 +1,10 @@
+import logging
+
+import requests
+
 from odoo import api, models
+
+_logger = logging.getLogger(__name__)
 
 
 class CustomOpenIDVCIssuer(models.Model):
@@ -27,3 +33,18 @@ class CustomOpenIDVCIssuer(models.Model):
         ret = dict(credential)
         ret["proof"] = ld_proof
         return ret
+
+    def get_auth_jwks(
+        self,
+        auth_issuer: str,
+        auth_allowed_issuers: list[str],
+        auth_allowed_jwks_urls: list[str],
+    ):
+        self.ensure_one()
+        jwk_url = None
+        try:
+            jwk_url = auth_allowed_jwks_urls[auth_allowed_issuers.index(auth_issuer)]
+        except Exception:
+            jwk_url = f'{auth_issuer.rstrip("/")}/.well-known/jwks.json'
+        _logger.info(f"Getting JWKS from {jwk_url}")
+        return requests.get(jwk_url, timeout=20).json()
