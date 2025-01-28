@@ -1,0 +1,16 @@
+<odoo noupdate="0">
+
+    <!-- Record Rules -->
+    <record model="ir.rule" id="validators_allowed_edit_farm_cr_rule">
+        <field name="name">CR Demo: Edit Farm allowed validators</field>
+        <field name="model_id" ref="spp_change_request_edit_farm.model_spp_change_request_edit_farm" />
+        <field name="domain_force">[]</field>
+        <field name="perm_read" eval="False" />
+        <field name="perm_write" eval="True" />
+        <field name="perm_create" eval="True" />
+        <field name="perm_unlink" eval="True" />
+        <field name="groups" eval="[(4, ref('spp_change_request.group_spp_change_request_validator'))]" />
+    </record>
+
+
+</odoo>
