@@ -95,7 +95,7 @@ class ChangeRequestAddFarmerTest(TransactionCase):
     def test_01_validate_cr_without_attachments(self):
         vals = self.get_vals()
         self.res_id.write(vals)
-        with self.assertRaisesRegex(ValidationError, "The required document Add Farmer Request Form is missing."):
+        with self.assertRaisesRegex(ValidationError, "The required document Edit Farm Request Form is missing."):
             self.res_id.action_submit()
 
     # TODO: removed below test cases because they are having errors in the CI
@@ -113,9 +113,9 @@ class ChangeRequestAddFarmerTest(TransactionCase):
     #     vals = {
     #         "content": file,
     #         "name": filename,
-    #         "category_id": self.env.ref("spp_change_request_add_farmer.spp_dms_add_farmer").id,
+    #         "category_id": self.env.ref("spp_change_request_edit_farm.spp_dms_edit_farm").id,
     #         "directory_id": self.res_id.dms_directory_ids[0].id,
-    #         "change_request_add_farmer_id": self.res_id.id,
+    #         "change_request_edit_farm_id": self.res_id.id,
     #     }
     #     self.env["spp.dms.file"].create(vals)
     #     self.res_id.action_submit()
@@ -164,9 +164,9 @@ class ChangeRequestAddFarmerTest(TransactionCase):
         vals = {
             "content": file,
             "name": filename,
-            "category_id": self.env.ref("spp_change_request_add_farmer.spp_dms_add_farmer").id,
+            "category_id": self.env.ref("spp_change_request_edit_farm.spp_dms_edit_farm").id,
             "directory_id": self.res_id.dms_directory_ids[0].id,
-            "change_request_add_farmer_id": self.res_id.id,
+            "change_request_edit_farm_id": self.res_id.id,
         }
         self.env["spp.dms.file"].create(vals)
         error_message = [
@@ -194,9 +194,9 @@ class ChangeRequestAddFarmerTest(TransactionCase):
         vals = {
             "content": file,
             "name": filename,
-            "category_id": self.env.ref("spp_change_request_add_farmer.spp_dms_add_farmer").id,
+            "category_id": self.env.ref("spp_change_request_edit_farm.spp_dms_edit_farm").id,
             "directory_id": self.res_id.dms_directory_ids[0].id,
-            "change_request_add_farmer_id": self.res_id.id,
+            "change_request_edit_farm_id": self.res_id.id,
         }
         self.env["spp.dms.file"].create(vals)
         self.res_id.update_live_data()
@@ -220,9 +220,9 @@ class ChangeRequestAddFarmerTest(TransactionCase):
         vals = {
             "content": file,
             "name": filename,
-            "category_id": self.env.ref("spp_change_request_add_farmer.spp_dms_add_farmer").id,
+            "category_id": self.env.ref("spp_change_request_edit_farm.spp_dms_edit_farm").id,
             "directory_id": self.res_id.dms_directory_ids[0].id,
-            "change_request_add_farmer_id": self.res_id.id,
+            "change_request_edit_farm_id": self.res_id.id,
         }
         self.env["spp.dms.file"].create(vals)
         self.res_id.update_live_data()
