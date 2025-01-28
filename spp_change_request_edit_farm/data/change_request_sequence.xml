@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Part of OpenSPP. See LICENSE file for full copyright and licensing details.
+-->
+<odoo noupdate="0">
+
+    <record id="spp_cr_edit_farm_val_seq_local" model="spp.change.request.validation.sequence">
+        <field name="sequence">10</field>
+        <field name="stage_id" ref="spp_change_request_edit_farm.spp_cr_val_stage_local" />
+        <field name="request_type">spp.change.request.edit.farm</field>
+        <field name="validation_group_id" ref="spp_change_request.group_spp_change_request_local_validator" />
+        <field name="validation_group_state">both</field>
+    </record>
+
+    <record id="spp_cr_edit_farm_val_seq_hq" model="spp.change.request.validation.sequence">
+        <field name="sequence">20</field>
+        <field name="stage_id" ref="spp_change_request_edit_farm.spp_cr_val_stage_hq" />
+        <field name="request_type">spp.change.request.edit.farm</field>
+        <field name="validation_group_id" ref="spp_change_request.group_spp_change_request_hq_validator" />
+        <field name="validation_group_state">both</field>
+    </record>
+
+</odoo>
