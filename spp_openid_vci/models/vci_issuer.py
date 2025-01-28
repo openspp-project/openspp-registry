@@ -1,7 +1,5 @@
 import logging
 
-import requests
-
 from odoo import api, models
 
 _logger = logging.getLogger(__name__)
@@ -40,11 +38,14 @@ class CustomOpenIDVCIssuer(models.Model):
         auth_allowed_issuers: list[str],
         auth_allowed_jwks_urls: list[str],
     ):
+        # Override the method to get the JWKS from the encryption providers
         self.ensure_one()
-        jwk_url = None
-        try:
-            jwk_url = auth_allowed_jwks_urls[auth_allowed_issuers.index(auth_issuer)]
-        except Exception:
-            jwk_url = f'{auth_issuer.rstrip("/")}/.well-known/jwks.json'
-        _logger.info(f"Getting JWKS from {jwk_url}")
-        return requests.get(jwk_url, timeout=20).json()
+        encryption_providers = self.env["g2p.encryption.provider"].sudo().search([])
+        jwks = []
+        for prov in encryption_providers:
+            try:
+                prov_jwks = prov.get_jwks()
+                jwks.extend(prov_jwks.get("keys", []) if prov_jwks else [])
+            except Exception:
+                _logger.exception("Unable to get JWKS from list of encryption providers")
+        return {"keys": jwks}
