@@ -35,7 +35,11 @@ class SPPRegistry(models.Model):
             [("partner_id", "=", self.id), ("id_type", "=", vci_issuer.auth_sub_id_type_id.id)]
         )
         if not reg_id:
-            raise UserError(f"No Registrant found with this ID Type: {vci_issuer.auth_sub_id_type_id.name}.")
+            raise UserError(
+                _("Registrant ({registry_name}) does not have ID with ID Type {id_type}.").format(
+                    registry_name=self.name, id_type=vci_issuer.auth_sub_id_type_id.name
+                )
+            )
 
         issuer_data = self.env["g2p.openid.vci.issuers"].get_issuer_metadata_by_name(issuer_name=vci_issuer.name)
 
@@ -60,8 +64,6 @@ class SPPRegistry(models.Model):
         return self.env["g2p.openid.vci.issuers"].issue_vc(credential_request, signed_data)
 
     def registry_issue_card(self):
-        self.ensure_one()
-
         form_id = self.env.ref("spp_openid_vci.issue_card_wizard").id
         action = {
             "name": _("Issue Card"),
@@ -71,22 +73,22 @@ class SPPRegistry(models.Model):
             "view_type": "form",
             "res_model": "spp.issue.card.wizard",
             "target": "new",
-            "context": {
-                "default_partner_id": self.id,
-            },
         }
         return action
 
     def _issue_vc_qr(self, vci_issuer):
-        self.ensure_one()
+        for rec in self:
+            rec._validate_vci_issuer(vci_issuer)
 
-        self._validate_vci_issuer(vci_issuer)
+            result = rec._issue_vc(vci_issuer)
 
-        result = self._issue_vc(vci_issuer)
+            qr_img = create_qr_code(json.dumps(result))
 
-        qr_img = create_qr_code(json.dumps(result))
-
-        self.vc_qr_code = qr_img
+            rec.vc_qr_code = qr_img
 
         admission_form = self.env.ref("spp_openid_vci.action_generate_id_card").report_action(self, config=False)
+
         return admission_form
+
+    def _get_vc_issue_file_name(self):
+        return "ID Card - %s" % self.name.replace("/", "").strip()

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.actions.server" id="vc_modal_generator">
+        <field name="name">Issue Card</field>
+        <field name="model_id" ref="base.model_res_partner" />
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">action = model.registry_issue_card()</field>
+        <field name="groups_id" eval="[(4, ref('spp_openid_vci.generate_vc'))]" />
+    </record>
+
+</odoo>

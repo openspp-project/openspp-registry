@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="reset_to_pending_entitlement_wizard" model="ir.ui.view">
+        <field name="name">reset_to_pending_entitlement_wizard</field>
+        <field name="model">spp.reset.pending.entitlement.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="entitlement_ids" nolabel="1" colspan="2">
+                        <tree create="0" editable="bottom">
+                            <field name="cycle_id" />
+                            <field name="entitlement_id" column_invisible="1" />
+                            <field name="partner_id" readonly="1" />
+                            <field name="code" readonly="1" />
+                            <field name="initial_amount" string="Amount" />
+                            <field name="currency_id" readonly="1" />
+                        </tree>
+                    </field>
+                </sheet>
+                <footer>
+                    <button
+                        name="reset_to_pending"
+                        string="Reset to Pending"
+                        type="object"
+                        class="oe_highlight"
+                        title="Reset to Pending"
+                    />
+                    <button
+                        name="close_wizard"
+                        string="Cancel"
+                        type="object"
+                        class="btn-secondary"
+                        title="Cancel"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_reset_to_pending_entitlement_wizard" model="ir.actions.act_window">
+        <field name="name">Reset to Pending Entitlement</field>
+        <field name="res_model">spp.reset.pending.entitlement.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

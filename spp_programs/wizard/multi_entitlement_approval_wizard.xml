@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="inherit_multi_entitlement_approval_wizard_form_view" model="ir.ui.view">
+        <field name="name">inherit_multi_entitlement_approval_wizard_form_view</field>
+        <field name="model">g2p.multi.entitlement.approval.wizard</field>
+        <field name="inherit_id" ref="g2p_programs.multi_entitlement_approval_wizard_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='entitlement_ids']" position="before">
+                <group name="fields">
+                    <field name="number_of_beneficiaries" />
+                </group>
+            </xpath>
+            <xpath
+                expr="//field[@name='entitlement_ids']/tree/field[@name='initial_amount']"
+                position="attributes"
+            >
+                <attribute name="sum">total_initial_amount</attribute>
+                <attribute name="readonly">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

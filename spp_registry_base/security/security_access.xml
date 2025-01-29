@@ -1,0 +1,36 @@
+<odoo>
+    <record model="ir.module.category" id="registry_access_module">
+        <field name="name">Registry Access</field>
+        <field name="description">User access level for Registry</field>
+        <field name="sequence">3</field>
+    </record>
+
+    <record id="read_registry" model="res.groups">
+        <field name="name">Read Registry</field>
+        <field name="category_id" ref="spp_registry_base.registry_access_module" />
+        <field
+            name="users"
+            eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"
+        />
+    </record>
+
+    <record id="write_registry" model="res.groups">
+        <field name="name">Write Registry</field>
+        <field name="category_id" ref="spp_registry_base.registry_access_module" />
+        <field name="implied_ids" eval="[Command.link(ref('spp_registry_base.read_registry'))]" />
+        <field
+            name="users"
+            eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"
+        />
+    </record>
+
+    <record id="create_registry" model="res.groups">
+        <field name="name">Create Registry</field>
+        <field name="category_id" ref="spp_registry_base.registry_access_module" />
+        <field name="implied_ids" eval="[Command.link(ref('spp_registry_base.read_registry'))]" />
+        <field
+            name="users"
+            eval="[Command.link(ref('base.user_root')), Command.link(ref('base.user_admin'))]"
+        />
+    </record>
+</odoo>

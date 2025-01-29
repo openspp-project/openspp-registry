@@ -7,7 +7,7 @@
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">spp_openid_vci.id_vc_card</field>
         <field name="report_file">spp_openid_vci.id_vc_card</field>
-        <field name="print_report_name">'ID Card - %s' % (object.name).replace('/', '').strip()</field>
+        <field name="print_report_name">(object._get_vc_issue_file_name())</field>
         <field name="paperformat_id" ref="spp_openid_vci.paperformat_a4" />
         <field name="binding_model_id" ref="model_res_partner" />
         <field name="binding_type">report</field>
@@ -42,6 +42,13 @@
                 .tr-title td {
                     text-align: center;
                     margin-bottom: 16px;
+                }
+                /* New CSS for page breaks */
+                .page {
+                    page-break-before: always; /* Insert a page break before each .page element */
+                }
+                .page:first-of-type {
+                    page-break-before: auto; /* Avoid a page break before the first .page element */
                 }
             </style>
             <t t-foreach="docs" t-as="doc">

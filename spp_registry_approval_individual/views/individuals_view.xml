@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="inherit_view_individuals_list_tree" model="ir.ui.view">
+        <field name="name">inherit_view_individuals_list_tree</field>
+        <field name="model">res.partner</field>
+        <field name="priority">100</field>
+        <field name="inherit_id" ref="g2p_registry_individual.view_individuals_list_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field
+                    name="state"
+                    widget="badge"
+                    decoration-info="state == 'draft'"
+                    decoration-success="state == 'approved'"
+                    decoration-danger="state == 'rejected'"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_individuals_form" model="ir.ui.view">
+        <field name="name">res.partner.view.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="g2p_registry_individual.view_individuals_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <field name="id" invisible="1" />
+                <header>
+                    <button
+                        name="approve_registry"
+                        type="object"
+                        string="Approve"
+                        class="btn-success"
+                        icon="fa-check"
+                        title="Approve"
+                        groups="spp_registry_approval.approve_registry"
+                        invisible="state != 'draft' or not id"
+                        confirm="Are you sure you want to approve this registry?"
+                    />
+                    <button
+                        name="reject_registry"
+                        type="object"
+                        string="Reject"
+                        class="btn-danger"
+                        icon="fa-times"
+                        title="Reject"
+                        groups="spp_registry_approval.reject_registry"
+                        invisible="state != 'draft' or not id"
+                        confirm="Are you sure you want to reject this registry?"
+                    />
+                    <button
+                        name="reset_to_draft_registry"
+                        type="object"
+                        string="Reset to Draft"
+                        class="btn-primary"
+                        icon="fa-repeat"
+                        title="Reset to Draft"
+                        groups="spp_registry_approval.reset_to_draft_registry"
+                        invisible="state == 'draft' or not id"
+                        confirm="Are you sure you want to reset this registry back to draft?"
+                    />
+                    <field name="state" widget="statusbar" />
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="g2p_registry_individual.menu_individuals_list" model="ir.ui.menu">
+        <field name="action" eval="False" />
+    </record>
+
+    <!-- For All Individuals -->
+    <menuitem
+        id="menu_all_individuals_list"
+        name="All Individuals"
+        action="g2p_registry_individual.action_individuals_list"
+        parent="g2p_registry_individual.menu_individuals_list"
+        sequence="10"
+        groups="g2p_registry_base.group_g2p_admin,g2p_registry_base.group_g2p_registrar,spp_registry_base.read_registry"
+    />
+
+    <!-- For Draft Individuals -->
+    <record id="action_draft_individuals_list" model="ir.actions.act_window">
+        <field name="name">Draft Individuals</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="g2p_registry_individual.view_registry_individuals_filter" />
+        <field
+            name="context"
+        >{'default_is_registrant':True,'default_is_group':False,'registrant_form':True}</field>
+        <field
+            name="domain"
+        >[('is_registrant', '=', True),('is_group','=',False),('state', '=', 'draft')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new individual registrant!
+            </p><p>
+                Click the create button to enter the new registrant's information.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_draft_individuals_list_tree_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="g2p_registry_individual.view_individuals_list_tree" />
+        <field name="act_window_id" ref="action_draft_individuals_list" />
+    </record>
+
+    <record id="action_draft_individuals_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="g2p_registry_individual.view_individuals_form" />
+        <field name="act_window_id" ref="action_draft_individuals_list" />
+    </record>
+
+    <menuitem
+        id="menu_draft_individuals_list"
+        name="Draft Individuals"
+        action="action_draft_individuals_list"
+        parent="g2p_registry_individual.menu_individuals_list"
+        sequence="15"
+        groups="g2p_registry_base.group_g2p_admin,g2p_registry_base.group_g2p_registrar,spp_registry_base.read_registry"
+    />
+
+    <!-- For Approved Individuals -->
+    <record id="action_approve_individuals_list" model="ir.actions.act_window">
+        <field name="name">Approved Individuals</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="g2p_registry_individual.view_registry_individuals_filter" />
+        <field
+            name="context"
+        >{'default_is_registrant':True,'default_is_group':False,'registrant_form':True,'create':False,'edit':False}</field>
+        <field
+            name="domain"
+        >[('is_registrant', '=', True),('is_group','=',False),('state', '=', 'approved')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new individuals registrant!
+            </p><p>
+                Click the create button to enter the new registrant's information.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_approve_individuals_list_tree_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="g2p_registry_individual.view_individuals_list_tree" />
+        <field name="act_window_id" ref="action_approve_individuals_list" />
+    </record>
+
+    <record id="action_approve_individuals_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="g2p_registry_individual.view_individuals_form" />
+        <field name="act_window_id" ref="action_approve_individuals_list" />
+    </record>
+
+    <menuitem
+        id="menu_approve_individuals_list"
+        name="Approved Individuals"
+        action="action_approve_individuals_list"
+        parent="g2p_registry_individual.menu_individuals_list"
+        sequence="20"
+        groups="g2p_registry_base.group_g2p_admin,g2p_registry_base.group_g2p_registrar,spp_registry_base.read_registry"
+    />
+
+    <!-- For Rejected Individuals -->
+    <record id="action_rejected_individuals_list" model="ir.actions.act_window">
+        <field name="name">Rejected Individualss</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="g2p_registry_individual.view_registry_individuals_filter" />
+        <field
+            name="context"
+        >{'default_is_registrant':True,'default_is_group':False,'registrant_form':True,'create':False,'edit':False}</field>
+        <field
+            name="domain"
+        >[('is_registrant', '=', True),('is_group','=',False),('state', '=', 'rejected')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new individuals registrant!
+            </p><p>
+                Click the create button to enter the new registrant's information.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_rejected_individuals_list_tree_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="g2p_registry_individual.view_individuals_list_tree" />
+        <field name="act_window_id" ref="action_rejected_individuals_list" />
+    </record>
+
+    <record id="action_rejected_individuals_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="g2p_registry_individual.view_individuals_form" />
+        <field name="act_window_id" ref="action_rejected_individuals_list" />
+    </record>
+
+    <menuitem
+        id="menu_rejected_individuals_list"
+        name="Rejected Individuals"
+        action="action_rejected_individuals_list"
+        parent="g2p_registry_individual.menu_individuals_list"
+        sequence="25"
+        groups="g2p_registry_base.group_g2p_admin,g2p_registry_base.group_g2p_registrar,spp_registry_base.read_registry"
+    />
+</odoo>
