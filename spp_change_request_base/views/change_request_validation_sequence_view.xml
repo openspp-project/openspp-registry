@@ -1,0 +1,124 @@
+<!--
+Part of OpenSPP. See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+    <record id="view_change_request_validation_sequence_tree" model="ir.ui.view">
+        <field name="name">view_change_request_validation_sequence_tree</field>
+        <field name="model">spp.change.request.validation.sequence</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree sample="1" editable="bottom">
+                <field name="sequence" widget="handle" />
+                <field name="request_type" />
+                <field name="stage_id" options="{'no_create_edit':true}" />
+                <field
+                    name="validation_group_id"
+                    string="Validation Group"
+                    domain="[('category_id','=',%(spp_change_request.spp_change_request_module)d)]"
+                    options="{'no_open':true,'no_edit':true,'no_create':true}"
+                />
+                <field name="validation_group_state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_change_request_validation_sequence_form" model="ir.ui.view">
+        <field name="name">view_change_request_validation_sequence_form</field>
+        <field name="model">spp.change.request.validation.sequence</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Change Request Validation Sequence">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <div class="oe_title mb24">
+                        <label for="request_type" string="Request Type:" />
+                        <h2>
+                            <field name="request_type" />
+                        </h2>
+                    </div>
+                    <group colspan="4" col="4">
+                        <field name="stage_id" options="{'no_create_edit':true}" />
+                        <field
+                            name="validation_group_id"
+                            string="Validation Group"
+                            domain="[('category_id','=',%(spp_change_request.spp_change_request_module)d)]"
+                            options="{'no_open':true,'no_edit':true,'no_create':true}"
+                        />
+                        <field name="validation_group_state" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="change_request_validation_sequence_filter" model="ir.ui.view">
+        <field name="name">change_request_validation_sequence_filter</field>
+        <field name="model">spp.change.request.validation.sequence</field>
+        <field name="priority" eval="1" />
+        <field name="arch" type="xml">
+            <search string="Search Change Request">
+                <field name="request_type" />
+                <field name="stage_id" />
+                <field name="validation_group_id" />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Request Type"
+                        name="grp_request_type"
+                        context="{'group_by': 'request_type'}"
+                    />
+                    <filter string="Stage" name="grp_stage_id" context="{'group_by': 'stage_id'}" />
+                    <filter
+                        string="Validation Group"
+                        name="grp_validation_group_id"
+                        context="{'group_by': 'validation_group_id'}"
+                    />
+                </group>
+                <!-- <searchpanel>
+                    <field name="request_type" icon="fa-users"/>
+                </searchpanel> -->
+            </search>
+        </field>
+    </record>
+
+    <record id="action_change_request_validation_sequence" model="ir.actions.act_window">
+        <field name="name">Validation Sequences</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">spp.change.request.validation.sequence</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="change_request_validation_sequence_filter" />
+        <field name="context">{'search_default_grp_request_type':1}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new validation sequence by request type!
+            </p><p>
+                Click the create button to enter a new validation sequence.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_change_request_validation_sequence_tree_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_change_request_validation_sequence_tree" />
+        <field name="act_window_id" ref="action_change_request_validation_sequence" />
+    </record>
+
+    <record id="action_change_request_validation_sequence_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_change_request_validation_sequence_form" />
+        <field name="act_window_id" ref="action_change_request_validation_sequence" />
+    </record>
+
+    <menuitem
+        id="menu_change_request_validation_sequence"
+        name="Validation Sequence"
+        action="action_change_request_validation_sequence"
+        parent="spp_change_request_config_root"
+        sequence="1"
+        groups="base.group_system"
+    />
+
+</odoo>

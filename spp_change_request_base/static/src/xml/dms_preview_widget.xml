@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <span t-name="dms_preview">
+        <button type="button" t-att-class="widget.classes">
+            <i t-att-class="widget.icon" />
+            <t t-esc="widget.text" />
+        </button>
+    </span>
+
+</templates>

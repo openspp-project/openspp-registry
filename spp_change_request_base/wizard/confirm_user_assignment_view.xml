@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+   Part of OpenSPP. See LICENSE file for full copyright and licensing details.
+-->
+<odoo>
+    <record id="change_request_user_assign_wizard" model="ir.ui.view">
+        <field name="name">change_request_user_assign_wizard</field>
+        <field name="model">spp.change.request.user.assign.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div>
+                        <h3>
+                            <field name="dialog_message" readonly="1" />
+                        </h3>
+                    </div>
+                    <group>
+                        <field
+                            name="assign_to_id"
+                            options="{'no_create':True,'no_edit':True,'no_open':True}"
+                            invisible="not assign_to_any"
+                        />
+                    </group>
+                    <field name="change_request_id" invisible="1" />
+                    <field name="curr_assign_to_id" invisible="1" />
+                    <field name="assign_to_any" invisible="1" />
+                    <field name="assign_to_id_domain" invisible="1" />
+                </sheet>
+                <footer>
+                    <button name="assign_to_user" string="YES" type="object" class="oe_highlight" />
+                    <button string="NO" class="btn-danger" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_change_request_user_assign_wizard" model="ir.actions.act_window">
+        <field name="name">Assign Change Request to User</field>
+        <field name="res_model">spp.change.request.user.assign.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

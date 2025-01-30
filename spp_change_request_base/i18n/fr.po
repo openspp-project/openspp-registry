@@ -1,0 +1,1502 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* spp_change_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-11-23 05:02+0000\n"
+"Last-Translator: Weblate Admin <rj@newlogic.com>\n"
+"Language-Team: French <https://translate.openspp.org/projects/openspp/"
+"spp_change_request/fr/>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.14\n"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid ""
+"<span class=\"o_stat_text\">Assign</span>\n"
+"                                <span class=\"o_stat_text\">To Me</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Attribuer</span> \n"
+"                                  <span class=\"o_stat_text\">À Moi</span>"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "<span class=\"o_stat_text\">Reassign</span>"
+msgstr "<span class=\"o_stat_text\">Réaffecter</span>"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, python-format
+msgid "A group must be selected."
+msgstr "Il faut sélectionner un groupe."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, python-format
+msgid ""
+"A new change request was submitted. The next step will set this request to "
+"'Pending Validation'."
+msgstr ""
+"Une nouvelle demande de modification a été soumise. L'étape suivante "
+"définira cette demande sur \"Validation en attente\"."
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__message_needaction
+msgid "Action Needed"
+msgstr "Action nécessaire"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__activity_ids
+msgid "Activities"
+msgstr "Activités"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Décoration d'exception d'activité"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__activity_state
+msgid "Activity State"
+msgstr "État d'activité"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icône du type d'activité"
+
+#. module: spp_change_request
+#: model_terms:ir.actions.act_window,help:spp_change_request.action_change_request
+#: model_terms:ir.actions.act_window,help:spp_change_request.action_change_request_validated
+msgid "Add a new change request!"
+msgstr "Ajoutez une nouvelle demande de modification !"
+
+#. module: spp_change_request
+#: model_terms:ir.actions.act_window,help:spp_change_request.action_change_request_validation_sequence
+msgid "Add a new validation sequence by request type!"
+msgstr "Ajoutez une nouvelle séquence de validation par type de requête !"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_source_mixin__group_address
+msgid "Address"
+msgstr "Adresse"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__age
+msgid "Age"
+msgstr "Âge"
+
+#. module: spp_change_request
+#: model:ir.actions.act_window,name:spp_change_request.action_change_request
+#: model:ir.ui.menu,name:spp_change_request.menu_change_request
+msgid "All Requests"
+msgstr "Toutes les demandes"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, python-format
+msgid "An error was encountered in applying the changes: %s"
+msgstr ""
+"Une erreur a été rencontrée lors de l'application des modifications : %s"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__applicant_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_source_mixin__applicant_id
+#, fuzzy
+msgid "Applicant"
+msgstr "Appliqué"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "Applicant Details"
+msgstr "Ouvrir les détails"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__applicant_id_domain
+msgid "Applicant Id Domain"
+msgstr "Domaine d'identifiant du demandeur"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Applicant Information"
+msgstr "Informations sur le demandeur"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__applicant_phone
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_source_mixin__applicant_phone
+msgid "Applicant's Phone Number"
+msgstr "Numéro de téléphone"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Applicant:"
+msgstr "Demandeur :"
+
+#. module: spp_change_request
+#: model:ir.model.fields.selection,name:spp_change_request.selection__spp_change_request__state__applied
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Applied"
+msgstr "Appliqué"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__applied_by_id
+msgid "Applied by"
+msgstr "Appliqué par"
+
+#. module: spp_change_request
+#: model:mail.activity.type,name:spp_change_request.apply_changes_activity
+msgid "Apply Change Request"
+msgstr "Appliquer la demande de modification"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Apply Changes"
+msgstr "Appliquer les modifications"
+
+#. module: spp_change_request
+#: model:ir.model.fields.selection,name:spp_change_request.selection__spp_change_request_validation_sequence__validation_group_state__both
+msgid "Apply to Both"
+msgstr "À appliquer aux deux"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_dms_file_spp_custom_form
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/wizard/cancel_change_request.py:0
+#, python-format
+msgid "Are you sure you would like to cancel this request: %s"
+msgstr "Êtes-vous sûr de vouloir annuler cette demande : %s ?"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/wizard/reject_change_request.py:0
+#, python-format
+msgid "Are you sure you would like to reject this request: %s"
+msgstr "Êtes-vous sûr de vouloir rejeter cette demande : %s ?"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#: model:ir.actions.act_window,name:spp_change_request.action_change_request_user_assign_wizard
+#, python-format
+msgid "Assign Change Request to User"
+msgstr "Attribuer la demande de modification a l'utilisateur"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__assign_to
+msgid "Assign To"
+msgstr "Attribuer à"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__assign_to_any
+msgid "Assign To Any"
+msgstr "Attribuer à n'importe qui"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__assign_to_id_domain
+msgid "Assign To Id Domain"
+msgstr "Affecter à l'ID du domaine"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/wizard/confirm_user_assignment.py:0
+#, python-format
+msgid "Assign this change request to:"
+msgstr "Ajoutez une nouvelle demande de modification !"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Assigned To"
+msgstr "Attribué à"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__assign_to_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_source_mixin__assign_to_id
+#, fuzzy
+msgid "Assigned to"
+msgstr "Attribué à"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__message_attachment_count
+msgid "Attachment Count"
+msgstr "Nombre de pièces jointes"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, python-format
+msgid "CR Reset to Draft"
+msgstr "Réinitialisation de la demande de modification en brouillon"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "CREATE"
+msgstr "CRÉER"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_cancel_wizard
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_reject_wizard
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#: model:ir.actions.act_window,name:spp_change_request.action_change_request_cancel_wizard
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+#, python-format
+msgid "Cancel Change Request"
+msgstr "Rechercher une demande de modification"
+
+#. module: spp_change_request
+#: model:mail.activity.type,name:spp_change_request.cancel_activity
+msgid "Cancel Request"
+msgstr "Demande d&#39;annulation"
+
+#. module: spp_change_request
+#: model:ir.model.fields.selection,name:spp_change_request.selection__spp_change_request__state__cancelled
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__cancelled_by_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__reset_to_draft_by_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_cancel_wizard__cancelled_by_id
+msgid "Cancelled by"
+msgstr "Créé par"
+
+#. module: spp_change_request
+#: model:ir.model,name:spp_change_request.model_spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_cancel_wizard__change_request_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_reject_wizard__change_request_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_source_mixin__change_request_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__change_request_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validators__request_id
+#: model:ir.ui.menu,name:spp_change_request.spp_change_request_menu_root
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Change Request"
+msgstr "Changer de requête"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_filter
+msgid "Change Request #"
+msgstr "Demande de changement #"
+
+#. module: spp_change_request
+#: model:res.groups,name:spp_change_request.group_spp_change_request_administrator
+msgid "Change Request Administrator"
+msgstr "Administrateur des demandes de modification"
+
+#. module: spp_change_request
+#: model:res.groups,name:spp_change_request.group_spp_change_request_agent
+#, fuzzy
+msgid "Change Request Agent"
+msgstr "Changer de requête"
+
+#. module: spp_change_request
+#: model:res.groups,name:spp_change_request.group_spp_change_request_applicator
+msgid "Change Request Applicator"
+msgstr "Validateur de demande de changement"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "Change Request Applied"
+msgstr "Modèle de demande de modification"
+
+#. module: spp_change_request
+#: model:ir.model,name:spp_change_request.model_spp_change_request_cancel_wizard
+msgid "Change Request Cancel Wizard"
+msgstr "Assistant d&#39;annulation de demande d'annulation"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, python-format
+msgid "Change Request Cancelled"
+msgstr "Demande de modification annulée"
+
+#. module: spp_change_request
+#: model:dms.access.group,name:spp_change_request.dms_access_group
+msgid "Change Request DMS Group"
+msgstr "Groupe DMS de demande de changement"
+
+#. module: spp_change_request
+#: model:ir.model,name:spp_change_request.model_spp_change_request_source_mixin
+msgid "Change Request Data Source Mixin"
+msgstr "Mélange de source de données de demande de modification"
+
+#. module: spp_change_request
+#: model:mail.activity.type,name:spp_change_request.validation_activity
+msgid "Change Request For Validation"
+msgstr "Demande de modification pour validation"
+
+#. module: spp_change_request
+#: model:ir.module.category,name:spp_change_request.spp_change_request_module
+msgid "Change Request Module Access"
+msgstr "Accès au module de demande de modification"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "Change Request Partially Validated"
+msgstr "Demande de modification pour validation"
+
+#. module: spp_change_request
+#: model:mail.activity.type,name:spp_change_request.pending_validation_activity
+msgid "Change Request Pending Validation"
+msgstr "Demande de modification en attente de validation"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "Change Request Rejected"
+msgstr "Modèle de demande de modification"
+
+#. module: spp_change_request
+#: model:ir.model,name:spp_change_request.model_spp_change_request_reject_wizard
+#, fuzzy
+msgid "Change Request Rejection Wizard"
+msgstr "Administrateur des demandes de modification"
+
+#. module: spp_change_request
+#: model:mail.activity.type,name:spp_change_request.reset_draft_activity
+#, fuzzy
+msgid "Change Request Reset to Draft"
+msgstr "Administrateur des demandes de modification"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__request_type_ref_id
+msgid "Change Request Template"
+msgstr "Modèle de demande de modification"
+
+#. module: spp_change_request
+#: model:ir.model,name:spp_change_request.model_spp_change_request_user_assign_wizard
+#, fuzzy
+msgid "Change Request User Assignment Wizard"
+msgstr "Administrateur des demandes de modification"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "Change Request Validated"
+msgstr "Validateur de demande de changement"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__validation_group_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence__validation_group_id
+msgid "Change Request Validation Group"
+msgstr "Groupe de validation des demandes de changement"
+
+#. module: spp_change_request
+#: model:ir.model,name:spp_change_request.model_spp_change_request_validation_sequence
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_validation_sequence_form
+msgid "Change Request Validation Sequence"
+msgstr "Séquence de validation de la demande de changement"
+
+#. module: spp_change_request
+#: model:ir.model,name:spp_change_request.model_spp_change_request_validation_sequence_mixin
+#, fuzzy
+msgid "Change Request Validation Sequence Mixin"
+msgstr "Séquence de Validation de Demande de Modification Mixin"
+
+#. module: spp_change_request
+#: model:ir.model,name:spp_change_request.model_spp_change_request_validation_stage
+msgid "Change Request Validation Stage"
+msgstr "Étape de validation de la demande de modification"
+
+#. module: spp_change_request
+#: model:res.groups,name:spp_change_request.group_spp_change_request_validator
+msgid "Change Request Validator"
+msgstr "Validateur de demande de changement"
+
+#. module: spp_change_request
+#: model:res.groups,name:spp_change_request.group_spp_change_request_hq_validator
+#, fuzzy
+msgid "Change Request Validator HQ"
+msgstr "Validateur de demande de changement"
+
+#. module: spp_change_request
+#: model:res.groups,name:spp_change_request.group_spp_change_request_local_validator
+#, fuzzy
+msgid "Change Request Validator Local"
+msgstr "Validateur de demande de changement"
+
+#. module: spp_change_request
+#: model:ir.model,name:spp_change_request.model_spp_change_request_validators
+msgid "Change Request Validators"
+msgstr "Validateurs de demande de changement"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_res_partner__change_request_ids
+#: model:ir.model.fields,field_description:spp_change_request.field_res_users__change_request_ids
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_group_ext_form_custom_spp_cr
+#, fuzzy
+msgid "Change Requests"
+msgstr "Changer de requête"
+
+#. module: spp_change_request
+#: model_terms:ir.actions.act_window,help:spp_change_request.action_change_request
+#: model_terms:ir.actions.act_window,help:spp_change_request.action_change_request_validated
+msgid "Click the create button to enter a new change request."
+msgstr ""
+"Cliquez sur le bouton Créer pour saisir une nouvelle demande de modification."
+
+#. module: spp_change_request
+#: model_terms:ir.actions.act_window,help:spp_change_request.action_change_request_validation_sequence
+msgid "Click the create button to enter a new validation sequence."
+msgstr ""
+"Cliquez sur le bouton Créer pour saisir une nouvelle séquence de validation."
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_dms_file_spp_custom_form
+#, fuzzy
+msgid "Close"
+msgstr "Fermer"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__company_id
+msgid "Company"
+msgstr "Compagnie"
+
+#. module: spp_change_request
+#: model:ir.ui.menu,name:spp_change_request.spp_change_request_config_root
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_cancel_wizard
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_reject_wizard
+#, fuzzy
+msgid "Confirm"
+msgstr "Configuration"
+
+#. module: spp_change_request
+#: model:ir.model,name:spp_change_request.model_res_partner
+#, fuzzy
+msgid "Contact"
+msgstr "Contact"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__create_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_cancel_wizard__create_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__create_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_reject_wizard__create_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__create_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence__create_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_stage__create_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validators__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__create_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_cancel_wizard__create_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__create_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_reject_wizard__create_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__create_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence__create_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_stage__create_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validators__create_date
+msgid "Created on"
+msgstr "Créé sur"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__current_user_assigned
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_source_mixin__current_user_assigned
+#, fuzzy
+msgid "Current User Assigned"
+msgstr "Utilisateur actuel assigné"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__curr_assign_to_id
+#, fuzzy
+msgid "Currently Assigned to"
+msgstr "Actuellement assigné à"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_dms_file__dms_directory_ids
+#: model:ir.model.fields,field_description:spp_change_request.field_res_partner__dms_directory_ids
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__dms_directory_ids
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_cancel_wizard__dms_directory_ids
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__dms_directory_ids
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_reject_wizard__dms_directory_ids
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_source_mixin__dms_directory_ids
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__dms_directory_ids
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence__dms_directory_ids
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence_mixin__dms_directory_ids
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_stage__dms_directory_ids
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validators__dms_directory_ids
+msgid "DMS Directories"
+msgstr "Annuaires DMS"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_source_mixin__dms_file_ids
+#, fuzzy
+msgid "DMS Files"
+msgstr "Fichiers DMS"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__date_applied
+msgid "Date Applied"
+msgstr "Date d'application"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__date_cancelled
+#, fuzzy
+msgid "Date Cancelled"
+msgstr "Date de Validation"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__date_rejected
+#, fuzzy
+msgid "Date Rejected"
+msgstr "Date demandée"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__date_requested
+msgid "Date Requested"
+msgstr "Date demandée"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__date_reset_to_draft
+#, fuzzy
+msgid "Date Reset To Draft"
+msgstr "Date de réinitialisation à l'état de brouillon"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__date_validated
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_source_mixin__date_validated
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validators__date_validated
+msgid "Date Validated"
+msgstr "Date de Validation"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__birthdate
+msgid "Date of Birth"
+msgstr "Date de naissance"
+
+#. module: spp_change_request
+#: model:ir.model.fields.selection,name:spp_change_request.selection__spp_change_request_validation_sequence__validation_group_state__destination
+#, fuzzy
+msgid "Destination Area"
+msgstr "Date d'inscription"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_cancel_wizard__dialog_message
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_reject_wizard__dialog_message
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__dialog_message
+#, fuzzy
+msgid "Dialog Message"
+msgstr "A un message"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__display_name
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_cancel_wizard__display_name
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__display_name
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_reject_wizard__display_name
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__display_name
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence__display_name
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_stage__display_name
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validators__display_name
+msgid "Display Name"
+msgstr "Afficher un nom"
+
+#. module: spp_change_request
+#: model:ir.model.fields.selection,name:spp_change_request.selection__spp_change_request__state__draft
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, python-format
+msgid "ERROR!"
+msgstr "ERREUR!"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__end_date
+msgid "End Date"
+msgstr "Date de fin"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, python-format
+msgid ""
+"Error in validation stages. No available stage to assign to this validation."
+msgstr ""
+"Erreur dans les étapes de validation. Aucune étape disponible à affecter à "
+"cette validation."
+
+#. module: spp_change_request
+#: model:ir.model,name:spp_change_request.model_dms_file
+#, fuzzy
+msgid "File"
+msgstr "Fichier"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_dms_file_spp_custom_form
+#, fuzzy
+msgid "Filename"
+msgstr "Nom de fichier"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_dms_file_spp_custom_form
+#, fuzzy
+msgid "Files"
+msgstr "Fichiers"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__message_follower_ids
+msgid "Followers"
+msgstr "Abonnés"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Abonnés (Partenaires)"
+
+#. module: spp_change_request
+#: model:ir.model.fields,help:spp_change_request.field_spp_change_request__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icône géniale de police, par exemple fa-tâches"
+
+#. module: spp_change_request
+#: model:ir.ui.menu,name:spp_change_request.spp_change_request_for_application_root
+#, fuzzy
+msgid "For Application"
+msgstr "Pour validation"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "For Application of Changes"
+msgstr "Appliquer les modifications"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, python-format
+msgid "For Pending Validation"
+msgstr "Validation en attente"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#: model:ir.ui.menu,name:spp_change_request.spp_change_request_pending_validation_root
+#, python-format
+msgid "For Validation"
+msgstr "Pour validation"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_validation_sequence_filter
+msgid "Group By"
+msgstr "Groupé par"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "Group Details"
+msgstr "Ouvrir les détails"
+
+#. module: spp_change_request
+#: model:ir.model,name:spp_change_request.model_spp_change_request_group_members
+msgid "Group Membership"
+msgstr "Appartenance à un groupe"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_cancel_wizard__id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_reject_wizard__id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence__id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_stage__id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validators__id
+msgid "ID"
+msgstr "ID"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__activity_exception_icon
+msgid "Icon"
+msgstr "Icône"
+
+#. module: spp_change_request
+#: model:ir.model.fields,help:spp_change_request.field_spp_change_request__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icône pour indiquer une activité d'exception."
+
+#. module: spp_change_request
+#: model:ir.model.fields,help:spp_change_request.field_spp_change_request__message_needaction
+#: model:ir.model.fields,help:spp_change_request.field_spp_change_request__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+"Si cette case est cochée, de nouveaux messages nécessitent votre attention."
+
+#. module: spp_change_request
+#: model:ir.model.fields,help:spp_change_request.field_spp_change_request__message_has_error
+#: model:ir.model.fields,help:spp_change_request.field_spp_change_request__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si cochée, certains messages présentent une erreur de livraison."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid "Incorrect phone number format"
+msgstr "Format du numéro de téléphone incorrect"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__message_is_follower
+msgid "Is Follower"
+msgstr "Est Abonné"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__last_activity_id
+msgid "Last Activity"
+msgstr "Dernière Activité"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request____last_update
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_cancel_wizard____last_update
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members____last_update
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_reject_wizard____last_update
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard____last_update
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence____last_update
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_stage____last_update
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validators____last_update
+msgid "Last Modified on"
+msgstr "Modification le"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__write_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_cancel_wizard__write_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__write_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_reject_wizard__write_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__write_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence__write_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_stage__write_uid
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validators__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__write_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_cancel_wizard__write_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__write_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_reject_wizard__write_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__write_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence__write_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_stage__write_date
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validators__write_date
+msgid "Last Updated on"
+msgstr "Mise à jour le"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_source_mixin__last_validated_by_id
+msgid "Last Validator"
+msgstr "Dernier validateur"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Pièce jointe principale"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__kind_ids
+msgid "Membership Types"
+msgstr "Types d'adhésion"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__message_has_error
+msgid "Message Delivery error"
+msgstr "Erreur de livraison du message"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__message_ids
+msgid "Messages"
+msgstr "Messages"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+#, fuzzy
+msgid "Monitoring"
+msgstr "Suivi"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Date limite de mon activité"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+#, fuzzy
+msgid "NEXT"
+msgstr "SUIVANT"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_user_assign_wizard
+#, fuzzy
+msgid "NO"
+msgstr "Non"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Date limite de la prochaine activité"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__activity_summary
+msgid "Next Activity Summary"
+msgstr "Résumé de l'activité suivante"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__activity_type_id
+msgid "Next Activity Type"
+msgstr "Type d'activité suivant"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__next_area_center_ids
+#, fuzzy
+msgid "Next Area"
+msgstr "Zone suivante"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__next_validation_sequence_id
+#, fuzzy
+msgid "Next Validation Sequence"
+msgstr "Séquence de validation"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Nombre d'actions"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__message_has_error_counter
+msgid "Number of errors"
+msgstr "Nombre d'erreurs"
+
+#. module: spp_change_request
+#: model:ir.model.fields,help:spp_change_request.field_spp_change_request__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Nombre de messages nécessitant une action"
+
+#. module: spp_change_request
+#: model:ir.model.fields,help:spp_change_request.field_spp_change_request__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Nombre de messages avec erreur de livraison"
+
+#. module: spp_change_request
+#: model:ir.model.fields,help:spp_change_request.field_spp_change_request__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Nombre de messages non lus"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid "Only draft change requests can be deleted by its creator."
+msgstr ""
+"Seules les demandes de modification en brouillon peuvent être supprimées par "
+"leur créateur."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid ""
+"Only users of groups defined in the validation sequence can be assigned to "
+"this change request."
+msgstr ""
+"Seuls les utilisateurs des groupes définis dans la séquence de validation "
+"peuvent être affectés à cette demande de modification."
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_tree
+msgid "Open Details"
+msgstr "Ouvrir les détails"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_dms_file_spp_custom_form
+#, fuzzy
+msgid "Path"
+msgstr "Chemin"
+
+#. module: spp_change_request
+#: model:ir.model.fields.selection,name:spp_change_request.selection__spp_change_request__state__pending
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Pending Validation"
+msgstr "Validation en attente"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+#, fuzzy
+msgid "Phone No."
+msgstr "Numéros de téléphone"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid "Phone No. is required."
+msgstr "Le numéro de téléphone est requis."
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__phone
+msgid "Phone Numbers"
+msgstr "Numéros de téléphone"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__registrant_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__individual_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_source_mixin__registrant_id
+msgid "Registrant"
+msgstr "Inscrit"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Registrant:"
+msgstr "Inscrit :"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_source_mixin__group_registration_date
+msgid "Registration Date"
+msgstr "Date d'inscription"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Reject"
+msgstr "Rejeter"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#: model:ir.actions.act_window,name:spp_change_request.action_change_request_reject_wizard
+#: model:mail.activity.type,name:spp_change_request.reject_activity
+#, fuzzy, python-format
+msgid "Reject Change Request"
+msgstr "Rechercher une demande de modification"
+
+#. module: spp_change_request
+#: model:ir.model.fields.selection,name:spp_change_request.selection__spp_change_request__state__rejected
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Rejected"
+msgstr "Rejeté"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__rejected_by_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_reject_wizard__rejected_by_id
+#, fuzzy
+msgid "Rejected by"
+msgstr "Rejeté"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__rejected_remarks
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_reject_wizard__rejected_remarks
+#, fuzzy
+msgid "Rejection Remarks"
+msgstr "Observations de rejet"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__name
+msgid "Request #"
+msgstr "Demande #"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Request #:"
+msgstr "Demande #:"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__request_type
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence__request_type
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_validation_sequence_filter
+msgid "Request Type"
+msgstr "Type de demande"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_validation_sequence_form
+msgid "Request Type:"
+msgstr "Type de demande:"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+#, fuzzy
+msgid "Request Validation"
+msgstr "Demande de modification pour validation"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_tree
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_group_ext_form_custom_spp_cr
+msgid "Requested By"
+msgstr "Demandé par"
+
+#. module: spp_change_request
+#: model:ir.ui.menu,name:spp_change_request.spp_change_request_request_root
+msgid "Requests"
+msgstr "Demandes"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+#, fuzzy
+msgid "Reset to Draft"
+msgstr "Réinitialiser en brouillon"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__activity_user_id
+msgid "Responsible User"
+msgstr "Utilisateur responsable"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Erreur de livraison SMS"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_dms_file_spp_custom_form
+#, fuzzy
+msgid "Save"
+msgstr "Sauvegarder"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+#, fuzzy
+msgid "Scan ID Document"
+msgstr "Numériser le document d'identité"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+#, fuzzy
+msgid "Scan QR Code"
+msgstr "Scanner le code QR"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__id_document_details
+#, fuzzy
+msgid "Scanned ID Document"
+msgstr "Document d'identité scanné"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__qr_code_details
+#, fuzzy
+msgid "Scanned QR Card"
+msgstr "Carte QR scannée"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_filter
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_validation_sequence_filter
+msgid "Search Change Request"
+msgstr "Rechercher une demande de modification"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: spp_change_request
+#: model:ir.model.fields.selection,name:spp_change_request.selection__spp_change_request_validation_sequence__validation_group_state__source
+#, fuzzy
+msgid "Source Area"
+msgstr "Zone source"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_stage__name
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_validation_sequence_filter
+msgid "Stage"
+msgstr "Organiser"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_group_members__start_date
+msgid "Start Date"
+msgstr "Date de début"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__state
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_source_mixin__state
+msgid "Status"
+msgstr "Statut"
+
+#. module: spp_change_request
+#: model:ir.model.fields,help:spp_change_request.field_spp_change_request__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Statut basé sur les activités \n"
+"En retard : la date d'échéance est déjà dépassée \n"
+"Aujourd'hui : la date de l'activité est aujourd'hui \n"
+"Planifiée : activités futures."
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_filter
+msgid "Submitted By"
+msgstr "Proposé par"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid "The Applicant field must be filled-up."
+msgstr "Le champ Type de demande doit être rempli."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, python-format
+msgid "The Request Type field must be filled-up."
+msgstr "Le champ Type de demande doit être rempli."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "The change request has been fully validated"
+msgstr "La demande de modification a été entièrement validée."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "The change request has been partially validated"
+msgstr ""
+"La demande de modification à créer doit être à l'état brouillon ou en "
+"attente de validation."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "The change request has been validated and the changes has been applied"
+msgstr ""
+"La demande doit être dans un état validé pour que les modifications soient "
+"appliquées."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid ""
+"The change request is now fully validated. It is now submitted for final "
+"application of changes."
+msgstr ""
+"La demande de modification est désormais entièrement validée. Elle est "
+"maintenant soumise pour l'application finale des changements."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, python-format
+msgid ""
+"The change request is now set for validation. Depending on the validation "
+"sequence, this may be subjected to one or more validations."
+msgstr ""
+"La demande de modification est maintenant définie pour validation. Selon la "
+"séquence de validation, celle-ci peut faire l'objet d'une ou plusieurs "
+"validations."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, python-format
+msgid ""
+"The change request to be created must be in draft or pending validation "
+"state."
+msgstr ""
+"La demande de modification à créer doit être à l'état brouillon ou en "
+"attente de validation."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid "The change request type must be properly filled-up."
+msgstr "Le champ Type de demande doit être rempli."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, python-format
+msgid "The change request was cancelled by %s."
+msgstr "La demande de modification a été annulée par %s."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "The change request was rejected by %s."
+msgstr "La demande de modification a été rejetée par %s."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "The change request was reset to draft."
+msgstr "La demande de modification a été réinitialisée en brouillon."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, python-format
+msgid "The request must be in draft state to be set to pending validation."
+msgstr ""
+"La demande doit être à l'état de brouillon pour être en attente de "
+"validation."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, python-format
+msgid "The request must be in validated state for changes to be applied."
+msgstr ""
+"La demande doit être dans un état validé pour que les modifications soient "
+"appliquées."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid ""
+"The request to be cancelled must be in draft, pending, or rejected "
+"validation state."
+msgstr ""
+"La demande à rejeter doit être à l'état de brouillon ou en attente de "
+"validation."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, python-format
+msgid ""
+"The request to be rejected must be in draft or pending validation state."
+msgstr ""
+"La demande à rejeter doit être à l'état de brouillon ou en attente de "
+"validation."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, python-format
+msgid "The request to be validated must be in submitted state."
+msgstr "La demande à valider doit être à l'état soumis."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "The required document %s is missing."
+msgstr "Le document requis %s est manquant."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "The required document category is not configured."
+msgstr "La catégorie de document requise n'est pas configurée."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "The required documents %s are missing."
+msgstr "Les documents requis %s sont manquants."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/wizard/cancel_change_request.py:0
+#: code:addons/spp_change_request/wizard/reject_change_request.py:0
+#, fuzzy, python-format
+msgid "There are no change request selected."
+msgstr "Ajoutez une nouvelle demande de modification !"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid "There are no data captured from the ID scanner."
+msgstr "Aucune donnée n'a été capturée par le lecteur d'identité."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid "There are no data captured from the QR Code scanner."
+msgstr "Aucune donnée n'a été capturée par le scanner de code QR."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "There are no directories defined for this change request."
+msgstr ""
+"Il n'y a pas de répertoires définis pour cette demande de modification."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid "There are no group found with the ID number from the QR Code scanned."
+msgstr "Aucun groupe trouvé avec le numéro d'ID issu du QR Code scanné."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid "There are no registrant found with the ID number scanned."
+msgstr "Aucun inscrit n'a été trouvé avec le numéro d'identification scanné."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid "There are no user assigned to this change request."
+msgstr ""
+"Cliquez sur le bouton Créer pour saisir une nouvelle demande de modification."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid "There are no validators defined for this request."
+msgstr "Il n'y a pas de validateurs définis pour cette demande."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid "This change request does not have any validation sequence defined."
+msgstr ""
+"Cliquez sur le bouton Créer pour saisir une nouvelle séquence de validation."
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+#, fuzzy
+msgid "This change request was REJECTED."
+msgstr "Cette demande de modification a été REJETÉE."
+
+#. module: spp_change_request
+#: model:ir.model.fields,help:spp_change_request.field_spp_change_request__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Type d'activité d'exception enregistrée."
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__message_unread
+msgid "Unread Messages"
+msgstr "Messages non lus"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Compteur de messages non lus"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/dms_file.py:0
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "Upload Document: %s"
+msgstr "Téléverser le document : %s"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_user_assign_wizard__assign_to_id
+#, fuzzy
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: spp_change_request
+#: model:ir.module.category,description:spp_change_request.spp_change_request_module
+msgid "User access level for the OpenSPP change request module"
+msgstr ""
+"Niveau d'accès utilisateur pour le module de demande de changement OpenSPP"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "User {} does not have access to apply changes.{}"
+msgstr "L'utilisateur {} n'a pas accès pour appliquer des modifications.{}"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Validate"
+msgstr "Valider"
+
+#. module: spp_change_request
+#: model:ir.model.fields.selection,name:spp_change_request.selection__spp_change_request__state__validated
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_form
+msgid "Validated"
+msgstr "Validé"
+
+#. module: spp_change_request
+#: model:ir.actions.act_window,name:spp_change_request.action_change_request_validated
+#: model:ir.ui.menu,name:spp_change_request.menu_change_request_validated
+#, fuzzy
+msgid "Validated Requests"
+msgstr "Date demandée"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__last_validated_by_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validators__validator_id
+msgid "Validated by"
+msgstr "Validé par"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_validation_sequence_filter
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_validation_sequence_form
+#: model_terms:ir.ui.view,arch_db:spp_change_request.view_change_request_validation_sequence_tree
+msgid "Validation Group"
+msgstr "Groupe de validation"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence__validation_group_state
+#, fuzzy
+msgid "Validation Group Application"
+msgstr "Groupe de validation"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__validator_ids
+msgid "Validation Records"
+msgstr "Dossiers de validation"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence_mixin__validation_ids
+#: model:ir.ui.menu,name:spp_change_request.menu_change_request_validation_sequence
+msgid "Validation Sequence"
+msgstr "Séquence de validation"
+
+#. module: spp_change_request
+#: model:ir.actions.act_window,name:spp_change_request.action_change_request_validation_sequence
+msgid "Validation Sequences"
+msgstr "Séquences de validation"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validation_sequence__stage_id
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request_validators__stage_id
+msgid "Validation Stage"
+msgstr "Étape de validation"
+
+#. module: spp_change_request
+#: model:ir.model.fields,field_description:spp_change_request.field_spp_change_request__website_message_ids
+msgid "Website Messages"
+msgstr "Messagerie du site Web"
+
+#. module: spp_change_request
+#: model:ir.model.fields,help:spp_change_request.field_spp_change_request__website_message_ids
+msgid "Website communication history"
+msgstr "Historique des communications du site Web"
+
+#. module: spp_change_request
+#: model_terms:ir.ui.view,arch_db:spp_change_request.change_request_user_assign_wizard
+#, fuzzy
+msgid "YES"
+msgstr "OUI"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid "You are not allowed to %s this change request"
+msgstr "Vous n'êtes pas autorisé à %s cette demande de modification"
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#, fuzzy, python-format
+msgid ""
+"You are not allowed to validate this request! Stage: {}. Allowed Validator "
+"Group: {}"
+msgstr ""
+"Vous n'êtes pas autorisé à valider cette demande ! Étape : {}. Groupe de "
+"validateurs autorisé : {}."
+
+#. module: spp_change_request
+#: code:addons/spp_change_request/models/change_request.py:0
+#: code:addons/spp_change_request/models/mixins/source_mixin.py:0
+#, fuzzy, python-format
+msgid "You're not allowed to re-assign this CR."
+msgstr ""
+"Vous n'avez pas l'autorisation de réaffecter cette demande de changement "
+"(CR)."
