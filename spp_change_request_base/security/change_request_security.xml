@@ -1,0 +1,8 @@
+<odoo noupdate="0">
+    <record model="ir.module.category" id="spp_change_request_module">
+        <field name="name">Change Request Module Access</field>
+        <field name="description">User access level for the OpenSPP change request module</field>
+        <field name="sequence">4</field>
+    </record>
+
+</odoo>

@@ -17,6 +17,7 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "security/change_request_security.xml",
         "data/sequences.xml",
         "data/mail_activity.xml",
         "wizard/confirm_user_assignment_view.xml",

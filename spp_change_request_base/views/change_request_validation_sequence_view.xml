@@ -14,7 +14,7 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                 <field
                     name="validation_group_id"
                     string="Validation Group"
-                    domain="[('category_id','=',%(spp_change_request.spp_change_request_module)d)]"
+                    domain="[('category_id','=',%(spp_change_request_base.spp_change_request_module)d)]"
                     options="{'no_open':true,'no_edit':true,'no_create':true}"
                 />
                 <field name="validation_group_state" />
@@ -42,7 +42,7 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                         <field
                             name="validation_group_id"
                             string="Validation Group"
-                            domain="[('category_id','=',%(spp_change_request.spp_change_request_module)d)]"
+                            domain="[('category_id','=',%(spp_change_request_base.spp_change_request_module)d)]"
                             options="{'no_open':true,'no_edit':true,'no_create':true}"
                         />
                         <field name="validation_group_state" />
