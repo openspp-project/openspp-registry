@@ -9,6 +9,8 @@ class G2PGroupMembership(models.Model):
         for rec in self:
             group_id = rec.group
             res = super(G2PGroupMembership, rec).unlink()
+            if self.env.context.get("skip_head_check"):
+                return res
             if (
                 self.env.ref("g2p_registry_membership.group_membership_kind_head").id
                 not in group_id.group_membership_ids.mapped("kind").ids
