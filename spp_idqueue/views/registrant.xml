@@ -66,7 +66,7 @@
         <field name="inherit_id" ref="g2p_registry_group.view_groups_form" />
         <field name="arch" type="xml">
           <xpath expr="//page[@name='ids']" position="after">
-            <page string="ID Requests">
+            <page string="ID Requests" name="id_request">
                 <field name="id_requests" readonly="1" nolabel="1">
                     <tree>
                         <button
