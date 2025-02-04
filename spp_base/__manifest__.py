@@ -34,7 +34,15 @@
         "spp_farmer_registry_base",
     ],
     "external_dependencies": {
-        "python": ["fastapi==0.112.2", "extendable_pydantic==1.3.0", "numpy>=1.22.2", "urllib3>=2.2.2", "zipp>=3.19.1"]
+        "python": [
+            "fastapi==0.112.2",
+            "extendable_pydantic==1.3.0",
+            "numpy>=1.22.2",
+            "urllib3>=2.2.2",
+            "zipp>=3.19.1",
+            "jwcrypto>=1.5.6",
+            "requests>=2.32.2",
+        ]
     },  # not directly required, pinned by Snyk to avoid a vulnerability and for fastapi, compatibility issues.
     "data": [
         "data/global_roles.xml",
