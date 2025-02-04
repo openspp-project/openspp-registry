@@ -1,0 +1,56 @@
+<odoo noupdate="1">
+    <!-- Global Support Manager -->
+    <record id="spp_user_roles.global_role_support_manager" model="res.users.role">
+        <field name="name">Global Support Manager</field>
+        <field name="role_type">global</field>
+        <field
+            name="comment"
+        >This role can supervise and manage all support requests and activities across all areas.</field>
+        <field
+            name="implied_ids"
+            eval="
+            [
+                Command.link(ref('base.group_user')),
+                Command.link(ref('spp_grm.group_grm_manager')),
+                Command.link(ref('g2p_registry_base.group_g2p_registrar')),
+            ]"
+        />
+    </record>
+
+    <!-- Global Support -->
+    <record id="spp_user_roles.global_role_support" model="res.users.role">
+        <field name="name">Global Support</field>
+        <field name="role_type">global</field>
+        <field
+            name="comment"
+        >This role is allowed to view and respond to support requests from any areas.</field>
+        <field
+            name="implied_ids"
+            eval="
+            [
+                Command.link(ref('base.group_user')),
+                Command.link(ref('spp_grm.group_grm_user')),
+                Command.link(ref('g2p_registry_base.group_g2p_registrar')),
+            ]"
+        />
+    </record>
+
+    <!-- Local Support -->
+    <record id="spp_user_roles.local_role_support" model="res.users.role">
+        <field name="name">Local Support</field>
+        <field name="role_type">local</field>
+        <field
+            name="comment"
+        >This role is allowed to view and respond to support requests only from their assigned area.</field>
+        <field
+            name="implied_ids"
+            eval="
+            [
+                Command.link(ref('base.group_user')),
+                Command.link(ref('spp_grm.group_grm_user')),
+                Command.link(ref('g2p_registry_base.group_g2p_registrar')),
+            ]"
+        />
+    </record>
+
+</odoo>

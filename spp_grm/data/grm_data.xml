@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="module_openspp_grm_category">
+            <field name="name">Grievance Redress Mechanism</field>
+            <field name="description">Grievance Redress Mechanism (GRM) for OpenSPP.</field>
+            <field name="sequence">9</field>
+        </record>
+    </data>
+    <data noupdate="1">
+        <!-- Sequence -->
+        <record id="grm_ticket_sequence" model="ir.sequence">
+            <field name="name">GRM Ticket Sequence</field>
+            <field name="code">spp.grm.ticket.sequence</field>
+            <field name="padding">6</field>
+            <field name="implementation">no_gap</field>
+            <field eval="1" name="number_next" />
+            <field eval="1" name="number_increment" />
+            <field name="prefix">%(range_year)s-</field>
+            <field eval="True" name="use_date_range" />
+            <field name="company_id" />
+        </record>
+        <!-- Stages -->
+        <record id="grm_ticket_stage_new" model="spp.grm.ticket.stage">
+            <field name="sequence">1</field>
+            <field name="name">New</field>
+            <field name="unattended">True</field>
+            <field name="closed">False</field>
+            <field name="company_id" />
+        </record>
+        <record id="grm_ticket_stage_in_progress" model="spp.grm.ticket.stage">
+            <field name="sequence">2</field>
+            <field name="name">In Progress</field>
+            <field name="unattended">False</field>
+            <field name="closed">False</field>
+            <field name="company_id" />
+        </record>
+        <record id="grm_ticket_stage_awaiting" model="spp.grm.ticket.stage">
+            <field name="sequence">3</field>
+            <field name="name">Awaiting</field>
+            <field name="unattended">False</field>
+            <field name="closed">False</field>
+            <field name="company_id" />
+        </record>
+        <record id="grm_ticket_stage_done" model="spp.grm.ticket.stage">
+            <field name="sequence">4</field>
+            <field name="name">Done</field>
+            <field name="unattended">False</field>
+            <field name="closed">True</field>
+            <field name="fold">True</field>
+            <!-- <field name="mail_template_id" ref="spp_grm.closed_ticket_template" /> -->
+            <field name="company_id" />
+        </record>
+        <record id="grm_ticket_stage_cancelled" model="spp.grm.ticket.stage">
+            <field name="sequence">5</field>
+            <field name="name">Cancelled</field>
+            <field name="unattended">False</field>
+            <field name="closed">True</field>
+            <field name="fold">True</field>
+            <!-- <field name="mail_template_id" ref="spp_grm.closed_ticket_template" /> -->
+            <field name="company_id" />
+        </record>
+        <record id="grm_ticket_stage_rejected" model="spp.grm.ticket.stage">
+            <field name="sequence">6</field>
+            <field name="name">Rejected</field>
+            <field name="unattended">False</field>
+            <field name="closed">True</field>
+            <field name="fold">True</field>
+            <!-- <field name="mail_template_id" ref="spp_grm.closed_ticket_template" /> -->
+            <field name="company_id" />
+        </record>
+        <!-- Channels -->
+        <record id="grm_ticket_channel_web" model="spp.grm.ticket.channel">
+            <field name="name">Web</field>
+        </record>
+        <record id="grm_ticket_channel_email" model="spp.grm.ticket.channel">
+            <field name="name">Email</field>
+        </record>
+        <record id="grm_ticket_channel_phone" model="spp.grm.ticket.channel">
+            <field name="name">Phone</field>
+        </record>
+        <record id="grm_ticket_channel_other" model="spp.grm.ticket.channel">
+            <field name="name">Other</field>
+        </record>
+        <!-- GRM Ticket-related subtypes for messaging / Chatter -->
+        <record id="grm_tck_created" model="mail.message.subtype">
+            <field name="name">Ticket Created</field>
+            <field name="res_model">spp.grm.ticket</field>
+            <field name="default" eval="False" />
+            <field name="hidden" eval="False" />
+            <field name="description">Ticket created</field>
+        </record>
+    </data>
+</odoo>

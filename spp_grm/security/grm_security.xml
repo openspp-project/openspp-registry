@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="group_grm_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="module_openspp_grm_category" />
+        </record>
+        <record id="group_grm_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="module_openspp_grm_category" />
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="grm_user_own_ticket" model="ir.rule">
+            <field name="name">User Own Tickets</field>
+            <field ref="model_spp_grm_ticket" name="model_id" />
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('group_grm_user'))]" />
+        </record>
+    </data>
+</odoo>

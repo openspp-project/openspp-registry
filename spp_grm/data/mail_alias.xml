@@ -1,0 +1,15 @@
+<odoo noupdate="1">
+    <!-- Email Domain Configuration -->
+    <record id="mail_alias_domain" model="mail.alias.domain">
+        <field name="name">yourdomain.com</field>
+    </record>
+
+    <!-- Email Alias for GRM Ticket -->
+    <record id="alias_grm_ticket" model="mail.alias">
+        <field name="alias_name">helpdesk</field>
+        <field name="alias_model_id" ref="model_spp_grm_ticket" />
+        <field name="alias_contact">everyone</field>
+        <field name="alias_force_thread_id">0</field>
+        <field name="alias_domain_id" ref="mail_alias_domain" />
+    </record>
+</odoo>

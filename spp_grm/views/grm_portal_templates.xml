@@ -1,0 +1,178 @@
+<odoo>
+    <!-- Portal Ticket Breadcrumbs -->
+    <template
+        id="portal_my_home_menu_ticket"
+        name="Portal layout : ticket menu entries"
+        inherit_id="portal.portal_breadcrumbs"
+        priority="30"
+    >
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <!-- Breadcrumb for ticket list -->
+            <li
+                t-if="page_name == 'tickets'"
+                t-attf-class="breadcrumb-item #{'active ' if not ticket else ''}"
+            >
+                <a t-if="ticket" t-attf-href="/my/tickets?{{ keep_query() }}">Tickets</a>
+                <t t-else="">Tickets</t>
+            </li>
+            <!-- Breadcrumb for a specific ticket -->
+            <li t-if="ticket" class="breadcrumb-item active">
+                <strong>New Ticket</strong>
+            </li>
+        </xpath>
+    </template>
+
+    <!-- Portal Ticket Category -->
+    <template
+        id="portal_my_home_ticket"
+        name="Show Tickets"
+        inherit_id="portal.portal_my_home"
+        customize_show="True"
+        priority="0"
+    >
+        <xpath expr="//div[@id='portal_common_category']" position="before">
+            <div class="o_portal_category row g-2 mt-3" id="portal_ticket_category">
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="icon" t-value="'/spp_grm/static/src/img/ticket.svg'" />
+                    <t t-set="title">Your Tickets</t>
+                    <t t-set="url" t-value="'/my/tickets'" />
+                    <t t-set="text">Follow, review or submit your tickets</t>
+                    <t t-set="config_card" t-value="True" />
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- List of Tickets -->
+    <template id="portal_my_tickets" name="My Tickets">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True" />
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Tickets</t>
+            </t>
+
+            <div class="d-flex justify-content-end mb-3">
+                <a href="/my/ticket/new" class="btn btn-primary">New Ticket</a>
+            </div>
+
+            <t t-if="not tickets">
+                <p class="alert alert-warning">You have not submitted any tickets yet.</p>
+            </t>
+
+            <t t-if="tickets" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Ticket #</th>
+                        <th>Name</th>
+                        <th>Channel</th>
+                        <th>Category</th>
+                        <th>Submission Date</th>
+                        <th class="d-none d-md-table-cell">Stage</th>
+                        <th class="text-end">Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="tickets" t-as="ticket">
+                        <tr>
+                            <td>
+                                <strong>
+                                    <span t-out="ticket.name" />
+                                </strong>
+                                <!-- <a t-att-href="ticket.get_portal_url()" t-att-title="ticket.name">
+                                    <t t-out="ticket.name" t-if="ticket.name" />
+                                    <em t-else="">Unnamed Ticket</em>
+                                </a> -->
+                            </td>
+                            <td>
+                                <t t-if="ticket.partner_id">
+                                    <span t-field="ticket.partner_id.name" />
+                                </t>
+                                <t t-else="">
+                                    <em>-</em>
+                                </t>
+                            </td>
+                            <td>
+                                <t t-if="ticket.channel_id">
+                                    <span t-field="ticket.channel_id.name" />
+                                </t>
+                                <t t-else="">
+                                    <em>-</em>
+                                </t>
+                            </td>
+                            <td>
+                                <t t-if="ticket.category_id">
+                                    <span t-field="ticket.category_id.name" />
+                                </t>
+                                <t t-else="">
+                                    <em>-</em>
+                                </t>
+                            </td>
+                            <td><span t-field="ticket.create_date" /></td>
+                            <td class="d-none d-md-table-cell">
+                                <t t-if="ticket.stage_id">
+                                    <span
+                                        class="badge rounded-pill text-bg-info"
+                                        t-out="ticket.stage_id.name"
+                                    />
+                                </t>
+                                <t t-else="">
+                                    <span class="badge rounded-pill text-bg-info">
+                                        <em>Unknown</em>
+                                    </span>
+                                </t>
+                            </td>
+                            <td class="text-end">
+                                <span t-out="ticket.priority" />
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+
+    <!-- Ticket Form -->
+    <template id="portal_create_ticket" name="Create Ticket">
+        <t t-call="portal.portal_layout">
+            <t t-set="title">New Ticket</t>
+
+            <!-- Ticket Submission Form -->
+            <form action="/my/ticket/submit" method="post" class="mt-4">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                <div class="mb-3">
+                    <label for="ticket_name" class="form-label">Ticket Name</label>
+                    <input
+                        type="text"
+                        id="ticket_name"
+                        name="ticket_name"
+                        class="form-control"
+                        required="required"
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="category_id" class="form-label">Category</label>
+                    <select id="category_id" name="category_id" class="form-control">
+                        <option value="">Select Category</option>
+                        <!-- Add category options dynamically -->
+                        <t t-foreach="categories" t-as="category">
+                            <option t-att-value="category.id"><t t-out="category.name" /></option>
+                        </t>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea
+                        id="description"
+                        name="description"
+                        class="form-control"
+                        rows="5"
+                        required="required"
+                    />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Ticket</button>
+            </form>
+        </t>
+    </template>
+
+</odoo>

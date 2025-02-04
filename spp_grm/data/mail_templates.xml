@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <record id="ticket_submission_confirmation" model="mail.template">
+        <field name="name">Ticket Submission Confirmation</field>
+        <field name="model_id" ref="model_spp_grm_ticket" />
+        <field name="subject">Your Ticket: {{ object.number }} has been submitted</field>
+        <field name="email_from">{{ (user.email or 'support@yourdomain.com') }}</field>
+        <field name="email_to">{{ object.partner_id.email }}</field>
+        <field name="auto_delete" eval="True" />
+        <field name="lang">{{ object.partner_id.lang }}</field>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    Dear <t t-out="object.partner_id and object.partner_id.name or ''">Registrant Name</t>,
+
+                    <p
+                    >Thank you for reaching out to us. Your ticket has been successfully created with the following details:</p>
+
+                    <ul>
+                        <li><strong>Ticket No.:</strong> <t t-out="object.number or ''">2024-00000</t></li>
+                        <li><strong>Ticket Name:</strong> <t t-out="object.name or ''">Ticket Name</t></li>
+                        <li><strong>Description:</strong> <t
+                                t-out="object.description or ''"
+                            >Description</t></li>
+                        <li><strong>Category:</strong> <t
+                                t-out="object.category_id and object.category_id.name or ''"
+                            >Category</t></li>
+                        <li><strong>Channel:</strong> <t
+                                t-out="object.channel_id and object.channel_id.name or ''"
+                            >Channel</t></li>
+                    </ul>
+
+                    <p>We will get back to you shortly. You can track the status of your ticket through the <a
+                            href="/my/tickets"
+                        >Ticket Portal</a>.</p>
+
+                    <p>Best regards,<br />
+                    The Support Team</p>
+                </p>
+            </div>
+        </field>
+    </record>
+</odoo>

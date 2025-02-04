@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <!-- Menus -->
+    <menuitem
+        id="spp_grm_ticket_main_menu"
+        name="Helpdesk"
+        sequence="16"
+        web_icon="spp_grm,static/description/icon.png"
+    />
+
+    <menuitem
+        id="spp_grm_ticket_config_main_menu"
+        name="Configuration"
+        parent="spp_grm_ticket_main_menu"
+        sequence="35"
+        groups="group_grm_manager"
+    />
+
+</odoo>
