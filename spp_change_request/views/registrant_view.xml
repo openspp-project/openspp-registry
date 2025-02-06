@@ -13,6 +13,7 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                 <page
                     string="Change Requests"
                     groups="g2p_registry_base.group_g2p_registrar,g2p_registry_base.group_g2p_admin"
+                    name="change_requests_page"
                 >
                     <field name="change_request_ids" readonly="1" nolabel="1">
                         <tree editable="top">
