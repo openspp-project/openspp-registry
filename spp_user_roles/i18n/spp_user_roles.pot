@@ -133,6 +133,11 @@ msgstr ""
 
 #. module: spp_user_roles
 #: model:res.groups,comment:spp_user_roles.global_role_support_res_groups
+msgid ""
+"This role is allowed to view and respond to support requests from any areas."
+msgstr ""
+
+#. module: spp_user_roles
 #: model:res.groups,comment:spp_user_roles.local_role_support_res_groups
 msgid ""
 "This role is allowed to view and respond to support requests only from their"
