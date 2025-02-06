@@ -60,7 +60,7 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                         string="Request Validation"
                         icon="fa-paper-plane"
                         class="btn-primary"
-                        invisible="state != 'draft'"
+                        invisible="state != 'draft' or not id"
                         groups="g2p_registry_base.group_g2p_admin,spp_change_request.group_spp_change_request_agent"
                     />
                     <button
@@ -98,7 +98,7 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                         string="Cancel Change Request"
                         icon="fa-times-circle"
                         class="btn-default"
-                        invisible="state not in  ['draft', 'pending', 'rejected', 'validated']"
+                        invisible="state not in  ['draft', 'pending', 'rejected', 'validated'] or not id"
                         groups="g2p_registry_base.group_g2p_admin,spp_change_request.group_spp_change_request_administrator,spp_change_request.group_spp_change_request_agent"
                     />
                     <button
@@ -178,8 +178,16 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                         </h2>
                         <field name="request_type_target" invisible="1" />
                         <field name="registrant_id_domain" invisible="1" />
-                        <label for="registrant_id" string="Registrant:" />
-                        <h2>
+                        <field name="applicant_id_required" invisible="1" />
+                        <field name="registrant_id_visible" invisible="1" />
+                        <field name="applicant_id_visible" invisible="1" />
+                        <field name="applicant_information_visible" invisible="1" />
+                        <label
+                            for="registrant_id"
+                            string="Registrant:"
+                            invisible="not registrant_id_visible"
+                        />
+                        <h2 invisible="not registrant_id_visible">
                             <field
                                 name="registrant_id"
                                 options="{'no_create': True,'no_open':True}"
@@ -198,14 +206,14 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                                 style="margin-left: 10px;"
                             /> -->
                         </h2>
-                        <label for="applicant_id" string="Applicant:" />
-                        <h3>
+                        <label for="applicant_id" string="Applicant:" invisible="not applicant_id_visible" />
+                        <h3 invisible="not applicant_id_visible">
                             <field
                                 name="applicant_id"
                                 options="{'no_create': True,'no_open':True}"
                                 readonly="state != 'draft' or request_type_ref_id"
                                 domain="applicant_id_domain"
-                                required="1"
+                                required="applicant_id_required"
                                 force_save="1"
                                 class="oe_inline"
                             />
@@ -231,7 +239,13 @@ Part of OpenSPP. See LICENSE file for full copyright and licensing details.
                             />
                         </h3>
                     </div>
-                    <group colspan="4" col="4" string="Applicant Information">
+                    <group
+                        colspan="4"
+                        col="4"
+                        string="Applicant Information"
+                        name="applicant_information"
+                        invisible="not applicant_information_visible"
+                    >
                         <field
                             name="applicant_phone"
                             string="Phone No."
