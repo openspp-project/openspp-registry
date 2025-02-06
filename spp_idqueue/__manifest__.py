@@ -20,6 +20,7 @@
         "wizard/batch_create_wizard.xml",
         "wizard/multi_id_request_wizard.xml",
         "views/registrant.xml",
+        "views/id_pass_view.xml",
         "views/res_config_settings.xml",
     ],
     "assets": {"web.assets_backend": ["spp_idqueue/static/src/js/form_controller.js"]},

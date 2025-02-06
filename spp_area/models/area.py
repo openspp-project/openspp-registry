@@ -27,7 +27,7 @@ class OpenSPPArea(models.Model):
     complete_name = fields.Char(compute="_compute_complete_name", recursive=True, translate=True)
     name = fields.Char(translate=True, compute="_compute_name", store=True)
     draft_name = fields.Char(required=True, translate=True)
-    parent_path = fields.Char(index=True)
+    parent_path = fields.Char(index=True, unaccent=False)
     code = fields.Char()
     altnames = fields.Char("Alternate Name")
     level = fields.Integer(help="This is the area level for importing")

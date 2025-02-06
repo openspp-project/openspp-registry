@@ -80,7 +80,7 @@ class ChangeRequestAddChildrenDemoTest(TransactionCase):
             "birth_place": "Hometown",
             "birthdate_not_exact": True,
             "birthdate": "1990-01-01",
-            "gender": gender.value,
+            "gender": gender.id,
             "phone": "09123456789",
             "uid_number": "123456789125",
         }
