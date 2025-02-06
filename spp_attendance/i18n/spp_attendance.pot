@@ -50,6 +50,14 @@ msgid "A subscriber with the same person identifier already exists."
 msgstr ""
 
 #. module: spp_attendance
+#. odoo-python
+#: code:addons/spp_attendance/models/attendance_list.py:0
+#: model:ir.model.fields.selection,name:spp_attendance.selection__spp_attendance_list__attendance_category__absent
+#, python-format
+msgid "Absent"
+msgstr ""
+
+#. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_res_config_settings__access_token_mapping
 #: model_terms:ir.ui.view,arch_db:spp_attendance.spp_attendance_res_config_settings_view_form
 msgid "Access Token Mapping"
@@ -324,6 +332,11 @@ msgstr ""
 #. module: spp_attendance
 #: model:ir.actions.act_window,name:spp_attendance.action_change_request_cancel_wizard
 msgid "Cancel Change Request"
+msgstr ""
+
+#. module: spp_attendance
+#: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_list__attendance_category
+msgid "Category"
 msgstr ""
 
 #. module: spp_attendance
@@ -1283,6 +1296,14 @@ msgstr ""
 #. module: spp_attendance
 #: model:ir.model.fields,field_description:spp_attendance.field_spp_attendance_subscriber__pos_order_count
 msgid "Pos Order Count"
+msgstr ""
+
+#. module: spp_attendance
+#. odoo-python
+#: code:addons/spp_attendance/models/attendance_list.py:0
+#: model:ir.model.fields.selection,name:spp_attendance.selection__spp_attendance_list__attendance_category__present
+#, python-format
+msgid "Present"
 msgstr ""
 
 #. module: spp_attendance
