@@ -22,15 +22,14 @@ msgstr ""
 
 #. module: spp_pos
 #. odoo-javascript
-#: code:addons/spp_pos/static/src/js/action_button.js:0
-#: code:addons/spp_pos/static/src/view/popup_voucher.xml:0
+#: code:addons/spp_pos/static/src/js/popup_voucher.js:0
 #, python-format
 msgid "Close"
 msgstr ""
 
 #. module: spp_pos
 #. odoo-javascript
-#: code:addons/spp_pos/static/src/view/popup_voucher.xml:0
+#: code:addons/spp_pos/static/src/js/popup_voucher.js:0
 #, python-format
 msgid "Enter Entitlement Code Manually"
 msgstr ""
@@ -63,15 +62,14 @@ msgstr ""
 
 #. module: spp_pos
 #. odoo-javascript
-#: code:addons/spp_pos/static/src/view/popup_voucher.xml:0
+#: code:addons/spp_pos/static/src/js/popup_voucher.js:0
 #, python-format
 msgid "Scan Entitlement QR Code"
 msgstr ""
 
 #. module: spp_pos
 #. odoo-javascript
-#: code:addons/spp_pos/static/src/js/action_button.js:0
-#: code:addons/spp_pos/static/src/view/popup_voucher.xml:0
+#: code:addons/spp_pos/static/src/js/popup_voucher.js:0
 #, python-format
 msgid "Search"
 msgstr ""
@@ -79,6 +77,7 @@ msgstr ""
 #. module: spp_pos
 #. odoo-javascript
 #: code:addons/spp_pos/static/src/js/action_button.js:0
+#: code:addons/spp_pos/static/src/js/popup_voucher.js:0
 #, python-format
 msgid "Select Entitlement"
 msgstr ""
