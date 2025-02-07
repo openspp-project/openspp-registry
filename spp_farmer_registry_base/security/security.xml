@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+        <!-- Category -->
+        <record id="module_category_spp_farm" model="ir.module.category">
+            <field name="name">Farm Management</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <!-- Groups -->
+        <record id="group_spp_farm_user" model="res.groups">
+            <field name="name">Farm User</field>
+            <field name="category_id" ref="module_category_spp_farm" />
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        </record>
+
+        <record id="group_spp_farm_manager" model="res.groups">
+            <field name="name">Farm Manager</field>
+            <field name="category_id" ref="module_category_spp_farm" />
+            <field name="implied_ids" eval="[(4, ref('group_spp_farm_user'))]" />
+            <field name="users" eval="[(4, ref('base.user_admin'))]" />
+        </record>
+    </data>
+
+    <!-- Record Rules -->
+    <data noupdate="1">
+        <!-- Season Rules -->
+        <record id="rule_spp_farm_season_user" model="ir.rule">
+            <field name="name">Farm Season: User Access</field>
+            <field name="model_id" ref="model_spp_farm_season" />
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_spp_farm_user'))]" />
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="False" />
+            <field name="perm_create" eval="False" />
+            <field name="perm_unlink" eval="False" />
+        </record>
+
+        <record id="rule_spp_farm_season_manager" model="ir.rule">
+            <field name="name">Farm Season: Manager Access</field>
+            <field name="model_id" ref="model_spp_farm_season" />
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_spp_farm_manager'))]" />
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_unlink" eval="True" />
+        </record>
+
+        <!-- Activity Rules -->
+        <record id="rule_spp_farm_activity_season_closed" model="ir.rule">
+            <field name="name">Farm Activity: Closed Season Protection</field>
+            <field name="model_id" ref="model_spp_farm_activity" />
+            <field name="domain_force">[
+                '|',
+                    ('season_id', '=', False),
+                    ('season_id.state', '!=', 'closed')
+            ]</field>
+            <field name="groups" eval="[(4, ref('group_spp_farm_user'))]" />
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_unlink" eval="True" />
+        </record>
+    </data>
+</odoo>

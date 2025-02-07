@@ -246,6 +246,7 @@
                             <field name="activity_type" column_invisible="1" />
                             <field name="species_id" context="{'default_species_type': 'crop'}" />
                             <field name="purpose" />
+                            <field name="season_id" />
                         </tree>
                     </field>
                 </page>
@@ -259,6 +260,7 @@
                             <field name="live_farm_id" column_invisible="1" />
                             <field name="activity_type" column_invisible="1" />
                             <field name="species_id" context="{'default_species_type': 'livestock'}" />
+                            <field name="season_id" />
                         </tree>
                     </field>
                 </page>
@@ -276,6 +278,7 @@
                                 context="{'default_species_type': 'aquaculture'}"
                                 width="50%"
                             />
+                            <field name="season_id" />
                         </tree>
                     </field>
                     <div name="div_production_system">
