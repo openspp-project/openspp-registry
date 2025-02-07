@@ -30,6 +30,11 @@
         <field name="category_id" ref="spp_change_request.spp_change_request_module" />
     </record>
 
+    <record id="group_spp_change_request_external_api" model="res.groups">
+        <field name="name">Change Request External API</field>
+        <field name="category_id" ref="spp_change_request.spp_change_request_module" />
+    </record>
+
     <record id="group_spp_change_request_local_validator" model="res.groups">
         <field name="name">Change Request Validator Local</field>
         <field name="category_id" ref="spp_change_request.spp_change_request_module" />
