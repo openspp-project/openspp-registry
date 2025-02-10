@@ -77,6 +77,7 @@ class G2PCashEntitlementManager(models.Model):
 
         new_entitlements_to_create = {}
         for rec in self.entitlement_item_ids:
+            _logger.info(f"Rec Amount: {rec.amount}")
             if rec.condition:
                 beneficiaries_ids = self._get_all_beneficiaries(
                     all_beneficiaries_ids, rec.condition, self.evaluate_one_item
@@ -187,10 +188,10 @@ class G2PCashEntitlementManager(models.Model):
         return all_beneficiaries_ids
 
     def _check_subsidy(self, amount):
-        # Check if initial_amount < max_amount then set = max_amount
+        # Check if initial_amount > max_amount then set = max_amount
         # Ignore if max_amount is set to 0
         if self.max_amount > 0.0:
-            if amount < self.max_amount:
+            if amount > self.max_amount:
                 return self.max_amount
         return amount
 
