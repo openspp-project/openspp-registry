@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_spp_grm_channel_form" model="ir.ui.view">
+        <field name="name">view.spp_grm_channel.form</field>
+        <field name="model">spp.grm.ticket.channel</field>
+        <field name="arch" type="xml">
+            <form string="Stages">
+                <header>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active" />
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" required="1" />
+                        </h1>
+                    </div>
+                    <group name="main">
+                        <field name="active" invisible="1" />
+                        <field name="company_id" groups="base.group_multi_company" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_spp_grm_channel_tree" model="ir.ui.view">
+        <field name="name">view.spp_grm_channel.tree</field>
+        <field name="model">spp.grm.ticket.channel</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="company_id" optional="hide" groups="base.group_multi_company" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_spp_grm_ticket_channel_search" model="ir.ui.view">
+        <field name="name">spp.grm.ticket.channel.search</field>
+        <field name="model">spp.grm.ticket.channel</field>
+        <field name="arch" type="xml">
+            <search string="Grievance Redress Mechanism Category Search">
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]" />
+                <separator />
+                <field name="name" filter_domain="[('name', 'ilike', self)]" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <group>
+                    <filter
+                        string="Company"
+                        name="company"
+                        context="{'group_by': 'company_id'}"
+                        groups="base.group_multi_company"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="spp_grm_ticket_channel_action" model="ir.actions.act_window">
+        <field name="name">Channels</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">spp.grm.ticket.channel</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_spp_grm_channel_tree" />
+    </record>
+
+    <menuitem
+        id="spp_grm_ticket_channel_menu"
+        name="Channels"
+        parent="spp_grm_ticket_config_main_menu"
+        action="spp_grm_ticket_channel_action"
+        sequence="5"
+    />
+
+</odoo>

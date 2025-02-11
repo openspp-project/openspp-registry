@@ -24,6 +24,20 @@ msgid "Contact"
 msgstr ""
 
 #. module: spp_base
+#: model:ir.model.fields,field_description:spp_base.field_g2p_group_membership__individual_gender
+#: model:ir.model.fields,field_description:spp_base.field_g2p_program_membership__gender
+#: model:ir.model.fields,field_description:spp_base.field_res_partner__gender
+#: model:ir.model.fields,field_description:spp_base.field_res_users__gender
+#: model:ir.model.fields,field_description:spp_base.field_spp_attendance_subscriber__gender
+msgid "Gender"
+msgstr ""
+
+#. module: spp_base
+#: model:ir.model,name:spp_base.model_g2p_group_membership
+msgid "Group Membership"
+msgstr ""
+
+#. module: spp_base
 #: model:ir.model,name:spp_base.model_g2p_reg_id
 msgid "Registrant ID"
 msgstr ""
@@ -65,9 +79,6 @@ msgid "Unique ID is not following correct format!"
 msgstr ""
 
 #. module: spp_base
-#: model:ir.model.constraint,message:spp_base.constraint_res_partner_spp_id_uniq
-#: model:ir.model.constraint,message:spp_base.constraint_spp_area_spp_id_uniq
-#: model:ir.model.constraint,message:spp_base.constraint_spp_service_point_spp_id_uniq
 #: model:ir.model.constraint,message:spp_base.constraint_spp_unique_id_spp_id_uniq
 msgid "spp_id is an unique identifier!"
 msgstr ""

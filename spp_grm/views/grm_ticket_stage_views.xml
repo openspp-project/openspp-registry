@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_spp_grm_ticket_stage_form" model="ir.ui.view">
+        <field name="name">spp.grm.ticket.stage.form</field>
+        <field name="model">spp.grm.ticket.stage</field>
+        <field name="arch" type="xml">
+            <form string="Stages">
+                <header>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active" />
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" required="1" />
+                        </h1>
+                    </div>
+                    <group name="main">
+                        <group name="main_left">
+                            <field name="sequence" />
+                            <field name="mail_template_id" />
+                            <field name="company_id" groups="base.group_multi_company" />
+                            <field name="company_id" invisible="1" />
+                        </group>
+                        <group name="main_right">
+                            <field name="active" invisible="1" />
+                            <field name="closed" />
+                            <field name="unattended" />
+                        </group>
+                    </group>
+                    <field name="description" widget="html" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_spp_grm_ticket_stage_tree" model="ir.ui.view">
+        <field name="name">spp.grm.ticket.stage.tree</field>
+        <field name="model">spp.grm.ticket.stage</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="mail_template_id" />
+                <field name="company_id" optional="hide" groups="base.group_multi_company" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_spp_grm_ticket_stage_search" model="ir.ui.view">
+        <field name="name">spp.grm.ticket.stage.search</field>
+        <field name="model">spp.grm.ticket.stage</field>
+        <field name="arch" type="xml">
+            <search string="Ticket Stage Search">
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]" />
+                <separator />
+                <field name="name" filter_domain="[('name', 'ilike', self)]" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <group>
+                    <filter
+                        string="Company"
+                        name="company"
+                        context="{'group_by': 'company_id'}"
+                        groups="base.group_multi_company"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="spp_grm_ticket_stage_action" model="ir.actions.act_window">
+        <field name="name">Stages</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">spp.grm.ticket.stage</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="spp_grm_ticket_stage_menu"
+        name="Stages"
+        parent="spp_grm_ticket_config_main_menu"
+        action="spp_grm_ticket_stage_action"
+        sequence="25"
+    />
+
+</odoo>

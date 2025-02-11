@@ -51,10 +51,6 @@ class ChangeRequestAddChildren(models.Model):
     SRC_AREA_FLD = ["registrant_id", "area_center_id"]
     DST_AREA_FLD = SRC_AREA_FLD
 
-    def _get_dynamic_selection(self):
-        options = self.env["gender.type"].search([])
-        return [(option.value, option.code) for option in options]
-
     # Redefine registrant_id to set specific domain and label
     registrant_id = fields.Many2one(
         "res.partner",
@@ -76,7 +72,7 @@ class ChangeRequestAddChildren(models.Model):
     birth_place = fields.Char()
     birthdate_not_exact = fields.Boolean()
     birthdate = fields.Date("Date of Birth")
-    gender = fields.Selection(selection=_get_dynamic_selection)
+    gender = fields.Many2one("gender.type")
     phone = fields.Char("Phone Number")
     uid_number = fields.Char("UID Number")
 
@@ -186,7 +182,6 @@ class ChangeRequestAddChildren(models.Model):
                         "family_name": details["family_name"],
                         "given_name": details["given_name"],
                         "birthdate": details["birth_date"],
-                        "gender": details["gender"],
                         "id_document_details": "",
                         "birth_place": details["birth_place_city"],
                         # TODO: Fix not writing to one2many field: dms_file_ids
@@ -259,7 +254,7 @@ class ChangeRequestAddChildren(models.Model):
                 "birth_place": self.birth_place,
                 "birthdate_not_exact": self.birthdate_not_exact,
                 "birthdate": self.birthdate,
-                "gender": self.gender,
+                "gender": self.gender.id,
                 "phone_number_ids": phone_rec,
                 "reg_ids": uid_rec,
             }
