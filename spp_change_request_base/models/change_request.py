@@ -449,7 +449,7 @@ class ChangeRequestBase(models.Model):
     def _get_addl_cr_type_vals(self):
         """
         Get additional CR type values.
-        Override this method in the child class to get the additional CR type values.
+        Override this method in the CR type model to get the additional CR type values.
 
         :return: dict of additional CR type values
         """
@@ -458,7 +458,7 @@ class ChangeRequestBase(models.Model):
     def _get_dms_file_ids(self):
         """
         Get the DMS file ids.
-        Override this method in the child class to get the DMS file ids.
+        Override this method in the CR type model to get the DMS file ids.
 
         :return: list of DMS file ids
         """
