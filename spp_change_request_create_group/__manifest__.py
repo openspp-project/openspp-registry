@@ -31,6 +31,7 @@
         "data/id_type.xml",
         "views/change_request_create_group_view.xml",
         "views/dms_file_view.xml",
+        "views/change_request_view.xml",
     ],
     "assets": {},
     "demo": [],

@@ -17,6 +17,17 @@ class ChangeRequestTypeCustomCreateGroup(models.Model):
         domain=[("is_registrant", "=", True), ("is_group", "=", True)],
     )
 
+    def _check_phone_exist(self):
+        """
+        Checks if phone is existing
+
+        :raise UserError: Exception raised when applicant_phone is not existing.
+        """
+        request_type = self.request_type
+        if "create.group" not in request_type:
+            if not self.applicant_phone:
+                raise UserError(_("Phone No. is required."))
+
     @api.model
     def _selection_request_type_ref_id(self):
         selection = super()._selection_request_type_ref_id()
