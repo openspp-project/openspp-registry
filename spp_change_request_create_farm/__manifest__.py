@@ -17,6 +17,7 @@
         "spp_service_points",
         "spp_idpass",
         "spp_farmer_registry_base",
+        "spp_land_record",
     ],
     "excludes": [
         "spp_change_request_create_group",

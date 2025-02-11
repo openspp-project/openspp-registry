@@ -1,0 +1,250 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* spp_pos_id_redemption
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: spp_pos_id_redemption
+#: model:ir.actions.report,print_report_name:spp_pos_id_redemption.action_report_id_barcode_printout
+msgid "'ID Barcode - %s' % (object.partner_id.name).replace('/', '')"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#. odoo-javascript
+#: code:addons/spp_pos_id_redemption/static/src/view/product_card.xml:0
+#, python-format
+msgid "(ends"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,help:spp_pos_id_redemption.field_product_product__entitlement_partner_id
+#: model:ir.model.fields,help:spp_pos_id_redemption.field_product_template__entitlement_partner_id
+msgid "A beneficiary"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#. odoo-javascript
+#: code:addons/spp_pos_id_redemption/static/src/js/customer_note.js:0
+#, python-format
+msgid "Add Beneficiary Note"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_pos_config__area_id
+#: model_terms:ir.ui.view,arch_db:spp_pos_id_redemption.pos_config_custom_view_form
+msgid "Area"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model_terms:ir.ui.view,arch_db:spp_pos_id_redemption.report_id_barcode_printout
+msgid "Barcode"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#. odoo-javascript
+#: code:addons/spp_pos_id_redemption/static/src/view/action_pad.xml:0
+#: code:addons/spp_pos_id_redemption/static/src/view/ticket_screen.xml:0
+#: model_terms:ir.ui.view,arch_db:spp_pos_id_redemption.view_pos_order_custom_tree
+#: model_terms:ir.ui.view,arch_db:spp_pos_id_redemption.view_pos_pos_custom_form
+#, python-format
+msgid "Beneficiary"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#. odoo-javascript
+#: code:addons/spp_pos_id_redemption/static/src/view/customer_note.xml:0
+#, python-format
+msgid "Beneficiary Note"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields.selection,name:spp_pos_id_redemption.selection__g2p_program_create_wizard__entitlement_kind__cash_spp_pos
+msgid "Cash (SPP POS)"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,help:spp_pos_id_redemption.field_g2p_entitlement__voucher_redeemed
+#: model:ir.model.fields,help:spp_pos_id_redemption.field_product_product__voucher_redeemed
+#: model:ir.model.fields,help:spp_pos_id_redemption.field_product_template__voucher_redeemed
+msgid "Check if the voucher has been redeemed."
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model_terms:ir.ui.view,arch_db:spp_pos_id_redemption.pos_config_custom_view_form
+msgid "Configure the Area for this POS"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model,name:spp_pos_id_redemption.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model,name:spp_pos_id_redemption.model_g2p_program_create_wizard
+msgid "Create a New Program Wizard"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_product__created_from_entitlement
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_template__created_from_entitlement
+msgid "Created From Entitlement"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model,name:spp_pos_id_redemption.model_g2p_cycle
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_product__cycle_id
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_template__cycle_id
+msgid "Cycle"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model,name:spp_pos_id_redemption.model_g2p_program_entitlement_manager_default
+msgid "Default Entitlement Manager"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_g2p_program_membership__draft_barcode
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_res_partner__draft_barcode
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_res_users__draft_barcode
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_spp_attendance_subscriber__draft_barcode
+msgid "Draft Barcode"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model,name:spp_pos_id_redemption.model_g2p_entitlement
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_product__entitlement_id
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_template__entitlement_id
+msgid "Entitlement"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.actions.report,name:spp_pos_id_redemption.action_report_id_barcode_printout
+msgid "ID Barcode Printout"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_g2p_program_entitlement_manager_default__is_pos_cash
+msgid "Is Pos Cash"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_g2p_cycle__is_pos_cash_entitlement
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_g2p_entitlement__is_pos_cash_entitlement
+msgid "Is Pos Cash Entitlement"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_g2p_entitlement__latitude
+#: model_terms:ir.ui.view,arch_db:spp_pos_id_redemption.view_entitlement_custom_tree
+msgid "Latitude"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_g2p_entitlement__longitude
+#: model_terms:ir.ui.view,arch_db:spp_pos_id_redemption.view_entitlement_custom_tree
+msgid "Longitude"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_g2p_program_create_wizard__entitlement_kind
+msgid "Manager"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_product__cycle_id_str
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_product__program_id_str
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_template__cycle_id_str
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_template__program_id_str
+msgid "Name"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model_terms:ir.ui.view,arch_db:spp_pos_id_redemption.product_template_only_form_view
+msgid "Partner"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model,name:spp_pos_id_redemption.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model,name:spp_pos_id_redemption.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model_terms:ir.ui.view,arch_db:spp_pos_id_redemption.view_individuals_pos_form
+msgid "Print ID"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model,name:spp_pos_id_redemption.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_g2p_entitlement__product_template_id
+msgid "Product Template"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_product__program_id
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_template__program_id
+msgid "Program"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model_terms:ir.ui.view,arch_db:spp_pos_id_redemption.view_entitlement_custom_tree
+msgid "Redeemed"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_product__entitlement_partner_id
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_template__entitlement_partner_id
+msgid "Registrant"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model,name:spp_pos_id_redemption.model_g2p_reg_id
+msgid "Registrant ID"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#. odoo-javascript
+#: code:addons/spp_pos_id_redemption/static/src/view/partner_list.xml:0
+#, python-format
+msgid "Search Beneficiary..."
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.constraint,message:spp_pos_id_redemption.constraint_product_template_entitlement_id_unique
+msgid "The entitlement must be unique across product template records."
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.constraint,message:spp_pos_id_redemption.constraint_g2p_entitlement_product_template_unique
+msgid "The product template must be unique across entitlement records."
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_product__entitlement_valid_until
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_template__entitlement_valid_until
+msgid "Valid Until"
+msgstr ""
+
+#. module: spp_pos_id_redemption
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_g2p_entitlement__voucher_redeemed
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_product__voucher_redeemed
+#: model:ir.model.fields,field_description:spp_pos_id_redemption.field_product_template__voucher_redeemed
+msgid "Voucher Redeemed"
+msgstr ""

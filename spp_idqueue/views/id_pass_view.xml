@@ -1,0 +1,14 @@
+<odoo>
+    <record id="view_spp_idpass_tree_extend" model="ir.ui.view">
+        <field name="name">view_spp_idpass_tree_extend</field>
+        <field name="model">spp.id.pass</field>
+        <field name="inherit_id" ref="spp_idpass.view_spp_idpass_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='generate_auth_token']" position="attributes">
+                <attribute
+                    name="groups"
+                >g2p_registry_base.group_g2p_admin,spp_idqueue.group_g2p_id_validator</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

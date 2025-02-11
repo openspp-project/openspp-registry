@@ -388,7 +388,6 @@
                                     <field
                                         name="applicant_phone"
                                         string="Applicant's Phone #"
-                                        required="1"
                                         widget="phone"
                                         options="{'enable_sms': false}"
                                         readonly="state != 'draft'"

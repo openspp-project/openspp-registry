@@ -199,7 +199,11 @@
                             </group>
                             <group colspan="6" col="6">
                                 <group colspan="2">
-                                    <field name="gender" readonly="state != 'draft'" />
+                                    <field
+                                        name="gender"
+                                        readonly="state != 'draft'"
+                                        options="{'no_open':true,'no_edit':true,'no_create':true}"
+                                    />
                                 </group>
                                 <group colspan="2">
                                     <field
@@ -557,7 +561,7 @@
                                     <field name="family_name" readonly="1" class="oe_edit_only" />
                                     <field name="given_name" readonly="1" class="oe_edit_only" />
                                     <field name="addl_name" readonly="1" class="oe_edit_only" />
-                                    <field name="gender" readonly="1" />
+                                    <field name="gender" readonly="1" options="{'no_open':true}" />
                                     <field
                                             name="phone"
                                             readonly="1"
