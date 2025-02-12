@@ -357,6 +357,10 @@ h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
 ul.auto-toc {
   list-style-type: none }
 
+span.docutils {
+  font-family: monospace;
+}
+
 </style>
 </head>
 <body>
@@ -435,27 +439,27 @@ designated service points.</li>
 <h2>Additional Functionality</h2>
 <ul class="simple">
 <li><strong>Custom Change Request Model</strong>: Introduces the
-<tt class="docutils literal">spp.change.request.add.farmer</tt> model, inheriting from the base
-<tt class="docutils literal">spp.change.request</tt> model and adding fields specific to adding
+<span class="docutils literal">spp.change.request.add.farmer</span> model, inheriting from the base
+<span class="docutils literal">spp.change.request</span> model and adding fields specific to adding
 farmers, such as farmer-specific details and group membership
 information.</li>
 <li><strong>Tailored Forms</strong>: Provides specialized views for creating,
-displaying, and validating <tt class="docutils literal">Add Farmer</tt> change requests, including
-a dedicated form (<tt class="docutils literal">view_change_request_add_farmer_form</tt>) with
+displaying, and validating <span class="docutils literal">Add Farmer</span> change requests, including
+a dedicated form (<span class="docutils literal">view_change_request_add_farmer_form</span>) with
 relevant fields and a validation-focused form
-(<tt class="docutils literal">view_change_request_add_farmer_validation_form</tt>).</li>
+(<span class="docutils literal">view_change_request_add_farmer_validation_form</span>).</li>
 <li><strong>Automated Individual and Membership Creation</strong>: Upon validation and
 approval of the change request, the module automatically creates:<ul>
-<li>A new individual registrant record (<tt class="docutils literal">res.partner</tt>) for the
+<li>A new individual registrant record (<span class="docutils literal">res.partner</span>) for the
 farmer, populating it with the submitted data.</li>
 <li>A corresponding group membership record
-(<tt class="docutils literal">g2p.group.membership</tt>), linking the newly created farmer to
+(<span class="docutils literal">g2p.group.membership</span>), linking the newly created farmer to
 the designated group.</li>
 </ul>
 </li>
 <li><strong>Enhanced User Interface</strong>: Adds specific menu items and actions to
 the OpenSPP interface, allowing users to efficiently manage
-<tt class="docutils literal">Add Farmer</tt> requests.</li>
+<span class="docutils literal">Add Farmer</span> requests.</li>
 </ul>
 </div>
 <div class="section" id="conclusion">
