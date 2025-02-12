@@ -7,12 +7,14 @@ from odoo.addons.phone_validation.tools import phone_validation
 
 _logger = logging.getLogger(__name__)
 
+RES_PARTNER_MODEL = "res.partner"
+
 
 class ChangeRequestTypeCustomEditFarmer(models.Model):
     _inherit = "spp.change.request"  # Not merging classes as it might require significant refactoring.
 
     registrant_id = fields.Many2one(
-        "res.partner",
+        RES_PARTNER_MODEL,
         "Registrant",
         domain=[("is_registrant", "=", True), ("is_group", "=", True)],
     )
@@ -77,12 +79,12 @@ class ChangeRequestEditFarmer(models.Model):
         return [(option.value, option.code) for option in options]
 
     registrant_id = fields.Many2one(
-        "res.partner",
+        RES_PARTNER_MODEL,
         "Group",
         domain=[("is_registrant", "=", True), ("is_group", "=", True)],
     )
     farmer_id = fields.Many2one(
-        "res.partner",
+        RES_PARTNER_MODEL,
         "Farmer",
         domain=[("is_registrant", "=", True), ("is_group", "=", False)],
     )
