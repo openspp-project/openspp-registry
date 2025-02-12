@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Part of OpenSPP. See LICENSE file for full copyright and licensing details.
+-->
+<odoo noupdate="0">
+
+    <record id="spp_cr_create_group_target" model="spp.change.request.targets">
+        <field name="name">spp.change.request.create.group</field>
+        <field name="target">group</field>
+    </record>
+
+</odoo>

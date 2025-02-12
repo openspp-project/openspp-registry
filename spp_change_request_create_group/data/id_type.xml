@@ -1,0 +1,9 @@
+<odoo noupdate="1">
+
+    <!-- ID Type -->
+    <record id="unified_id_type" model="g2p.id.type">
+        <field name="name">Unified ID</field>
+        <field name="target_type">individual</field>
+    </record>
+
+</odoo>
