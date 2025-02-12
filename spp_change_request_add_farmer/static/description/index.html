@@ -5,19 +5,57 @@
 <meta name="generator" content="Docutils: https://docutils.sourceforge.io/" />
 <title>OpenSPP Change Request: Add Farmer</title>
 <style type="text/css">
+/* Core styles */
+body {
+  margin: 30px 100px;
+  background: #ffffff;
+  color: #000000;
+  font-family: serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
 
-/*
-:Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
-:Copyright: This stylesheet has been placed in the public domain.
+/* Typography */
+h1.title { text-align: center }
+h2.subtitle { text-align: center }
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+h1 span.mono, h2 span.mono, h3 span.mono,
+h4 span.mono, h5 span.mono, h6 span.mono {
+  font-size: 100% 
+}
 
-Default cascading style sheet for the HTML output of Docutils.
-Despite the name, some widely supported CSS2 features are used.
+.mono, span.mono { font-family: monospace }
+.first { margin-top: 0 !important }
+.last, .with-subtitle { margin-bottom: 0 !important }
+.hidden { display: none }
 
-See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
-customize this style sheet.
-*/
+/* Layout and positioning */
+.align-left { text-align: left }
+.align-center { 
+  clear: both;
+  text-align: center 
+}
+.align-right { text-align: right }
+.align-top { vertical-align: top }
+.align-middle { vertical-align: middle }
+.align-bottom { vertical-align: bottom }
 
+/* Tables */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+table.borderless td, table.borderless th {
+  padding: 0 0.5em 0 0 !important }
+table.docutils {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em }
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  vertical-align: top }
+  
 /* used to remove borders from tables and images */
 .borderless, table.borderless td, table.borderless th {
   border: 0 }
@@ -90,15 +128,6 @@ div.warning p.admonition-title, .code .error {
   font-weight: bold ;
   font-family: sans-serif }
 
-/* Uncomment (and remove this text!) to get reduced vertical space in
-   compound paragraphs.
-div.compound .compound-first, div.compound .compound-middle {
-  margin-bottom: 0.5em }
-
-div.compound .compound-last, div.compound .compound-middle {
-  margin-top: 0.5em }
-*/
-
 div.dedication {
   margin: 2em 5em ;
   text-align: center ;
@@ -156,16 +185,6 @@ div.system-message p.system-message-title {
 div.topic {
   margin: 2em }
 
-h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
-h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
-  margin-top: 0.4em }
-
-h1.title {
-  text-align: center }
-
-h2.subtitle {
-  text-align: center }
-
 hr.docutils {
   width: 75% }
 
@@ -189,32 +208,6 @@ table.align-center {
   margin-left: auto;
   margin-right: auto;
 }
-
-.align-left {
-  text-align: left }
-
-.align-center {
-  clear: both ;
-  text-align: center }
-
-.align-right {
-  text-align: right }
-
-/* reset inner alignment in figures */
-div.align-right {
-  text-align: inherit }
-
-/* div.align-center * { */
-/*   text-align: left } */
-
-.align-top    {
-  vertical-align: top }
-
-.align-middle {
-  vertical-align: middle }
-
-.align-bottom {
-  vertical-align: bottom }
 
 ol.simple, ul.simple {
   margin-bottom: 1em }
@@ -315,27 +308,6 @@ table.citation {
 table.docinfo {
   margin: 2em 4em }
 
-table.docutils {
-  margin-top: 0.5em ;
-  margin-bottom: 0.5em }
-
-table.footnote {
-  border-left: solid 1px black;
-  margin-left: 1px }
-
-table.docutils td, table.docutils th,
-table.docinfo td, table.docinfo th {
-  padding-left: 0.5em ;
-  padding-right: 0.5em ;
-  vertical-align: top }
-
-table.docutils th.field-name, table.docinfo th.docinfo-name {
-  font-weight: bold ;
-  text-align: left ;
-  white-space: nowrap ;
-  padding-left: 0 }
-
-/* "booktabs" style (no vertical lines) */
 table.docutils.booktabs {
   border: 0px;
   border-top: 2px solid;
@@ -349,10 +321,6 @@ table.docutils.booktabs th {
   border-bottom: thin solid;
   text-align: left;
 }
-
-h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
-h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
-  font-size: 100% }
 
 ul.auto-toc {
   list-style-type: none }
@@ -435,15 +403,15 @@ designated service points.</li>
 <h2>Additional Functionality</h2>
 <ul class="simple">
 <li><strong>Custom Change Request Model</strong>: Introduces the
-<tt class="docutils literal">spp.change.request.add.farmer</tt> model, inheriting from the base
-<tt class="docutils literal">spp.change.request</tt> model and adding fields specific to adding
+<span class="mono">spp.change.request.add.farmer</span> model, inheriting from the base
+<span class="mono">spp.change.request</span> model and adding fields specific to adding
 farmers, such as farmer-specific details and group membership
 information.</li>
 <li><strong>Tailored Forms</strong>: Provides specialized views for creating,
-displaying, and validating <tt class="docutils literal">Add Farmer</tt> change requests, including
-a dedicated form (<tt class="docutils literal">view_change_request_add_farmer_form</tt>) with
+displaying, and validating <span class="mono">Add Farmer</span> change requests, including
+a dedicated form (<span class="mono">view_change_request_add_farmer_form</span>) with
 relevant fields and a validation-focused form
-(<tt class="docutils literal">view_change_request_add_farmer_validation_form</tt>).</li>
+(<span class="mono">view_change_request_add_farmer_validation_form</span>).</li>
 <li><strong>Automated Individual and Membership Creation</strong>: Upon validation and
 approval of the change request, the module automatically creates:<ul>
 <li>A new individual registrant record (<tt class="docutils literal">res.partner</tt>) for the
