@@ -1,0 +1,5 @@
+<odoo noupdate="1">
+    <record id="admin_area_kind" model="spp.area.kind">
+        <field name="name">Admin Area</field>
+    </record>
+</odoo>

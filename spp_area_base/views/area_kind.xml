@@ -1,0 +1,58 @@
+<odoo>
+    <record id="view_spparea_kind_tree" model="ir.ui.view">
+        <field name="name">view_spparea_kind_tree</field>
+        <field name="model">spp.area.kind</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="parent_id" />
+                <field name="name" />
+                <field name="complete_name" string="Complete Name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="spparea_kind_filter" model="ir.ui.view">
+        <field name="name">spparea_kind_filter</field>
+        <field name="model">spp.area.kind</field>
+        <field name="priority" eval="1" />
+        <field name="arch" type="xml">
+            <search string="Search Area">
+                <field name="parent_id" />
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_spparea_kind" model="ir.actions.act_window">
+        <field name="name">Area Type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">spp.area.kind</field>
+        <field name="view_mode">tree</field>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Area Type!
+            </p><p>
+                Click the create button to enter the information of the Area Type.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_spparea_kind_tree_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_spparea_kind_tree" />
+        <field name="act_window_id" ref="action_spparea_kind" />
+    </record>
+
+    <menuitem
+        id="menu_spparea_kind"
+        name="Area Type"
+        action="action_spparea_kind"
+        parent="spp_area_base.area_main_top_menu"
+        sequence="110"
+        groups="base.group_system"
+    />
+</odoo>
