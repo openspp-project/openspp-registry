@@ -5,12 +5,17 @@ from odoo.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
 
+RES_PARTNER = "res.partner"
+CHANGE_REQUEST_EDIT_FARM = "spp.change.request.edit.farm"
+FARM_ACTIVITY = "spp.farm.activity"
+FARM_ASSET = "spp.farm.asset"
+
 
 class ChangeRequestTypeCustomEditFarm(models.Model):
     _inherit = "spp.change.request"  # Not merging classes as it might require significant refactoring.
 
     registrant_id = fields.Many2one(
-        "res.partner",
+        RES_PARTNER,
         "Registrant",
         domain=[("is_registrant", "=", True), ("is_group", "=", True)],
     )
@@ -21,22 +26,20 @@ class ChangeRequestTypeCustomEditFarm(models.Model):
 
         :raise UserError: Exception raised when applicant_phone is not existing.
         """
-        request_type = self.request_type
-        if "farm" not in request_type:
-            if not self.applicant_phone:
-                raise UserError(_("Phone No. is required."))
+        if not self.applicant_phone and "farm" not in self.request_type:
+            raise UserError(_("Phone No. is required."))
 
     @api.model
     def _selection_request_type_ref_id(self):
         selection = super()._selection_request_type_ref_id()
-        new_request_type = ("spp.change.request.edit.farm", "Edit Farm")
+        new_request_type = (CHANGE_REQUEST_EDIT_FARM, "Edit Farm")
         if new_request_type not in selection:
             selection.append(new_request_type)
         return selection
 
 
 class ChangeRequestEditFarm(models.Model):
-    _name = "spp.change.request.edit.farm"
+    _name = CHANGE_REQUEST_EDIT_FARM
     _inherit = [
         "spp.change.request.source.mixin",
         "spp.change.request.validation.sequence.mixin",
@@ -80,7 +83,7 @@ class ChangeRequestEditFarm(models.Model):
         return [(option.value, option.code) for option in options]
 
     registrant_id = fields.Many2one(
-        "res.partner",
+        RES_PARTNER,
         "Add to Group",
         domain=[("is_registrant", "=", True), ("is_group", "=", True)],
     )
@@ -97,17 +100,15 @@ class ChangeRequestEditFarm(models.Model):
         string="Group Kind",
         default=lambda self: self.env.ref("spp_farmer_registry_base.kind_farm", raise_if_not_found=False),
     )
-    farm_crop_act_ids = fields.One2many("spp.farm.activity", "crop_cr_farm_id", string="Crop Agricultural Activities")
-    farm_live_act_ids = fields.One2many(
-        "spp.farm.activity", "live_cr_farm_id", string="Livestock Agricultural Activities"
-    )
+    farm_crop_act_ids = fields.One2many(FARM_ACTIVITY, "crop_cr_farm_id", string="Crop Agricultural Activities")
+    farm_live_act_ids = fields.One2many(FARM_ACTIVITY, "live_cr_farm_id", string="Livestock Agricultural Activities")
     farm_aqua_act_ids = fields.One2many(
-        "spp.farm.activity",
+        FARM_ACTIVITY,
         "aqua_cr_farm_id",
         string="Aquaculture Agricultural Activities",
     )
-    farm_asset_ids = fields.One2many("spp.farm.asset", "asset_cr_farm_id", string="Farm Assets")
-    farm_machinery_ids = fields.One2many("spp.farm.asset", "machinery_cr_farm_id", string="Farm Machinery")
+    farm_asset_ids = fields.One2many(FARM_ASSET, "asset_cr_farm_id", string="Farm Assets")
+    farm_machinery_ids = fields.One2many(FARM_ASSET, "machinery_cr_farm_id", string="Farm Machinery")
 
     # Land Record
     land_name = fields.Char(string="Parcel Name/ID")
@@ -239,15 +240,15 @@ class ChangeRequestEditFarm(models.Model):
 
 
 class ChangeRequestEditFarmAgriculturalActivity(models.Model):
-    _inherit = "spp.farm.activity"
+    _inherit = FARM_ACTIVITY
 
-    crop_cr_farm_id = fields.Many2one("spp.change.request.edit.farm", string="Crop Farm")
-    live_cr_farm_id = fields.Many2one("spp.change.request.edit.farm", string="Livestock Farm")
-    aqua_cr_farm_id = fields.Many2one("spp.change.request.edit.farm", string="Aqua Farm")
+    crop_cr_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Crop Farm")
+    live_cr_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Livestock Farm")
+    aqua_cr_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Aqua Farm")
 
 
 class ChangeRequestEditFarmAssets(models.Model):
-    _inherit = "spp.farm.asset"
+    _inherit = FARM_ASSET
 
-    asset_cr_farm_id = fields.Many2one("spp.change.request.edit.farm", string="Asset Farm")
-    machinery_cr_farm_id = fields.Many2one("spp.change.request.edit.farm", string="Machinery Farm")
+    asset_cr_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Asset Farm")
+    machinery_cr_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Machinery Farm")
