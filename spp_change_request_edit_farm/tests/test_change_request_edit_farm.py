@@ -100,11 +100,48 @@ class TestChangeRequestEditFarm(TransactionCase):
             }
         )
 
-        self.assertTrue(crop_activity in edit_farm.farm_crop_act_ids)
+        # Create livestock activity
+        livestock_activity = self.env["spp.farm.activity"].create(
+            {
+                "species_id": self.env["spp.farm.species"]
+                .create(
+                    {
+                        "name": "Test Livestock",
+                        "species_type": "livestock",
+                    }
+                )
+                .id,
+                "activity_type": "livestock",
+                "live_cr_farm_id": edit_farm.id,
+            }
+        )
 
-        # Update live data and check if activity is linked to farm
+        # Create aquaculture activity
+        aqua_activity = self.env["spp.farm.activity"].create(
+            {
+                "species_id": self.env["spp.farm.species"]
+                .create(
+                    {
+                        "name": "Test Fish",
+                        "species_type": "aquaculture",
+                    }
+                )
+                .id,
+                "activity_type": "aquaculture",
+                "aqua_cr_farm_id": edit_farm.id,
+            }
+        )
+
+        # Verify activities are linked to the change request
+        self.assertTrue(crop_activity in edit_farm.farm_crop_act_ids)
+        self.assertTrue(livestock_activity in edit_farm.farm_live_act_ids)
+        self.assertTrue(aqua_activity in edit_farm.farm_aqua_act_ids)
+
+        # Update live data and check if activities are linked to farm
         updated_farm = edit_farm.update_live_data()
         self.assertEqual(crop_activity.crop_farm_id, updated_farm)
+        self.assertEqual(livestock_activity.live_farm_id, updated_farm)
+        self.assertEqual(aqua_activity.aqua_farm_id, updated_farm)
 
     def test_05_farm_assets(self):
         """Test adding farm assets to the change request"""
@@ -129,8 +166,26 @@ class TestChangeRequestEditFarm(TransactionCase):
             }
         )
 
-        self.assertTrue(asset in edit_farm.farm_asset_ids)
+        # Create machinery asset
+        machinery = self.env["spp.farm.asset"].create(
+            {
+                "machinery_type": self.env["machinery.type"]
+                .create(
+                    {
+                        "name": "Tractor",
+                    }
+                )
+                .id,
+                "machinery_cr_farm_id": edit_farm.id,
+                "quantity": 1,
+                "machine_working_status": "working",
+            }
+        )
 
-        # Update live data and check if asset is linked to farm
+        self.assertTrue(asset in edit_farm.farm_asset_ids)
+        self.assertTrue(machinery in edit_farm.farm_machinery_ids)
+
+        # Update live data and check if assets are linked to farm
         updated_farm = edit_farm.update_live_data()
         self.assertEqual(asset.asset_farm_id, updated_farm)
+        self.assertEqual(machinery.machinery_farm_id, updated_farm)
