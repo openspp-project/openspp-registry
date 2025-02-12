@@ -21,6 +21,7 @@
     ],
     "excludes": [
         "spp_base",
+        "spp_change_request_create_group",
     ],
     "data": [
         "security/change_request_security.xml",

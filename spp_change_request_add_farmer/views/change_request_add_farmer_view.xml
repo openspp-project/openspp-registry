@@ -13,10 +13,7 @@
         <field name="arch" type="xml">
             <tree sample="1" create="0">
                 <field name="change_request_id" />
-                <field name="registrant_id" string="Group" />
-                <field name="full_name" />
-                <field name="gender" />
-                <field name="kind" widget="many2many_tags" />
+                <field name="registrant_id" string="Adding to Group" />
                 <field name="create_date" />
                 <field name="last_validated_by_id" widget="many2one_avatar_user" />
                 <field name="date_validated" />
@@ -124,7 +121,7 @@
                             <field
                                 name="registrant_id"
                                 options="{'no_create': True,'no_open':True}"
-                                readonly="1"
+                                readonly="state != 'draft'"
                                 class="oe_inline"
                             />
                             <button
@@ -137,24 +134,6 @@
                                 invisible="not registrant_id"
                             />
                         </h1>
-                        <label for="applicant_id" string="Applicant:" />
-                        <h2>
-                            <field
-                                name="applicant_id"
-                                options="{'no_create': True,'no_open':True}"
-                                readonly="1"
-                                class="oe_inline"
-                            />
-                            <button
-                                name="open_applicant_details_form"
-                                type="object"
-                                icon="fa-external-link "
-                                title="Open Applicant Details"
-                                class="btn-success"
-                                style="margin-left: 10px;"
-                                invisible="not registrant_id"
-                            />
-                        </h2>
                         <div class="o_row">
                             <h2>
                                 <label for="request_type" string="Request Type:" />
@@ -164,141 +143,21 @@
                     </div>
                     <notebook>
                         <page string="Request Details">
-                            <!-- widget is currently not working -->
-                            <!-- <field
-                                name="id_document_details"
-                                widget="id_document_reader_field"
-                                colspan="4"
-                                invisible="state != 'draft'"
-                            /> -->
-                            <div style="width: 100%; padding-top: 10px; padding-left: 10px; ">
-                                <h3>Farmer Details</h3>
-                                <table
-                                    style="height: 50px; width:100%; vertical-align: top; text-align: left;"
-                                >
-                                    <tr>
-                                        <td style="height:100%; width:15%;" />
-                                        <td style="width:5%;" />
-                                        <td style="width:20%;" />
-                                        <td style="width:20%;" />
-                                        <td style="width:20%;" />
-                                        <td style="width:20%;" />
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            rowspan="4"
-                                            style="height:100%; width:15%; vertical-align: top; text-align: center;"
-                                        >
-                                            <field
-                                                name="image_1920"
-                                                widget="image"
-                                                options="{'preview_image': 'avatar_512'}"
-                                            />
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                            <span>
-                                                National ID Number
-                                            </span>
-                                            <br />
-                                            <field name="farmer_national_id" />
-                                        </td>
-                                        <td>
-                                            <span>
-                                                Family Name
-                                            </span>
-                                            <br />
-                                            <field name="family_name" />
-                                        </td>
-                                        <td>
-                                            <span>
-                                                Given Name
-                                            </span>
-                                            <br />
-                                            <field name="given_name" />
-                                        </td>
-                                        <td>
-                                            <span>
-                                                Additional Name
-                                            </span>
-                                            <br />
-                                            <field name="addl_name" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        </td>
-                                        <td>
-                                            <span>
-                                                Marital Status
-                                            </span>
-                                            <br />
-                                            <field name="marital_status" />
-                                        </td>
-                                        <td>
-                                            <span>
-                                                Gender
-                                            </span>
-                                            <br />
-                                            <field name="gender" />
-                                        </td>
-                                        <td>
-                                            <span>
-                                                Date of Birth
-                                            </span>
-                                            <br />
-                                            <field name="birthdate" />
-                                        </td>
-                                        <td>
-                                            <span>
-                                                Household Size
-                                            </span>
-                                            <br />
-                                            <field name="farmer_household_size" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        </td>
-                                        <td>
-                                            <span>
-                                                Postal Address
-                                            </span>
-                                            <br />
-                                            <field name="farmer_postal_address" />
-                                        </td>
-                                        <td>
-                                            <span>
-                                                Educational Level
-                                            </span>
-                                            <br />
-                                            <field name="highest_education_level" />
-                                        </td>
-                                        <td>
-                                            <span>
-                                                Years of Experience
-                                            </span>
-                                            <br />
-                                            <field name="experience_years" />
-                                        </td>
-                                        <td>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                            <field name="group_member_ids">
+                                <tree editable="bottom">
+                                    <field
+                                        name="individual_id"
+                                        required="1"
+                                        options="{'no_open':True, 'no_create':True, 'no_edit':True}"
+                                    />
+                                    <field
+                                        name="kind_ids"
+                                        widget="many2many_tags"
+                                        options="{'no_open':True, 'no_create':True, 'no_edit':True}"
+                                    />
+                                    <field name="start_date" />
+                                </tree>
+                            </field>
                         </page>
                         <page string="Attachments">
                             <!-- Attachment UI -->
@@ -385,16 +244,6 @@
                                         string="Assigned To"
                                         options="{'no_open':True}"
                                         readonly="1"
-                                    />
-                                </group>
-                                <group colspan="2">
-                                    <field
-                                        name="applicant_phone"
-                                        string="Applicant's Phone #"
-                                        required="1"
-                                        widget="phone"
-                                        options="{'enable_sms': false}"
-                                        readonly="state != 'draft'"
                                     />
                                 </group>
                             </group>
@@ -510,7 +359,7 @@
                     <!-- Left Panel -->
                     <group colspan="2" col="2" class="o_left_panel">
                         <div class="o_header_label1" colspan="2">
-                            <label for="registrant_id" string="ADD CHILD/MEMBER TO GROUP:" />
+                            <label for="registrant_id" string="ADD FARMER TO GROUP:" />
                             <h2>
                                 <field name="registrant_id" readonly="1" options="{'no_open':True}" />
                                 <button
@@ -526,69 +375,6 @@
                             </h2>
                         </div>
                         <newline />
-                        <notebook colspan="2" class="o_container_left">
-                            <page string="TARGET GROUP INFORMATION">
-                                <group colspan="2" col="2" name="target_group">
-                                    <field name="group_address" colspan="2" string="Address:" />
-                                    <field name="group_registration_date" string="Registration Date:" />
-                                </group>
-                                <group
-                                        colspan="2"
-                                        col="2"
-                                        string="Current Group Members"
-                                        name="group_members"
-                                    >
-                                    <field name="group_member_ids" readonly="1" nolabel="1" colspan="2">
-                                        <tree>
-                                            <button
-                                                    name="open_individual_form"
-                                                    type="object"
-                                                    help="Open Member Form"
-                                                    icon="fa-external-link "
-                                                    title="Open Member Form"
-                                                    class="btn-success"
-                                                />
-                                            <field name="group_add_farmer_id" column_invisible="1" />
-                                            <field name="individual_id" string="Members" />
-                                            <field
-                                                    name="kind_ids"
-                                                    widget="many2many_tags"
-                                                    options="{'no_open':True}"
-                                                />
-                                        </tree>
-                                        <form string="Group Membership">
-                                            <sheet>
-                                                <div class="oe_title mb24">
-                                                    <h1>
-                                                        <field
-                                                                name="individual_id"
-                                                                string="Member"
-                                                                options="{'no_open':True}"
-                                                                readonly="1"
-                                                            />
-                                                    </h1>
-                                                    <div class="o_row">
-                                                        <label for="kind_ids" string="Membership Types:" />
-                                                        <field
-                                                                name="kind_ids"
-                                                                widget="many2many_tags"
-                                                                options="{'no_open':True}"
-                                                                readonly="1"
-                                                            />
-                                                    </div>
-                                                </div>
-                                                <group colspan="4" col="4">
-                                                    <field name="phone" readonly="1" />
-                                                    <field name="birthdate" readonly="1" />
-                                                    <field name="age" readonly="1" />
-                                                </group>
-                                                <field name="group_add_farmer_id" invisible="1" />
-                                            </sheet>
-                                        </form>
-                                    </field>
-                                </group>
-                            </page>
-                        </notebook>
                     </group>
                     <!-- Right Panel -->
                     <group colspan="2" col="2" class="o_right_panel">
@@ -601,65 +387,13 @@
                         <newline />
                         <notebook colspan="2" class="o_container_right">
                             <page string="Request Details">
-                                <group colspan="2" col="2" string="Applicant Information">
-                                    <div colspan="2">
-                                        <label for="applicant_id" string="Applicant:" />
-                                        <h3>
-                                            <field
-                                                    name="applicant_id"
-                                                    options="{'no_create': True,'no_open':True}"
-                                                    readonly="1"
-                                                    class="oe_inline"
-                                                />
-                                            <button
-                                                    name="open_applicant_details_form"
-                                                    type="object"
-                                                    icon="fa-external-link"
-                                                    title="Open Applicant Details"
-                                                    class="btn-success oe_inline"
-                                                    invisible="not applicant_id"
-                                                    style="padding-left: 10px !important;"
-                                                />
-                                        </h3>
-                                    </div>
-                                    <field
-                                            name="applicant_phone"
-                                            string="Phone No."
-                                            readonly="1"
-                                            widget="phone"
-                                            options="{'enable_sms': false}"
-                                        />
-                                </group>
-                                <group colspan="2" col="2" string="New Information">
-                                    <field name="full_name" readonly="1" class="oe_read_only" />
-                                    <field name="family_name" readonly="1" class="oe_edit_only" />
-                                    <field name="given_name" readonly="1" class="oe_edit_only" />
-                                    <field name="addl_name" readonly="1" class="oe_edit_only" />
-                                    <field name="gender" readonly="1" />
-                                    <field
-                                            name="phone"
-                                            readonly="1"
-                                            widget="phone"
-                                            options="{'enable_sms': false}"
-                                        />
-                                    <field name="experience_years" readonly="1" />
-                                    <field name="formal_agricultural_training" readonly="1" />
-                                    <field name="farmer_national_id" readonly="1" />
-                                    <field name="farmer_household_size" readonly="1" />
-                                    <field name="farmer_postal_address" readonly="1" />
-                                    <field name="marital_status" readonly="1" />
-                                    <field name="highest_education_level" readonly="1" />
-                                    <field name="uid_number" readonly="1" />
-                                    <field name="birth_place" readonly="1" />
-                                    <field name="birthdate_not_exact" readonly="1" />
-                                    <field name="birthdate" readonly="1" />
-                                    <field
-                                            name="kind"
-                                            widget="many2many_tags"
-                                            options="{'no_open':True}"
-                                            readonly="1"
-                                        />
-                                </group>
+                                <field name="group_member_ids" readonly="1" nolabel="1">
+                                    <tree>
+                                        <field name="individual_id" />
+                                        <field name="kind_ids" />
+                                        <field name="start_date" />
+                                    </tree>
+                                </field>
                             </page>
                             <page string="Attachments">
                                 <field
@@ -718,10 +452,7 @@
         <field name="priority" eval="1" />
         <field name="arch" type="xml">
             <search string="Search Change Request: Add Farmer">
-                <field name="registrant_id" string="Group" />
-                <field name="family_name" />
-                <field name="given_name" />
-                <field name="addl_name" />
+                <field name="registrant_id" string="Adding to Group" />
                 <filter
                     name="filter_validator"
                     string="Assigned to me"
