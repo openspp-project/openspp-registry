@@ -84,6 +84,7 @@ class G2PCashEntitlementManager(models.Model):
                 )
             else:
                 beneficiaries_ids = all_beneficiaries_ids
+            _logger.info(f"Beneficiaries IDs: {beneficiaries_ids}")
 
             beneficiaries_with_entitlements = (
                 self.env["g2p.entitlement"]
@@ -117,6 +118,7 @@ class G2PCashEntitlementManager(models.Model):
                     multiplier = 1
                 if rec.max_multiplier > 0 and multiplier > rec.max_multiplier:
                     multiplier = rec.max_multiplier
+                _logger.info(f"Multiplier: {multiplier}")
                 amount = rec.amount * float(multiplier)
 
                 # Compute the sum of cash entitlements
