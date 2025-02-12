@@ -16,8 +16,6 @@
         "g2p_programs",
         "spp_area",
         "spp_programs",
-        "spp_eligibility_sql",
-        "spp_eligibility_tags",
     ],
     "data": [
         "security/ir.model.access.csv",

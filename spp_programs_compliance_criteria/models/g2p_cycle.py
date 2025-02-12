@@ -31,9 +31,6 @@ class G2pCycle(models.Model):
         domain = []
         for manager in self.program_id.compliance_managers:
             manager_ref = manager.manager_ref_id
-            if manager_ref._name == "g2p.program_membership.manager.sql":
-                domain.append([("id", "in", manager_ref._get_beneficiaries_sql_query())])
-                continue
             membership = self.cycle_membership_ids if self.cycle_membership_ids else None
             domain.append(manager_ref._prepare_eligible_domain(membership))
         return OR(domain)

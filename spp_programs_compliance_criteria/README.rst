@@ -59,13 +59,6 @@ Module Dependencies and Integration
 4. `spp_programs <spp_programs>`__: Works in conjunction with the
    OpenSPP Programs module to apply compliance criteria to both cash and
    in-kind programs.
-
-5. `spp_eligibility_sql <spp_eligibility_sql>`__: Integrates with the
-   SQL-based eligibility manager to allow for complex, dynamic
-   compliance criteria based on SQL queries.
-
-6. `spp_eligibility_tags <spp_eligibility_tags>`__: Utilizes tag-based
-   eligibility rules as potential compliance criteria, adding another
    layer of flexibility.
 
 Additional Functionality

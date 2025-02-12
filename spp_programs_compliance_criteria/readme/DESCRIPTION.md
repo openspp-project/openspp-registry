@@ -18,10 +18,6 @@ The **OpenSPP Programs: Compliance Criteria** module allows program administrato
 
 4. [spp_programs](spp_programs): Works in conjunction with the OpenSPP Programs module to apply compliance criteria to both cash and in-kind programs.
 
-5. [spp_eligibility_sql](spp_eligibility_sql): Integrates with the SQL-based eligibility manager to allow for complex, dynamic compliance criteria based on SQL queries.
-
-6. [spp_eligibility_tags](spp_eligibility_tags): Utilizes tag-based eligibility rules as potential compliance criteria, adding another layer of flexibility.
-
 ## Additional Functionality
 
 * **Compliance Managers (spp.compliance.manager)**: A new model that links to specific eligibility managers (SQL-based, Tag-based, etc.) and defines them as compliance criteria for a program. 
