@@ -1,4 +1,3 @@
-import json
 import logging
 
 from odoo import Command, _, api, fields, models
@@ -110,53 +109,14 @@ class ChangeRequestAddChildren(models.Model):
     @api.onchange("id_document_details")
     def _onchange_scan_id_document_details(self):
         """
-        Processes scanned ID document details.
-        Creates DMS file entries and updates individual details based on scanned information.
-
-        Raises:
-            UserError: If no directories are defined for the change request.
+        Handles changes to the id_document_details field.
+        This method is triggered when the ID document details are scanned or updated.
+        Currently implemented as a placeholder for future ID scanning functionality.
 
         Returns:
             None
         """
-        if self.dms_directory_ids:
-            if self.id_document_details:
-                try:
-                    details = json.loads(self.id_document_details)
-                except json.decoder.JSONDecodeError as e:
-                    details = None
-                    _logger.error(e)
-                if details:
-                    # Upload to DMS
-                    if details["image"]:
-                        if self._origin:
-                            directory_id = self._origin.dms_directory_ids[0].id
-                        else:
-                            directory_id = self.dms_directory_ids[0].id
-                        dms_vals = {
-                            "name": "UID_" + details["document_number"] + ".jpg",
-                            "directory_id": directory_id,
-                            "category_id": self.env.ref("spp_change_request.spp_dms_uid_card").id,
-                            "content": details["image"],
-                        }
-                        # TODO: Should be added to vals["dms_file_ids"] but it is
-                        # not writing to one2many field using Command.create()
-                        self.env["spp.dms.file"].create(dms_vals)
-
-                    # TODO: grand_father_name and father_name
-                    vals = {
-                        "family_name": details["family_name"],
-                        "given_name": details["given_name"],
-                        "birthdate": details["birth_date"],
-                        "gender": details["gender"],
-                        "id_document_details": "",
-                        "birth_place": details["birth_place_city"],
-                        # TODO: Fix not writing to one2many field: dms_file_ids
-                        # "dms_file_ids": [(Command.create(dms_vals))],
-                    }
-                    self.update(vals)
-        else:
-            raise UserError(_("There are no directories defined for this change request."))
+        return
 
     def _get_default_change_request_id(self):
         """

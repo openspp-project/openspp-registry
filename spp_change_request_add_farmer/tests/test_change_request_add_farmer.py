@@ -92,6 +92,18 @@ class TestChangeRequestAddFarmer(TransactionCase):
             self.add_farmer_request.validate_data()
         self.assertIn("Need to add at least one farmer!", str(cm.exception))
 
+        # Should pass with group members
+        member = self.env["spp.change.request.group.members"].create(
+            {
+                "group_add_farmer_id": self.add_farmer_request.id,
+                "individual_id": self.individual.id,
+                "kind_ids": [(4, self.role.id)],
+                "start_date": date.today(),
+            }
+        )
+        self.add_farmer_request.group_member_ids = member
+        self.add_farmer_request.validate_data()
+
     def test_update_live_data(self):
         """Test updating live data"""
         # Add group member
