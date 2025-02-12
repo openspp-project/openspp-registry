@@ -8,6 +8,8 @@ from odoo.addons.phone_validation.tools import phone_validation
 _logger = logging.getLogger(__name__)
 
 RES_PARTNER_MODEL = "res.partner"
+G2P_REG_ID_MODEL = "g2p.reg.id"
+NATIONAL_ID_TYPE_REF = "spp_farmer_registry_base.id_type_national_id"
 
 
 class ChangeRequestTypeCustomEditFarmer(models.Model):
@@ -223,37 +225,37 @@ class ChangeRequestEditFarmer(models.Model):
 
     def insert_id(self, individual_id, national_id):
         if national_id:
-            current_id = self.env["g2p.reg.id"].search(
+            current_id = self.env[G2P_REG_ID_MODEL].search(
                 [
                     ("partner_id", "=", individual_id),
                     ("value", "=", national_id),
                     (
                         "id_type",
                         "=",
-                        self.env.ref("spp_farmer_registry_base.id_type_national_id").id,
+                        self.env.ref(NATIONAL_ID_TYPE_REF).id,
                     ),
                 ]
             )
             if not current_id:
-                existing_national_id = self.env["g2p.reg.id"].search(
+                existing_national_id = self.env[G2P_REG_ID_MODEL].search(
                     [
                         ("partner_id", "=", individual_id),
                         (
                             "id_type",
                             "=",
-                            self.env.ref("spp_farmer_registry_base.id_type_national_id").id,
+                            self.env.ref(NATIONAL_ID_TYPE_REF).id,
                         ),
                     ]
                 )
                 id_vals = {
                     "partner_id": individual_id,
                     "value": national_id,
-                    "id_type": self.env.ref("spp_farmer_registry_base.id_type_national_id").id,
+                    "id_type": self.env.ref(NATIONAL_ID_TYPE_REF).id,
                 }
                 if existing_national_id:
                     existing_national_id.write(id_vals)
                 else:
-                    self.env["g2p.reg.id"].create(id_vals)
+                    self.env[G2P_REG_ID_MODEL].create(id_vals)
 
     def open_registrant_details_form(self):
         self.ensure_one()
