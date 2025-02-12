@@ -376,104 +376,42 @@ span.docutils {
 !! source digest: sha256:acaecaa0c5a4b0eeeacac2e19f416521d252c7c913eff91aeb22d41b9d7de0b8
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Alpha" src="https://img.shields.io/badge/maturity-Alpha-red.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3" src="https://img.shields.io/badge/licence-LGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OpenSPP/openspp-modules/tree/17.0/spp_change_request_create_group"><img alt="OpenSPP/openspp-modules" src="https://img.shields.io/badge/github-OpenSPP%2Fopenspp--modules-lightgray.png?logo=github" /></a></p>
+
 <div class="section" id="openspp-change-request-create-group-1">
 <h1>OpenSPP Change Request: Create Group</h1>
+
 <div class="section" id="overview">
 <h2>Overview</h2>
-<p>The <a class="reference external" href="spp_change_request_create_group">spp_change_request_create_group</a>
-module extends the OpenSPP Change Request system to specifically handle
-requests for creating new groups within the registry.
-It leverages the framework provided by the
-<a class="reference external" href="spp_change_request">spp_change_request</a> module and integrates with
-other registry modules to streamline the process of creating groups while
-maintaining data integrity and consistency.</p>
+<p>This module provides functionality for creating new groups through a change request system in OpenSPP. It offers a structured workflow for submitting, reviewing, and approving group creation requests while maintaining data integrity.</p>
 </div>
-<div class="section" id="purpose">
-<h2>Purpose</h2>
+
+<div class="section" id="key-features">
+<h2>Key Features</h2>
 <ul class="simple">
-<li><strong>Specialized Change Request Type</strong>: Introduce a dedicated change
-request type for creating groups, distinct from other types of
-registrant modifications.</li>
-<li><strong>Streamlined Data Collection</strong>: Provide a tailored form for
-capturing essential information about the new group, including
-group details and attributes.</li>
-<li><strong>Group Management</strong>: Integrate with the
-<a class="reference external" href="g2p_registry_membership">g2p_registry_membership</a> module to
-seamlessly create new groups upon approval.</li>
-<li><strong>Enhanced Validation</strong>: Implement specific validation rules relevant
-to creating groups, ensuring the accuracy and completeness of the
-submitted information.</li>
+<li><strong>Dedicated Group Creation Form</strong>: A specialized interface for submitting new group requests</li>
+<li><strong>Validation Workflow</strong>: Built-in validation checks to ensure data completeness and accuracy</li>
+<li><strong>Automated Processing</strong>: Automatic group creation upon request approval</li>
+<li><strong>Integration</strong>: Seamless connection with OpenSPP's registry and group management systems</li>
 </ul>
 </div>
-<div class="section" id="module-integration">
-<h2>Module Integration</h2>
-</div>
+
 <div class="section" id="dependencies">
 <h2>Dependencies</h2>
-<p>The module relies heavily on the following modules:</p>
 <ul class="simple">
-<li><a class="reference external" href="spp_change_request">spp_change_request</a>: Inherits the core change
-request functionality, including the request workflow, validation
-processes, approval mechanisms, and integration with the Document
-Management System (<a class="reference external" href="spp_dms">spp_dms</a>).</li>
-<li><a class="reference external" href="spp_farmer_registry_base">spp_farmer_registry_base</a>: Leverages
-the farmer-specific data models and attributes to capture and store
-information about the new farmer.</li>
-<li><a class="reference external" href="g2p_registry_membership">g2p_registry_membership</a>: Integrates
-with the membership management system to create the appropriate group
-membership record for the new farmer upon change request approval.</li>
-<li><a class="reference external" href="phone_validation">phone_validation</a>: Utilizes the phone
-validation module to ensure phone number entries for the new farmer
-adhere to correct formatting.</li>
-<li><a class="reference external" href="g2p_registry_group">g2p_registry_group</a>: Accesses group
-information and functionality to display details about the target
-group for the new farmer.</li>
-<li><a class="reference external" href="g2p_registry_individual">g2p_registry_individual</a>: Leverages
-individual registrant management features, inheriting from the
-individual registrant model.</li>
-<li><a class="reference external" href="spp_service_points">spp_service_points</a>: Integrates with service
-points, allowing change requests to be initiated and managed through
-designated service points.</li>
+<li>spp_change_request</li>
+<li>g2p_registry_membership</li>
+<li>g2p_registry_group</li>
 </ul>
 </div>
-<div class="section" id="additional-functionality">
-<h2>Additional Functionality</h2>
-<ul class="simple">
-<li><strong>Custom Change Request Model</strong>: Introduces the
-<span class="docutils literal">spp.change.request.create.group</span> model, inheriting from the base
-<span class="docutils literal">spp.change.request</span> model and adding fields specific to creating
-groups, such as group-specific details and information.</li>
-<li><strong>Tailored Forms</strong>: Provides specialized views for creating,
-displaying, and validating <span class="docutils literal">Create Group</span> change requests, including
-a dedicated form (<span class="docutils literal">view_change_request_create_group_form</span>) with
-relevant fields and a validation-focused form
-(<span class="docutils literal">view_change_request_create_group_validation_form</span>).</li>
-<li><strong>Automated Group Creation</strong>: Upon validation and
-approval of the change request, the module automatically creates:<ul>
-<li>A new group record (<span class="docutils literal">res.partner</span>), populating it with the submitted data.</li>
-</ul>
-</li>
-<li><strong>Enhanced User Interface</strong>: Adds specific menu items and actions to
-the OpenSPP interface, allowing users to efficiently manage
-<span class="docutils literal">Create Group</span> requests.</li>
-</ul>
-</div>
-<div class="section" id="conclusion">
-<h2>Conclusion</h2>
-<p>The <a class="reference external" href="spp_change_request_create_group">spp_change_request_create_group</a>
-module provides a robust and specialized workflow for creating new groups
-within the OpenSPP registry. By seamlessly integrating with core change 
-management and registry modules, it ensures data accuracy, consistency, 
-and a streamlined user experience for managing group creation.</p>
+
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p class="last">This is an alpha version, the data model and design can change at any time without warning.
-Only for development or testing purpose, do not use in production.
-<a class="reference external" href="https://odoo-community.org/page/development-status">More details on development status</a></p>
+Only for development or testing purpose, do not use in production.</p>
 </div>
-<p><strong>Table of contents</strong></p>
+
 </div>
-</div>
+
 <div class="section" id="bug-tracker">
 <h1>Bug Tracker</h1>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OpenSPP/openspp-modules/issues">GitHub Issues</a>.
