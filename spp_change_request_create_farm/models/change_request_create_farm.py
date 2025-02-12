@@ -7,14 +7,21 @@ from odoo.addons.phone_validation.tools import phone_validation
 
 _logger = logging.getLogger(__name__)
 
+# Shared Constants
+PARTNER_MODEL = "res.partner"
+CREATE_FARM_MODEL = "spp.change.request.create.farm"
+FARM_ACTIVITY_MODEL = "spp.farm.activity"
+FARM_ASSET_MODEL = "spp.farm.asset"
+REGISTRANT_DOMAIN = [("is_registrant", "=", True), ("is_group", "=", True)]
+
 
 class ChangeRequestTypeCustomCreateFarm(models.Model):
     _inherit = "spp.change.request"  # Not merging classes as it might require significant refactoring.
 
     registrant_id = fields.Many2one(
-        "res.partner",
+        PARTNER_MODEL,
         "Registrant",
-        domain=[("is_registrant", "=", True), ("is_group", "=", True)],
+        domain=REGISTRANT_DOMAIN,
     )
 
     def _check_phone_exist(self):
@@ -38,22 +45,18 @@ class ChangeRequestTypeCustomCreateFarm(models.Model):
 
 
 class ChangeRequestCreateFarm(models.Model):
-    _name = "spp.change.request.create.farm"
+    _name = CREATE_FARM_MODEL
     _inherit = [
         "spp.change.request.source.mixin",
         "spp.change.request.validation.sequence.mixin",
     ]
-    _description = "Create Farm Change Request Type"
+    _description = "Change Request Create Farm"
     _order = "id desc"
 
     # Initialize CR constants
     VALIDATION_FORM = "spp_change_request_create_farm.view_change_request_create_farm_validation_form"
     REQUIRED_DOCUMENT_TYPE = [
         "spp_change_request_create_farm.spp_dms_create_farm",
-        # "spp_change_request.spp_dms_birth_certificate",
-        # "spp_change_request.spp_dms_applicant_spp_card",
-        # "spp_change_request.spp_dms_applicant_uid_card",
-        # "spp_change_request.spp_dms_custody_certificate",
     ]
 
     # Mandatory initialize source and destination center areas
@@ -66,9 +69,9 @@ class ChangeRequestCreateFarm(models.Model):
         return [(option.value, option.code) for option in options]
 
     registrant_id = fields.Many2one(
-        "res.partner",
+        PARTNER_MODEL,
         "Add to Group",
-        domain=[("is_registrant", "=", True), ("is_group", "=", True)],
+        domain=REGISTRANT_DOMAIN,
     )
 
     request_type = fields.Selection(related="change_request_id.request_type")
@@ -83,17 +86,17 @@ class ChangeRequestCreateFarm(models.Model):
         string="Group Kind",
         default=lambda self: self.env.ref("spp_farmer_registry_base.kind_farm", raise_if_not_found=False),
     )
-    farm_crop_act_ids = fields.One2many("spp.farm.activity", "crop_cr_farm_id", string="Crop Agricultural Activities")
+    farm_crop_act_ids = fields.One2many(FARM_ACTIVITY_MODEL, "crop_cr_farm_id", string="Crop Agricultural Activities")
     farm_live_act_ids = fields.One2many(
-        "spp.farm.activity", "live_cr_farm_id", string="Livestock Agricultural Activities"
+        FARM_ACTIVITY_MODEL, "live_cr_farm_id", string="Livestock Agricultural Activities"
     )
     farm_aqua_act_ids = fields.One2many(
-        "spp.farm.activity",
+        FARM_ACTIVITY_MODEL,
         "aqua_cr_farm_id",
         string="Aquaculture Agricultural Activities",
     )
-    farm_asset_ids = fields.One2many("spp.farm.asset", "asset_cr_farm_id", string="Farm Assets")
-    farm_machinery_ids = fields.One2many("spp.farm.asset", "machinery_cr_farm_id", string="Farm Machinery")
+    farm_asset_ids = fields.One2many(FARM_ASSET_MODEL, "asset_cr_farm_id", string="Farm Assets")
+    farm_machinery_ids = fields.One2many(FARM_ASSET_MODEL, "machinery_cr_farm_id", string="Farm Machinery")
 
     # Member Details
     farmer_family_name = fields.Char()
@@ -167,15 +170,30 @@ class ChangeRequestCreateFarm(models.Model):
 
     @api.onchange("registrant_id")
     def _onchange_registrant_id(self):
+        """
+        Handles changes to the registrant_id field.
+        Currently returns without performing any actions.
+        """
         return
 
     @api.onchange("farmer_birthdate")
     def _onchange_farmer_birthdate(self):
+        """
+        Validates that the farmer's birthdate is not in the future.
+
+        :raise ValidationError: If birthdate is later than today's date.
+        """
         if self.farmer_birthdate and self.farmer_birthdate > fields.date.today():
             raise ValidationError(_("Birthdate should not be on a later date."))
 
     @api.constrains("farmer_mobile_tel")
     def _check_farmer_mobile_tel(self):
+        """
+        Validates the farmer's mobile telephone number format based on country code.
+        Uses phone validation to check if number matches country format.
+
+        :raise ValidationError: If phone number format is incorrect.
+        """
         for rec in self:
             cr = rec.change_request_id
             country_code = (
@@ -196,55 +214,30 @@ class ChangeRequestCreateFarm(models.Model):
 
     @api.onchange("id_document_details")
     def _onchange_scan_id_document_details(self):
+        """
+        Handles changes to the id_document_details field.
+        Currently returns without performing any actions.
+        """
         return
-        # TODO: Implement this method
-        # if self.dms_directory_ids:
-        #     if self.id_document_details:
-        #         try:
-        #             details = json.loads(self.id_document_details)
-        #         except json.decoder.JSONDecodeError as e:
-        #             details = None
-        #             _logger.error(e)
-        #         if details:
-        #             # Upload to DMS
-        #             if details["image"]:
-        #                 if self._origin:
-        #                     directory_id = self._origin.dms_directory_ids[0].id
-        #                 else:
-        #                     directory_id = self.dms_directory_ids[0].id
-        #                 dms_vals = {
-        #                     "name": "UID_" + details["document_number"] + ".jpg",
-        #                     "directory_id": directory_id,
-        #                     "category_id": self.env.ref("spp_change_request.spp_dms_uid_card").id,
-        #                     "content": details["image"],
-        #                 }
-        #                 # TODO: Should be added to vals["dms_file_ids"] but it is
-        #                 # not writing to one2many field using Command.create()
-        #                 self.env["spp.dms.file"].create(dms_vals)
-        #
-        #             # TODO: grand_father_name and father_name
-        #             vals = {
-        #                 "family_name": details["family_name"],
-        #                 "given_name": details["given_name"],
-        #                 "birthdate": details["birth_date"],
-        #                 "gender": details["gender"],
-        #                 "id_document_details": "",
-        #                 "birth_place": details["birth_place_city"],
-        #                 # TODO: Fix not writing to one2many field: dms_file_ids
-        #                 # "dms_file_ids": [(Command.create(dms_vals))],
-        #             }
-        #             self.update(vals)
-        # else:
-        #     raise UserError(_("There are no directories defined for this change request."))
 
     def _get_default_change_request_id(self):
         """
-        Get the default field name for change request id.
+        Gets the default field name for change request id.
+
+        :return: String containing the default field name
+        :rtype: str
         """
         return "default_change_request_create_farm_id"
 
     def validate_data(self):
-        super().validate_data()
+        """
+        Validates the required fields for creating a farm change request.
+        Checks for mandatory fields like group name, group kind, and farmer details.
+
+        :return: Result from parent class validate_data
+        :raise ValidationError: If any required fields are missing
+        """
+        validate_data = super().validate_data()
         error_message = []
         if not self.group_name:
             error_message.append(_("The Group Name is required!"))
@@ -259,9 +252,21 @@ class ChangeRequestCreateFarm(models.Model):
         if error_message:
             raise ValidationError("\n".join(error_message))
 
-        return
+        return validate_data
 
     def update_live_data(self):
+        """
+        Creates a new group (res.partner) record with farm details and updates related records.
+
+        This method:
+        1. Creates a new group with farmer and land details
+        2. Links agricultural activities to the new group
+        3. Links farm assets and machinery to the new group
+        4. Updates the change request record
+
+        :return: The newly created group record
+        :rtype: res.partner
+        """
         self.ensure_one()
 
         # Create the group (res.partner)
@@ -321,6 +326,12 @@ class ChangeRequestCreateFarm(models.Model):
         return group
 
     def open_registrant_details_form(self):
+        """
+        Opens a form view showing the registrant's details in readonly mode.
+
+        :return: Action dictionary for opening the form view
+        :rtype: dict
+        """
         self.ensure_one()
         res_id = self.registrant_id.id
         form_id = self.env.ref("g2p_registry_group.view_groups_form").id
@@ -344,15 +355,15 @@ class ChangeRequestCreateFarm(models.Model):
 
 
 class ChangeRequestCreateFarmAgriculturalActivity(models.Model):
-    _inherit = "spp.farm.activity"
+    _inherit = FARM_ACTIVITY_MODEL
 
-    crop_cr_farm_id = fields.Many2one("spp.change.request.create.farm", string="Crop Farm")
-    live_cr_farm_id = fields.Many2one("spp.change.request.create.farm", string="Livestock Farm")
-    aqua_cr_farm_id = fields.Many2one("spp.change.request.create.farm", string="Aqua Farm")
+    crop_cr_farm_id = fields.Many2one(CREATE_FARM_MODEL, string="Crop Farm")
+    live_cr_farm_id = fields.Many2one(CREATE_FARM_MODEL, string="Livestock Farm")
+    aqua_cr_farm_id = fields.Many2one(CREATE_FARM_MODEL, string="Aqua Farm")
 
 
 class ChangeRequestCreateFarmAssets(models.Model):
-    _inherit = "spp.farm.asset"
+    _inherit = FARM_ASSET_MODEL
 
-    asset_cr_farm_id = fields.Many2one("spp.change.request.create.farm", string="Asset Farm")
-    machinery_cr_farm_id = fields.Many2one("spp.change.request.create.farm", string="Machinery Farm")
+    asset_cr_farm_id = fields.Many2one(CREATE_FARM_MODEL, string="Asset Farm")
+    machinery_cr_farm_id = fields.Many2one(CREATE_FARM_MODEL, string="Machinery Farm")
