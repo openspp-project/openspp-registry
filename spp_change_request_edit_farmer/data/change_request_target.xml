@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Part of OpenSPP. See LICENSE file for full copyright and licensing details.
+-->
+<odoo noupdate="0">
+
+    <record id="spp_cr_edit_farmer_target" model="spp.change.request.targets">
+        <field name="name">spp.change.request.edit.farmer</field>
+        <field name="target">group</field>
+    </record>
+
+</odoo>

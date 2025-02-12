@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="0">
+
+    <!-- Category Documents-->
+    <record id="spp_dms_edit_farmer" model="spp.dms.category">
+        <field name="name">Edit Farmer Request Form</field>
+    </record>
+
+</odoo>
