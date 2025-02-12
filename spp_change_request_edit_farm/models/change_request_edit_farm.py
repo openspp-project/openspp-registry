@@ -48,10 +48,26 @@ class ChangeRequestEditFarm(models.Model):
     VALIDATION_FORM = "spp_change_request_edit_farm.view_change_request_edit_farm_validation_form"
     REQUIRED_DOCUMENT_TYPE = [
         "spp_change_request_edit_farm.spp_dms_edit_farm",
-        # "spp_change_request.spp_dms_birth_certificate",
-        # "spp_change_request.spp_dms_applicant_spp_card",
-        # "spp_change_request.spp_dms_applicant_uid_card",
-        # "spp_change_request.spp_dms_custody_certificate",
+    ]
+
+    FARM_FIELDS = [
+        "group_name",
+        "group_kind",
+        "land_name",
+        "land_acreage",
+        "land_coordinates",
+        "land_geo_polygon",
+        "details_legal_status",
+    ]
+
+    RES_PARTNER_FIELDS = [
+        "name",
+        "kind",
+        "land_name",
+        "land_acreage",
+        "land_coordinates",
+        "land_geo_polygon",
+        "details_legal_status",
     ]
 
     # Mandatory initialize source and destination center areas
@@ -140,45 +156,6 @@ class ChangeRequestEditFarm(models.Model):
     @api.onchange("id_document_details")
     def _onchange_scan_id_document_details(self):
         return
-        # TODO: Implement this method
-        # if self.dms_directory_ids:
-        #     if self.id_document_details:
-        #         try:
-        #             details = json.loads(self.id_document_details)
-        #         except json.decoder.JSONDecodeError as e:
-        #             details = None
-        #             _logger.error(e)
-        #         if details:
-        #             # Upload to DMS
-        #             if details["image"]:
-        #                 if self._origin:
-        #                     directory_id = self._origin.dms_directory_ids[0].id
-        #                 else:
-        #                     directory_id = self.dms_directory_ids[0].id
-        #                 dms_vals = {
-        #                     "name": "UID_" + details["document_number"] + ".jpg",
-        #                     "directory_id": directory_id,
-        #                     "category_id": self.env.ref("spp_change_request.spp_dms_uid_card").id,
-        #                     "content": details["image"],
-        #                 }
-        #                 # TODO: Should be added to vals["dms_file_ids"] but it is
-        #                 # not writing to one2many field using Command.create()
-        #                 self.env["spp.dms.file"].create(dms_vals)
-        #
-        #             # TODO: grand_father_name and father_name
-        #             vals = {
-        #                 "family_name": details["family_name"],
-        #                 "given_name": details["given_name"],
-        #                 "birthdate": details["birth_date"],
-        #                 "gender": details["gender"],
-        #                 "id_document_details": "",
-        #                 "birth_place": details["birth_place_city"],
-        #                 # TODO: Fix not writing to one2many field: dms_file_ids
-        #                 # "dms_file_ids": [(Command.create(dms_vals))],
-        #             }
-        #             self.update(vals)
-        # else:
-        #     raise UserError(_("There are no directories defined for this change request."))
 
     def _get_default_change_request_id(self):
         """
@@ -187,34 +164,14 @@ class ChangeRequestEditFarm(models.Model):
         return "default_change_request_edit_farm_id"
 
     def validate_data(self):
-        super().validate_data()
+        validate_data = super().validate_data()
         error_message = []
         if not self.registrant_id:
             error_message.append(_("The Group or Farm is required!"))
         if error_message:
             raise ValidationError("\n".join(error_message))
 
-        return
-
-    FARM_FIELDS = [
-        "group_name",
-        "group_kind",
-        "land_name",
-        "land_acreage",
-        "land_coordinates",
-        "land_geo_polygon",
-        "details_legal_status",
-    ]
-
-    RES_PARTNER_FIELDS = [
-        "name",
-        "kind",
-        "land_name",
-        "land_acreage",
-        "land_coordinates",
-        "land_geo_polygon",
-        "details_legal_status",
-    ]
+        return validate_data
 
     def update_live_data(self):
         self.ensure_one()
