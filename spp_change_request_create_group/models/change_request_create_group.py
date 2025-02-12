@@ -7,12 +7,16 @@ from odoo.addons.phone_validation.tools import phone_validation
 
 _logger = logging.getLogger(__name__)
 
+# Shared Constants
+MODEL_RES_PARTNER = "res.partner"
+MODEL_CREATE_GROUP = "spp.change.request.create.group"
+
 
 class ChangeRequestTypeCustomCreateGroup(models.Model):
     _inherit = "spp.change.request"  # Not merging classes as it might require significant refactoring.
 
     registrant_id = fields.Many2one(
-        "res.partner",
+        MODEL_RES_PARTNER,
         "Registrant",
         domain=[("is_registrant", "=", True), ("is_group", "=", True)],
     )
@@ -24,21 +28,20 @@ class ChangeRequestTypeCustomCreateGroup(models.Model):
         :raise UserError: Exception raised when applicant_phone is not existing.
         """
         request_type = self.request_type
-        if "create.group" not in request_type:
-            if not self.applicant_phone:
-                raise UserError(_("Phone No. is required."))
+        if "create.group" not in request_type and not self.applicant_phone:
+            raise UserError(_("Phone No. is required."))
 
     @api.model
     def _selection_request_type_ref_id(self):
         selection = super()._selection_request_type_ref_id()
-        new_request_type = ("spp.change.request.create.group", "Create Group")
+        new_request_type = (MODEL_CREATE_GROUP, "Create Group")
         if new_request_type not in selection:
             selection.append(new_request_type)
         return selection
 
 
 class ChangeRequestCreateGroup(models.Model):
-    _name = "spp.change.request.create.group"
+    _name = MODEL_CREATE_GROUP
     _inherit = [
         "spp.change.request.source.mixin",
         "spp.change.request.validation.sequence.mixin",
@@ -50,10 +53,6 @@ class ChangeRequestCreateGroup(models.Model):
     VALIDATION_FORM = "spp_change_request_create_group.view_change_request_create_group_validation_form"
     REQUIRED_DOCUMENT_TYPE = [
         "spp_change_request_create_group.spp_dms_create_group",
-        # "spp_change_request.spp_dms_birth_certificate",
-        # "spp_change_request.spp_dms_applicant_spp_card",
-        # "spp_change_request.spp_dms_applicant_uid_card",
-        # "spp_change_request.spp_dms_custody_certificate",
     ]
 
     # Mandatory initialize source and destination center areas
@@ -66,7 +65,7 @@ class ChangeRequestCreateGroup(models.Model):
         return [(option.value, option.code) for option in options]
 
     registrant_id = fields.Many2one(
-        "res.partner",
+        MODEL_RES_PARTNER,
         "Add to Group",
         domain=[("is_registrant", "=", True), ("is_group", "=", True)],
     )
@@ -125,15 +124,30 @@ class ChangeRequestCreateGroup(models.Model):
 
     @api.onchange("registrant_id")
     def _onchange_registrant_id(self):
+        """
+        Handles changes to the registrant_id field.
+        Currently returns without performing any actions.
+        """
         return
 
     @api.onchange("birthdate")
     def _onchange_birthdate(self):
+        """
+        Validates that the birthdate is not in the future.
+
+        :raise ValidationError: If birthdate is later than today's date.
+        """
         if self.birthdate and self.birthdate > fields.date.today():
             raise ValidationError(_("Birthdate should not be on a later date."))
 
     @api.constrains("mobile_tel")
     def _check_mobile_tel(self):
+        """
+        Validates the mobile telephone number format based on country code.
+        Uses phone_validation library to check the format.
+
+        :raise ValidationError: If phone number format is incorrect.
+        """
         for rec in self:
             cr = rec.change_request_id
             country_code = (
@@ -154,6 +168,11 @@ class ChangeRequestCreateGroup(models.Model):
 
     @api.constrains("uid_number")
     def _check_unified_id(self):
+        """
+        Validates that the UID number is exactly 12 digits long if provided.
+
+        :raise ValidationError: If UID number length is not 12 digits.
+        """
         for rec in self:
             if rec.uid_number and len(rec.uid_number) > 0:
                 if len(rec.uid_number) != 12:
@@ -161,52 +180,21 @@ class ChangeRequestCreateGroup(models.Model):
 
     @api.depends("given_name", "additional_name", "family_name")
     def _compute_full_name(self):
+        """
+        Computes the full name by combining family name, given name, and additional name.
+        Format: "Family Name, Given Name Additional Name" in title case.
+        """
         for rec in self:
             full_name = f"{rec.family_name or ''}, {rec.given_name or ''}" f" {rec.additional_name or ''}"
             rec.full_name = full_name.title()
 
     @api.onchange("id_document_details")
     def _onchange_scan_id_document_details(self):
+        """
+        Handles changes to the id_document_details field.
+        Currently returns without performing any actions.
+        """
         return
-        # TODO: Implement this method
-        # if self.dms_directory_ids:
-        #     if self.id_document_details:
-        #         try:
-        #             details = json.loads(self.id_document_details)
-        #         except json.decoder.JSONDecodeError as e:
-        #             details = None
-        #             _logger.error(e)
-        #         if details:
-        #             # Upload to DMS
-        #             if details["image"]:
-        #                 if self._origin:
-        #                     directory_id = self._origin.dms_directory_ids[0].id
-        #                 else:
-        #                     directory_id = self.dms_directory_ids[0].id
-        #                 dms_vals = {
-        #                     "name": "UID_" + details["document_number"] + ".jpg",
-        #                     "directory_id": directory_id,
-        #                     "category_id": self.env.ref("spp_change_request.spp_dms_uid_card").id,
-        #                     "content": details["image"],
-        #                 }
-        #                 # TODO: Should be added to vals["dms_file_ids"] but it is
-        #                 # not writing to one2many field using Command.create()
-        #                 self.env["spp.dms.file"].create(dms_vals)
-        #
-        #             # TODO: grand_father_name and father_name
-        #             vals = {
-        #                 "family_name": details["family_name"],
-        #                 "given_name": details["given_name"],
-        #                 "birthdate": details["birth_date"],
-        #                 "gender": details["gender"],
-        #                 "id_document_details": "",
-        #                 "birth_place": details["birth_place_city"],
-        #                 # TODO: Fix not writing to one2many field: dms_file_ids
-        #                 # "dms_file_ids": [(Command.create(dms_vals))],
-        #             }
-        #             self.update(vals)
-        # else:
-        #     raise UserError(_("There are no directories defined for this change request."))
 
     def _get_default_change_request_id(self):
         """
@@ -215,7 +203,14 @@ class ChangeRequestCreateGroup(models.Model):
         return "default_change_request_create_group_id"
 
     def validate_data(self):
-        super().validate_data()
+        """
+        Validates required fields for group creation.
+        Extends the parent class validation.
+
+        :raise ValidationError: If group_name or group_kind is missing.
+        :return: Result of parent class validation.
+        """
+        validate_data = super().validate_data()
         error_message = []
         if not self.group_name:
             error_message.append(_("The Group Name is required!"))
@@ -225,9 +220,16 @@ class ChangeRequestCreateGroup(models.Model):
         if error_message:
             raise ValidationError("\n".join(error_message))
 
-        return
+        return validate_data
 
     def update_live_data(self):
+        """
+        Creates new individual and group records in the system.
+        If individual details are provided, creates a new individual record.
+        Creates a new group record and links the individual if created.
+
+        :return: None
+        """
         self.ensure_one()
         individual = None
 
@@ -269,7 +271,7 @@ class ChangeRequestCreateGroup(models.Model):
             if reg_ids:
                 individual_vals["reg_ids"] = reg_ids
 
-            individual = self.env["res.partner"].create(individual_vals)
+            individual = self.env[MODEL_RES_PARTNER].create(individual_vals)
 
         # Create the group (res.partner)
 
@@ -280,7 +282,7 @@ class ChangeRequestCreateGroup(models.Model):
         }
         if self.group_kind:
             group_vals["kind"] = self.group_kind.id
-        group = self.env["res.partner"].create(group_vals)
+        group = self.env[MODEL_RES_PARTNER].create(group_vals)
 
         # Add membership if individual is created
         if individual:
@@ -295,10 +297,15 @@ class ChangeRequestCreateGroup(models.Model):
             self.env["g2p.group.membership"].create(vals_membership)
 
     def open_registrant_details_form(self):
+        """
+        Opens a form view showing the registrant's details in readonly mode.
+
+        :return: Dictionary containing the action to open the form view.
+        """
         self.ensure_one()
         res_id = self.registrant_id.id
         form_id = self.env.ref("g2p_registry_group.view_groups_form").id
-        action = self.env["res.partner"].get_formview_action()
+        action = self.env[MODEL_RES_PARTNER].get_formview_action()
         context = {
             "create": False,
             "edit": False,
