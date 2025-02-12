@@ -123,9 +123,8 @@ class G2PCashEntitlementManager(models.Model):
                 if beneficiary_id.id in new_entitlements_to_create:
                     amount = amount + new_entitlements_to_create[beneficiary_id.id]["initial_amount"]
                 # Check if amount > max_amount; ignore if max_amount is set to 0
-                if self.max_amount > 0.0:
-                    if amount > self.max_amount:
-                        amount = self.max_amount
+                if self.max_amount > 0.0 and amount > self.max_amount:
+                    amount = self.max_amount
 
                 new_entitlements_to_create[beneficiary_id.id] = {
                     "cycle_id": cycle.id,
@@ -190,9 +189,8 @@ class G2PCashEntitlementManager(models.Model):
     def _check_subsidy(self, amount):
         # Check if initial_amount > max_amount then set = max_amount
         # Ignore if max_amount is set to 0
-        if self.max_amount > 0.0:
-            if amount > self.max_amount:
-                return self.max_amount
+        if self.max_amount > 0.0 and amount > self.max_amount:
+            return self.max_amount
         return amount
 
     def set_pending_validation_entitlements(self, cycle):
