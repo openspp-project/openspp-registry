@@ -77,12 +77,14 @@ class G2PCashEntitlementManager(models.Model):
 
         new_entitlements_to_create = {}
         for rec in self.entitlement_item_ids:
+            _logger.info(f"Rec Amount: {rec.amount}")
             if rec.condition:
                 beneficiaries_ids = self._get_all_beneficiaries(
                     all_beneficiaries_ids, rec.condition, self.evaluate_one_item
                 )
             else:
                 beneficiaries_ids = all_beneficiaries_ids
+            _logger.info(f"Beneficiaries IDs: {beneficiaries_ids}")
 
             beneficiaries_with_entitlements = (
                 self.env["g2p.entitlement"]
@@ -116,15 +118,15 @@ class G2PCashEntitlementManager(models.Model):
                     multiplier = 1
                 if rec.max_multiplier > 0 and multiplier > rec.max_multiplier:
                     multiplier = rec.max_multiplier
+                _logger.info(f"Multiplier: {multiplier}")
                 amount = rec.amount * float(multiplier)
 
                 # Compute the sum of cash entitlements
                 if beneficiary_id.id in new_entitlements_to_create:
                     amount = amount + new_entitlements_to_create[beneficiary_id.id]["initial_amount"]
                 # Check if amount > max_amount; ignore if max_amount is set to 0
-                if self.max_amount > 0.0:
-                    if amount > self.max_amount:
-                        amount = self.max_amount
+                if self.max_amount > 0.0 and amount > self.max_amount:
+                    amount = self.max_amount
 
                 new_entitlements_to_create[beneficiary_id.id] = {
                     "cycle_id": cycle.id,
@@ -187,11 +189,10 @@ class G2PCashEntitlementManager(models.Model):
         return all_beneficiaries_ids
 
     def _check_subsidy(self, amount):
-        # Check if initial_amount < max_amount then set = max_amount
+        # Check if initial_amount > max_amount then set = max_amount
         # Ignore if max_amount is set to 0
-        if self.max_amount > 0.0:
-            if amount < self.max_amount:
-                return self.max_amount
+        if self.max_amount > 0.0 and amount > self.max_amount:
+            return self.max_amount
         return amount
 
     def set_pending_validation_entitlements(self, cycle):
