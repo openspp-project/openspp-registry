@@ -1,10 +1,10 @@
-# OpenSPP Area
+# OpenSPP Area (Base)
 
-This document describes the **OpenSPP Area** module, which extends the OpenSPP framework by providing features to manage and organize geographical areas within the system.  It integrates with the core registry modules to allow associating registrants and other data with specific locations. 
+This document describes the **OpenSPP Area (Base)** module, which extends the OpenSPP framework by providing features to manage and organize geographical areas within the system.  It integrates with the core registry modules to allow associating registrants and other data with specific locations. 
 
 ## Purpose
 
-The **OpenSPP Area** module is designed to:
+The **OpenSPP Area (Base)** module is designed to:
 
 * **Define and Structure Geographical Areas**: Establish a hierarchical structure for representing administrative regions, from the highest level (e.g., country) down to the most granular level (e.g., village).
 * **Manage Area Information**: Store key details about each area, including its name, code, alternate names, geographical size, and parent-child relationships within the hierarchy.
