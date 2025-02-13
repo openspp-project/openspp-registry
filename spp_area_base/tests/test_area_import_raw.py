@@ -6,7 +6,7 @@ class BaseAreaImportRawTest(AreaImportBaseTestMixin):
     def setUpClass(cls):
         super().setUpClass()
 
-        cls.area_import_raw_id = cls.env["spp.area.import.raw"].create(
+        cls.area_import_raw_data_id = cls.env["spp.area.import.raw"].create(
             {
                 "area_import_id": cls.area_import_id.id,
                 "admin_name": "Philippines",
@@ -18,7 +18,7 @@ class BaseAreaImportRawTest(AreaImportBaseTestMixin):
             }
         )
 
-        cls.area_import_raw_child_id = cls.env["spp.area.import.raw"].create(
+        cls.area_import_raw_data_child_id = cls.env["spp.area.import.raw"].create(
             {
                 "area_import_id": cls.area_import_id.id,
                 "admin_name": "Manila",
@@ -31,45 +31,45 @@ class BaseAreaImportRawTest(AreaImportBaseTestMixin):
         )
 
     def test_01_validate_import_raw_data_no_error(self):
-        result = self.area_import_raw_id.validate_raw_data()
-        result_child = self.area_import_raw_child_id.validate_raw_data()
+        result = self.area_import_raw_data_id.validate_raw_data()
+        result_child = self.area_import_raw_data_child_id.validate_raw_data()
 
         self.assertFalse(result)
-        self.assertEqual(self.area_import_raw_id.state, "Validated")
-        self.assertEqual(self.area_import_raw_id.remarks, "No Error")
+        self.assertEqual(self.area_import_raw_data_id.state, "Validated")
+        self.assertEqual(self.area_import_raw_data_id.remarks, "No Error")
 
         self.assertFalse(result_child)
-        self.assertEqual(self.area_import_raw_child_id.state, "Validated")
-        self.assertEqual(self.area_import_raw_child_id.remarks, "No Error")
+        self.assertEqual(self.area_import_raw_data_child_id.state, "Validated")
+        self.assertEqual(self.area_import_raw_data_child_id.remarks, "No Error")
 
     def test_02_validate_import_raw_data_with_error(self):
-        self.area_import_raw_id.admin_name = ""
-        self.area_import_raw_id.area_sqkm = "text"
-        self.area_import_raw_id.parent_name = "MNL"
-        self.area_import_raw_child_id.parent_name = ""
+        self.area_import_raw_data_id.admin_name = ""
+        self.area_import_raw_data_id.area_sqkm = "text"
+        self.area_import_raw_data_id.parent_name = "MNL"
+        self.area_import_raw_data_child_id.parent_name = ""
 
-        self.area_import_raw_id.validate_raw_data()
-        self.area_import_raw_child_id.validate_raw_data()
+        self.area_import_raw_data_id.validate_raw_data()
+        self.area_import_raw_data_child_id.validate_raw_data()
 
-        self.assertEqual(self.area_import_raw_id.state, "Error")
-        self.assertIn("Name and Code of area is required.", self.area_import_raw_id.remarks)
-        self.assertIn("AREA_SQKM should be numerical.", self.area_import_raw_id.remarks)
+        self.assertEqual(self.area_import_raw_data_id.state, "Error")
+        self.assertIn("Name and Code of area is required.", self.area_import_raw_data_id.remarks)
+        self.assertIn("AREA_SQKM should be numerical.", self.area_import_raw_data_id.remarks)
         self.assertIn(
             "Level 0 area should not have a parent name and parent code.",
-            self.area_import_raw_id.remarks,
+            self.area_import_raw_data_id.remarks,
         )
 
-        self.assertEqual(self.area_import_raw_child_id.state, "Error")
+        self.assertEqual(self.area_import_raw_data_child_id.state, "Error")
         self.assertIn(
             "Level 1 and above area should have a parent name and parent code.",
-            self.area_import_raw_child_id.remarks,
+            self.area_import_raw_data_child_id.remarks,
         )
 
     def test_03_save_import_to_area(self):
-        self.area_import_raw_id.area_sqkm = ""
+        self.area_import_raw_data_id.area_sqkm = ""
 
-        self.area_import_raw_id.save_to_area()
-        self.assertEqual(self.area_import_raw_id.state, "Posted")
+        self.area_import_raw_data_id.save_to_area()
+        self.assertEqual(self.area_import_raw_data_id.state, "Posted")
 
-        self.area_import_raw_id.save_to_area()
-        self.assertEqual(self.area_import_raw_id.state, "Updated")
+        self.area_import_raw_data_id.save_to_area()
+        self.assertEqual(self.area_import_raw_data_id.state, "Updated")

@@ -26,13 +26,13 @@ class BaseAreaImportTest(AreaImportBaseTestMixin):
         lang.active = True
 
         self.area_import_id.import_data()
-        raw_data_ids = self.area_import_id.raw_data_ids
+        raw_area_data_ids = self.area_import_id.raw_data_ids
 
-        self.assertEqual(len(raw_data_ids.ids), self.area_import_id.tot_rows_imported)
+        self.assertEqual(len(raw_area_data_ids.ids), self.area_import_id.tot_rows_imported)
         self.assertEqual(0, self.area_import_id.tot_rows_error)
         self.assertEqual(self.area_import_id.state, "Uploaded")
         self.assertEqual(
-            len(self.env["spp.area.import.raw"].search([("id", "in", raw_data_ids.ids), ("state", "=", "New")])),
+            len(self.env["spp.area.import.raw"].search([("id", "in", raw_area_data_ids.ids), ("state", "=", "New")])),
             self.area_import_id.tot_rows_imported,
         )
 
