@@ -6,11 +6,11 @@ from odoo.tests.common import TransactionCase
 
 class AreaImportBaseTestMixin(TransactionCase):
     @staticmethod
-    def get_file_path_1():
+    def get_file_path_irq():
         return f"{os.path.dirname(os.path.abspath(__file__))}/irq_adminboundaries_tabulardata.xlsx"
 
     @staticmethod
-    def get_file_path_2():
+    def get_file_path_pse():
         return f"{os.path.dirname(os.path.abspath(__file__))}/pse_adminboundaries_tabulardata.xlsx"
 
     @classmethod
@@ -20,7 +20,7 @@ class AreaImportBaseTestMixin(TransactionCase):
         xls_file = None
         xls_file_name = None
 
-        file_path = cls.get_file_path_1()
+        file_path = cls.get_file_path_irq()
         with open(file_path, "rb") as f:
             xls_file_name = f.name
             xls_file = base64.b64encode(f.read())
@@ -37,7 +37,7 @@ class AreaImportBaseTestMixin(TransactionCase):
         xls_file_2 = None
         xls_file_name_2 = None
 
-        file_path_2 = cls.get_file_path_2()
+        file_path_2 = cls.get_file_path_pse()
         with open(file_path_2, "rb") as f:
             xls_file_name_2 = f.name
             xls_file_2 = base64.b64encode(f.read())

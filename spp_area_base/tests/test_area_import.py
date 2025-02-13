@@ -2,12 +2,12 @@ import logging
 
 from odoo.exceptions import ValidationError
 
-from .common import AreaImportTestMixin
+from .common import AreaImportBaseTestMixin
 
 _logger = logging.getLogger(__name__)
 
 
-class BaseAreaImportTest(AreaImportTestMixin):
+class BaseAreaImportTest(AreaImportBaseTestMixin):
     def test_01_cancel_import(self):
         self.area_import_id.cancel_import()
 
