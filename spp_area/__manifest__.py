@@ -3,7 +3,7 @@
 
 {
     "name": "OpenSPP Area Management",
-    "summary": "This module enables management of geographical areas, linking them to registrants for targeted interventions and analysis in social protection programs.",
+    "summary": "This module extends the OpenSPP Area (Base) module to include additional features for managing and organizing geographical areas within the system.",
     "category": "OpenSPP",
     "version": "17.0.1.3.0",
     "sequence": 1,
@@ -14,25 +14,17 @@
     "maintainers": ["jeremi", "gonzalesedwin1123", "reichie020212"],
     "depends": [
         "base",
+        "spp_area_base",
         "g2p_registry_base",
         "g2p_registry_individual",
         "g2p_registry_group",
         "queue_job",
     ],
-    "external_dependencies": {
-        "python": [
-            "xlrd",
-        ]
-    },
+    "external_dependencies": {},
     "data": [
-        "data/area_kind_data.xml",
-        "data/queue_job_channel.xml",
         "security/ir.model.access.csv",
         "views/individual_views.xml",
         "views/group_views.xml",
-        "views/area.xml",
-        "views/area_kind.xml",
-        "views/area_import_views.xml",
     ],
     "assets": {},
     "demo": [],

@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-spp_area_admin,Area Admin Access,spp_area_base.model_spp_area,base.group_system,1,1,1,1
+spp_area_sysadmin,Area Admin Access,spp_area_base.model_spp_area,base.group_system,1,1,1,1
 spp_area_import_sysadmin,Area Import Admin Access,spp_area_base.model_spp_area_import,base.group_system,1,1,1,1
 spp_area_import_raw_sysadmin,Area Import Raw Admin Access,spp_area_base.model_spp_area_import_raw,base.group_system,1,1,1,1
 spp_area_kind_sysadmin,Area Kind Admin Access,spp_area_base.model_spp_area_kind,base.group_system,1,1,1,1
