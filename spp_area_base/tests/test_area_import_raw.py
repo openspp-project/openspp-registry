@@ -30,7 +30,7 @@ class BaseAreaImportRawTest(AreaImportBaseTestMixin):
             }
         )
 
-    def test_01_validate_raw_data_no_error(self):
+    def test_01_validate_import_raw_data_no_error(self):
         result = self.area_import_raw_id.validate_raw_data()
         result_child = self.area_import_raw_child_id.validate_raw_data()
 
@@ -42,7 +42,7 @@ class BaseAreaImportRawTest(AreaImportBaseTestMixin):
         self.assertEqual(self.area_import_raw_child_id.state, "Validated")
         self.assertEqual(self.area_import_raw_child_id.remarks, "No Error")
 
-    def test_02_validate_raw_data_with_error(self):
+    def test_02_validate_import_raw_data_with_error(self):
         self.area_import_raw_id.admin_name = ""
         self.area_import_raw_id.area_sqkm = "text"
         self.area_import_raw_id.parent_name = "MNL"
@@ -65,7 +65,7 @@ class BaseAreaImportRawTest(AreaImportBaseTestMixin):
             self.area_import_raw_child_id.remarks,
         )
 
-    def test_03_save_to_area(self):
+    def test_03_save_import_to_area(self):
         self.area_import_raw_id.area_sqkm = ""
 
         self.area_import_raw_id.save_to_area()
