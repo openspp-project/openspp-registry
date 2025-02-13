@@ -15,7 +15,7 @@ class SPPCreateNewProgramWiz(models.TransientModel):
 
     @api.model
     def _get_admin_area_domain(self):
-        return [("kind", "=", self.env.ref("spp_area.admin_area_kind").id)]
+        return [("kind", "=", self.env.ref("spp_area_base.admin_area_kind").id)]
 
     admin_area_ids = fields.Many2many("spp.area", domain=_get_admin_area_domain)
 
