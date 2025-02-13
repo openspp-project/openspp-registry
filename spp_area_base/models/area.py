@@ -23,7 +23,7 @@ class OpenSPPArea(models.Model):
     _parent_store = True
     _order = "parent_id,name"
 
-    parent_id = fields.Many2one("spp.area", "Parent")
+    parent_id = fields.Many2one(_name, "Parent")
     complete_name = fields.Char(compute="_compute_complete_name", recursive=True, translate=True)
     name = fields.Char(translate=True, compute="_compute_name", store=True)
     draft_name = fields.Char(required=True, translate=True)
@@ -32,7 +32,7 @@ class OpenSPPArea(models.Model):
     altnames = fields.Char("Alternate Name")
     level = fields.Integer(help="This is the area level for importing")
     area_level = fields.Integer(compute="_compute_area_level", store=True, help="This is the main area level")
-    child_ids = fields.One2many("spp.area", "id", "Child", compute="_compute_get_childs")
+    child_ids = fields.One2many(_name, "id", "Child", compute="_compute_get_childs")
     kind = fields.Many2one("spp.area.kind")
     area_sqkm = fields.Float("Area (sq/km)")
 
@@ -67,7 +67,7 @@ class OpenSPPArea(models.Model):
         and assigns them to the child_ids field.
         """
         for rec in self:
-            child_ids = self.env["spp.area"].search([("parent_id", "=", rec.id)])
+            child_ids = self.env[self._name].search([("parent_id", "=", rec.id)])
             rec.child_ids = child_ids
 
     @api.depends("parent_id")
@@ -139,7 +139,7 @@ class OpenSPPArea(models.Model):
         area_code = self.code
         if "code" in vals:
             area_code = vals["code"]
-        curr_area = self.env["spp.area"].search(
+        curr_area = self.env[self._name].search(
             [
                 ("name", "=", area_name),
                 ("code", "=", area_code),
@@ -184,7 +184,7 @@ class OpenSPPArea(models.Model):
             area_code = rec.code
             if "code" in vals:
                 area_code = vals["code"]
-            curr_area = self.env["spp.area"].search(
+            curr_area = self.env[self._name].search(
                 [
                     ("name", "=", area_name),
                     ("code", "=", area_code),
@@ -206,7 +206,7 @@ class OpenSPPArea(models.Model):
             return {
                 "name": "Area",
                 "view_mode": "form",
-                "res_model": "spp.area",
+                "res_model": self._name,
                 "res_id": rec.id,
                 "view_id": self.env.ref("spp_area_base.view_spparea_form").id,
                 "type": "ir.actions.act_window",
@@ -267,7 +267,7 @@ class OpenSPPAreaKind(models.Model):
             if external_identifier and external_identifier.name:
                 raise ValidationError(_("Can't delete default Area Type"))
             else:
-                areas = self.env["spp.area"].search([("kind", "=", rec.id)])
+                areas = self.env[self._name].search([("kind", "=", rec.id)])
                 if areas:
                     raise ValidationError(_("Can't delete used Area Type"))
                 else:
