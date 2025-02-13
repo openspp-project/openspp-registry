@@ -1,7 +1,7 @@
 from .common import AreaImportTestMixin
 
 
-class AreaImportRawTest(AreaImportTestMixin):
+class BaseAreaImportRawTest(AreaImportTestMixin):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

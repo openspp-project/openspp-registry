@@ -9,7 +9,7 @@ _logger = logging.getLogger(__name__)
 
 
 # @tagged("post_install", "-at_install")
-class AreaTest(TransactionCase):
+class BaseAreaTest(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

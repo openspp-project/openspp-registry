@@ -4,7 +4,7 @@ import os
 from odoo.tests.common import TransactionCase
 
 
-class AreaImportTestMixin(TransactionCase):
+class AreaImportBaseTestMixin(TransactionCase):
     @staticmethod
     def get_file_path_1():
         return f"{os.path.dirname(os.path.abspath(__file__))}/irq_adminboundaries_tabulardata.xlsx"
