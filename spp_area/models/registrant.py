@@ -10,7 +10,7 @@ class G2PRegistrant(models.Model):
         """
         This set up the domain of the area base on its kind
         """
-        area_id = self.env.ref("spp_area.admin_area_kind").id
+        area_id = self.env.ref("spp_area_base.admin_area_kind").id
         return [("kind", "=", area_id)]
 
     # Custom Fields

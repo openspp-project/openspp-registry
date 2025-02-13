@@ -1,0 +1,591 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* spp_area
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "<span>Warning: Operation in progress: </span>"
+msgstr ""
+
+#. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area_import.py:0
+#, python-format
+msgid "AREA_SQKM should be numerical."
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__admin_code
+msgid "Admin Code"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__admin_name
+msgid "Admin Name"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__altnames
+msgid "Alternate Name"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.actions.act_window,name:spp_area.action_spparea
+#: model:ir.model,name:spp_area.model_spp_area
+#: model:ir.model.fields,field_description:spp_area.field_res_partner__area_id
+#: model:ir.model.fields,field_description:spp_area.field_res_users__area_id
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__area_id
+#: model:ir.model.fields,field_description:spp_area.field_spp_attendance_subscriber__area_id
+#: model:ir.ui.menu,name:spp_area.area_main_menu_root
+#: model:ir.ui.menu,name:spp_area.menu_spparea
+#: model_terms:ir.ui.view,arch_db:spp_area.view_area_groups_form
+#: model_terms:ir.ui.view,arch_db:spp_area.view_area_individuals_form
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_form
+msgid "Area"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__area_sqkm
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__area_sqkm
+msgid "Area (sq/km)"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__excel_file
+msgid "Area Excel File"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "Area Excel File:"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__area_import_id
+#: model:ir.ui.menu,name:spp_area.menu_spparea_import
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "Area Import"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model,name:spp_area.model_spp_area_import_raw
+msgid "Area Import Raw Data"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__area_level
+msgid "Area Level"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_form
+msgid "Area Name..."
+msgstr ""
+
+#. module: spp_area
+#: model:ir.actions.act_window,name:spp_area.action_spparea_kind
+#: model:ir.model,name:spp_area.model_spp_area_kind
+#: model:ir.ui.menu,name:spp_area.menu_spparea_kind
+msgid "Area Type"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.actions.act_window,name:spp_area.action_view_spparea_import
+msgid "Area Upload"
+msgstr ""
+
+#. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area.py:0 code:addons/spp_area/models/area.py:0
+#, python-format
+msgid "Area already exist!"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.ui.menu,name:spp_area.area_main_top_menu
+msgid "Areas"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model,name:spp_area.model_spp_area_import
+msgid "Areas Import Table"
+msgstr ""
+
+#. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area.py:0
+#, python-format
+msgid "Can't delete default Area Type"
+msgstr ""
+
+#. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area.py:0
+#, python-format
+msgid "Can't delete used Area Type"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "Cancel"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields.selection,name:spp_area.selection__spp_area_import__state__cancelled
+msgid "Cancelled"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__child_ids
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_form
+msgid "Child"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.actions.act_window,help:spp_area.action_spparea_kind
+msgid "Click the create button to enter the information of the Area Type."
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.actions.act_window,help:spp_area.action_spparea
+msgid "Click the create button to enter the information of the Area."
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.actions.act_window,help:spp_area.action_view_spparea_import
+msgid "Click the create button to upload a new excel file."
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__code
+msgid "Code"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.constraint,message:spp_area.constraint_spp_area_code_unique
+msgid "Code is already exists!"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__complete_name
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_kind__complete_name
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_form
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_kind_tree
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_tree
+msgid "Complete Name"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model,name:spp_area.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.actions.act_window,help:spp_area.action_spparea_kind
+msgid "Create a new Area Type!"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.actions.act_window,help:spp_area.action_spparea
+msgid "Create a new Area!"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__create_uid
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__create_uid
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__create_uid
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_kind__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__create_date
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__create_date
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__create_date
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_kind__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "DONE"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__date_imported
+msgid "Date Imported"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__date_uploaded
+msgid "Date Uploaded"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__date_validated
+msgid "Date Validated"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__display_name
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__display_name
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__display_name
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_kind__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields.selection,name:spp_area.selection__spp_area_import__state__done
+#: model_terms:ir.ui.view,arch_db:spp_area.spparea_import_filter
+msgid "Done"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__draft_name
+msgid "Draft Name"
+msgstr ""
+
+#. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area_import.py:0
+#, python-format
+msgid "ERROR: {}"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields.selection,name:spp_area.selection__spp_area_import_raw__state__error
+msgid "Error"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__name
+msgid "File Name"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "Fix Area Level and Kind"
+msgstr ""
+
+#. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area_import.py:0
+#, python-format
+msgid "Fixing area level."
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.spparea_filter
+#: model_terms:ir.ui.view,arch_db:spp_area.spparea_import_filter
+msgid "Group By"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__id
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__id
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__id
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_kind__id
+msgid "ID"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "IMPORTED"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "Import"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields.selection,name:spp_area.selection__spp_area_import__state__imported
+msgid "Imported"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__import_id
+msgid "Imported by"
+msgstr ""
+
+#. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area_import.py:0
+#: code:addons/spp_area/models/area_import.py:0
+#, python-format
+msgid "Importing data."
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__kind
+msgid "Kind"
+msgstr ""
+
+#. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area_import.py:0
+#, python-format
+msgid ""
+"Language with ISO Code %s is not active.\n"
+"Please request the administrator to enable the desired language."
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__write_uid
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__write_uid
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__write_uid
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_kind__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__write_date
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__write_date
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__write_date
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_kind__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__level
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__level
+#: model_terms:ir.ui.view,arch_db:spp_area.spparea_filter
+msgid "Level"
+msgstr ""
+
+#. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area_import.py:0
+#, python-format
+msgid "Level 0 area should not have a parent name and parent code."
+msgstr ""
+
+#. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area_import.py:0
+#, python-format
+msgid "Level 1 and above area should have a parent name and parent code."
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__locked
+msgid "Locked"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__locked_reason
+msgid "Locked Reason"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "NEW"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__name
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_kind__name
+msgid "Name"
+msgstr ""
+
+#. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area_import.py:0
+#, python-format
+msgid "Name and Code of area is required."
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_form
+msgid "Name:"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields.selection,name:spp_area.selection__spp_area_import__state__new
+#: model:ir.model.fields.selection,name:spp_area.selection__spp_area_import_raw__state__new
+#: model_terms:ir.ui.view,arch_db:spp_area.spparea_import_filter
+msgid "New"
+msgstr ""
+
+#. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area_import.py:0
+#, python-format
+msgid "No active language found."
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__parent_id
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_kind__parent_id
+#: model_terms:ir.ui.view,arch_db:spp_area.spparea_filter
+msgid "Parent"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__parent_code
+msgid "Parent Code"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__parent_name
+msgid "Parent Name"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area__parent_path
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_kind__parent_path
+msgid "Parent Path"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_form
+msgid "Parent:"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields.selection,name:spp_area.selection__spp_area_import_raw__state__posted
+msgid "Posted"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__raw_data_ids
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "Raw Data"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "Refresh"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "Refresh Page"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__remarks
+msgid "Remarks/Errors"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "Reset to Uploaded"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "Save to Area"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.spparea_filter
+#: model_terms:ir.ui.view,arch_db:spp_area.spparea_kind_filter
+msgid "Search Area"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.spparea_import_filter
+msgid "Search Imported File"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_form
+msgid "Select a Parent..."
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.spparea_import_filter
+msgid "State"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__state_order
+msgid "State Order"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__state
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import_raw__state
+msgid "Status"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,help:spp_area.field_spp_area__level
+msgid "This is the area level for importing"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,help:spp_area.field_spp_area__area_level
+msgid "This is the main area level"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__tot_rows_imported
+msgid "Total Rows Imported"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__tot_rows_error
+msgid "Total Rows with Error"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "UPLOADED"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields.selection,name:spp_area.selection__spp_area_import_raw__state__updated
+msgid "Updated"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.actions.act_window,help:spp_area.action_view_spparea_import
+msgid "Upload an excel file!"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields.selection,name:spp_area.selection__spp_area_import__state__uploaded
+#: model_terms:ir.ui.view,arch_db:spp_area.spparea_import_filter
+msgid "Uploaded"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__upload_id
+msgid "Uploaded by"
+msgstr ""
+
+#. module: spp_area
+#: model_terms:ir.ui.view,arch_db:spp_area.view_spparea_import_form
+msgid "Validate Data"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields.selection,name:spp_area.selection__spp_area_import__state__validated
+#: model:ir.model.fields.selection,name:spp_area.selection__spp_area_import_raw__state__validated
+msgid "Validated"
+msgstr ""
+
+#. module: spp_area
+#: model:ir.model.fields,field_description:spp_area.field_spp_area_import__validate_id
+msgid "Validated by"
+msgstr ""
+
+#. module: spp_area
+#. odoo-python
+#: code:addons/spp_area/models/area_import.py:0
+#, python-format
+msgid "Validating data."
+msgstr ""

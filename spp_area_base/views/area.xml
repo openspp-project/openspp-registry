@@ -178,7 +178,7 @@
     <menuitem
         id="area_main_menu_root"
         name="Area"
-        web_icon="spp_area,static/description/icon_area.png"
+        web_icon="spp_area_base,static/description/icon_area.png"
         active="True"
         sequence="0"
     />
@@ -189,8 +189,8 @@
         id="menu_spparea"
         name="Area"
         action="action_spparea"
-        parent="spp_area.area_main_top_menu"
+        parent="spp_area_base.area_main_top_menu"
         sequence="105"
-        groups="g2p_registry_base.group_g2p_admin"
+        groups="base.group_system"
     />
 </odoo>

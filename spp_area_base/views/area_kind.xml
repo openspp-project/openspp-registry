@@ -51,8 +51,8 @@
         id="menu_spparea_kind"
         name="Area Type"
         action="action_spparea_kind"
-        parent="spp_area.area_main_top_menu"
+        parent="spp_area_base.area_main_top_menu"
         sequence="110"
-        groups="g2p_registry_base.group_g2p_admin"
+        groups="base.group_system"
     />
 </odoo>

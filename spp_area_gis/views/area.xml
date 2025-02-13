@@ -3,7 +3,7 @@
     <record id="custom_view_spparea_form" model="ir.ui.view">
         <field name="name">custom_view_spparea_form</field>
         <field name="model">spp.area</field>
-        <field name="inherit_id" ref="spp_area.view_spparea_form" />
+        <field name="inherit_id" ref="spp_area_base.view_spparea_form" />
         <field name="arch" type="xml">
             <xpath expr="//page[@name='child']" position="after">
                 <page name="coordinates" string="Coordinates">
@@ -60,7 +60,7 @@
         <field name="view_id" ref="view_gis_spp_area" />
     </record>
 
-    <record id="spp_area.action_spparea" model="ir.actions.act_window">
+    <record id="spp_area_base.action_spparea" model="ir.actions.act_window">
         <field name="view_mode">tree,form,gis</field>
     </record>
 </odoo>

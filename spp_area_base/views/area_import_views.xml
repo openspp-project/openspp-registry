@@ -252,7 +252,7 @@
         action="action_view_spparea_import"
         parent="area_main_top_menu"
         sequence="106"
-        groups="g2p_registry_base.group_g2p_admin"
+        groups="base.group_system"
     />
 
 </odoo>

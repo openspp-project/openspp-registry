@@ -29,7 +29,7 @@ spp_programs_stock_location_program_manager,SPP Entitlement Stock Location Progr
 spp_programs_stock_route_program_manager,SPP Entitlement Stock Location Route Program Manager Access,stock.model_stock_route,g2p_programs.g2p_program_manager,1,0,0,0
 spp_programs_stock_move_program_manager,SPP Entitlement Stock Move Program Manager Access,stock.model_stock_move,g2p_programs.g2p_program_manager,1,1,1,0
 spp_programs_stock_rule_program_manager,SPP Entitlement Stock Rule Program Manager Access,stock.model_stock_rule,g2p_programs.g2p_program_manager,1,0,0,0
-spp_programs_spp_area_program_manager,SPP Area Program Manager Access,spp_area.model_spp_area,g2p_programs.g2p_program_manager,1,0,0,0
+spp_programs_spp_area_program_manager,SPP Area Program Manager Access,spp_area_base.model_spp_area,g2p_programs.g2p_program_manager,1,0,0,0
 
 spp_programs_entitlement_inkind_program_validator,SPP Entitlement In-Kind Program Validator Access,spp_programs.model_g2p_entitlement_inkind,g2p_programs.g2p_program_validator,1,1,0,0
 g2p_entitlement_inkind_report_wizard_program_validator,SPP Entitlement In-Kind Report Wizard Program Validator Access,spp_programs.model_g2p_entitlement_inkind_report_wizard,g2p_programs.g2p_program_validator,1,1,1,1
