@@ -13,6 +13,8 @@ from odoo.addons.queue_job.delay import group
 
 _logger = logging.getLogger(__name__)
 _area_import_raw_model = "spp.area.import.raw"
+_res_lang_model = "res.lang"
+_area_import_channel = "root.area_import"
 
 
 class OpenSPPAreaImport(models.Model):
@@ -126,7 +128,7 @@ class OpenSPPAreaImport(models.Model):
             default_lang = "en_US"
         default_iso_code = default_lang.split("_")[0].upper()
 
-        active_languages = self.env["res.lang"].search([("active", "=", True)])
+        active_languages = self.env[_res_lang_model].search([("active", "=", True)])
         if not active_languages:
             raise ValidationError(_("No active language found."))
 
@@ -226,7 +228,7 @@ class OpenSPPAreaImport(models.Model):
         """
         self.ensure_one()
         prefix = f"ADM{area_level}_"
-        active_langs = self.env["res.lang"].search([("active", "=", True)]).mapped("iso_code")
+        active_langs = self.env[_res_lang_model].search([("active", "=", True)]).mapped("iso_code")
 
         for col in columns:
             if col.startswith(prefix):
@@ -275,14 +277,14 @@ class OpenSPPAreaImport(models.Model):
                     start = i * 1000
                 end = min((i + 1) * 1000, sheet.nrows)
                 jobs.append(
-                    self.delayable(channel="root.area_import")._import_data(
+                    self.delayable(channel=_area_import_channel)._import_data(
                         sheet_name, column_indexes, start, end, area_level
                     )
                 )
 
         main_job = group(*jobs)
 
-        main_job.on_done(self.delayable(channel="root.area_import")._async_mark_done())
+        main_job.on_done(self.delayable(channel=_area_import_channel)._async_mark_done())
         main_job.delay()
 
     def _import_data(self, sheet_name, column_indexes, start, end, area_level):
@@ -322,9 +324,9 @@ class OpenSPPAreaImport(models.Model):
             for i in range(batches):
                 start = i * 1000
                 end = min((i + 1) * 1000, len(rec.raw_data_ids))
-                jobs.append(rec.delayable(channel="root.area_import")._validate_raw_data(rec.raw_data_ids[start:end]))
+                jobs.append(rec.delayable(channel=_area_import_channel)._validate_raw_data(rec.raw_data_ids[start:end]))
             main_job = group(*jobs)
-            main_job.on_done(rec.delayable(channel="root.area_import")._validate_mark_done())
+            main_job.on_done(rec.delayable(channel=_area_import_channel)._validate_mark_done())
             main_job.delay()
 
     def _validate_raw_data(self, raw_data_ids):
@@ -355,10 +357,10 @@ class OpenSPPAreaImport(models.Model):
                 start = i * 1000
                 end = min((i + 1) * 1000, len(rec.raw_data_ids))
                 jobs.append(
-                    rec.delayable(channel="root.area_import")._fix_area_level_and_kind(rec.raw_data_ids[start:end])
+                    rec.delayable(channel=_area_import_channel)._fix_area_level_and_kind(rec.raw_data_ids[start:end])
                 )
             main_job = group(*jobs)
-            main_job.on_done(rec.delayable(channel="root.area_import")._async_mark_done())
+            main_job.on_done(rec.delayable(channel=_area_import_channel)._async_mark_done())
             main_job.delay()
 
     def _fix_area_level_and_kind(self, raw_data_ids):
@@ -398,14 +400,14 @@ class OpenSPPAreaImport(models.Model):
         """
         self.ensure_one()
         jobs = []
-        jobs.append(self.delayable(channel="root.area_import")._save_to_area(raw_data_ids[:1000]))
+        jobs.append(self.delayable(channel=_area_import_channel)._save_to_area(raw_data_ids[:1000]))
         main_job = group(*jobs)
         count = len(raw_data_ids)
         if count <= 1000:
-            main_job.on_done(self.delayable(channel="root.area_import")._save_to_area_mark_done())
+            main_job.on_done(self.delayable(channel=_area_import_channel)._save_to_area_mark_done())
         else:
             main_job.on_done(
-                self.delayable(channel="root.area_import")._async_recursive_save_to_area(raw_data_ids[1000:])
+                self.delayable(channel=_area_import_channel)._async_recursive_save_to_area(raw_data_ids[1000:])
             )
         main_job.delay()
 
@@ -448,6 +450,7 @@ class OpenSPPAreaImportActivities(models.Model):
     _name = _area_import_raw_model
     _description = "Area Import Raw Data"
     _order = "level"
+    _area_model = "spp.area"
 
     NEW = "New"
     VALIDATED = "Validated"
@@ -463,7 +466,7 @@ class OpenSPPAreaImportActivities(models.Model):
         (POSTED, POSTED),
     ]
 
-    STATE_ORDER = {
+    STATE_ORDER_STATE = {
         ERROR: 0,
         NEW: 1,
         VALIDATED: 2,
@@ -492,12 +495,12 @@ class OpenSPPAreaImportActivities(models.Model):
         compute="_compute_state_order",
         store=True,
     )
-    area_id = fields.Many2one("spp.area", "Area", readonly=True)
+    area_id = fields.Many2one(_area_model, "Area", readonly=True)
 
     @api.depends("state")
     def _compute_state_order(self):
         for rec in self:
-            rec.state_order = self.STATE_ORDER[rec.state]
+            rec.state_order = self.STATE_ORDER_STATE[rec.state]
 
     def check_errors(self):
         self.ensure_one()
@@ -542,7 +545,7 @@ class OpenSPPAreaImportActivities(models.Model):
         parent_id = None
         if self.parent_name and self.parent_code:
             parent_id = (
-                self.env["spp.area"]
+                self.env[self._area_model]
                 .search(
                     [
                         ("code", "=", self.parent_code),
@@ -572,15 +575,15 @@ class OpenSPPAreaImportActivities(models.Model):
         The function saves data to the "spp.area" model in the database, updating existing records if
         they exist and creating new records if they don't.
         """
-        active_languages = self.env["res.lang"].search([("active", "=", True)])
+        active_languages = self.env[_res_lang_model].search([("active", "=", True)])
         for rec in self:
             area_vals = rec.get_area_vals()
-            if area_id := self.env["spp.area"].search([("code", "=", rec.admin_code)]):
+            if area_id := self.env[self._area_model].search([("code", "=", rec.admin_code)]):
                 state = self.UPDATED
                 area_id.update(area_vals)
             else:
                 state = self.POSTED
-                area_id = self.env["spp.area"].create(area_vals)
+                area_id = self.env[self._area_model].create(area_vals)
 
             for lang in active_languages:
                 area_id.with_context(lang=lang.code).write(
@@ -605,7 +608,7 @@ class OpenSPPAreaImportActivities(models.Model):
                 parent_id = None
                 if rec.parent_name and rec.parent_code:
                     parent_id = (
-                        self.env["spp.area"]
+                        self.env[self._area_model]
                         .search(
                             [
                                 ("code", "=", rec.parent_code),
