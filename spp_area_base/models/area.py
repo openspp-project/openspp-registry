@@ -150,23 +150,23 @@ class OpenSPPArea(models.Model):
         if curr_area:
             raise ValidationError(_("Area already exist!"))
         else:
-            Area = super().create(vals)
-            Languages = self.env["res.lang"].search([("active", "=", True)])
+            area_val = super().create(vals)
+            languages = self.env["res.lang"].search([("active", "=", True)])
             vals_list = []
-            for lang_code in Languages:
+            for lang_code in languages:
                 vals_list.append(
                     {
                         "name": "spp.area,draft_name",
                         "lang": lang_code.code,
-                        "res_id": Area.id,
-                        "src": Area.draft_name,
+                        "res_id": area_val.id,
+                        "src": area_val.draft_name,
                         "value": None,
                         "state": "to_translate",
                         "type": "model",
                     }
                 )
 
-            return Area
+            return area_val
 
     def write(self, vals):
         """

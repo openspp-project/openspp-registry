@@ -12,11 +12,13 @@ from odoo.exceptions import ValidationError
 from odoo.addons.queue_job.delay import group
 
 _logger = logging.getLogger(__name__)
+_area_import_raw_model = "spp.area.import.raw"
 
 
 class OpenSPPAreaImport(models.Model):
     _name = "spp.area.import"
     _description = "Areas Import Table"
+    _users_model = "res.users"
 
     MIN_ROW_JOB_QUEUE = 400
 
@@ -40,12 +42,12 @@ class OpenSPPAreaImport(models.Model):
     excel_file = fields.Binary("Area Excel File")
     date_uploaded = fields.Datetime()
 
-    upload_id = fields.Many2one("res.users", "Uploaded by")
+    upload_id = fields.Many2one(_users_model, "Uploaded by")
     date_imported = fields.Datetime()
-    import_id = fields.Many2one("res.users", "Imported by")
+    import_id = fields.Many2one(_users_model, "Imported by")
     date_validated = fields.Datetime()
-    validate_id = fields.Many2one("res.users", "Validated by")
-    raw_data_ids = fields.One2many("spp.area.import.raw", "area_import_id", "Raw Data")
+    validate_id = fields.Many2one(_users_model, "Validated by")
+    raw_data_ids = fields.One2many(_area_import_raw_model, "area_import_id", "Raw Data")
     tot_rows_imported = fields.Integer(
         "Total Rows Imported",
         compute="_compute_get_total_rows",
@@ -93,7 +95,7 @@ class OpenSPPAreaImport(models.Model):
         """
         for rec in self:
             tot_rows_imported = len(rec.raw_data_ids)
-            tot_rows_error = self.env["spp.area.import.raw"].search(
+            tot_rows_error = self.env[_area_import_raw_model].search(
                 [("id", "in", rec.raw_data_ids.ids), ("state", "=", "Error")]
             )
             rec.update(
@@ -194,7 +196,7 @@ class OpenSPPAreaImport(models.Model):
 
     def create_import_raw(self, vals, column_indexes, row, sheet):
         self.ensure_one()
-        import_raw_id = self.env["spp.area.import.raw"].create(vals)
+        import_raw_id = self.env[_area_import_raw_model].create(vals)
         for lang_code in column_indexes["name_indexes"]:
             lang_name = sheet.cell(row, column_indexes["name_indexes"][lang_code]).value
             import_raw_id.with_context(lang=lang_code).write(
@@ -336,7 +338,7 @@ class OpenSPPAreaImport(models.Model):
         self.locked = False
         self.locked_reason = None
         self.ensure_one()
-        if not self.env["spp.area.import.raw"].search([("id", "in", self.raw_data_ids.ids), ("state", "=", "Error")]):
+        if not self.env[_area_import_raw_model].search([("id", "in", self.raw_data_ids.ids), ("state", "=", "Error")]):
             self.update(
                 {
                     "state": self.VALIDATED,
@@ -419,7 +421,7 @@ class OpenSPPAreaImport(models.Model):
         self.ensure_one()
         self.locked = False
         self.locked_reason = None
-        if not self.env["spp.area.import.raw"].search(
+        if not self.env[_area_import_raw_model].search(
             [("id", "in", self.raw_data_ids.ids), ("state", "=", "Validated")]
         ):
             self.update(
@@ -443,7 +445,7 @@ class OpenSPPAreaImport(models.Model):
 
 # Assets Import Raw Data
 class OpenSPPAreaImportActivities(models.Model):
-    _name = "spp.area.import.raw"
+    _name = _area_import_raw_model
     _description = "Area Import Raw Data"
     _order = "level"
 
