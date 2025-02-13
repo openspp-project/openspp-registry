@@ -10,7 +10,6 @@ CHANGE_REQUEST_EDIT_FARM = "spp.change.request.edit.farm"
 FARM_ACTIVITY = "spp.farm.activity"
 FARM_ASSET = "spp.farm.asset"
 
-
 class ChangeRequestTypeCustomEditFarm(models.Model):
     _inherit = "spp.change.request"  # Not merging classes as it might require significant refactoring.
 
