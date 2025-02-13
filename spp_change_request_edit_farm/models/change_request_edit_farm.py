@@ -100,15 +100,17 @@ class ChangeRequestEditFarm(models.Model):
         string="Group Kind",
         default=lambda self: self.env.ref("spp_farmer_registry_base.kind_farm", raise_if_not_found=False),
     )
-    farm_crop_act_ids = fields.One2many(FARM_ACTIVITY, "crop_cr_farm_id", string="Crop Agricultural Activities")
-    farm_live_act_ids = fields.One2many(FARM_ACTIVITY, "live_cr_farm_id", string="Livestock Agricultural Activities")
+    farm_crop_act_ids = fields.One2many(FARM_ACTIVITY, "crop_cr_edit_farm_id", string="Crop Agricultural Activities")
+    farm_live_act_ids = fields.One2many(
+        FARM_ACTIVITY, "live_cr_edit_farm_id", string="Livestock Agricultural Activities"
+    )
     farm_aqua_act_ids = fields.One2many(
         FARM_ACTIVITY,
-        "aqua_cr_farm_id",
+        "aqua_cr_edit_farm_id",
         string="Aquaculture Agricultural Activities",
     )
-    farm_asset_ids = fields.One2many(FARM_ASSET, "asset_cr_farm_id", string="Farm Assets")
-    farm_machinery_ids = fields.One2many(FARM_ASSET, "machinery_cr_farm_id", string="Farm Machinery")
+    farm_asset_ids = fields.One2many(FARM_ASSET, "asset_cr_edit_farm_id", string="Farm Assets")
+    farm_machinery_ids = fields.One2many(FARM_ASSET, "machinery_cr_edit_farm_id", string="Farm Machinery")
 
     # Land Record
     land_name = fields.Char(string="Parcel Name/ID")
@@ -242,13 +244,13 @@ class ChangeRequestEditFarm(models.Model):
 class ChangeRequestEditFarmAgriculturalActivity(models.Model):
     _inherit = FARM_ACTIVITY
 
-    crop_cr_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Crop Farm")
-    live_cr_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Livestock Farm")
-    aqua_cr_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Aqua Farm")
+    crop_cr_edit_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Crop Farm")
+    live_cr_edit_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Livestock Farm")
+    aqua_cr_edit_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Aqua Farm")
 
 
 class ChangeRequestEditFarmAssets(models.Model):
     _inherit = FARM_ASSET
 
-    asset_cr_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Asset Farm")
-    machinery_cr_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Machinery Farm")
+    asset_cr_edit_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Asset Farm")
+    machinery_cr_edit_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Machinery Farm")

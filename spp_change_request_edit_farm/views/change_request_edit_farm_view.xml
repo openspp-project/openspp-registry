@@ -230,7 +230,7 @@
                                             context="{'default_activity_type': 'crop'}"
                                         >
                                             <tree editable="bottom">
-                                                <field name="crop_cr_farm_id" column_invisible="1" />
+                                                <field name="crop_cr_edit_farm_id" column_invisible="1" />
                                                 <field name="activity_type" column_invisible="1" />
                                                 <field
                                                     name="species_id"
@@ -247,7 +247,7 @@
                                             context="{'default_activity_type': 'livestock'}"
                                         >
                                             <tree editable="bottom">
-                                                <field name="live_cr_farm_id" column_invisible="1" />
+                                                <field name="live_cr_edit_farm_id" column_invisible="1" />
                                                 <field name="activity_type" column_invisible="1" />
                                                 <field
                                                     name="species_id"
@@ -263,7 +263,7 @@
                                             context="{'default_activity_type': 'aquaculture'}"
                                         >
                                             <tree editable="bottom">
-                                                <field name="aqua_cr_farm_id" column_invisible="1" />
+                                                <field name="aqua_cr_edit_farm_id" column_invisible="1" />
                                                 <field name="activity_type" column_invisible="1" />
                                                 <field
                                                     name="species_id"
@@ -276,7 +276,10 @@
                                             <h3>Production Systems</h3><br />
                                             <field name="farm_asset_ids">
                                                 <tree editable="bottom">
-                                                    <field name="asset_cr_farm_id" column_invisible="1" />
+                                                    <field
+                                                        name="asset_cr_edit_farm_id"
+                                                        column_invisible="1"
+                                                    />
                                                     <field name="asset_type" width="40%" />
                                                 </tree>
                                             </field>
@@ -285,7 +288,10 @@
                                     <page name="section_farm_tech" string="Technology and Assets">
                                         <field name="farm_machinery_ids">
                                             <tree editable="bottom">
-                                                <field name="machinery_cr_farm_id" column_invisible="1" />
+                                                <field
+                                                    name="machinery_cr_edit_farm_id"
+                                                    column_invisible="1"
+                                                />
                                                 <field name="machinery_type" />
                                                 <field name="quantity" width="20%" />
                                                 <field name="machine_working_status" />

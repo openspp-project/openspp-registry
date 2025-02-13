@@ -96,7 +96,7 @@ class TestChangeRequestEditFarm(TransactionCase):
                 )
                 .id,
                 "activity_type": "crop",
-                "crop_cr_farm_id": edit_farm.id,
+                "crop_cr_edit_farm_id": edit_farm.id,
             }
         )
 
@@ -112,7 +112,7 @@ class TestChangeRequestEditFarm(TransactionCase):
                 )
                 .id,
                 "activity_type": "livestock",
-                "live_cr_farm_id": edit_farm.id,
+                "live_cr_edit_farm_id": edit_farm.id,
             }
         )
 
@@ -128,7 +128,7 @@ class TestChangeRequestEditFarm(TransactionCase):
                 )
                 .id,
                 "activity_type": "aquaculture",
-                "aqua_cr_farm_id": edit_farm.id,
+                "aqua_cr_edit_farm_id": edit_farm.id,
             }
         )
 
@@ -162,7 +162,7 @@ class TestChangeRequestEditFarm(TransactionCase):
                     }
                 )
                 .id,
-                "asset_cr_farm_id": edit_farm.id,
+                "asset_cr_edit_farm_id": edit_farm.id,
             }
         )
 
@@ -176,7 +176,7 @@ class TestChangeRequestEditFarm(TransactionCase):
                     }
                 )
                 .id,
-                "machinery_cr_farm_id": edit_farm.id,
+                "machinery_cr_edit_farm_id": edit_farm.id,
                 "quantity": 1,
                 "machine_working_status": "working",
             }
