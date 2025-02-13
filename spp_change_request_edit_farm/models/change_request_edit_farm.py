@@ -5,12 +5,16 @@ from odoo.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
 
+RES_PARTNER = "res.partner"
+CHANGE_REQUEST_EDIT_FARM = "spp.change.request.edit.farm"
+FARM_ACTIVITY = "spp.farm.activity"
+FARM_ASSET = "spp.farm.asset"
 
 class ChangeRequestTypeCustomEditFarm(models.Model):
     _inherit = "spp.change.request"  # Not merging classes as it might require significant refactoring.
 
     registrant_id = fields.Many2one(
-        "res.partner",
+        RES_PARTNER,
         "Registrant",
         domain=[("is_registrant", "=", True), ("is_group", "=", True)],
     )
@@ -21,22 +25,20 @@ class ChangeRequestTypeCustomEditFarm(models.Model):
 
         :raise UserError: Exception raised when applicant_phone is not existing.
         """
-        request_type = self.request_type
-        if "farm" not in request_type:
-            if not self.applicant_phone:
-                raise UserError(_("Phone No. is required."))
+        if not self.applicant_phone and "farm" not in self.request_type:
+            raise UserError(_("Phone No. is required."))
 
     @api.model
     def _selection_request_type_ref_id(self):
         selection = super()._selection_request_type_ref_id()
-        new_request_type = ("spp.change.request.edit.farm", "Edit Farm")
+        new_request_type = (CHANGE_REQUEST_EDIT_FARM, "Edit Farm")
         if new_request_type not in selection:
             selection.append(new_request_type)
         return selection
 
 
 class ChangeRequestEditFarm(models.Model):
-    _name = "spp.change.request.edit.farm"
+    _name = CHANGE_REQUEST_EDIT_FARM
     _inherit = [
         "spp.change.request.source.mixin",
         "spp.change.request.validation.sequence.mixin",
@@ -48,10 +50,26 @@ class ChangeRequestEditFarm(models.Model):
     VALIDATION_FORM = "spp_change_request_edit_farm.view_change_request_edit_farm_validation_form"
     REQUIRED_DOCUMENT_TYPE = [
         "spp_change_request_edit_farm.spp_dms_edit_farm",
-        # "spp_change_request.spp_dms_birth_certificate",
-        # "spp_change_request.spp_dms_applicant_spp_card",
-        # "spp_change_request.spp_dms_applicant_uid_card",
-        # "spp_change_request.spp_dms_custody_certificate",
+    ]
+
+    FARM_FIELDS = [
+        "group_name",
+        "group_kind",
+        "land_name",
+        "land_acreage",
+        "land_coordinates",
+        "land_geo_polygon",
+        "details_legal_status",
+    ]
+
+    RES_PARTNER_FIELDS = [
+        "name",
+        "kind",
+        "land_name",
+        "land_acreage",
+        "land_coordinates",
+        "land_geo_polygon",
+        "details_legal_status",
     ]
 
     # Mandatory initialize source and destination center areas
@@ -64,7 +82,7 @@ class ChangeRequestEditFarm(models.Model):
         return [(option.value, option.code) for option in options]
 
     registrant_id = fields.Many2one(
-        "res.partner",
+        RES_PARTNER,
         "Add to Group",
         domain=[("is_registrant", "=", True), ("is_group", "=", True)],
     )
@@ -81,17 +99,17 @@ class ChangeRequestEditFarm(models.Model):
         string="Group Kind",
         default=lambda self: self.env.ref("spp_farmer_registry_base.kind_farm", raise_if_not_found=False),
     )
-    farm_crop_act_ids = fields.One2many("spp.farm.activity", "crop_cr_farm_id", string="Crop Agricultural Activities")
+    farm_crop_act_ids = fields.One2many(FARM_ACTIVITY, "crop_cr_edit_farm_id", string="Crop Agricultural Activities")
     farm_live_act_ids = fields.One2many(
-        "spp.farm.activity", "live_cr_farm_id", string="Livestock Agricultural Activities"
+        FARM_ACTIVITY, "live_cr_edit_farm_id", string="Livestock Agricultural Activities"
     )
     farm_aqua_act_ids = fields.One2many(
-        "spp.farm.activity",
-        "aqua_cr_farm_id",
+        FARM_ACTIVITY,
+        "aqua_cr_edit_farm_id",
         string="Aquaculture Agricultural Activities",
     )
-    farm_asset_ids = fields.One2many("spp.farm.asset", "asset_cr_farm_id", string="Farm Assets")
-    farm_machinery_ids = fields.One2many("spp.farm.asset", "machinery_cr_farm_id", string="Farm Machinery")
+    farm_asset_ids = fields.One2many(FARM_ASSET, "asset_cr_edit_farm_id", string="Farm Assets")
+    farm_machinery_ids = fields.One2many(FARM_ASSET, "machinery_cr_edit_farm_id", string="Farm Machinery")
 
     # Land Record
     land_name = fields.Char(string="Parcel Name/ID")
@@ -140,45 +158,6 @@ class ChangeRequestEditFarm(models.Model):
     @api.onchange("id_document_details")
     def _onchange_scan_id_document_details(self):
         return
-        # TODO: Implement this method
-        # if self.dms_directory_ids:
-        #     if self.id_document_details:
-        #         try:
-        #             details = json.loads(self.id_document_details)
-        #         except json.decoder.JSONDecodeError as e:
-        #             details = None
-        #             _logger.error(e)
-        #         if details:
-        #             # Upload to DMS
-        #             if details["image"]:
-        #                 if self._origin:
-        #                     directory_id = self._origin.dms_directory_ids[0].id
-        #                 else:
-        #                     directory_id = self.dms_directory_ids[0].id
-        #                 dms_vals = {
-        #                     "name": "UID_" + details["document_number"] + ".jpg",
-        #                     "directory_id": directory_id,
-        #                     "category_id": self.env.ref("spp_change_request.spp_dms_uid_card").id,
-        #                     "content": details["image"],
-        #                 }
-        #                 # TODO: Should be added to vals["dms_file_ids"] but it is
-        #                 # not writing to one2many field using Command.create()
-        #                 self.env["spp.dms.file"].create(dms_vals)
-        #
-        #             # TODO: grand_father_name and father_name
-        #             vals = {
-        #                 "family_name": details["family_name"],
-        #                 "given_name": details["given_name"],
-        #                 "birthdate": details["birth_date"],
-        #                 "gender": details["gender"],
-        #                 "id_document_details": "",
-        #                 "birth_place": details["birth_place_city"],
-        #                 # TODO: Fix not writing to one2many field: dms_file_ids
-        #                 # "dms_file_ids": [(Command.create(dms_vals))],
-        #             }
-        #             self.update(vals)
-        # else:
-        #     raise UserError(_("There are no directories defined for this change request."))
 
     def _get_default_change_request_id(self):
         """
@@ -187,34 +166,14 @@ class ChangeRequestEditFarm(models.Model):
         return "default_change_request_edit_farm_id"
 
     def validate_data(self):
-        super().validate_data()
+        validate_data = super().validate_data()
         error_message = []
         if not self.registrant_id:
             error_message.append(_("The Group or Farm is required!"))
         if error_message:
             raise ValidationError("\n".join(error_message))
 
-        return
-
-    FARM_FIELDS = [
-        "group_name",
-        "group_kind",
-        "land_name",
-        "land_acreage",
-        "land_coordinates",
-        "land_geo_polygon",
-        "details_legal_status",
-    ]
-
-    RES_PARTNER_FIELDS = [
-        "name",
-        "kind",
-        "land_name",
-        "land_acreage",
-        "land_coordinates",
-        "land_geo_polygon",
-        "details_legal_status",
-    ]
+        return validate_data
 
     def update_live_data(self):
         self.ensure_one()
@@ -282,15 +241,15 @@ class ChangeRequestEditFarm(models.Model):
 
 
 class ChangeRequestEditFarmAgriculturalActivity(models.Model):
-    _inherit = "spp.farm.activity"
+    _inherit = FARM_ACTIVITY
 
-    crop_cr_farm_id = fields.Many2one("spp.change.request.edit.farm", string="Crop Farm")
-    live_cr_farm_id = fields.Many2one("spp.change.request.edit.farm", string="Livestock Farm")
-    aqua_cr_farm_id = fields.Many2one("spp.change.request.edit.farm", string="Aqua Farm")
+    crop_cr_edit_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Crop Farm")
+    live_cr_edit_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Livestock Farm")
+    aqua_cr_edit_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Aqua Farm")
 
 
 class ChangeRequestEditFarmAssets(models.Model):
-    _inherit = "spp.farm.asset"
+    _inherit = FARM_ASSET
 
-    asset_cr_farm_id = fields.Many2one("spp.change.request.edit.farm", string="Asset Farm")
-    machinery_cr_farm_id = fields.Many2one("spp.change.request.edit.farm", string="Machinery Farm")
+    asset_cr_edit_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Asset Farm")
+    machinery_cr_edit_farm_id = fields.Many2one(CHANGE_REQUEST_EDIT_FARM, string="Machinery Farm")
