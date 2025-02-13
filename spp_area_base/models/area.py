@@ -6,6 +6,7 @@ from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
+_kind_model = "spp.area.kind"
 
 
 class OpenSPPArea(models.Model):
@@ -33,7 +34,7 @@ class OpenSPPArea(models.Model):
     level = fields.Integer(help="This is the area level for importing")
     area_level = fields.Integer(compute="_compute_area_level", store=True, help="This is the main area level")
     child_ids = fields.One2many(_name, "id", "Child", compute="_compute_get_childs")
-    kind = fields.Many2one("spp.area.kind")
+    kind = fields.Many2one(_kind_model)
     area_sqkm = fields.Float("Area (sq/km)")
 
     _sql_constraints = [
@@ -223,14 +224,14 @@ class OpenSPPAreaKind(models.Model):
     their hierarchical relationships and names.
     """
 
-    _name = "spp.area.kind"
+    _name = _kind_model
     _description = "Area Type"
     _parent_name = "parent_id"
     _parent_store = True
     _rec_name = "complete_name"
     _order = "parent_id,name"
 
-    parent_id = fields.Many2one("spp.area.kind", "Parent")
+    parent_id = fields.Many2one(_kind_model, "Parent")
     parent_path = fields.Char(index=True)
     name = fields.Char(required=True)
     complete_name = fields.Char(compute="_compute_complete_name", recursive=True, translate=True)
@@ -262,7 +263,7 @@ class OpenSPPAreaKind(models.Model):
         """
         for rec in self:
             external_identifier = self.env["ir.model.data"].search(
-                [("res_id", "=", rec.id), ("model", "=", "spp.area.kind")]
+                [("res_id", "=", rec.id), ("model", "=", _kind_model)]
             )
             if external_identifier and external_identifier.name:
                 raise ValidationError(_("Can't delete default Area Type"))
@@ -284,7 +285,7 @@ class OpenSPPAreaKind(models.Model):
         """
         for rec in self:
             external_identifier = self.env["ir.model.data"].search(
-                [("res_id", "=", rec.id), ("model", "=", "spp.area.kind")]
+                [("res_id", "=", rec.id), ("model", "=", _kind_model)]
             )
             if external_identifier and external_identifier.name:
                 vals = {}
@@ -293,7 +294,7 @@ class OpenSPPAreaKind(models.Model):
     def update_parent(self):
         for rec in self:
             if rec.parent_name and rec.parent_code:
-                parent_id = self.env["spp.area.kind"].search(
+                parent_id = self.env[_kind_model].search(
                     [
                         ("code", "=", rec.parent_code),
                     ],
