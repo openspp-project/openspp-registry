@@ -1,0 +1,70 @@
+<odoo>
+    <record id="view_dms_file_spp_custom_form" model="ir.ui.view">
+        <field name="name">view_dms_file_spp_custom_form</field>
+        <field name="model">spp.dms.file</field>
+        <field name="arch" type="xml">
+            <form string="Files">
+                <sheet>
+                    <div class="oe_button_box" name="button_box" />
+                    <field
+                        name="image_1920"
+                        widget="image"
+                        class="oe_avatar"
+                        nolabel="1"
+                        options="{'image_preview': 'image_128'}"
+                    />
+                    <div class="oe_title">
+                        <h4>
+                            <field
+                                name="category_id"
+                                options="{'no_open': True,'no_create': True,'no_edit':True}"
+                                required="1"
+                                readonly="context.get('category_readonly')"
+                            />
+                        </h4>
+                        <h2>
+                            <field name="content" filename="name" mimetype="mimetype" />
+                        </h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1" force_save="1" />
+                            <field name="mimetype" force_save="1" />
+                        </group>
+                        <group>
+                            <field
+                                name="directory_id"
+                                options="{'no_open':True}"
+                                readonly="1"
+                                force_save="1"
+                            />
+                            <field name="change_request_id" invisible="1" />
+                            <!-- <field
+                                name="path_json"
+                                widget="path_json"
+                                options="{'prefix': True, 'suffix': False}"
+                                invisible="not name or not directory_id"
+                                string="Path"
+                            /> -->
+                        </group>
+                    </group>
+                    <field name="extension" invisible="1" force_save="1" />
+                    <field name="create_date" invisible="1" />
+                    <field name="create_uid" invisible="1" />
+                    <field name="write_date" invisible="1" />
+                    <field name="write_uid" invisible="1" />
+                </sheet>
+                <footer>
+                    <button
+                        string="Save"
+                        icon="fa-floppy-o"
+                        name="action_save_and_close"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button string="Close" name="action_close" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

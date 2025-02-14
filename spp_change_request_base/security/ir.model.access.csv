@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+spp_change_request_sysadmin,Change Request Admin Access,spp_change_request_base.model_spp_change_request,base.group_system,1,1,1,1
+spp_change_request_validators_sysadmin,Change Request Validators Admin Access,spp_change_request_base.model_spp_change_request_validators,base.group_system,1,1,1,1
+spp_change_request_validation_sequence_sysadmin,Change Request Validation Sequence Admin Access,spp_change_request_base.model_spp_change_request_validation_sequence,base.group_system,1,1,1,1
+spp_change_request_validation_stage_sysadmin,Change Request Validation Stage Admin Access,spp_change_request_base.model_spp_change_request_validation_stage,base.group_system,1,1,1,1
+spp_change_request_user_assign_wizard_sysadmin,Change Request User Assignment Admin Access,spp_change_request_base.model_spp_change_request_user_assign_wizard,base.group_system,1,1,1,1
+spp_change_request_reject_wizard_sysadmin,Change Request Reject Admin Access,spp_change_request_base.model_spp_change_request_reject_wizard,base.group_system,1,1,1,1
+spp_change_request_cancel_wizard_sysadmin,Change Request Cancel Admin Access,spp_change_request_base.model_spp_change_request_cancel_wizard,base.group_system,1,1,1,1
