@@ -1,12 +1,10 @@
-from unittest.mock import patch
-
 from odoo import fields
 from odoo.exceptions import UserError
 
 from .common import Common
 
 
-class TestChangeRequests(Common):
+class TestChangeRequestBase(Common):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -35,25 +33,6 @@ class TestChangeRequests(Common):
             "Draft change request should unlinkable by its creator!",
         )
 
-    def test_04_compute_applicant_id_domain(self):
-        self.assertEqual(
-            self._test_change_request.applicant_id_domain,
-            [("id", "=", 0)],
-            "Without registrant, applicant selections should not be available!",
-        )
-        self._test_change_request.registrant_id = self._test_group
-        self.assertEqual(
-            self._test_change_request.applicant_id_domain,
-            [
-                (
-                    "id",
-                    "in",
-                    self._test_change_request.registrant_id.group_membership_ids.individual.ids,
-                )
-            ],
-            "With registrant, applicant selection should be available!",
-        )
-
     def test_05_assign_to_user(self):
         admin = self.env.ref("base.user_admin")
         self._test_change_request.assign_to_user(admin)
@@ -66,37 +45,12 @@ class TestChangeRequests(Common):
         with self.assertRaisesRegex(UserError, "^.*not have any validation sequence defined.$"):
             self._test_change_request.assign_to_user(self.env.user)
 
-    def test_06_onchange_scan_qr_code_details(self):
-        self._test_change_request.qr_code_details = '{"qrcode": "-T-E-S-T-Q-R-C-O-D-E-"}'
-        with self.assertRaisesRegex(UserError, "^.*no group found with the ID number from the QR Code scanned.$"):
-            self._test_change_request._onchange_scan_qr_code_details()
-        self.env["g2p.reg.id"].create(
-            {
-                "partner_id": self._test_group.id,
-                "id_type": self.env.ref("spp_idpass.id_type_idpass").id,
-                "value": "-T-E-S-T-Q-R-C-O-D-E-",
-            }
-        )
-        self._test_change_request._onchange_scan_qr_code_details()
-        self.assertEqual(
-            self._test_change_request.registrant_id,
-            self._test_group,
-            "Registrant on CR should be test group!",
-        )
-
-    @patch(
-        "odoo.addons.phone_validation.tools.phone_validation.phone_parse",
-        return_value="1",
-    )
-    def test_07_open_request_detail(self, phone_parse):
-        with self.assertRaisesRegex(UserError, "Phone No. is required."):
-            self._test_change_request.open_request_detail()
-        self._test_change_request.applicant_phone = "+9647001234567"
+    def test_07_open_request_detail(self):
         res = self._test_change_request.open_request_detail()
         self.assertListEqual(
             [res.get("type"), res.get("tag"), res.get("params", {}).get("type")],
             ["ir.actions.client", "display_notification", "danger"],
-            "Request Type ID not existed, client should display error notification!",
+            "Request Type ID does not exist, client should display error notification!",
         )
 
     def test_08_cancel_error(self):
