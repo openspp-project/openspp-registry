@@ -66,7 +66,7 @@ class TestChangeRequestBase(Common):
                 self._test_change_request.date_cancelled,
             ],
             ["draft", False, False],
-            "Draft CR should not have cancelling info.!",
+            "Draft CR should not have cancel info!",
         )
         self._test_change_request._cancel(self._test_change_request)
         self.assertListEqual(
@@ -75,12 +75,12 @@ class TestChangeRequestBase(Common):
                 self._test_change_request.cancelled_by_id,
             ],
             ["cancelled", self.env.user],
-            "Cancelled CR should have cancelling info.!",
+            "Cancelled CR should have cancel info!",
         )
         self.assertLessEqual(
             self._test_change_request.date_cancelled,
             fields.Datetime.now(),
-            "Cancelled CR should have date cancelled info.!",
+            "Cancelled CR should have date cancelled info!",
         )
 
     def test_8_check_user_error(self):
