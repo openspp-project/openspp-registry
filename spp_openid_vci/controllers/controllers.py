@@ -35,8 +35,7 @@ class SppOpenIDVCIController(Controller):
             return False
         return jwt
 
-    @classmethod
-    def get_individual_fields(cls):
+    def get_individual_fields(self):
         return ["name"]
 
     @route("/api/v1/registry/individual/<int:individual_id>", type="http", auth="none", methods=["GET"], csrf=False)
@@ -62,9 +61,7 @@ class SppOpenIDVCIController(Controller):
         individual = request.env["res.partner"].sudo().search([("id", "=", individual_id)], limit=1)
         if not individual:
             return self.error_wrapper(404, "Individual not found.")
-        return self.response_wrapper(
-            200, {"individual": individual.read(SppOpenIDVCIController.get_individual_fields())[0]}
-        )
+        return self.response_wrapper(200, {"individual": individual.read(self.get_individual_fields())[0]})
 
     @route("/verify/vc", type="http", auth="none", methods=["POST"], csrf=False)
     def verify_vc(self):
