@@ -14,7 +14,6 @@ class Common(TransactionCase):
     @classmethod
     def _create_registrant(cls, vals):
         cls.assertTrue(isinstance(vals, dict), "Return vals should be a dict!")
-        vals.update({"is_distributor": True})
         return cls.env["res.partner"].create(vals)
 
     @classmethod

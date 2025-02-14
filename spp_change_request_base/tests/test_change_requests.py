@@ -10,21 +10,21 @@ class TestChangeRequestBase(Common):
         super().setUpClass()
         cls._test_change_request = cls._create_change_request()
 
-    def test_01_assign_to_user(self):
+    def test_01_assign_to_current_user(self):
         self.assertEqual(
             self._test_change_request.assign_to_id,
             self.env.user,
             "Creating user should be default assignee!",
         )
 
-    def test_02_unlink_raise_error(self):
+    def test_02_unlink_and_raise_error(self):
         with self.assertRaisesRegex(UserError, "Only draft change requests can be deleted by its creator."):
             self._test_change_request.with_user(2).unlink()
         self._test_change_request.state = "pending"
         with self.assertRaisesRegex(UserError, "Only draft change requests can be deleted by its creator."):
             self._test_change_request.unlink()
 
-    def test_03_unlink(self):
+    def test_03_unlink_cr(self):
         self._test_change_request.unlink()
         remaining_change_request = self.env["spp.change.request"].search([("request_type", "=", "request_type")])
         self.assertCountEqual(
@@ -58,7 +58,7 @@ class TestChangeRequestBase(Common):
             self._test_change_request.state = "validated"
             self._test_change_request._cancel(self._test_change_request)
 
-    def test_07_cancel(self):
+    def test_07_cancel_cr(self):
         self.assertListEqual(
             [
                 self._test_change_request.state,
