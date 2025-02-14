@@ -44,6 +44,7 @@ class ChangeRequestBase(models.Model):
 
     # Must be overridden in the child class with the form id of the applicant
     APPLICANT_FORM_ID = ""
+    ADMIN_GROUP_NAME = ""
 
     name = fields.Char("Request #", required=True, default="NEW")
     company_id = fields.Many2one("res.company", default=lambda self: self.env.company)
@@ -147,7 +148,7 @@ class ChangeRequestBase(models.Model):
         vals["name"] = self.env["ir.sequence"].next_by_code("spp.change.request.num")
         res = super().create(vals)
         # Create pending validation activity
-        activity_type = "spp_change_request.pending_validation_activity"
+        activity_type = "spp_change_request_base.pending_validation_activity"
         summary = _("For Pending Validation")
         note = _("A new change request was submitted. The next step will set this request to 'Pending Validation'.")
         res._generate_activity(activity_type, summary, note)
@@ -277,7 +278,7 @@ class ChangeRequestBase(models.Model):
         :raise UserError: Exception raised when something is not valid.
         """
         for rec in self:
-            is_admin = self.env.user.has_group("spp_change_request.group_spp_change_request_administrator")
+            is_admin = self.env.user.has_group(self.ADMIN_GROUP_NAME)
             assign_self = False
             if rec.assign_to_id:
                 if rec.assign_to_id.id != self.env.user.id:
@@ -290,7 +291,7 @@ class ChangeRequestBase(models.Model):
             else:
                 assign_self = True
             if not assign_self:
-                form_id = self.env.ref("spp_change_request.change_request_user_assign_wizard").id
+                form_id = self.env.ref("spp_change_request_base.change_request_user_assign_wizard").id
                 action = {
                     "name": _("Assign Change Request to User"),
                     "type": "ir.actions.act_window",
@@ -538,7 +539,7 @@ class ChangeRequestBase(models.Model):
         """
         self.ensure_one()
 
-        form_id = self.env.ref("spp_change_request.change_request_cancel_wizard").id
+        form_id = self.env.ref("spp_change_request_base.change_request_cancel_wizard").id
         action = {
             "name": _("Cancel Change Request"),
             "type": "ir.actions.act_window",
@@ -613,7 +614,7 @@ class ChangeRequestBase(models.Model):
         :rtype: dict
         """
 
-        form_id = self.env.ref("spp_change_request.change_request_reject_wizard").id
+        form_id = self.env.ref("spp_change_request_base.change_request_reject_wizard").id
         action = {
             "name": _("Reject Change Request"),
             "type": "ir.actions.act_window",
@@ -726,7 +727,7 @@ class ChangeRequestBase(models.Model):
         }
         activity = self.env["mail.activity"].create(next_activity)
         # Mark cancel activity as 'done' because there are no re-activation after cancellation of CR
-        if activity_type == "spp_change_request.cancel_activity":
+        if activity_type == "spp_change_request_base.cancel_activity":
             activity.action_done()
             return
 

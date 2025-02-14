@@ -22,7 +22,7 @@ class SPPDMSFileCustom(models.Model):
 
     def action_attach_documents(self):
         for rec in self:
-            form_id = self.env.ref("spp_change_request.view_dms_file_spp_custom_form").id
+            form_id = self.env.ref("spp_change_request_base.view_dms_file_spp_custom_form").id
             action = {
                 "type": "ir.actions.act_window",
                 "view_mode": "form",

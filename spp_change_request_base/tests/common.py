@@ -41,7 +41,7 @@ class Common(TransactionCase):
         return cls.env["res.partner"].create(vals)
 
     @classmethod
-    @patch("odoo.addons.spp_change_request.models.change_request.ChangeRequestBase._selection_request_type_ref_id")
+    @patch("odoo.addons.spp_change_request_base.models.change_request.ChangeRequestBase._selection_request_type_ref_id")
     def _create_change_request(self, mock_request_type_selection):
         mock_request_type_selection.return_value = [("test.request.type", "Test Request Type")]
         mock_request_type_selection.__name__ = "_mocked__selection_request_type_ref_id"

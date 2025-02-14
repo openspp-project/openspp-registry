@@ -43,6 +43,7 @@ class ChangeRequestSourceMixin(models.AbstractModel):
     VALIDATION_FORM = None
     AUTO_APPLY_CHANGES = True
     REGISTRANT_FORM_ID = None
+    ADMIN_GROUP_NAME = None
 
     registrant_id = fields.Many2one("res.partner", "Registrant")
     change_request_id = fields.Many2one("spp.change.request", "Change Request", required=True)
@@ -122,7 +123,7 @@ class ChangeRequestSourceMixin(models.AbstractModel):
             # Mark previous activity as 'done'
             request.last_activity_id.action_done()
             # Create validation activity
-            activity_type = "spp_change_request.validation_activity"
+            activity_type = "spp_change_request_base.validation_activity"
             summary = _("For Validation")
             note = _(
                 "The change request is now set for validation. Depending on the "
@@ -206,7 +207,7 @@ class ChangeRequestSourceMixin(models.AbstractModel):
                         # Mark previous activity as 'done'
                         request.last_activity_id.action_done()
                         # Create apply changes activity
-                        activity_type = "spp_change_request.apply_changes_activity"
+                        activity_type = "spp_change_request_base.apply_changes_activity"
                         summary = _("For Application of Changes")
                         note = _(
                             "The change request is now fully validated. It is now submitted "
@@ -325,7 +326,7 @@ class ChangeRequestSourceMixin(models.AbstractModel):
         """
         self.ensure_one()
 
-        form_id = self.env.ref("spp_change_request.change_request_cancel_wizard").id
+        form_id = self.env.ref("spp_change_request_base.change_request_cancel_wizard").id
         action = {
             "name": _("Cancel Change Request"),
             "type": "ir.actions.act_window",
@@ -352,7 +353,7 @@ class ChangeRequestSourceMixin(models.AbstractModel):
             # Mark previous activity as 'done'
             request.last_activity_id.action_done()
             # Create validation activity
-            activity_type = "spp_change_request.cancel_activity"
+            activity_type = "spp_change_request_base.cancel_activity"
             summary = _("Change Request Cancelled")
             note = _("The change request was cancelled by %s.", self.env.user.name)
             request._generate_activity(activity_type, summary, note)
@@ -400,7 +401,7 @@ class ChangeRequestSourceMixin(models.AbstractModel):
             # Mark previous activity as 'done'
             request.last_activity_id.action_done()
             # Create validation activity
-            activity_type = "spp_change_request.reset_draft_activity"
+            activity_type = "spp_change_request_base.reset_draft_activity"
             summary = _("CR Reset to Draft")
             note = _("The change request was reset to draft.")
             request._generate_activity(activity_type, summary, note)
@@ -432,7 +433,7 @@ class ChangeRequestSourceMixin(models.AbstractModel):
         """
         self.ensure_one()
 
-        form_id = self.env.ref("spp_change_request.change_request_reject_wizard").id
+        form_id = self.env.ref("spp_change_request_base.change_request_reject_wizard").id
         action = {
             "name": _("Reject Change Request"),
             "type": "ir.actions.act_window",
@@ -464,7 +465,7 @@ class ChangeRequestSourceMixin(models.AbstractModel):
                 # Mark previous activity as 'done'
                 request.last_activity_id.action_done()
                 # Create validation activity
-                activity_type = "spp_change_request.reject_activity"
+                activity_type = "spp_change_request_base.reject_activity"
                 summary = _("Change Request Rejected")
                 note = _("The change request was rejected by %s.", self.env.user.name)
                 request._generate_activity(activity_type, summary, note)
@@ -503,7 +504,7 @@ class ChangeRequestSourceMixin(models.AbstractModel):
         :raise UserError: Exception raised when something is not valid.
         """
         for rec in self:
-            is_admin = self.env.user.has_group("spp_change_request.group_spp_change_request_administrator")
+            is_admin = self.env.user.has_group(self.ADMIN_GROUP_NAME)
             assign_self = False
             if rec.change_request_id.assign_to_id:
                 if rec.change_request_id.assign_to_id.id != self.env.user.id:
@@ -516,7 +517,7 @@ class ChangeRequestSourceMixin(models.AbstractModel):
             else:
                 assign_self = True
             if not assign_self:
-                form_id = self.env.ref("spp_change_request.change_request_user_assign_wizard").id
+                form_id = self.env.ref("spp_change_request_base.change_request_user_assign_wizard").id
                 action = {
                     "name": _("Assign Change Request to User"),
                     "type": "ir.actions.act_window",
@@ -555,7 +556,7 @@ class ChangeRequestSourceMixin(models.AbstractModel):
         :raise UserError: Exception raised when something is not valid.
         """
         for rec in self:
-            form_id = self.env.ref("spp_change_request.change_request_user_assign_wizard").id
+            form_id = self.env.ref("spp_change_request_base.change_request_user_assign_wizard").id
             action = {
                 "name": _("Assign Change Request to User"),
                 "type": "ir.actions.act_window",
@@ -638,7 +639,7 @@ class ChangeRequestSourceMixin(models.AbstractModel):
             # Get the first directory for now
             if rec.dms_directory_ids:
                 directory_id = rec.dms_directory_ids[0].id
-                form_id = self.env.ref("spp_change_request.view_dms_file_spp_custom_form").id
+                form_id = self.env.ref("spp_change_request_base.view_dms_file_spp_custom_form").id
                 dms_context = {"default_directory_id": directory_id}
                 action = {
                     "type": "ir.actions.act_window",

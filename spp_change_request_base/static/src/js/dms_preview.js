@@ -1,4 +1,4 @@
-odoo.define("spp_change_request.dms_preview", function (require) {
+odoo.define("spp_change_request_base.dms_preview", function (require) {
     var field_registry = require("web.field_registry");
     var AbstractField = require("web.AbstractField");
     var preview = require("mail_preview_base.preview");
