@@ -49,7 +49,7 @@ class OpenSPPRequestIDWizard(models.TransientModel):
                     "status": status,
                     "registrant_id": rec.registrant_id.id,
                 }
-                self.env["spp.print.queue.id"].create(vals)
+                return self.env["spp.print.queue.id"].create(vals)
             else:
                 raise UserError(_("There are no selected Template!"))
 
